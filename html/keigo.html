@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--
+LearneJP — a Japanese (JLPT) study app for writing practice, quizzes, and dictionary lookup
+Copyright (C) 2026 Claudia Mithesa Peranginangin
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version. See <https://www.gnu.org/licenses/>.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A complete guide to Japanese keigo: sonkeigo, kenjōgo I and II, teineigo and bikago, with a full honorific verb table, formation patterns, business phrases, common mistakes, and a quiz.">
+<meta name="theme-color" content="#ff8c42">
+<title>LearneJP — Keigo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reggae+One&family=Klee+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="canonical" href="https://clmpnn.github.io/LearneJP/html/keigo.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LearneJP">
+<meta property="og:title" content="LearneJP — Keigo">
+<meta property="og:description" content="Sonkeigo, kenjōgo and teineigo explained, with a full honorific verb table, business phrases and a quiz.">
+<meta property="og:url" content="https://clmpnn.github.io/LearneJP/html/keigo.html">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/keigo.css">
+</head>
+<body>
+<header>
+<h1><a href="index.html" class="logo-link">LearneJP</a></h1>
+<nav>
+<a href="learn.html">Start Here</a>
+<a href="writing.html">Writing</a>
+<a href="dictionary.html">Dictionary</a>
+<a href="characters.html">Kana &amp; Kanji</a>
+<a href="keigo.html">Keigo</a>
+<a href="practice.html">Practice</a>
+<a href="add.html">Add</a>
+</nav>
+</header>
+
+<main class="full-page-main">
+<section class="side-panel full-width">
+<h2>Keigo <span lang="ja">敬語</span></h2>
+
+<div class="practice-controls charref-tabbar">
+<div class="tab-toggle" role="tablist" aria-label="Keigo sections">
+<button id="tab-overview" class="tab-btn active" role="tab" aria-selected="true">Overview</button>
+<button id="tab-verbs" class="tab-btn" role="tab" aria-selected="false">Verb table</button>
+<button id="tab-patterns" class="tab-btn" role="tab" aria-selected="false">Patterns</button>
+<button id="tab-situations" class="tab-btn" role="tab" aria-selected="false">Situations</button>
+<button id="tab-pitfalls" class="tab-btn" role="tab" aria-selected="false">Pitfalls</button>
+<button id="tab-quiz" class="tab-btn" role="tab" aria-selected="false">Quiz</button>
+</div>
+</div>
+
+<!-- Overview -->
+<div id="kg-overview" class="charref-content" role="tabpanel" aria-labelledby="tab-overview">
+<p class="kg-lede">
+Keigo is not one thing but a set of choices about direction. Before picking a form,
+answer two questions: <strong>whose action is this</strong>, and <strong>who am I
+talking to</strong>. Respectful forms raise someone else; humble forms lower you. Aim
+them the wrong way and the sentence says the opposite of what you meant.
+</p>
+<p class="kg-lede">
+The five categories below follow <span lang="ja">敬語の指針</span>, the 2007 guidelines from the Japanese
+Council for Cultural Affairs, which split the old three-way textbook division into
+five. The split that matters most in practice is <span lang="ja">謙譲語Ⅰ</span> against <span lang="ja">謙譲語Ⅱ</span>:
+<span lang="ja">伺う</span> needs someone to go <em>to</em>, <span lang="ja">参る</span> does not.
+</p>
+<p class="kg-lede">
+Two more layers sit alongside the three you probably learned first. <span lang="ja">丁寧語</span> is the
+politeness you already use every day with <span lang="ja">です・ます</span>, aimed at whoever is listening
+regardless of what the sentence is about. <span lang="ja">美化語</span> is smaller still — a prefix that
+dresses up a word without pointing at anyone, which is why you can say <span lang="ja">お茶</span> about tea
+you are drinking completely alone.
+</p>
+<p class="kg-lede">
+A rough way to think about the five: <span lang="ja">尊敬語</span> and <span lang="ja">謙譲語</span> answer
+"who is this sentence about", <span lang="ja">丁寧語</span> answers "who am I speaking to", and
+<span lang="ja">美化語</span> answers neither — it is decoration on the word itself. Most learners can
+produce correct <span lang="ja">丁寧語</span> early and correct <span lang="ja">尊敬語</span>/<span lang="ja">謙譲語</span>
+much later, because the first is one system and the second is really two, aimed in
+opposite directions.
+</p>
+<div id="kg-overview-list"></div>
+<p class="charref-note">
+Categories follow the Bunka Shingikai's <span lang="ja">敬語の指針</span> (2007). Where usage is
+contested — <span lang="ja">お伺いする</span>, <span lang="ja">とんでもございません</span> — the notes say so
+rather than picking a side. The guidelines themselves note that native speakers disagree
+on several of these points, so treat "contested" as a description of real usage, not a
+gap in your study.
+</p>
+</div>
+
+<!-- Verb table -->
+<div id="kg-verbs" class="charref-content hidden" role="tabpanel" aria-labelledby="tab-verbs">
+<p class="kg-lede">
+Roughly thirty verbs have irregular honorific forms that have to be learned outright.
+Everything else takes the productive patterns on the next tab. Tags mark whether a
+humble form is <span class="kg-tag" lang="ja">Ⅰ</span> (needs a target) or
+<span class="kg-tag" lang="ja">Ⅱ</span> (courteous, no target).
+</p>
+<div class="charref-toolbar" id="kg-verb-filters">
+<div class="level-chips">
+<button class="level-chip active" data-filter="all">All</button>
+<button class="level-chip" data-filter="son">Has <span lang="ja">尊敬語</span></button>
+<button class="level-chip" data-filter="ken">Has <span lang="ja">謙譲語</span></button>
+<button class="level-chip" data-filter="N5">N5</button>
+<button class="level-chip" data-filter="N4">N4</button>
+<button class="level-chip" data-filter="N3">N3</button>
+<button class="level-chip" data-filter="N2">N2</button>
+<button class="level-chip" data-filter="N1">N1</button>
+</div>
+<label for="kg-verb-search" class="hidden-field">Search verbs</label>
+<input type="text" id="kg-verb-search" class="kg-search" placeholder="Search by verb, reading, or English" autocomplete="off">
+</div>
+<p class="kg-count" id="kg-verb-count" aria-live="polite"></p>
+<p class="kg-count">
+<span class="kg-tag" lang="ja">Ⅰ</span> <span lang="ja">謙譲語Ⅰ</span> — needs a target &nbsp;&nbsp;
+<span class="kg-tag" lang="ja">Ⅱ</span> <span lang="ja">謙譲語Ⅱ</span> — courteous, no target
+</p>
+<div class="kg-table-wrap">
+<table class="kg-table">
+<thead>
+<tr>
+<th scope="col">Plain</th>
+<th scope="col"><span lang="ja">尊敬語</span> (respectful)</th>
+<th scope="col"><span lang="ja">謙譲語</span> (humble)</th>
+<th scope="col">Level</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody id="kg-verb-body"></tbody>
+</table>
+</div>
+<p class="charref-note">
+Level tags are a rough study order rather than an official JLPT listing — the exams
+publish no vocabulary list. Speech uses your browser's Japanese voice, so quality
+depends on what is installed.
+</p>
+</div>
+
+<!-- Patterns -->
+<div id="kg-patterns" class="charref-content hidden" role="tabpanel" aria-labelledby="tab-patterns">
+<p class="kg-lede">
+These patterns apply to any verb that lacks a special form. Learn
+<span lang="ja">お〜になる</span> and <span lang="ja">お〜する</span> first — between them they cover
+most of what you will need to produce.
+</p>
+<div class="charref-toolbar" id="kg-pattern-filters">
+<div class="level-chips">
+<button class="level-chip active" data-filter="all">All</button>
+<button class="level-chip" data-filter="sonkeigo">尊敬語</button>
+<button class="level-chip" data-filter="kenjo1">謙譲語Ⅰ</button>
+<button class="level-chip" data-filter="kenjo2">謙譲語Ⅱ</button>
+<button class="level-chip" data-filter="teineigo">丁寧語</button>
+<button class="level-chip" data-filter="bikago">美化語</button>
+</div>
+</div>
+<div id="kg-pattern-list"></div>
+</div>
+
+<!-- Situations -->
+<div id="kg-situations" class="charref-content hidden" role="tabpanel" aria-labelledby="tab-situations">
+<p class="kg-lede">
+Real keigo arrives in fixed phrases. Learning them whole is faster than assembling
+them, and it is how native speakers store them too. The last cards cover
+<span lang="ja">内・外</span> — the rule that decides whether your own boss gets raised
+or lowered — plus dedicated sets for hotels and formal apologies.
+</p>
+<div id="kg-situation-list"></div>
+</div>
+
+<!-- Pitfalls -->
+<div id="kg-pitfalls" class="charref-content hidden" role="tabpanel" aria-labelledby="tab-pitfalls">
+<p class="kg-lede">
+Most keigo errors are not gaps in vocabulary but the same handful of structural slips.
+Native speakers make several of these too — which is why some appear in style guides
+as things to unlearn.
+</p>
+<div id="kg-pitfall-list"></div>
+</div>
+
+<!-- Quiz -->
+<div id="kg-quiz" class="charref-content hidden" role="tabpanel" aria-labelledby="tab-quiz">
+<div class="kg-quiz-head">
+<span class="kg-progress" id="kg-quiz-progress" aria-live="polite"></span>
+<span class="kg-score" id="kg-quiz-score"></span>
+</div>
+<div id="kg-quiz-body"></div>
+<div class="practice-nav">
+<button id="kg-quiz-restart" class="theme-btn theme-btn-secondary">Restart</button>
+<button id="kg-quiz-next" class="theme-btn theme-btn-primary hidden-field">Next question</button>
+</div>
+</div>
+
+</section>
+</main>
+
+<footer>
+<p>&copy; 2026 Claudia Mithesa Peranginangin. Free software under the
+<a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="license">GNU GPL v3</a>.
+<a href="https://github.com/clmpnn/LearneJP">Source code</a></p>
+</footer>
+
+<script defer src="../js/keigo-data.js"></script>
+<script defer src="../js/keigo.js"></script>
+</body>
+</html>

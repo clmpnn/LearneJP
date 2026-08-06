@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#ff8c42"/>
+  <rect x="4" y="4" width="56" height="56" rx="11" fill="#fff4e8"/>
+  <text x="32" y="46" font-size="40" text-anchor="middle" fill="#ff8c42"
+        font-family="'Klee One','Hiragino Sans','Yu Gothic',sans-serif" font-weight="600">学</text>
+</svg>

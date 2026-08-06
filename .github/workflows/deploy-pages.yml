@@ -1,0 +1,175 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    # A 260 MB site should not be rebuilt because a README changed. These paths
+    # are excluded from the artifact anyway, so a push touching only them has
+    # nothing to publish.
+    paths-ignore:
+      - '**.md'
+      - 'tools/**'
+      - '*.py'
+      - '.gitignore'
+      - '.gitattributes'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # The publish step waits up to 20 minutes; this stops a wedged job burning
+    # runner time for hours beyond that.
+    timeout-minutes: 40
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # v5 is the release that moved to the node24 runtime, which is what the
+      # deprecation warning was about. v6 is newer still and also fine here; it
+      # differs only in where it persists credentials, which this workflow —
+      # a plain shallow checkout with no container actions — does not care about.
+      - name: Check out the repository
+        uses: actions/checkout@v5
+        with:
+          # audio/ alone is over 200 MB; a shallow clone keeps checkout fast.
+          fetch-depth: 1
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      # Deploy everything except the things that are not the website.
+      #
+      # This used to be a hand-written list of what to copy, which is the wrong
+      # way round: add a file to the site and it silently does not deploy, with
+      # no error to notice. sitemap.xml was already nearly lost that way, and
+      # practice-data.json — the fallback practice.js uses when the bundled data
+      # fails to load — actually was. An exclude list fails the safe direction.
+      #
+      # audio/ is 231 MB of the 258 MB and never changes, yet it is re-uploaded
+      # and re-published on every push. Setting the AUDIO_BASE repository
+      # variable (Settings → Secrets and variables → Actions → Variables) leaves
+      # it out and points the player at wherever you have hosted it. Unset,
+      # everything behaves as before, so the switch can be flipped after the
+      # files are in place rather than before.
+      - name: Stage the site
+        env:
+          AUDIO_BASE: ${{ vars.AUDIO_BASE }}
+        run: |
+          mkdir -p _site
+
+          excludes=(
+            --exclude=./_site
+            --exclude=./.git
+            --exclude=./.github
+            --exclude=./tools
+            --exclude=./.gitignore
+            --exclude=./.gitattributes
+            --exclude=*.py
+            --exclude=*.md
+          )
+          if [ -n "$AUDIO_BASE" ]; then
+            excludes+=( --exclude=./audio )
+          fi
+
+          # tar rather than rsync: guaranteed present, and it copies dotfiles
+          # without being asked, which .nojekyll depends on.
+          tar "${excludes[@]}" -cf - . | tar -xf - -C _site
+
+          if [ -n "$AUDIO_BASE" ]; then
+            # Escape any quote in the value rather than trusting it into a
+            # JavaScript string literal.
+            escaped=${AUDIO_BASE//\'/\\\'}
+            printf "window.AUDIO_BASE = '%s';\n" "$escaped" > _site/js/audio-base.js
+            echo "audio served from $AUDIO_BASE, not bundled"
+          else
+            echo "audio bundled into the artifact"
+          fi
+
+          echo "staged $(find _site -type f | wc -l) files, $(du -sh _site | cut -f1)"
+
+      # The data files are generated payloads, and several are pretty-printed —
+      # practice-data.js is 31% whitespace, on the page that loads it first.
+      # Minifying in the staged copy only means the repository stays readable
+      # and every visitor downloads 1.4 MB less. The script verifies each file
+      # round-trips and fails the build if one does not.
+      - name: Minify the data payloads
+        run: node tools/minify-data.js _site
+
+      # A mis-staged site still deploys and still looks like a success. Check
+      # the things whose absence would only show up as a broken page later.
+      - name: Check what was staged
+        env:
+          AUDIO_BASE: ${{ vars.AUDIO_BASE }}
+        run: |
+          fail=0
+
+          for path in index.html 404.html .nojekyll robots.txt sitemap.xml \
+                      site.webmanifest favicon.svg practice-data.json \
+                      html/learn.html html/dictionary.html html/practice.html \
+                      css/style.css js/practice-data.js js/learn-romaji.js \
+                      js/audio-base.js images; do
+            if [ ! -e "_site/$path" ]; then
+              echo "missing from the staged site: $path"
+              fail=1
+            fi
+          done
+
+          for path in .github tools optimize.py add-keigo.py README.md; do
+            if [ -e "_site/$path" ]; then
+              echo "should not be published: $path"
+              fail=1
+            fi
+          done
+
+          # The minifier ran, and the repository copy was not touched by it.
+          if [ "$(stat -c%s _site/js/practice-data.js)" -ge "$(stat -c%s js/practice-data.js)" ]; then
+            echo "practice-data.js was not minified"
+            fail=1
+          fi
+
+          if [ -n "$AUDIO_BASE" ]; then
+            if [ -e _site/audio ]; then
+              echo "AUDIO_BASE is set but audio/ was bundled anyway"
+              fail=1
+            fi
+            grep -q "AUDIO_BASE" _site/js/audio-base.js || {
+              echo "audio-base.js was not written"; fail=1; }
+          elif [ ! -e _site/audio ]; then
+            echo "AUDIO_BASE is unset but audio/ is missing — listening would break"
+            fail=1
+          fi
+
+          [ "$fail" = 0 ] || exit 1
+          echo "staged site looks right"
+
+      # v3 pulled in actions/upload-artifact@v4, which is the second half of the
+      # node20 warning. v5 uses upload-artifact v7 and clears it.
+      #
+      # Read this before bumping: v4 changed behaviour so that dotfiles are
+      # excluded from the artifact. That would drop .nojekyll silently — the
+      # site would still build, so nothing would look wrong until Jekyll started
+      # processing files it should not. include-hidden-files puts it back.
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+          include-hidden-files: true
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v5
+        with:
+          # A site this size takes several minutes to publish. The default ten
+          # minutes is not always enough, and aborting mid-publish looks like a
+          # failure when it is only slowness.
+          timeout: 1200000

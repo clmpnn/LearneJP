@@ -1,0 +1,5 @@
+# https://clmpnn.github.io/LearneJP/
+User-agent: *
+Allow: /
+
+Sitemap: https://clmpnn.github.io/LearneJP/sitemap.xml

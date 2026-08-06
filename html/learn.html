@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+  LearneJP — a Japanese (JLPT) study app for writing practice, quizzes, and dictionary lookup
+  Copyright (C) 2026  Claudia Mithesa Peranginangin
+
+  This program is free software: you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free Software
+  Foundation, either version 3 of the License, or (at your option) any later
+  version. See <https://www.gnu.org/licenses/>.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A step-by-step path from no Japanese at all to reading your first sentences — hiragana, katakana, first words, particles, kanji, and politeness, each step opening the tool that teaches it.">
+    <meta name="theme-color" content="#ff8c42">
+    <title>LearneJP — Start from Zero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reggae+One&family=Klee+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="canonical" href="https://clmpnn.github.io/LearneJP/html/learn.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LearneJP">
+    <meta property="og:title" content="LearneJP — Start from Zero">
+    <meta property="og:description" content="Never studied Japanese? Start here. Eight stages from the first kana to your first sentences, each one opening the part of LearneJP that teaches it.">
+    <meta property="og:url" content="https://clmpnn.github.io/LearneJP/html/learn.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+    <h1><a href="index.html" class="logo-link">LearneJP</a></h1>
+    <nav>
+        <a href="learn.html">Start Here</a>
+        <a href="writing.html">Writing</a>
+        <a href="dictionary.html">Dictionary</a>
+        <a href="characters.html">Kana &amp; Kanji</a>
+        <a href="keigo.html">Keigo</a>
+        <a href="practice.html">Practice</a>
+        <a href="add.html">Add</a>
+    </nav>
+</header>
+
+<main class="full-page-main">
+    <section class="side-panel full-width solo-page">
+        <h2>Start from Zero</h2>
+
+        <p class="learn-intro">Never studied Japanese? Everything you need is already on this site —
+            this is the order to use it in, with the explanation that makes the order make sense. Forty-two stages, a hundred and seventy
+            lessons: each stage teaches the idea first, then sends you to the page that drills it. Tick
+            things off as you go.</p>
+
+        <div class="learn-progress">
+            <div class="learn-progress-track"><div id="learnBar" class="learn-progress-fill"></div></div>
+            <p id="learnCount" class="learn-progress-count">0 of 0 done</p>
+            <label class="learn-romaji-toggle">
+                <input type="checkbox" id="learnRomaji" checked> Romaji
+            </label>
+            <button type="button" id="learnReset" class="sent-btn sent-btn-quiet">Start over</button>
+        </div>
+
+        <nav id="learnContents" class="learn-contents" aria-label="Course contents"></nav>
+
+        <ol id="learnStages" class="learn-stages"></ol>
+
+        <p class="learn-note">Your ticks are kept in this browser only — nothing is uploaded, and
+            clearing your browser data clears them. There is no schedule: a stage is done when it feels
+            done, and going back to an earlier one is not a step backwards.</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Claudia Mithesa Peranginangin · Free software under the
+        <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="license">GNU GPL v3</a> ·
+        <a href="https://github.com/clmpnn/LearneJP">Source code</a></p>
+</footer>
+
+<script defer src="../js/learn-course.js"></script>
+<script defer src="../js/learn-romaji.js"></script>
+<script defer src="../js/learn.js"></script>
+</body>
+</html>

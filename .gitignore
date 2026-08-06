@@ -1,0 +1,24 @@
+# JetBrains IDE settings — these are per-developer, not part of the project
+.idea/
+*.iml
+
+# Other editors
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.swo
+
+# OS cruft
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# Dependencies and build output (none today; here if tooling is ever added)
+node_modules/
+dist/
+build/
+
+# Logs and caches
+*.log
+.cache/

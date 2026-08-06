@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--
+  LearneJP — a Japanese (JLPT) study app for writing practice, quizzes, and dictionary lookup
+  Copyright (C) 2026  Claudia Mithesa Peranginangin
+
+  This program is free software: you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free Software
+  Foundation, either version 3 of the License, or (at your option) any later
+  version. See <https://www.gnu.org/licenses/>.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JLPT N5–N1 practice quizzes: grammar, vocabulary, kanji, reading, and listening — with performance-based question selection.">
+    <meta name="theme-color" content="#ff8c42">
+    <title>LearneJP — Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reggae+One&family=Klee+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="canonical" href="https://clmpnn.github.io/LearneJP/html/practice.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LearneJP">
+    <meta property="og:title" content="LearneJP — JLPT Practice">
+    <meta property="og:description" content="Grammar, vocabulary, kanji, reading and listening questions for N5 through N1.">
+    <meta property="og:url" content="https://clmpnn.github.io/LearneJP/html/practice.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+    <h1><a href="index.html" class="logo-link">LearneJP</a></h1>
+    <nav>
+        <a href="learn.html">Start Here</a>
+        <a href="writing.html">Writing</a>
+        <a href="dictionary.html">Dictionary</a>
+        <a href="characters.html">Kana &amp; Kanji</a>
+        <a href="keigo.html">Keigo</a>
+        <a href="practice.html">Practice</a>
+        <a href="add.html">Add</a>
+    </nav>
+</header>
+
+<main class="full-page-main">
+    <section class="side-panel practice-section full-width">
+        <h2>JLPT Practice</h2>
+
+        <div class="practice-controls">
+            <select id="levelSelect">
+                <option value="n5">N5</option>
+                <option value="n4">N4</option>
+                <option value="n3">N3</option>
+                <option value="n2">N2</option>
+                <option value="n1">N1</option>
+            </select>
+
+            <div class="tab-toggle">
+                <button id="grammarTab" class="tab-btn active">Grammar</button>
+                <button id="vocabularyTab" class="tab-btn">Vocabulary</button>
+                <button id="kanjiTab" class="tab-btn">Kanji</button>
+                <button id="readingTab" class="tab-btn">Reading</button>
+                <button id="listeningTab" class="tab-btn">Listening</button>
+            </div>
+
+            <div class="mode-toggle">
+                <button id="orderModeChip" class="level-chip">In order</button>
+                <button id="perfModeChip" class="level-chip active">Performance</button>
+                <button id="resetStatsBtn" class="perf-reset" title="Clear your answer history">Reset stats</button>
+            </div>
+        </div>
+
+        <div id="grammarSection" class="practice-content">
+            <div id="grammarQuiz"></div>
+        </div>
+
+        <div id="vocabularySection" class="practice-content hidden">
+            <div id="vocabularyQuiz"></div>
+        </div>
+
+        <div id="kanjiSection" class="practice-content hidden">
+            <div id="kanjiQuiz"></div>
+        </div>
+
+        <div id="readingSection" class="practice-content hidden">
+            <div id="readingQuiz"></div>
+        </div>
+
+        <div id="listeningSection" class="practice-content hidden">
+            <audio id="audioPlayer" controls preload="none"></audio>
+            <div id="listeningQuiz"></div>
+        </div>
+
+        <div class="practice-nav">
+            <button id="prevBtn">Previous</button>
+            <span id="questionCounter"></span>
+            <button id="nextBtn">Next</button>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Claudia Mithesa Peranginangin · Free software under the
+        <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="license">GNU GPL v3</a> ·
+        <a href="https://github.com/clmpnn/LearneJP">Source code</a></p>
+</footer>
+
+<script defer src="../js/audio-base.js"></script>
+<script defer src="../js/practice-data.js"></script>
+<script defer src="../js/practice.js"></script>
+</body>
+</html>
