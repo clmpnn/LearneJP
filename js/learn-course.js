@@ -444,6 +444,139 @@ window.LEARN_COURSE = [
     ]
 },
 {
+    id: 'history',
+    title: 'Where the language came from',
+    aim: 'Why the writing system is like that.',
+    body: 'Several things you have already had to accept without explanation — は said as wa, two kana ' +
+        'sets, kanji with two readings — are the residue of a specific history.',
+    lessons: [
+        {
+            title: 'A language with no known relatives',
+            body: [
+                "Japanese is a language isolate, or nearly one: its only demonstrated relatives are the " +
+                "Ryukyuan languages of Okinawa, which together with it form the Japonic family. " +
+                "Proposed links to Korean, Turkic and others have been argued for over a century " +
+                "without being established.",
+                "This matters practically. Japanese shares no ancestry with English, so there are no " +
+                "cognates to lean on and no familiar grammar to transfer — which is why the early " +
+                "stretch is harder than a European language and why the vocabulary must simply be " +
+                "learned.",
+                "The resemblance to Chinese is borrowing, not relation. Japanese took the writing " +
+                "system and an enormous stock of vocabulary from Chinese, in the same way English took " +
+                "from Latin and French, while the underlying grammar stayed entirely its own. Chinese " +
+                "puts the verb in the middle; Japanese puts it last, and always did."
+            ],
+            check: {
+                q: 'Japanese uses Chinese characters. Are the two languages related?',
+                a: 'No. The writing and much of the vocabulary were borrowed, but the grammars are ' +
+                   'unrelated — Chinese is verb-medial and Japanese verb-final.'
+            }
+        },
+        {
+            title: 'How the kana were invented',
+            body: [
+                "Japanese had no writing until Chinese characters arrived, around the fifth century, " +
+                "by way of Korea. The first solution was to use kanji for their sound alone, ignoring " +
+                "meaning — a system called 万葉仮名 after the poetry collection written in it. It " +
+                "worked and was enormously cumbersome.",
+                "Both kana sets came out of it, by opposite methods. Hiragana is what happens when you " +
+                "write those characters quickly in cursive until the shape dissolves: 安 became あ, 以 " +
+                "became い. Katakana is a fragment cut out of a character and used for its sound: the " +
+                "left of 阿 became ア, the top of 伊 became イ.",
+                "The two had different users. Hiragana was associated with women's writing at court — " +
+                "the Tale of Genji is written in it — while katakana began as annotation by monks " +
+                "reading Chinese texts. The division of labour they have now is a much later invention."
+            ],
+            table: {
+                head: ['Kana', 'From', 'By'],
+                rows: [
+                    ['あ', '安', 'cursive simplification'],
+                    ['い', '以', 'cursive simplification'],
+                    ['ア', '阿', 'a fragment of the character'],
+                    ['イ', '伊', 'a fragment of the character'],
+                    ['万葉仮名', '—', 'kanji used purely for sound']
+                ]
+            },
+            check: {
+                q: 'Why do hiragana look round and katakana angular?',
+                a: 'Different methods. Hiragana are whole characters written cursively until they ' +
+                   'dissolved; katakana are pieces cut out of characters, so they kept straight edges.'
+            }
+        },
+        {
+            title: 'The reforms that produced modern spelling',
+            body: [
+                "After the war, in 1946, Japanese writing was deliberately simplified. 当用漢字 " +
+                "restricted general use to 1,850 characters — later relaxed into the 常用漢字 you met " +
+                "in the kanji stage — and 現代仮名遣い modernised kana spelling to match how people " +
+                "actually spoke.",
+                "Before that, spelling preserved pronunciations centuries out of date: けふ was read " +
+                "きょう, ゐ and ゑ were still written, and the choice between じ and ぢ followed " +
+                "etymology rather than sound. The reform swept most of it away, which is why modern " +
+                "kana is so nearly phonetic.",
+                "Three exceptions were kept on purpose, and they are exactly the ones that confuse " +
+                "learners. は, へ and を are written the old way when they are particles, because " +
+                "spelling them phonetically would have hidden the grammar. The irregularity you have " +
+                "been living with is the one piece of the old system that was judged worth keeping."
+            ],
+            table: {
+                head: ['Before 1946', 'Now', ''],
+                rows: [
+                    ['けふ', 'きょう', 'today — spelling caught up with speech'],
+                    ['ゐ / ゑ', 'い / え', 'two kana retired'],
+                    ['てふてふ', 'ちょうちょう', 'butterfly'],
+                    ['は as particle', 'は, said wa', 'kept — it marks grammar'],
+                    ['へ as particle', 'へ, said e', 'kept'],
+                    ['を as particle', 'を, said o', 'kept']
+                ]
+            },
+            check: {
+                q: 'Why was は not changed to わ when the spelling was reformed?',
+                a: 'Because it marks the topic. Spelling it phonetically would have made the particle ' +
+                   'indistinguishable from the syllable, so the grammar won over consistency.'
+            }
+        },
+        {
+            title: 'Two ways to write Japanese in Latin letters',
+            body: [
+                "Romanisation has two competing standards and you will meet both. ヘボン式, Hepburn, " +
+                "spells sounds as an English speaker would hear them: shi, chi, tsu, fu, ja. 訓令式, " +
+                "Kunrei, spells them by the grid position instead: si, ti, tu, hu, zya.",
+                "Kunrei is more systematic — it makes the consonant rows regular, which is genuinely " +
+                "truer to how the language works. Hepburn is more readable to foreigners and is what " +
+                "passports, road signs and this site use.",
+                "The practical consequence is that the same word appears spelled two ways, and neither " +
+                "is wrong. 富士 is Fuji or Huzi. If a romanisation looks strange, check whether it is " +
+                "simply the other system before assuming an error."
+            ],
+            table: {
+                head: ['Kana', 'Hepburn', 'Kunrei'],
+                rows: [
+                    ['し', 'shi', 'si'],
+                    ['ち', 'chi', 'ti'],
+                    ['つ', 'tsu', 'tu'],
+                    ['ふ', 'fu', 'hu'],
+                    ['じ', 'ji', 'zi'],
+                    ['しゃ', 'sha', 'sya']
+                ]
+            },
+            check: {
+                q: 'You see a Japanese word romanised as "huzi". Is it a mistake?',
+                a: 'No — it is Kunrei rather than Hepburn. Both are standards; Hepburn is the one ' +
+                   'passports and signage use, which is why it looks normal and the other does not.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Read the chart with the history in mind — every kana came from a character.',
+          href: 'characters.html#hiragana', label: 'Hiragana chart' },
+        { text: 'Compare the katakana shapes and look for the fragments.',
+          href: 'characters.html#katakana', label: 'Katakana chart' },
+        { text: 'Look up 仮名 and see the word for the system itself.',
+          href: 'dictionary.html#q=仮名', label: 'Look up 仮名' }
+    ]
+},
+{
     id: 'greetings',
     title: 'Words you can use today',
     aim: 'The set phrases that carry ordinary interaction.',
@@ -698,6 +831,130 @@ window.LEARN_COURSE = [
           href: 'dictionary.html#s=田中と申します', label: 'Break down 申します' },
         { text: 'Read how the inside–outside line drives honorific choice.',
           href: 'keigo.html#situations', label: 'Keigo situations' }
+    ]
+},
+{
+    id: 'names',
+    title: 'Names',
+    aim: 'Reading them, asking about them, and using them correctly.',
+    body: 'Names are the one part of Japanese where the writing genuinely does not tell you the ' +
+        'reading, and where getting the form of address wrong is immediately felt.',
+    lessons: [
+        {
+            title: 'Family name first, and what to call people',
+            body: [
+                "Japanese order is 苗字 then 名前 — family name, then given name. 田中健 is Mr Tanaka " +
+                "whose given name is Ken. In English contexts the order is often flipped for " +
+                "foreigners' benefit, which means you cannot always tell which is which without asking.",
+                "The default address is family name plus さん, and it stays that way far longer than " +
+                "in English. Colleagues who have worked together for years still use it. Moving to a " +
+                "given name is a real step, usually invited rather than assumed, and using one " +
+                "uninvited reads as presumptuous rather than friendly.",
+                "The ten commonest surnames cover a striking share of the country — 佐藤, 鈴木, 高橋, " +
+                "田中, 伊藤, 渡辺, 山本, 中村, 小林, 加藤 — which is why offices are full of people " +
+                "distinguished by given name or department rather than surname."
+            ],
+            table: {
+                head: ['Surname', 'Reading'],
+                rows: [
+                    ['佐藤', 'satou'],
+                    ['鈴木', 'suzuki'],
+                    ['高橋', 'takahashi'],
+                    ['田中', 'tanaka'],
+                    ['伊藤', 'itou'],
+                    ['渡辺', 'watanabe'],
+                    ['山本', 'yamamoto'],
+                    ['中村', 'nakamura'],
+                    ['小林', 'kobayashi'],
+                    ['加藤', 'katou']
+                ]
+            },
+            check: {
+                q: 'A colleague of five years is still 田中さん. Is the relationship distant?',
+                a: 'No. Family name plus さん is the ordinary long-term form between colleagues, and ' +
+                   'moving to a given name is a step that gets invited rather than assumed.'
+            }
+        },
+        {
+            title: 'Why nobody can read them either',
+            body: [
+                "Given names use readings that exist only in names — 名乗り読み — on top of the on and " +
+                "kun readings you already know. 和子 might be かずこ or わこ. 直 as a given name can be " +
+                "なお, ただし, すなお and more. There is frequently no way to know.",
+                "This is not a foreigner problem. Japanese people ask each other, forms have a furigana " +
+                "line above the name field for exactly this, and business cards print the reading. " +
+                "Asking is normal and expected rather than an admission of anything.",
+                "The polite question is 何とお読みすればよろしいでしょうか — how should I read this — or " +
+                "more simply お名前は何とお読みしますか. Both are worth memorising whole, because you " +
+                "will use them and because assembling them from grammar under pressure is harder than " +
+                "it looks."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['苗字 / 名字 みょうじ', 'family name'],
+                    ['名前 なまえ', 'given name, or name generally'],
+                    ['フルネーム', 'full name'],
+                    ['ふりがな', 'the reading line on a form'],
+                    ['名乗り読み', 'readings used only in names'],
+                    ['何とお読みしますか', 'how is this read?'],
+                    ['旧姓 きゅうせい', 'maiden name']
+                ]
+            },
+            examples: [
+                { jp: 'お名前は何とお読みしますか', en: 'How is your name read?',
+                  note: 'Honorific お〜する from the keigo stage, on a question you will actually use.' }
+            ],
+            check: {
+                q: 'Is asking how a Japanese name is read a sign of poor Japanese?',
+                a: 'No. Japanese speakers ask each other constantly, forms have a furigana line for it, ' +
+                   'and cards print the reading. The information genuinely is not recoverable.'
+            }
+        },
+        {
+            title: 'Your own name in Japanese',
+            body: [
+                "Foreign names are written in katakana, and the version you settle on is worth getting " +
+                "right early because it will follow you onto every form. The usual approach is to " +
+                "approximate the sound rather than the spelling — Smith is スミス, not スミトフ.",
+                "Order gets flipped inconsistently. Japanese forms often ask for family name first, " +
+                "matching Japanese order, while your passport shows given name first. Filling in a " +
+                "form, follow the field labels — 姓 is family name and 名 is given name — rather than " +
+                "your habit.",
+                "Introducing yourself, the pattern is the one from the people stage: 〜と申します in " +
+                "formal settings, 〜です otherwise. Many people also offer a shortened version, since " +
+                "a long foreign name in katakana is a mouthful and offering the short form is a " +
+                "kindness rather than a concession."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['姓 せい', 'family name — the field label'],
+                    ['名 めい', 'given name — the field label'],
+                    ['〜と申します', 'my name is — formal'],
+                    ['〜と呼んでください', 'please call me ~'],
+                    ['カタカナで', 'in katakana — how a form will want it'],
+                    ['ローマ字', 'Latin letters']
+                ]
+            },
+            examples: [
+                { jp: 'ケンと呼んでください', en: 'Please call me Ken',
+                  note: 'て-form request plus the quoting と — two patterns you already have.' }
+            ],
+            check: {
+                q: 'A form has fields marked 姓 and 名. Which goes where?',
+                a: '姓 is your family name and 名 your given name — Japanese order, whatever your ' +
+                   'passport shows. Follow the labels rather than the habit.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Break down the question you will ask about a name.',
+          href: 'dictionary.html#s=お名前は何とお読みしますか', label: 'Break down お読みしますか' },
+        { text: 'Look up 苗字 and see it beside 名字.',
+          href: 'dictionary.html#q=苗字', label: 'Look up 苗字' },
+        { text: 'Trace 田, which starts more surnames than any other character.',
+          href: 'writing.html#trace=田', label: 'Trace 田' }
     ]
 },
 {
@@ -3415,6 +3672,120 @@ window.LEARN_COURSE = [
     ]
 },
 {
+    id: 'cohesion',
+    title: 'How a paragraph holds together',
+    aim: 'Reading past the sentence.',
+    body: 'Every stage so far has worked one sentence at a time. Longer text is held together by a ' +
+        'small set of devices, and knowing them is what makes an article readable rather than a ' +
+        'sequence of translations.',
+    lessons: [
+        {
+            title: 'The connectives that open a sentence',
+            body: [
+                "Unlike the clause connectors from the joining stage, these sit at the front of a new " +
+                "sentence and say how it relates to the last one. There are not many and they are " +
+                "worth knowing cold, because each one tells you what is coming before you read it.",
+                "しかし and ところが reverse. だから and したがって conclude. つまり restates more " +
+                "simply — which is often the sentence to read first if the previous one defeated you. " +
+                "なぜなら gives the reason, and pairs with からです at the end. ただし adds a condition " +
+                "or exception, and なお adds a note in passing.",
+                "一方 is worth singling out: it means on the other hand and marks a deliberate " +
+                "contrast between two things being compared, which is a structure academic and news " +
+                "writing uses constantly."
+            ],
+            table: {
+                head: ['Connective', 'Signals'],
+                rows: [
+                    ['しかし / ところが', 'a reversal'],
+                    ['だから / したがって', 'a conclusion'],
+                    ['つまり / すなわち', 'the same thing, restated'],
+                    ['なぜなら', 'the reason — ends in からです'],
+                    ['たとえば', 'an example'],
+                    ['ただし', 'a condition or exception'],
+                    ['なお', 'a note in passing'],
+                    ['一方', 'the other side of a comparison'],
+                    ['さらに / また', 'one more of the same']
+                ]
+            },
+            examples: [
+                { jp: 'つまり、意味は同じです', en: 'In other words, the meaning is the same',
+                  note: 'つまり promises a simpler restatement — often the sentence to read first.' }
+            ],
+            check: {
+                q: 'You have failed to understand a sentence and the next one starts つまり. What now?',
+                a: 'Read that one instead. つまり restates what came before more simply, so it is often ' +
+                   'the easier route into the same idea.'
+            }
+        },
+        {
+            title: 'Pointing back at what was already said',
+            body: [
+                "The こそあど grid you learned for pointing at objects does a second job across " +
+                "sentences: それ and その point back at something just mentioned, あれ and あの at " +
+                "something both parties already know without it being said.",
+                "This is why その turns up constantly in writing. その問題 means that problem, the one " +
+                "we were just discussing, and following a text means tracking what each その is " +
+                "attached to. When you lose the thread of an article, the usual cause is a その whose " +
+                "referent you have mislaid.",
+                "The contrast with あの is real and useful. その refers to the text; あの refers to " +
+                "shared memory. あの店, in conversation, means the shop we both know — and using それ " +
+                "there would suggest you had only just mentioned it."
+            ],
+            table: {
+                head: ['Word', 'Points at'],
+                rows: [
+                    ['それ / その', 'something just said or written'],
+                    ['あれ / あの', 'something both already know'],
+                    ['これ / この', 'something about to be said, or right here'],
+                    ['そう', 'the manner just described'],
+                    ['そこで', 'and so, at that point'],
+                    ['その結果', 'as a result of that']
+                ]
+            },
+            check: {
+                q: 'What is the usual cause of losing the thread of a Japanese article?',
+                a: 'A その or それ whose referent you have mislaid. They point back at the text, and ' +
+                   'tracking what each one attaches to is most of following a longer passage.'
+            }
+        },
+        {
+            title: 'Topic chains, and what is not repeated',
+            body: [
+                "Once a topic is set with は, it persists across sentences until something replaces " +
+                "it. This is why Japanese paragraphs contain so few subjects: the first sentence " +
+                "establishes who is being discussed and the rest simply omit them.",
+                "So a run of subjectless sentences is not ambiguous — it is a claim that nothing has " +
+                "changed. When a new は appears, the topic has shifted, and when が appears the " +
+                "sentence is introducing something new rather than continuing.",
+                "Reading for this is a habit worth building deliberately. Mark where each は falls in " +
+                "a paragraph and the structure becomes visible: everything between two は markers is " +
+                "about the same thing.",
+                "Longer Japanese writing is often organised as 起承転結 — introduction, development, " +
+                "a turn, and conclusion. The third part is the one with no English equivalent: a " +
+                "deliberate shift of angle before the ending, which can read as a digression to " +
+                "someone expecting a straight argument."
+            ],
+            examples: [
+                { jp: '田中さんは学生です。今年卒業します。', en: 'Tanaka is a student. He graduates this year.',
+                  note: 'The second sentence has no subject because the topic has not changed.' }
+            ],
+            check: {
+                q: 'A paragraph has one は in the first sentence and none after. Who are the rest about?',
+                a: 'The same person. A topic set with は persists until something replaces it, so the ' +
+                   'missing subjects are a claim of continuity.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Break down a two-sentence topic chain.',
+          href: 'dictionary.html#s=田中さんは学生です。今年卒業します。', label: 'Break down a chain' },
+        { text: 'Look up つまり and see how little it means on its own.',
+          href: 'dictionary.html#q=つまり', label: 'Look up つまり' },
+        { text: 'Read passages long enough for this to matter.',
+          href: 'practice.html#reading=n3', label: 'N3 reading' }
+    ]
+},
+{
     id: 'kanji',
     title: 'Your first kanji',
     aim: 'The N5 set — around 100 characters.',
@@ -4612,6 +4983,158 @@ window.LEARN_COURSE = [
     ]
 },
 {
+    id: 'business',
+    title: 'At work',
+    aim: 'Titles, cards, meetings, and the words for how decisions get made.',
+    body: 'Japanese offices run on conventions that are consistent enough to learn, and most of the ' +
+        'difficulty is knowing they exist.',
+    lessons: [
+        {
+            title: 'Titles, and using them instead of names',
+            body: [
+                "Companies have a fixed ladder of titles, and the title is how you address someone. " +
+                "部長 alone is how you speak to a department head — 田中部長 also works, but 田中さん " +
+                "to someone with a title reads as a demotion.",
+                "The common rungs are 社長 president, 部長 department head, 課長 section head, 係長 " +
+                "and 主任 below that. 先輩 and 後輩 from the vocabulary stage cut across all of it, " +
+                "marking who joined first regardless of rank.",
+                "Note the asymmetry with 様: you use it for customers and for other companies, never " +
+                "for your own colleagues when speaking to an outsider. That is the inside–outside rule " +
+                "from the keigo stages, applied to titles — your own 社長 loses his honorific the " +
+                "moment you mention him to a client."
+            ],
+            table: {
+                head: ['Title', 'Reading', 'Role'],
+                rows: [
+                    ['社長', 'shachou', 'company president'],
+                    ['部長', 'buchou', 'department head'],
+                    ['課長', 'kachou', 'section head'],
+                    ['係長 / 主任', 'kakarichou / shunin', 'team leader, supervisor'],
+                    ['同僚', 'douryou', 'colleague'],
+                    ['先輩 / 後輩', 'senpai / kouhai', 'joined before you / after you'],
+                    ['取引先', 'torihikisaki', 'a client or business partner']
+                ]
+            },
+            check: {
+                q: 'You mention your own 部長 to a client. Do you say 部長 or 田中?',
+                a: 'Just the name — 田中. He is inside your group and the client is outside, so the ' +
+                   'honorific comes off, however senior he is to you.'
+            }
+        },
+        {
+            title: 'Exchanging cards',
+            body: [
+                "名刺交換 has a choreography and it happens in the first thirty seconds of every " +
+                "business meeting, so it is worth rehearsing. Present the card with both hands, facing " +
+                "the recipient so they can read it, saying your company, your name and " +
+                "よろしくお願いいたします.",
+                "Receive with both hands, and then actually read it. Looking at the card is the " +
+                "courtesy; pocketing it immediately is the discourtesy. During the meeting the cards " +
+                "stay on the table in front of you, laid out in the seating order, which doubles as a " +
+                "seating chart you are allowed to consult.",
+                "Do not write on a card in front of its owner, do not put one in a back pocket, and " +
+                "carry a case rather than loose cards. None of this is difficult and all of it is " +
+                "noticed."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['名刺 めいし', 'business card'],
+                    ['名刺交換', 'the exchange of cards'],
+                    ['頂戴いたします', 'I receive it — said taking a card'],
+                    ['申し遅れました', 'I should have said sooner — before a late introduction'],
+                    ['よろしくお願いいたします', 'closes the exchange'],
+                    ['名刺入れ', 'card case']
+                ]
+            },
+            check: {
+                q: 'You are handed a card. What do you do with it during the meeting?',
+                a: 'Read it, then leave it on the table in front of you in seating order. Pocketing it ' +
+                   'straight away is the discourtesy, and the layout doubles as a name chart.'
+            }
+        },
+        {
+            title: 'How decisions actually get made',
+            body: [
+                "Two words explain a great deal about why Japanese meetings feel different. 根回し, " +
+                "literally digging around the roots, is the informal consultation that happens before " +
+                "a meeting — so that by the time a proposal is formally raised, everyone has already " +
+                "agreed to it.",
+                "The consequence is that a meeting is often ratification rather than debate. Arriving " +
+                "with a new idea and expecting it to be discussed on the spot is the mistake; the " +
+                "discussion was supposed to happen beforehand, one person at a time.",
+                "稟議 is the paper version: a proposal document circulated for seals from everyone " +
+                "affected, in order. And 報連相 — 報告, 連絡, 相談, report, inform, consult — is the " +
+                "mantra taught to new employees about keeping people upstream informed. Doing all " +
+                "three more often than feels necessary is the safe default."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['根回し ねまわし', 'consensus-building before a meeting'],
+                    ['稟議 りんぎ', 'a proposal circulated for approval'],
+                    ['報連相 ほうれんそう', 'report, inform, consult'],
+                    ['打ち合わせ', 'an informal working meeting'],
+                    ['会議 かいぎ', 'a formal meeting'],
+                    ['議事録 ぎじろく', 'minutes'],
+                    ['検討します', 'we will consider it — usually no']
+                ]
+            },
+            check: {
+                q: 'You raise a new proposal in a meeting and it goes nowhere. What was missed?',
+                a: '根回し. The agreement is supposed to be built beforehand, one person at a time, so ' +
+                   'the meeting confirms a decision rather than making one.'
+            }
+        },
+        {
+            title: 'Hours, leave and the drinking party',
+            body: [
+                "残業 is overtime and 有給 is paid leave, which is granted by law and taken less than " +
+                "it is granted. 定時 is the official finishing time, and 定時で帰ります — I am leaving " +
+                "on time — is a sentence with more social weight than it looks.",
+                "お疲れ様です is the all-purpose acknowledgement at work: hello, goodbye, and well done. " +
+                "Its near-twin ご苦労様です goes only downward, from senior to junior, so using it to a " +
+                "superior is a small but real error.",
+                "飲み会 is the after-work drinking party, and 忘年会 the year-end one. Attendance is " +
+                "less compulsory than it used to be and declining is easier than reputation suggests — " +
+                "but the conversation is genuinely different from the office, which is part of the " +
+                "point. お先に失礼します is how you leave first, from either."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['残業 ざんぎょう', 'overtime'],
+                    ['有給 ゆうきゅう', 'paid leave'],
+                    ['定時 ていじ', 'official finishing time'],
+                    ['出張 しゅっちょう', 'business trip'],
+                    ['お疲れ様です', 'hello, goodbye, well done — any direction'],
+                    ['ご苦労様です', 'the same, but only downward'],
+                    ['飲み会 のみかい', 'after-work drinks'],
+                    ['忘年会 ぼうねんかい', 'year-end party'],
+                    ['お先に失礼します', 'leaving before others']
+                ]
+            },
+            examples: [
+                { jp: 'お先に失礼します', en: 'Excuse me for leaving first',
+                  note: 'Said on the way out, every time, to a room still working.' }
+            ],
+            check: {
+                q: 'Why should you not say ご苦労様です to your manager?',
+                a: 'Because it only travels downward, from senior to junior. お疲れ様です is the one ' +
+                   'that works in every direction.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Break down the phrase you will say on the way out.',
+          href: 'dictionary.html#s=お先に失礼します', label: 'Break down お先に失礼します' },
+        { text: 'Read the situations page for the register these expect.',
+          href: 'keigo.html#situations', label: 'Keigo situations' },
+        { text: 'Check yourself on the honorific pitfalls.',
+          href: 'keigo.html#pitfalls', label: 'Keigo pitfalls' }
+    ]
+},
+{
     id: 'situations',
     title: 'Out in the world',
     aim: 'Shops, restaurants, trains, and asking for help.',
@@ -4794,6 +5317,248 @@ window.LEARN_COURSE = [
           href: 'keigo.html#situations', label: 'Keigo situations' },
         { text: 'Practise hearing them at speed.',
           href: 'practice.html#listening=n5', label: 'N5 listening' }
+    ]
+},
+{
+    id: 'trains',
+    title: 'Getting around',
+    aim: 'Train types, fares and the words on a platform.',
+    body: 'Japanese rail is easy to use and hard to read. The vocabulary is small and the consequences ' +
+        'of getting it wrong — boarding a train that does not stop where you are going — are annoying.',
+    lessons: [
+        {
+            title: 'The train types, in order of how much they skip',
+            body: [
+                "Trains on the same line and the same platform stop at different numbers of stations, " +
+                "and the type is written on the front and on the departure board. Boarding the wrong " +
+                "one is the standard mistake, and it is entirely avoidable once you can read four words.",
+                "各駅停車 or 普通 stops everywhere. 快速 skips some. 急行 skips more. 特急 skips most " +
+                "and often costs extra — the 特 is the warning that a surcharge may apply. 新幹線 is " +
+                "the separate high-speed network with its own gates and its own fares.",
+                "Private railways add their own grades — 準急, 通勤快速, 特快 — which vary by company " +
+                "and are always explained on a board at the platform showing which stations each type " +
+                "serves. That board is the thing to read, not the train."
+            ],
+            table: {
+                head: ['Japanese', 'Reading', 'Stops'],
+                rows: [
+                    ['各駅停車 / 普通', 'kakuekiteisha / futsuu', 'every station'],
+                    ['快速', 'kaisoku', 'skips some'],
+                    ['急行', 'kyuukou', 'skips more'],
+                    ['特急', 'tokkyuu', 'skips most — often a surcharge'],
+                    ['新幹線', 'shinkansen', 'separate network, separate gates'],
+                    ['上り / 下り', 'nobori / kudari', 'towards Tokyo / away from it']
+                ]
+            },
+            examples: [
+                { jp: 'この電車は各駅停車ですか', en: 'Does this train stop at every station?',
+                  note: 'Worth having ready. The answer is usually a point at the board.' }
+            ],
+            check: {
+                q: 'Two trains are on the same platform going the same way. Why might you want the slower one?',
+                a: 'Because the faster one may not stop where you are going. The type — 各駅停車, 快速, ' +
+                   '急行, 特急 — says how many stations it skips.'
+            }
+        },
+        {
+            title: 'Cards, gates and seats',
+            body: [
+                "An IC card — Suica, PASMO, ICOCA and the regional others — is the default. They are " +
+                "interoperable across most of the country, work on buses and in convenience stores, " +
+                "and remove the need to work out a fare before travelling. Touch in at the 改札 and " +
+                "out at the other end.",
+                "If the gate rejects you, go to the window beside it rather than the machine: 精算 is " +
+                "fare adjustment, and 乗り越し精算 covers travelling further than you paid for, which " +
+                "is a normal thing to do rather than an offence.",
+                "On long-distance trains seats are divided. 自由席 is unreserved, first come. 指定席 is " +
+                "reserved and costs more. グリーン車 is the first-class carriage. On the Shinkansen the " +
+                "unreserved carriages are at one end and marked on the platform floor, which is why " +
+                "people queue on painted lines."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['改札 かいさつ', 'ticket gate'],
+                    ['ICカード', 'Suica, PASMO and the rest'],
+                    ['チャージ', 'to top up'],
+                    ['精算 せいさん', 'fare adjustment'],
+                    ['乗り換え のりかえ', 'transfer'],
+                    ['自由席 / 指定席', 'unreserved / reserved'],
+                    ['グリーン車', 'first class'],
+                    ['定期券 ていきけん', 'commuter pass'],
+                    ['女性専用車両', 'women-only carriage, at peak times']
+                ]
+            },
+            check: {
+                q: 'The gate beeps and will not open. What has probably happened?',
+                a: 'You travelled further than the fare on the card, or the balance ran out. Go to the ' +
+                   'window for 精算 — fare adjustment, which is routine rather than a problem.'
+            }
+        },
+        {
+            title: 'Buses, taxis and the last train',
+            body: [
+                "Buses vary by region and the difference matters. In much of the country you board at " +
+                "the rear, take a numbered 整理券, and pay on leaving according to how far you came. " +
+                "In Tokyo you generally pay a flat fare on boarding at the front. Watching what the " +
+                "person in front of you does is a reliable method.",
+                "Taxi doors open and close by themselves — the driver operates them, and reaching for " +
+                "the handle is the visible foreigner move. Ask for a 領収書 if you need a receipt, and " +
+                "note that tipping does not exist and attempting it causes confusion.",
+                "終電, the last train, is a fixed feature of social life. Most lines stop around " +
+                "midnight and do not run again until five, so evenings end at a time everyone knows " +
+                "and nobody has to explain. Missing it means a taxi, a capsule hotel, or waiting for " +
+                "the 始発, the first train."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['整理券 せいりけん', 'numbered ticket taken on boarding a bus'],
+                    ['運賃 うんちん', 'the fare'],
+                    ['両替 りょうがえ', 'change — the machine on a bus'],
+                    ['領収書 りょうしゅうしょ', 'a formal receipt'],
+                    ['終電 しゅうでん', 'the last train'],
+                    ['始発 しはつ', 'the first train'],
+                    ['遅延 ちえん', 'delay'],
+                    ['運休 うんきゅう', 'service suspended']
+                ]
+            },
+            check: {
+                q: 'Why does a Japanese evening often end abruptly around midnight?',
+                a: '終電 — the last train. Lines stop until about five, so everyone leaves at a time ' +
+                   'that needs no explanation.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Break down the question worth having ready on a platform.',
+          href: 'dictionary.html#s=この電車は各駅停車ですか', label: 'Break down 各駅停車ですか' },
+        { text: 'Look up 乗り換え and see the compound verb inside it.',
+          href: 'dictionary.html#q=乗り換え', label: 'Look up 乗り換え' },
+        { text: 'Hear station announcements at speed.',
+          href: 'practice.html#listening=n3', label: 'N3 listening' }
+    ]
+},
+{
+    id: 'eating',
+    title: 'Eating and drinking properly',
+    aim: 'Where to eat, and the etiquette that goes with it.',
+    body: 'The vocabulary stage covered the food. This covers the room it is served in, which has its ' +
+        'own rules and its own small vocabulary.',
+    lessons: [
+        {
+            title: 'The kinds of place',
+            body: [
+                "Japanese restaurants specialise narrowly, and the type tells you what to expect " +
+                "before you read the menu. A 定食屋 serves set meals — a main, rice, soup and pickles " +
+                "on one tray. A 居酒屋 is for drinking with food alongside, ordered in small dishes " +
+                "over an evening rather than as a meal.",
+                "喫茶店 is the older kind of coffee shop, often with a モーニング set in the morning; " +
+                "カフェ is the newer kind. ファミレス, family restaurant, is the all-purpose chain with " +
+                "a long picture menu and a call button on the table.",
+                "Two conveniences worth knowing: many places display plastic food in the window, which " +
+                "you may point at, and many sell tickets from a machine at the door — 食券 — which you " +
+                "hand over rather than ordering aloud. Both remove the conversation entirely if you " +
+                "want them to."
+            ],
+            table: {
+                head: ['Japanese', 'What it is'],
+                rows: [
+                    ['定食屋 ていしょくや', 'set meals on a tray'],
+                    ['居酒屋 いざかや', 'drinks with small dishes'],
+                    ['食堂 しょくどう', 'a plain canteen-style restaurant'],
+                    ['喫茶店 きっさてん', 'traditional coffee shop'],
+                    ['ファミレス', 'family restaurant chain'],
+                    ['回転寿司', 'conveyor-belt sushi'],
+                    ['食券 しょっけん', 'a meal ticket from the machine at the door'],
+                    ['お通し おとおし', 'the small dish you did not order and will be charged for']
+                ]
+            },
+            check: {
+                q: 'A dish arrives at an izakaya that you did not order. What is it?',
+                a: 'お通し — a small dish that comes automatically and appears on the bill. It is a ' +
+                   'cover charge in edible form, not a mistake and not a gift.'
+            }
+        },
+        {
+            title: 'Chopsticks, and the four things not to do',
+            body: [
+                "Most chopstick etiquette is ordinary table manners, but four specific acts are " +
+                "avoided because they echo funeral rites, and doing one in company produces a reaction " +
+                "out of proportion to the act.",
+                "Do not stand chopsticks upright in rice — 立て箸 — because that is how rice is " +
+                "offered to the dead. Do not pass food from your chopsticks to someone else's — " +
+                "箸渡し — because bones are passed that way after a cremation. Put food down on a plate " +
+                "and let them take it.",
+                "The other two are ordinary rudeness: 迷い箸, hovering over the dishes while deciding, " +
+                "and 刺し箸, spearing food rather than picking it up. And when taking from a shared " +
+                "dish, use the serving chopsticks if they are there, or the thick ends of your own.",
+                "Everything else is more relaxed than visitors expect. Slurping noodles is normal and " +
+                "arguably correct, lifting a rice or soup bowl to your mouth is expected, and tipping " +
+                "does not exist anywhere."
+            ],
+            table: {
+                head: ['Japanese', 'Avoid because'],
+                rows: [
+                    ['立て箸', 'upright in rice — an offering to the dead'],
+                    ['箸渡し', 'chopstick to chopstick — a funeral rite'],
+                    ['迷い箸', 'hovering while you decide — ordinary rudeness'],
+                    ['刺し箸', 'spearing food'],
+                    ['取り箸 とりばし', 'serving chopsticks — use them if provided'],
+                    ['おしぼり', 'the wet towel — for hands, not face']
+                ]
+            },
+            check: {
+                q: 'Someone offers you food from their chopsticks. What do you do?',
+                a: 'Ask them to put it on your plate. Passing food chopstick to chopstick echoes how ' +
+                   'bones are handled after a cremation, so it is avoided rather than merely impolite.'
+            }
+        },
+        {
+            title: 'Drinking, and pouring for other people',
+            body: [
+                "The rule that surprises everyone is that you do not pour your own drink. You pour for " +
+                "the people around you, and someone pours for you — お酌, the reciprocal pouring, is " +
+                "the mechanism by which the table keeps noticing each other. Holding your glass with " +
+                "both hands while it is filled is the polite response.",
+                "Nobody drinks until 乾杯, and the first round is ordered together for that reason. " +
+                "とりあえずビール — beer to start with — is such a fixed opening that it is a joke about " +
+                "itself.",
+                "Declining is fine and increasingly normal. お酒は飲めません states it plainly, and " +
+                "putting your hand over the glass is understood. 飲み放題, unlimited drinks for a fixed " +
+                "time, is common and is the reason a party often has a hard end."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['乾杯 かんぱい', 'cheers — nobody drinks before it'],
+                    ['お酌 おしゃく', 'pouring for one another'],
+                    ['とりあえずビール', 'beer to start — the standard opening'],
+                    ['飲み放題', 'unlimited drinks, fixed time'],
+                    ['食べ放題', 'all you can eat'],
+                    ['お酒は飲めません', 'I do not drink'],
+                    ['お会計 / お勘定', 'the bill'],
+                    ['割り勘 わりかん', 'splitting the bill evenly']
+                ]
+            },
+            examples: [
+                { jp: 'お酒は飲めません', en: 'I do not drink',
+                  note: 'Potential form, negative — the pattern from the verb stage, doing real work.' }
+            ],
+            check: {
+                q: 'Your glass is empty and the bottle is in front of you. What do you do?',
+                a: 'Pour for the person next to you and wait. Pouring your own is the thing to avoid — ' +
+                   'the point of お酌 is that people notice each other.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Break down a plain refusal.',
+          href: 'dictionary.html#s=お酒は飲めません', label: 'Break down 飲めません' },
+        { text: 'Look up 乾杯 and see the characters behind it.',
+          href: 'dictionary.html#q=乾杯', label: 'Look up 乾杯' },
+        { text: 'Drill the food vocabulary.',
+          href: 'practice.html#vocabulary=n4', label: 'N4 vocabulary' }
     ]
 },
 {
@@ -5945,6 +6710,41 @@ window.LEARN_COURSE = [
                 a: 'That it has not changed since the last one that had one. Omission signals continuity, ' +
                    'not ambiguity.'
             }
+        },
+        {
+            title: 'Giving things, and giving something back',
+            body: [
+                "Gift-giving is more structured than in most countries, and the structure is worth " +
+                "knowing because opting out is more visible than joining in.",
+                "お土産 is the souvenir you bring back from a trip — for colleagues as much as friends, " +
+                "usually individually wrapped food from wherever you went, because it is meant to be " +
+                "shared out in an office. 手土産 is what you take when visiting someone's home, and " +
+                "arriving without one is noticed.",
+                "お中元 in summer and お歳暮 in winter are the formal seasonal gifts sent to people you " +
+                "are indebted to — a teacher, a doctor, a business contact. Department stores run " +
+                "whole floors for them, which tells you the scale of the custom.",
+                "Receiving has its own shape. The giver deprecates the gift — つまらないものですが, this " +
+                "is a trifling thing — and you accept with both hands. Opening it in front of them was " +
+                "traditionally avoided and is now common, so follow their lead. And お返し, the return " +
+                "gift, is expected for anything substantial, conventionally at about half the value."
+            ],
+            table: {
+                head: ['Japanese', 'When'],
+                rows: [
+                    ['お土産 おみやげ', 'back from a trip — for the office too'],
+                    ['手土産 てみやげ', 'visiting someone\u2019s home'],
+                    ['お中元 おちゅうげん', 'summer, to those you owe'],
+                    ['お歳暮 おせいぼ', 'winter, the same'],
+                    ['つまらないものですが', 'said handing something over'],
+                    ['お返し おかえし', 'the return gift — about half the value'],
+                    ['のし', 'the decorative wrapper marking a formal gift']
+                ]
+            },
+            check: {
+                q: 'You come back from a week away. Who gets お土産?',
+                a: 'Your colleagues, as well as friends. Individually wrapped food from where you went ' +
+                   'is the standard, precisely so it can be shared around an office.'
+            }
         }
     ],
     steps: [
@@ -6876,6 +7676,52 @@ window.LEARN_COURSE = [
                 q: 'You score highly overall but poorly on listening. Do you pass?',
                 a: 'No. Each section has a minimum of its own, so a weak section fails you regardless ' +
                    'of the total.'
+            }
+        },
+        {
+            title: 'The plateau in the middle',
+            body: [
+                "Progress in a language is not linear and the middle is where it feels like stopping. " +
+                "Beginners improve fast because the commonest words and patterns cover an enormous " +
+                "share of ordinary language, so each new item pays out immediately. Past that, each " +
+                "new item is rarer, and a week of study can produce no visible change.",
+                "The symptoms are recognisable. You can read a textbook and not a novel. You can " +
+                "follow a teacher and not a television programme. You know a great deal of grammar and " +
+                "still cannot say what you mean quickly. None of this means you have stalled; it means " +
+                "the returns moved from breadth to depth.",
+                "What works is volume. At this point more input beats more study — hours of reading " +
+                "and listening at a level you mostly understand, rather than another grammar point. " +
+                "Narrowing helps too: pick one domain, a podcast series or an author, and stay in it " +
+                "until the vocabulary repeats.",
+                "And measure something other than how you feel. Pages read, minutes listened, " +
+                "questions attempted. The feeling of progress lags the fact of it by weeks, and that " +
+                "gap is where people quit."
+            ],
+            check: {
+                q: 'You study for a month and feel no better. What has probably happened?',
+                a: 'You reached the middle, where each new item is rarer and pays out less visibly. ' +
+                   'The answer is volume of input rather than more grammar.'
+            }
+        },
+        {
+            title: 'Switching to a Japanese-Japanese dictionary',
+            body: [
+                "At some point the English gloss stops being able to separate two words. 嬉しい and " +
+                "楽しい both come out as happy; 見る, 見つめる and 眺める all come out as look. The " +
+                "bilingual dictionary has run out of resolution, and that is the signal to add a " +
+                "monolingual one.",
+                "A 国語辞典 defines Japanese in Japanese, which does two things at once: it " +
+                "distinguishes the words precisely, and it is itself reading practice on definitions " +
+                "written in controlled, careful language. 大辞林, 明鏡 and 広辞苑 are the standard names.",
+                "The usual timing is somewhere around N3, and it does not have to be a clean switch. " +
+                "Look a word up in the bilingual dictionary first, then read the Japanese definition to " +
+                "sharpen it. The site's own dictionary stays useful throughout — it is the fastest way " +
+                "to a rough meaning, and roughness is exactly what a monolingual entry then fixes."
+            ],
+            check: {
+                q: 'What is the sign that you have outgrown an English-Japanese dictionary?',
+                a: 'When two Japanese words return the same English word and you cannot tell them ' +
+                   'apart. The gloss has run out of resolution, and a Japanese definition has not.'
             }
         }
     ],
