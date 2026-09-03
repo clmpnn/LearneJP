@@ -554,277 +554,6 @@ window.LEARN_COURSE = [
     ]
 },
 {
-    id: 'people',
-    title: 'Talking about people',
-    aim: 'Introducing yourself, naming others, and the inside–outside line.',
-    body: 'Japanese encodes relationships in its vocabulary. Who someone is to you changes which word ' +
-        'you use for them, and getting that wrong is more noticeable than a grammar slip.',
-    lessons: [
-        {
-            title: 'Introducing yourself',
-            body: [
-                "A self-introduction in Japanese has a shape, and following it makes you sound prepared " +
-                "rather than fluent — which is exactly right at the start. Name, where you are from, " +
-                "what you do, then よろしくお願いします to close.",
-                "Two habits to build now. Japanese order is family name first, so 田中健 is Mr Tanaka " +
-                "whose given name is Ken. And you rarely need 私は at all: starting with your name is " +
-                "normal, and the topic is obvious. Beginners who say 私は every sentence sound like a " +
-                "textbook exercise."
-            ],
-            table: {
-                head: ['Japanese', 'Means'],
-                rows: [
-                    ['はじめまして', 'how do you do — first meeting only'],
-                    ['〜と申します', 'my name is — humble, safest in formal settings'],
-                    ['〜です', 'I am — plain and fine in most situations'],
-                    ['〜から来ました', 'I come from ~'],
-                    ['〜をしています', 'I do ~ for a living'],
-                    ['よろしくお願いします', 'closes every introduction']
-                ]
-            },
-            examples: [
-                { jp: 'はじめまして、田中と申します', en: 'How do you do, my name is Tanaka',
-                  note: '申します is the humble form of 言う — you are lowering yourself, politely.' }
-            ],
-            check: {
-                q: 'Why do you rarely need to say 私は when introducing yourself?',
-                a: 'Because the topic is already obvious. Japanese drops anything the situation supplies, ' +
-                   'and repeating 私は marks you as translating from English.'
-            }
-        },
-        {
-            title: 'さん, くん, ちゃん, 様, 先生',
-            body: [
-                "Names almost never stand bare. A suffix goes on the end, and which one you pick states " +
-                "the relationship — so leaving it off is not neutral, it is intimate. Dropping the " +
-                "suffix entirely is something done between close friends and by parents to children.",
-                "さん is the default and works for anyone. 様 is markedly formal, used for customers and " +
-                "in writing. くん is for junior males and classmates, ちゃん for children and close " +
-                "friends. 先生 is used for teachers, doctors and anyone with expertise, and it replaces " +
-                "the suffix rather than joining it.",
-                "The rule people forget: never use any of these about yourself. 田中さんです about " +
-                "yourself is the same error as calling yourself Mr Tanaka."
-            ],
-            table: {
-                head: ['Suffix', 'Used for'],
-                rows: [
-                    ['〜さん', 'anyone — the safe default'],
-                    ['〜様 さま', 'customers, formal writing, deities'],
-                    ['〜くん', 'junior men, classmates, sometimes junior staff'],
-                    ['〜ちゃん', 'children, close friends, pets'],
-                    ['〜先生', 'teachers, doctors, lawyers, writers'],
-                    ['no suffix', 'close friends, family, or yourself']
-                ]
-            },
-            check: {
-                q: 'Your teacher is called 山田. What do you call her?',
-                a: '山田先生. 先生 replaces さん rather than stacking with it — 山田先生さん is wrong.'
-            }
-        },
-        {
-            title: 'Family, and the inside–outside line',
-            body: [
-                "Japanese has two complete sets of family words: one for your own family and one for " +
-                "everyone else's. Your mother is 母; someone else's is お母さん. This is the clearest " +
-                "example of a principle that runs through the whole language — uchi and soto, inside " +
-                "and outside.",
-                "Inside is your family, your company, your group. You speak humbly about the inside and " +
-                "respectfully about the outside, even when the outside person is junior to you. This is " +
-                "why an employee talking to a customer refers to their own company president without any " +
-                "honorific at all.",
-                "Confusingly, you use the outside words to address your own family directly. You call " +
-                "your mother お母さん to her face and 母 when telling someone else about her."
-            ],
-            table: {
-                head: ['Relation', 'Yours', "Someone else's"],
-                rows: [
-                    ['mother', '母 はは', 'お母さん'],
-                    ['father', '父 ちち', 'お父さん'],
-                    ['older sister', '姉 あね', 'お姉さん'],
-                    ['older brother', '兄 あに', 'お兄さん'],
-                    ['younger sister', '妹 いもうと', '妹さん'],
-                    ['younger brother', '弟 おとうと', '弟さん'],
-                    ['family', '家族 かぞく', 'ご家族']
-                ]
-            },
-            examples: [
-                { jp: '母は先生です', en: 'My mother is a teacher',
-                  note: '母 because she is inside. Talking to her, you would say お母さん.' }
-            ],
-            check: {
-                q: 'You tell a colleague about your mother. 母 or お母さん?',
-                a: '母. She is inside your group and the colleague is outside, so you speak of her plainly. ' +
-                   'お母さん would be for their mother, or for addressing yours directly.'
-            }
-        },
-        {
-            title: 'Giving and receiving',
-            body: [
-                "Three verbs cover giving, and which one you use depends on the direction relative to " +
-                "you. This has no English parallel and it catches everyone.",
-                "あげる is giving away from you — I give to someone, or one outsider gives another. " +
-                "くれる is giving towards you — someone gives to me, or to my group. English uses give " +
-                "for both, which is why learners say あげる when they mean くれる and accidentally " +
-                "describe themselves as the giver.",
-                "もらう flips the sentence around: it is receiving, so the receiver becomes the subject " +
-                "and the giver takes から or に. All three also attach to the te-form to describe doing " +
-                "a favour rather than handing over an object, which is where they turn up most often."
-            ],
-            table: {
-                head: ['Verb', 'Direction', 'Example'],
-                rows: [
-                    ['あげる', 'I → someone else', '友達に本をあげました'],
-                    ['くれる', 'someone else → me', '友達が本をくれました'],
-                    ['もらう', 'I receive', '友達に本をもらいました'],
-                    ['〜てあげる', 'do a favour for someone', '教えてあげる — I teach them'],
-                    ['〜てくれる', 'someone does me a favour', '教えてくれる — they teach me'],
-                    ['〜てもらう', 'have someone do it', '教えてもらう — I get taught']
-                ]
-            },
-            examples: [
-                { jp: '友達が本をくれました', en: 'A friend gave me a book',
-                  note: 'くれる, because it came towards me. あげる here would mean I gave it.' }
-            ],
-            check: {
-                q: 'Someone helps you. 手伝ってあげました or 手伝ってくれました?',
-                a: 'くれました — the favour came towards you. あげました would mean you helped them.'
-            }
-        }
-    ],
-    steps: [
-        { text: 'Look up the two words for mother and see them listed side by side.',
-          href: 'dictionary.html#q=母', label: 'Look up 母' },
-        { text: 'Break down a self-introduction and see 申します resolve to 言う.',
-          href: 'dictionary.html#s=田中と申します', label: 'Break down 申します' },
-        { text: 'Read how the inside–outside line drives honorific choice.',
-          href: 'keigo.html#situations', label: 'Keigo situations' }
-    ]
-},
-{
-    id: 'names',
-    title: 'Names',
-    aim: 'Reading them, asking about them, and using them correctly.',
-    body: 'Names are the one part of Japanese where the writing genuinely does not tell you the ' +
-        'reading, and where getting the form of address wrong is immediately felt.',
-    lessons: [
-        {
-            title: 'Family name first, and what to call people',
-            body: [
-                "Japanese order is 苗字 then 名前 — family name, then given name. 田中健 is Mr Tanaka " +
-                "whose given name is Ken. In English contexts the order is often flipped for " +
-                "foreigners' benefit, which means you cannot always tell which is which without asking.",
-                "The default address is family name plus さん, and it stays that way far longer than " +
-                "in English. Colleagues who have worked together for years still use it. Moving to a " +
-                "given name is a real step, usually invited rather than assumed, and using one " +
-                "uninvited reads as presumptuous rather than friendly.",
-                "The ten commonest surnames cover a striking share of the country — 佐藤, 鈴木, 高橋, " +
-                "田中, 伊藤, 渡辺, 山本, 中村, 小林, 加藤 — which is why offices are full of people " +
-                "distinguished by given name or department rather than surname."
-            ],
-            table: {
-                head: ['Surname', 'Reading'],
-                rows: [
-                    ['佐藤', 'satou'],
-                    ['鈴木', 'suzuki'],
-                    ['高橋', 'takahashi'],
-                    ['田中', 'tanaka'],
-                    ['伊藤', 'itou'],
-                    ['渡辺', 'watanabe'],
-                    ['山本', 'yamamoto'],
-                    ['中村', 'nakamura'],
-                    ['小林', 'kobayashi'],
-                    ['加藤', 'katou']
-                ]
-            },
-            check: {
-                q: 'A colleague of five years is still 田中さん. Is the relationship distant?',
-                a: 'No. Family name plus さん is the ordinary long-term form between colleagues, and ' +
-                   'moving to a given name is a step that gets invited rather than assumed.'
-            }
-        },
-        {
-            title: 'Why nobody can read them either',
-            body: [
-                "Given names use readings that exist only in names — 名乗り読み — on top of the on and " +
-                "kun readings you already know. 和子 might be かずこ or わこ. 直 as a given name can be " +
-                "なお, ただし, すなお and more. There is frequently no way to know.",
-                "This is not a foreigner problem. Japanese people ask each other, forms have a furigana " +
-                "line above the name field for exactly this, and business cards print the reading. " +
-                "Asking is normal and expected rather than an admission of anything.",
-                "The polite question is 何とお読みすればよろしいでしょうか — how should I read this — or " +
-                "more simply お名前は何とお読みしますか. Both are worth memorising whole, because you " +
-                "will use them and because assembling them from grammar under pressure is harder than " +
-                "it looks."
-            ],
-            table: {
-                head: ['Japanese', 'Means'],
-                rows: [
-                    ['苗字 / 名字 みょうじ', 'family name'],
-                    ['名前 なまえ', 'given name, or name generally'],
-                    ['フルネーム', 'full name'],
-                    ['ふりがな', 'the reading line on a form'],
-                    ['名乗り読み', 'readings used only in names'],
-                    ['何とお読みしますか', 'how is this read?'],
-                    ['旧姓 きゅうせい', 'maiden name']
-                ]
-            },
-            examples: [
-                { jp: 'お名前は何とお読みしますか', en: 'How is your name read?',
-                  note: 'Honorific お〜する from the keigo stage, on a question you will actually use.' }
-            ],
-            check: {
-                q: 'Is asking how a Japanese name is read a sign of poor Japanese?',
-                a: 'No. Japanese speakers ask each other constantly, forms have a furigana line for it, ' +
-                   'and cards print the reading. The information genuinely is not recoverable.'
-            }
-        },
-        {
-            title: 'Your own name in Japanese',
-            body: [
-                "Foreign names are written in katakana, and the version you settle on is worth getting " +
-                "right early because it will follow you onto every form. The usual approach is to " +
-                "approximate the sound rather than the spelling — Smith is スミス, not スミトフ.",
-                "Order gets flipped inconsistently. Japanese forms often ask for family name first, " +
-                "matching Japanese order, while your passport shows given name first. Filling in a " +
-                "form, follow the field labels — 姓 is family name and 名 is given name — rather than " +
-                "your habit.",
-                "Introducing yourself, the pattern is the one from the people stage: 〜と申します in " +
-                "formal settings, 〜です otherwise. Many people also offer a shortened version, since " +
-                "a long foreign name in katakana is a mouthful and offering the short form is a " +
-                "kindness rather than a concession."
-            ],
-            table: {
-                head: ['Japanese', 'Means'],
-                rows: [
-                    ['姓 せい', 'family name — the field label'],
-                    ['名 めい', 'given name — the field label'],
-                    ['〜と申します', 'my name is — formal'],
-                    ['〜と呼んでください', 'please call me ~'],
-                    ['カタカナで', 'in katakana — how a form will want it'],
-                    ['ローマ字', 'Latin letters']
-                ]
-            },
-            examples: [
-                { jp: 'ケンと呼んでください', en: 'Please call me Ken',
-                  note: 'て-form request plus the quoting と — two patterns you already have.' }
-            ],
-            check: {
-                q: 'A form has fields marked 姓 and 名. Which goes where?',
-                a: '姓 is your family name and 名 your given name — Japanese order, whatever your ' +
-                   'passport shows. Follow the labels rather than the habit.'
-            }
-        }
-    ],
-    steps: [
-        { text: 'Break down the question you will ask about a name.',
-          href: 'dictionary.html#s=お名前は何とお読みしますか', label: 'Break down お読みしますか' },
-        { text: 'Look up 苗字 and see it beside 名字.',
-          href: 'dictionary.html#q=苗字', label: 'Look up 苗字' },
-        { text: 'Trace 田, which starts more surnames than any other character.',
-          href: 'writing.html#trace=田', label: 'Trace 田' }
-    ]
-},
-{
     id: 'words',
     title: 'Your first words',
     aim: 'Enough vocabulary to have something to put in a sentence.',
@@ -989,922 +718,6 @@ window.LEARN_COURSE = [
           href: 'dictionary.html#q=to%20eat', label: 'Search "to eat"' },
         { text: 'Drill vocabulary until the common ones come without thinking.',
           href: 'practice.html#vocabulary=n5', label: 'N5 vocabulary' }
-    ]
-},
-{
-    id: 'domains',
-    title: 'Vocabulary by place',
-    aim: 'The words that come with a room, a job or a journey.',
-    body: 'Vocabulary learned by topic sticks better than vocabulary learned by frequency, because you ' +
-        'meet it all at once when you are actually there.',
-    lessons: [
-        {
-            title: 'Food and the kitchen',
-            body: [
-                "Food vocabulary pays back immediately, because you use it several times a day and " +
-                "because menus are made of it. Start with the staples and the verbs that go with them.",
-                "One point of grammar rides along here: 作る is to make and 料理する is to cook, and " +
-                "料理 by itself is both the activity and the dish. Similarly 飲む covers drinking " +
-                "anything including soup, which Japanese drinks rather than eats."
-            ],
-            table: {
-                head: ['Japanese', 'Reading', 'Means'],
-                rows: [
-                    ['ご飯', 'gohan', 'rice, or a meal'],
-                    ['肉', 'niku', 'meat'],
-                    ['魚', 'sakana', 'fish'],
-                    ['野菜', 'yasai', 'vegetables'],
-                    ['卵', 'tamago', 'egg'],
-                    ['水 / お茶', 'mizu / ocha', 'water / tea'],
-                    ['朝ご飯 / 昼ご飯 / 晩ご飯', '—', 'breakfast / lunch / dinner'],
-                    ['作る', 'tsukuru', 'to make'],
-                    ['焼く / 煮る / 揚げる', '—', 'grill / simmer / deep-fry'],
-                    ['おいしい / まずい', '—', 'tasty / unpleasant']
-                ]
-            },
-            check: {
-                q: 'What does ご飯 mean besides rice?',
-                a: 'A meal. 朝ご飯 is breakfast whether or not any rice is involved — the staple food ' +
-                   'gave its name to eating generally.'
-            }
-        },
-        {
-            title: 'Home and daily routine',
-            body: [
-                "The house and the day that happens in it. These are the words a diary entry needs, " +
-                "which makes them a good set to learn if you are writing anything for practice.",
-                "Note that several everyday actions pair a noun with する or a specific verb rather " +
-                "than translating one-to-one: お風呂に入る is to take a bath, literally to enter the " +
-                "bath, and 歯を磨く is to brush teeth, literally to polish them."
-            ],
-            table: {
-                head: ['Japanese', 'Reading', 'Means'],
-                rows: [
-                    ['家 / うち', 'ie / uchi', 'house / home'],
-                    ['部屋', 'heya', 'room'],
-                    ['台所', 'daidokoro', 'kitchen'],
-                    ['お風呂', 'ofuro', 'bath'],
-                    ['起きる / 寝る', '—', 'get up / sleep'],
-                    ['お風呂に入る', '—', 'take a bath'],
-                    ['歯を磨く', '—', 'brush your teeth'],
-                    ['掃除する / 洗濯する', '—', 'clean / do laundry'],
-                    ['出かける / 帰る', '—', 'go out / come home']
-                ]
-            },
-            check: {
-                q: 'Why is it お風呂に入る rather than お風呂をする?',
-                a: 'Because Japanese describes it as entering the bath. Several daily actions pair a ' +
-                   'noun with a specific verb rather than する.'
-            }
-        },
-        {
-            title: 'Work and school',
-            body: [
-                "These two share most of their vocabulary, because the social shape is similar: a " +
-                "place, a schedule, people above and below you, and a lot of meetings.",
-                "先輩 and 後輩 have no English equivalent and matter more than the words suggest. They " +
-                "mark whether someone entered before or after you, in a school or a company, and that " +
-                "relationship persists regardless of age or ability — it decides which register you " +
-                "speak in for years."
-            ],
-            table: {
-                head: ['Japanese', 'Reading', 'Means'],
-                rows: [
-                    ['会社', 'kaisha', 'company'],
-                    ['学校 / 大学', '—', 'school / university'],
-                    ['仕事', 'shigoto', 'work, a job'],
-                    ['会議', 'kaigi', 'meeting'],
-                    ['宿題', 'shukudai', 'homework'],
-                    ['試験 / テスト', '—', 'exam / test'],
-                    ['先輩 / 後輩', 'senpai / kouhai', 'senior / junior by entry, not age'],
-                    ['同僚', 'douryou', 'colleague'],
-                    ['休み', 'yasumi', 'a day off, a holiday'],
-                    ['残業', 'zangyou', 'overtime']
-                ]
-            },
-            check: {
-                q: 'Is a 先輩 necessarily older than you?',
-                a: 'No. The word marks who entered the school or company first. Someone younger who ' +
-                   'joined a year earlier is still your 先輩.'
-            }
-        },
-        {
-            title: 'Travel, shopping and money',
-            body: [
-                "The words for getting about and paying for things. Most of these you will read before " +
-                "you say — on signs, tickets and receipts — which makes recognition the priority.",
-                "Two practical notes. 切符 is a paper ticket and most people now use an IC card, so you " +
-                "will hear カード more. And お釣り, change, is worth having ready, along with " +
-                "レシート for the receipt as against 領収書, which is the formal receipt you ask for if " +
-                "you need to claim expenses."
-            ],
-            table: {
-                head: ['Japanese', 'Reading', 'Means'],
-                rows: [
-                    ['駅 / 空港', 'eki / kuukou', 'station / airport'],
-                    ['電車 / バス / 地下鉄', '—', 'train / bus / underground'],
-                    ['切符', 'kippu', 'ticket'],
-                    ['荷物', 'nimotsu', 'luggage'],
-                    ['店 / お店', 'mise', 'shop'],
-                    ['値段', 'nedan', 'price'],
-                    ['お釣り', 'otsuri', 'change'],
-                    ['レシート / 領収書', '—', 'receipt / formal receipt'],
-                    ['安い / 高い', '—', 'cheap / expensive'],
-                    ['予約する', 'yoyaku suru', 'to book, to reserve']
-                ]
-            },
-            examples: [
-                { jp: '予約したいんですが', en: 'I would like to make a booking…',
-                  note: 'んですが trailing off — the polite opening from the hedging lesson.' }
-            ],
-            check: {
-                q: 'When would you ask for a 領収書 rather than a レシート?',
-                a: 'When you need to claim it back. A レシート is the ordinary till receipt; a 領収書 is ' +
-                   'the formal one made out to a name.'
-            }
-        }
-    ],
-    steps: [
-        { text: 'Look up a word from a set you use daily.',
-          href: 'dictionary.html#q=仕事', label: 'Look up 仕事' },
-        { text: 'Break down a booking request.',
-          href: 'dictionary.html#s=予約したいんですが', label: 'Break down a request' },
-        { text: 'Drill vocabulary at the next level up.',
-          href: 'practice.html#vocabulary=n4', label: 'N4 vocabulary' }
-    ]
-},
-{
-    id: 'domains2',
-    title: 'More vocabulary by place',
-    aim: 'Technology, hobbies, feelings and the natural world.',
-    body: 'Four more themed sets. These are the ones that come up once you can hold a conversation ' +
-        'rather than only survive one.',
-    lessons: [
-        {
-            title: 'Phones, computers and the internet',
-            body: [
-                "Technology vocabulary is heavily 外来語, which makes it the easiest domain to guess " +
-                "at — and the one where the borrowings have drifted most. パソコン is a personal " +
-                "computer, shortened past recognition. スマホ is a smartphone, same trick.",
-                "The verbs are mostly native or Chinese-derived even where the noun is borrowed, which " +
-                "is the 混種語 pattern in daily use, a pattern the strata stage names later: アプリをダウンロードする, " +
-                "ファイルを保存する."
-            ],
-            table: {
-                head: ['Japanese', 'Means'],
-                rows: [
-                    ['パソコン', 'computer'],
-                    ['スマホ', 'smartphone'],
-                    ['アプリ', 'app'],
-                    ['充電する じゅうでん', 'to charge'],
-                    ['電源 でんげん', 'power, the power switch'],
-                    ['画面 がめん', 'screen'],
-                    ['保存する ほぞん', 'to save'],
-                    ['検索する けんさく', 'to search'],
-                    ['送信する そうしん', 'to send'],
-                    ['つながらない', 'it will not connect']
-                ]
-            },
-            check: {
-                q: 'Why is パソコン hard to guess from English?',
-                a: 'Because it is a shortened compound — personal computer cut to four syllables. ' +
-                   'Japanese abbreviates borrowings aggressively, which is what makes them opaque.'
-            }
-        },
-        {
-            title: 'Hobbies and what you do at the weekend',
-            body: [
-                "趣味 is hobby, and 趣味は何ですか is one of the first questions anyone will ask you. " +
-                "Having an answer ready with two sentences after it is worth more than a large " +
-                "vocabulary you cannot deploy.",
-                "The pattern for most is noun plus をする — サッカーをする, ゲームをする — but a few take " +
-                "their own verb: 音楽を聞く, 本を読む, 写真を撮る, 楽器を弾く. 弾く is specifically for " +
-                "stringed and keyboard instruments; drums take 叩く and wind instruments 吹く."
-            ],
-            table: {
-                head: ['Japanese', 'Means'],
-                rows: [
-                    ['趣味 しゅみ', 'hobby'],
-                    ['音楽を聞く', 'listen to music'],
-                    ['本を読む', 'read'],
-                    ['映画を見る', 'watch films'],
-                    ['旅行する', 'travel'],
-                    ['料理する', 'cook'],
-                    ['写真を撮る', 'take photographs'],
-                    ['楽器を弾く', 'play an instrument — strings and keys'],
-                    ['スポーツをする', 'play sport'],
-                    ['ゲームをする', 'play games']
-                ]
-            },
-            examples: [
-                { jp: '趣味は音楽を聞くことです', en: 'My hobby is listening to music',
-                  note: 'こと nominalising the verb — the pattern from the phrases stage.' }
-            ],
-            check: {
-                q: 'You play the drums. Is it 弾く?',
-                a: 'No — 叩く, to strike. 弾く is for strings and keyboards, and wind instruments take ' +
-                   '吹く. The verb follows the instrument.'
-            }
-        },
-        {
-            title: 'Feelings, and the rule that comes with them',
-            body: [
-                "Emotion vocabulary carries the restriction from the stage on talking about other " +
-                "people: these adjectives describe an internal state, so you can assert them about " +
-                "yourself and must mark them as inferred about anyone else.",
-                "嬉しい is happy about something specific; 楽しい is enjoyable, describing the activity " +
-                "rather than you. 寂しい is lonely, and is used far more freely than the English word " +
-                "— saying you will be 寂しい when someone leaves is ordinary, not heavy.",
-                "怒る is to get angry and behaves as a verb, so it escapes the がる rule: 彼は怒って" +
-                "います is perfectly fine, because anger is visible."
-            ],
-            table: {
-                head: ['Japanese', 'Means', 'About others'],
-                rows: [
-                    ['嬉しい うれしい', 'glad', '嬉しそう / 嬉しがる'],
-                    ['楽しい たのしい', 'enjoyable', '楽しそう'],
-                    ['悲しい かなしい', 'sad', '悲しそう'],
-                    ['寂しい さびしい', 'lonely', '寂しがる'],
-                    ['怖い こわい', 'frightened, frightening', '怖がる'],
-                    ['恥ずかしい', 'embarrassed', '恥ずかしがる'],
-                    ['心配 しんぱい', 'worry', '心配している'],
-                    ['怒る おこる', 'get angry — a verb', '怒っています']
-                ]
-            },
-            check: {
-                q: 'Why can you say 彼は怒っています but not 彼は嬉しいです?',
-                a: 'Because 怒る is a verb describing visible behaviour, while 嬉しい is an adjective ' +
-                   'describing an inner state. The second needs 嬉しそう or 嬉しがる.'
-            }
-        },
-        {
-            title: 'Weather, animals and the outdoors',
-            body: [
-                "These are among the first kanji taught, partly because they are simple and partly " +
-                "because they turn up in place names constantly — 山, 川, 田, 海, 森 are all common " +
-                "surnames as well as landscape.",
-                "Animal names are usually written in kana in ordinary text even though kanji exist, " +
-                "which is the script convention the writing stage covers later: 猫 is correct and ねこ is more " +
-                "common in casual writing. Scientific and formal contexts use katakana.",
-                "Weather words pair with the verb pairs the transitivity stage covers later in a way worth noticing: " +
-                "雨が降る, rain falls, is intransitive, and there is no way to make yourself the subject " +
-                "of it — which is exactly why the suffering passive 雨に降られる exists."
-            ],
-            table: {
-                head: ['Japanese', 'Reading', 'Means'],
-                rows: [
-                    ['天気 / 空', 'tenki / sora', 'weather / sky'],
-                    ['雨 / 雪 / 風', 'ame / yuki / kaze', 'rain / snow / wind'],
-                    ['晴れ / 曇り', 'hare / kumori', 'clear / cloudy'],
-                    ['海 / 川 / 山', 'umi / kawa / yama', 'sea / river / mountain'],
-                    ['森 / 木 / 花', 'mori / ki / hana', 'forest / tree / flower'],
-                    ['犬 / 猫 / 鳥 / 魚', 'inu / neko / tori / sakana', 'dog / cat / bird / fish'],
-                    ['虫 むし', '—', 'insect'],
-                    ['星 ほし', '—', 'star']
-                ]
-            },
-            examples: [
-                { jp: '雨が降っています', en: 'It is raining',
-                  note: 'が, because 降る is intransitive — the rain does it, nobody makes it happen.' }
-            ],
-            check: {
-                q: 'Why is there no way to say you rained?',
-                a: 'Because 降る is intransitive and takes no agent. Japanese gets around it with the ' +
-                   'suffering passive — 雨に降られた, I was rained on and it spoiled things.'
-            }
-        }
-    ],
-    steps: [
-        { text: 'Look up a shortened borrowing and see the full form.',
-          href: 'dictionary.html#q=パソコン', label: 'Look up パソコン' },
-        { text: 'Break down an answer to the hobby question.',
-          href: 'dictionary.html#s=趣味は音楽を聞くことです', label: 'Break down 趣味は' },
-        { text: 'Drill the vocabulary.',
-          href: 'practice.html#vocabulary=n4', label: 'N4 vocabulary' }
-    ]
-},
-{
-    id: 'describing',
-    title: 'Describing and comparing',
-    aim: 'Degree, comparison, and the adjectives that behave like verbs.',
-    body: 'Once you can name things, the next thing you want is to say how much, and which of two you ' +
-        'prefer. Both are more regular in Japanese than in English.',
-    lessons: [
-        {
-            title: 'How much — the degree words',
-            body: [
-                "A handful of adverbs sit in front of an adjective or verb and set the intensity. They " +
-                "go before what they modify and nothing else changes, so they are the cheapest way to " +
-                "make a sentence say more.",
-                "Two of them are traps, because they force the rest of the sentence negative. あまり " +
-                "means not very and 全然 means not at all — but both require a negative ending to " +
-                "finish the thought. あまり高いです is wrong; あまり高くないです is right. The adverb " +
-                "sets up a negative that the verb has to deliver."
-            ],
-            table: {
-                head: ['Word', 'Means', 'Note'],
-                rows: [
-                    ['とても', 'very', ''],
-                    ['すごく', 'really', 'casual'],
-                    ['ちょっと', 'a little', 'also softens a refusal'],
-                    ['少し すこし', 'a little', 'politer than ちょっと'],
-                    ['あまり', 'not very', 'needs a negative ending'],
-                    ['全然 ぜんぜん', 'not at all', 'needs a negative ending'],
-                    ['もっと', 'more', ''],
-                    ['たくさん', 'a lot', 'quantity, not intensity']
-                ]
-            },
-            examples: [
-                { jp: 'あまり高くないです', en: 'It is not very expensive',
-                  note: 'あまり at the front, negative at the back. Both halves are required.' }
-            ],
-            check: {
-                q: 'What is wrong with 全然おいしいです?',
-                a: '全然 demands a negative. Either finish it — 全然おいしくないです — or use a different ' +
-                   'adverb. In very casual speech the positive turns up, but not in anything you write.'
-            }
-        },
-        {
-            title: 'Comparing two things, and picking a best',
-            body: [
-                "Japanese has no comparative form — no -er, no more. Comparison is done with particles " +
-                "instead, which means the adjective never changes.",
-                "より marks the thing you are comparing against: AはBより高い, A is more expensive than B. " +
-                "For a question or a preference, のほうが marks the side you favour: コーヒーのほうが " +
-                "いいです, coffee is better. And 一番, literally number one, makes a superlative: " +
-                "一番高い, the most expensive.",
-                "For a comparison question the frame is fixed and worth memorising whole: AとBとどちらが " +
-                "— between A and B, which?"
-            ],
-            table: {
-                head: ['Pattern', 'Means', 'Example'],
-                rows: [
-                    ['AはBより〜', 'A is more ~ than B', '日本語は英語より難しい'],
-                    ['Aのほうが〜', 'A is the more ~ one', 'コーヒーのほうがいいです'],
-                    ['AとBとどちらが〜', 'which of A and B is ~?', 'コーヒーと紅茶とどちらが好きですか'],
-                    ['〜の中で一番〜', 'the most ~ of all', 'クラスの中で一番高い']
-                ]
-            },
-            examples: [
-                { jp: '日本語は英語より難しいです', en: 'Japanese is harder than English',
-                  note: 'より does the comparing. 難しい itself never changes shape.' }
-            ],
-            check: {
-                q: 'How do you say more expensive in Japanese?',
-                a: 'You do not — 高い is already it. The comparison lives in より or のほうが, not in the ' +
-                   'adjective.'
-            }
-        },
-        {
-            title: 'Liking, wanting, and the が that surprises everyone',
-            body: [
-                "好き is not a verb. It is a な-adjective meaning likeable, which changes the whole shape " +
-                "of the sentence: what you like is not an object taking を but a subject taking が. " +
-                "私は寿司が好きです is literally as for me, sushi is likeable.",
-                "The same pattern covers a set of very common words: 嫌い for dislike, 上手 and 下手 for " +
-                "good and bad at, and 欲しい for wanting a thing. All of them take が, and all of them " +
-                "sit on a は topic that is usually left out.",
-                "Wanting to do something is different again — that is the たい form, which the verb stage covers later, " +
-                "and it also prefers が, though を is common and accepted."
-            ],
-            table: {
-                head: ['Pattern', 'Means', 'Example'],
-                rows: [
-                    ['〜が好き', 'like ~', '寿司が好きです'],
-                    ['〜が嫌い', 'dislike ~', '納豆が嫌いです'],
-                    ['〜が上手', 'good at ~', '日本語が上手ですね'],
-                    ['〜が下手', 'bad at ~', '料理が下手です'],
-                    ['〜が欲しい', 'want ~ (a thing)', '車が欲しいです'],
-                    ['〜たい', 'want to ~ (do)', '行きたいです']
-                ]
-            },
-            examples: [
-                { jp: '寿司が好きです', en: 'I like sushi',
-                  note: 'が, not を — 好き is an adjective, and sushi is what is likeable.' }
-            ],
-            check: {
-                q: 'Why is 寿司を好きです wrong?',
-                a: 'Because 好き is not a verb and takes no object. Sushi is the subject of being ' +
-                   'likeable, so it takes が.'
-            }
-        },
-        {
-            title: 'Colours, and the ones that are secretly nouns',
-            body: [
-                "Some colours are い-adjectives and behave like any other: 赤い, 青い, 白い, 黒い, 黄色い. " +
-                "They go straight in front of a noun and carry their own tense.",
-                "The rest are nouns, and they need の to attach: 緑の車, a green car — not 緑い. Pink, " +
-                "grey, orange and most borrowed colour words work this way too, since they arrived as " +
-                "nouns from other languages.",
-                "This is the same い versus な split from the vocabulary stage showing up in a place " +
-                "where the difference is visible, which makes colours a good way to test whether the " +
-                "distinction has landed."
-            ],
-            table: {
-                head: ['Colour', 'Type', 'With a noun'],
-                rows: [
-                    ['赤い', 'い-adjective', '赤い車'],
-                    ['青い', 'い-adjective', '青い空'],
-                    ['白い', 'い-adjective', '白い紙'],
-                    ['黒い', 'い-adjective', '黒い猫'],
-                    ['緑', 'noun', '緑の車'],
-                    ['紫', 'noun', '紫の花'],
-                    ['ピンク', 'noun', 'ピンクのシャツ']
-                ]
-            },
-            check: {
-                q: 'How do you say a green car?',
-                a: '緑の車. 緑 is a noun, so it needs の. 緑い is not a word — unlike 赤い, which is.'
-            }
-        }
-    ],
-    steps: [
-        { text: 'Look up 好き and notice it is filed as an adjective, not a verb.',
-          href: 'dictionary.html#q=好き', label: 'Look up 好き' },
-        { text: 'Break down a comparison and watch より do the work.',
-          href: 'dictionary.html#s=日本語は英語より難しいです', label: 'Break down a comparison' },
-        { text: 'Drill the adjectives and adverbs.',
-          href: 'practice.html#vocabulary=n5', label: 'N5 vocabulary' }
-    ]
-},
-{
-    id: 'numbers',
-    title: 'Numbers, time and counting',
-    aim: 'The system, the irregular readings, and how to say when.',
-    body: 'Numbers are regular right up until they are not. The exceptions are few, fixed, and turn up ' +
-        'constantly, so they are worth learning as a block.',
-    lessons: [
-        {
-            title: 'The number system, and the unit English lacks',
-            body: [
-                "One to ten are the foundation and everything else is built from them: eleven is " +
-                "十一, ten-one; twenty is 二十, two-ten; ninety-nine is 九十九. There is no separate word " +
-                "for eleven or for twenty, which makes the first hundred numbers almost free.",
-                "Above that, Japanese groups by ten thousand rather than by thousand. English steps " +
-                "thousand, million, billion; Japanese steps 万 ten-thousand, 億 hundred-million, " +
-                "兆 trillion. So a hundred thousand is 十万, ten ten-thousands, and a million is 百万, " +
-                "a hundred ten-thousands. This is the single most common place where people lose track " +
-                "of a price."
-            ],
-            table: {
-                head: ['Number', 'Japanese', 'Reading'],
-                rows: [
-                    ['1–10', '一二三四五六七八九十', 'ichi ni san yon go roku nana hachi kyuu juu'],
-                    ['11', '十一', 'juu-ichi'],
-                    ['20', '二十', 'ni-juu'],
-                    ['100', '百', 'hyaku'],
-                    ['1,000', '千', 'sen'],
-                    ['10,000', '一万', 'ichi-man'],
-                    ['100,000', '十万', 'juu-man — ten ten-thousands'],
-                    ['1,000,000', '百万', 'hyaku-man — a hundred ten-thousands']
-                ]
-            },
-            check: {
-                q: 'A price reads 三万円. How much is that?',
-                a: 'Thirty thousand yen — three ten-thousands. Reading it as three thousand is the ' +
-                   'classic mistake, and an expensive one.'
-            }
-        },
-        {
-            title: 'Four, seven and nine have two readings each',
-            body: [
-                "Three numbers are unstable. Four is よん or し, seven is なな or しち, nine is きゅう or " +
-                "く, and which one you use depends on what follows. There is no rule that covers it — " +
-                "the combinations are simply fixed, and you learn them where they occur.",
-                "The reason is superstition as much as phonetics: し also reads as death and く as " +
-                "suffering, so よん and きゅう took over in most everyday counting. But the older " +
-                "readings survive inside set expressions, especially times and dates, which is exactly " +
-                "where a beginner meets them first."
-            ],
-            table: {
-                head: ['', 'Usually', 'But in time'],
-                rows: [
-                    ['4', 'よん', '四時 よじ — four o\u2019clock'],
-                    ['7', 'なな', '七時 しちじ — seven o\u2019clock'],
-                    ['9', 'きゅう', '九時 くじ — nine o\u2019clock'],
-                    ['4 (minutes)', '—', '四分 よんぷん'],
-                    ['1 (minute)', '—', '一分 いっぷん — not いちふん']
-                ]
-            },
-            check: {
-                q: 'Why is four o\u2019clock よじ rather than よんじ or しじ?',
-                a: 'Because the time readings are fixed by usage, not by rule. よじ is simply the form ' +
-                   'that stuck, and it has to be learned as a word rather than assembled.'
-            }
-        },
-        {
-            title: 'Telling the time and saying when',
-            body: [
-                "Time is number plus 時 for the hour and number plus 分 for minutes, with 半 for half " +
-                "past. 午前 marks morning and 午後 afternoon, and they go in front rather than behind: " +
-                "午後三時, three in the afternoon.",
-                "The word for minute changes shape depending on the number in front of it — ふん after " +
-                "some, ぷん after others — which is a sound change rather than a rule worth memorising " +
-                "in the abstract. Say a few and the pattern sets itself.",
-                "Relative time words carry more weight in Japanese than in English because they let you " +
-                "skip tense complexity entirely. 今日, 明日, 昨日, 毎日 and 今 will get you through most " +
-                "early conversations."
-            ],
-            table: {
-                head: ['Japanese', 'Reading', 'Meaning'],
-                rows: [
-                    ['三時', 'sanji', '3 o\u2019clock'],
-                    ['三時半', 'sanji-han', 'half past three'],
-                    ['三時十五分', 'sanji juugo-fun', '3:15'],
-                    ['午前 / 午後', 'gozen / gogo', 'a.m. / p.m.'],
-                    ['今日', 'kyou', 'today'],
-                    ['明日', 'ashita', 'tomorrow'],
-                    ['昨日', 'kinou', 'yesterday'],
-                    ['毎日', 'mainichi', 'every day']
-                ]
-            },
-            examples: [
-                { jp: '会議は三時からです', en: 'The meeting is from three',
-                  note: 'から marks the start; 時 makes the number a time.' }
-            ],
-            check: {
-                q: 'How would you say half past nine in the morning?',
-                a: '午前九時半 — gozen kuji han. Note the く reading of nine, which the clock demands.'
-            }
-        },
-        {
-            title: 'Days, months and dates',
-            body: [
-                "Months are pure arithmetic: 一月 is January, 二月 February, straight through to 十二月. " +
-                "There is nothing to memorise beyond the numbers.",
-                "Days of the month are the opposite. The first twelve or so have their own readings " +
-                "inherited from older Japanese, and they must be learned individually — ついたち for the " +
-                "first, ふつか for the second, みっか for the third. From about the eleventh onwards the " +
-                "regular number plus にち takes over, with a few holdouts like 十四日 and 二十日.",
-                "Weekdays are named after the classical elements, which makes them easy to remember once " +
-                "you see it: sun, moon, fire, water, wood, gold, earth."
-            ],
-            table: {
-                head: ['Japanese', 'Reading', 'Meaning'],
-                rows: [
-                    ['一月', 'ichi-gatsu', 'January'],
-                    ['一日', 'tsuitachi', 'the 1st — irregular'],
-                    ['二日', 'futsuka', 'the 2nd — irregular'],
-                    ['三日', 'mikka', 'the 3rd — irregular'],
-                    ['十四日', 'juuyokka', 'the 14th — irregular'],
-                    ['二十日', 'hatsuka', 'the 20th — irregular'],
-                    ['日曜日', 'nichiyoubi', 'Sunday — sun day'],
-                    ['月曜日', 'getsuyoubi', 'Monday — moon day'],
-                    ['火曜日', 'kayoubi', 'Tuesday — fire day'],
-                    ['水曜日', 'suiyoubi', 'Wednesday — water day']
-                ]
-            },
-            examples: [
-                { jp: '一日', en: 'the first of the month',
-                  note: 'ついたち here, but いちにち when it means one whole day. Same writing.' }
-            ],
-            check: {
-                q: '一月一日 — how is each 一 read?',
-                a: 'いちがつ ついたち. The month is regular, the day is not, and the same character reads ' +
-                   'differently twice in four syllables.'
-            }
-        },
-        {
-            title: 'Numbers in the wild — money, phones, addresses',
-            body: [
-                "Three everyday places use numbers in ways the counting lesson does not cover, and all " +
-                "three catch people out.",
-                "Money is straightforward once the 万 grouping is in hand: prices are the number plus " +
-                "円, and a five-figure price will be spoken in 万. 一万五千円 is fifteen thousand yen. " +
-                "Coins go up to 500 and notes start at 1,000, so cash transactions involve larger " +
-                "numbers than most countries.",
-                "Phone numbers are read digit by digit, with の standing in for the hyphen: 03-1234-5678 " +
-                "is ゼロさん の いちにーさんよん の ごーろくななはち. Note にー and ごー stretched, and " +
-                "よん and なな rather than し and しち — precisely to avoid the confusion those cause.",
-                "Addresses run the opposite way to English: largest unit first. Prefecture, city, ward, " +
-                "district, block, building number. The house number comes last, which means you can " +
-                "read a Japanese address top to bottom and get steadily closer."
-            ],
-            table: {
-                head: ['Written', 'Read as', 'Note'],
-                rows: [
-                    ['1,500円', 'せんごひゃくえん', 'ordinary price'],
-                    ['15,000円', 'いちまんごせんえん', 'grouped by 万'],
-                    ['03-1234-5678', 'ゼロさん の …', 'の for the hyphen'],
-                    ['〒100-0001', 'postal code', 'always written before the address'],
-                    ['東京都新宿区…', 'largest unit first', 'the opposite of English order']
-                ]
-            },
-            check: {
-                q: 'Why are 4 and 7 read よん and なな in phone numbers?',
-                a: 'To avoid confusion. し and しち sound too alike over a phone line, so the ' +
-                   'unambiguous readings are used for anything spoken digit by digit.'
-            }
-        },
-        {
-            title: 'Eras, and saying when relative to now',
-            body: [
-                "Japan counts years twice. The Western calendar is used everywhere, but official " +
-                "documents, forms and news also use era names tied to the reign of the emperor. " +
-                "令和 began in 2019, 平成 ran from 1989, and 昭和 from 1926 — so 昭和五十年 is 1975, " +
-                "and a form asking for your birth year may expect this.",
-                "The arithmetic is simple once you know the start year: era year plus start year minus " +
-                "one. But most people simply learn the current era and the last two, because those " +
-                "cover everything a living person needs.",
-                "For relative time, Japanese extends further from now than English does in one word. " +
-                "おととい is the day before yesterday and あさって the day after tomorrow, both single " +
-                "words. The same runs through weeks, months and years — 先々週, 再来年 — and " +
-                "〜ぶり measures a gap: 三年ぶり, for the first time in three years."
-            ],
-            table: {
-                head: ['Japanese', 'Means'],
-                rows: [
-                    ['令和 / 平成 / 昭和', 'eras from 2019 / 1989 / 1926'],
-                    ['おととい / 昨日 / 今日 / 明日 / あさって', 'the five days around now'],
-                    ['先々週 / 先週 / 今週 / 来週 / 再来週', 'the five weeks around now'],
-                    ['先月 / 今月 / 来月', 'last, this, next month'],
-                    ['去年 / 今年 / 来年 / 再来年', 'last, this, next, the year after'],
-                    ['三年ぶり', 'for the first time in three years'],
-                    ['〜おきに', 'every other ~']
-                ]
-            },
-            check: {
-                q: 'A form asks for your birth year and shows 昭和 / 平成 / 令和. What is it asking?',
-                a: 'Which era you were born in, then the year within it. Japan uses both calendars, and ' +
-                   'official paperwork often expects the era one.'
-            }
-        },
-        {
-            title: 'The year, and when the country stops',
-            body: [
-                "A handful of dates reshape the calendar, and knowing them matters practically: travel " +
-                "is expensive and crowded, offices close, and small talk turns to them for weeks " +
-                "beforehand.",
-                "年末年始, the turn of the year, is the largest. Offices close from about the 29th of " +
-                "December to the 3rd of January, people return to their home towns, and お正月 has its " +
-                "own vocabulary — 初詣, the first shrine visit; お年玉, money given to children; " +
-                "年賀状, new year cards posted to arrive on the 1st.",
-                "ゴールデンウィーク is a cluster of public holidays around the end of April and start of " +
-                "May. お盆 in mid-August is when families return home for the ancestors, and both " +
-                "produce the heaviest travel of the year.",
-                "The greeting changes too: あけましておめでとうございます from the 1st, and " +
-                "よいお年を said to someone you will not see again before the year ends."
-            ],
-            table: {
-                head: ['Japanese', 'When', 'What'],
-                rows: [
-                    ['お正月', '1–3 January', 'new year — the biggest holiday'],
-                    ['年末年始', 'late Dec to early Jan', 'offices closed, travel heavy'],
-                    ['初詣 はつもうで', 'early January', 'first shrine visit of the year'],
-                    ['お年玉 おとしだま', 'new year', 'money given to children'],
-                    ['年賀状 ねんがじょう', 'arriving 1 January', 'new year cards'],
-                    ['ゴールデンウィーク', 'late April to early May', 'a run of public holidays'],
-                    ['お盆', 'mid-August', 'families return home'],
-                    ['よいお年を', 'before new year', 'have a good end of year'],
-                    ['あけましておめでとうございます', 'from 1 January', 'happy new year']
-                ]
-            },
-            check: {
-                q: 'When would you say よいお年を rather than あけましておめでとう?',
-                a: 'Before the year ends, to someone you will not see again until after it. The new ' +
-                   'year greeting only starts on the 1st.'
-            }
-        }
-    ],
-    steps: [
-        { text: 'Trace the numerals — they are the fewest strokes you will ever get for this much use.',
-          href: 'writing.html#trace=一', label: 'Trace 一' },
-        { text: 'Trace 時, which turns any number into a time.',
-          href: 'writing.html#trace=時', label: 'Trace 時' },
-        { text: 'Look up 一日 and notice the two readings sitting in one entry.',
-          href: 'dictionary.html#q=一日', label: 'Look up 一日' },
-        { text: 'Drill the number vocabulary until the irregular ones stop catching you.',
-          href: 'practice.html#vocabulary=n5', label: 'N5 vocabulary' }
-    ]
-},
-{
-    id: 'counters',
-    title: 'Counting things properly',
-    aim: 'The counters, and the sound changes nobody warns you about.',
-    body: 'Counting in Japanese needs a word between the number and the thing, and the number itself ' +
-        'often changes shape to fit it. This is the part beginners quietly avoid.',
-    lessons: [
-        {
-            title: 'Why the number keeps changing',
-            body: [
-                "一本 is いっぽん, 三本 is さんぼん, 六本 is ろっぽん. The counter is the same 本 " +
-                "throughout and the sound moves anyway, which makes counters feel arbitrary when they " +
-                "are actually regular.",
-                "The rule is about ease of pronunciation. A counter starting with h — 本, 匹, 杯, 分 — " +
-                "turns into p after 1, 6, 8 and 10, and into b after 3. A counter starting with k — 個, " +
-                "階, 回 — doubles its consonant after the same numbers. Everything else stays put.",
-                "You do not need to memorise the rule as a rule. Say each set out loud a few times and " +
-                "the pattern installs itself, because it exists precisely because the unchanged versions " +
-                "are awkward to say."
-            ],
-            table: {
-                head: ['', '本 long things', '匹 small animals', '個 small objects', '人 people'],
-                rows: [
-                    ['1', 'いっぽん', 'いっぴき', 'いっこ', 'ひとり'],
-                    ['2', 'にほん', 'にひき', 'にこ', 'ふたり'],
-                    ['3', 'さんぼん', 'さんびき', 'さんこ', 'さんにん'],
-                    ['4', 'よんほん', 'よんひき', 'よんこ', 'よにん'],
-                    ['6', 'ろっぽん', 'ろっぴき', 'ろっこ', 'ろくにん'],
-                    ['8', 'はっぽん', 'はっぴき', 'はっこ', 'はちにん'],
-                    ['10', 'じゅっぽん', 'じゅっぴき', 'じゅっこ', 'じゅうにん']
-                ]
-            },
-            check: {
-                q: 'Why is 三本 さんぼん rather than さんほん?',
-                a: 'Because a counter beginning with h voices to b after three. It is a sound change ' +
-                   'for ease of speech, and it applies across the whole h-initial family.'
-            }
-        },
-        {
-            title: 'The counters worth having',
-            body: [
-                "There are hundreds and you need about ten. The rest can be handled with つ, the " +
-                "general counter, which works for most objects up to nine and is what native speakers " +
-                "reach for when the specific counter escapes them too.",
-                "One irregularity worth flagging: 一人 and 二人 are ひとり and ふたり, not いちにん and " +
-                "ににん — the older native readings survived for exactly the two numbers used most. And " +
-                "二十歳, twenty years old, is はたち, a word with no relation to its parts at all."
-            ],
-            table: {
-                head: ['Counter', 'For', 'Example'],
-                rows: [
-                    ['つ', 'anything, 1–9', '三つ'],
-                    ['人 にん', 'people', '三人'],
-                    ['本 ほん', 'long thin things', 'ペン三本'],
-                    ['枚 まい', 'flat thin things', '紙三枚'],
-                    ['個 こ', 'small objects', 'りんご三個'],
-                    ['匹 ひき', 'small animals', '猫三匹'],
-                    ['台 だい', 'machines, vehicles', '車三台'],
-                    ['冊 さつ', 'books', '本三冊'],
-                    ['杯 はい', 'cupfuls, glassfuls', 'コーヒー三杯'],
-                    ['歳 さい', 'years of age', '二十歳 — はたち']
-                ]
-            },
-            examples: [
-                { jp: 'コーヒーを二杯飲みました', en: 'I drank two cups of coffee',
-                  note: 'The counter goes after the number and before the verb, not attached to the noun.' }
-            ],
-            check: {
-                q: 'You cannot remember the counter for something. What do you say?',
-                a: 'Use つ — 三つ. It is the general counter, it works to nine, and native speakers use ' +
-                   'it the same way when the specific one escapes them.'
-            }
-        },
-        {
-            title: 'Order, fractions and how often',
-            body: [
-                "Ordinals add 目 to a counter: 三人目 the third person, 三日目 the third day. For " +
-                "positions in a sequence, 番目 is the general form — 三番目, the third one.",
-                "Fractions run backwards from English: the denominator comes first. 三分の一 is one " +
-                "third, literally of three parts, one. Percentages use パーセント, but 割 is also " +
-                "common and means a tenth, so 三割 is thirty per cent.",
-                "Frequency uses ordinary adverbs plus a counter: 週に三回, three times a week. The に " +
-                "there marks the period, and the same frame handles 一日に二回 and 月に一回."
-            ],
-            table: {
-                head: ['Japanese', 'Means'],
-                rows: [
-                    ['三番目', 'the third one'],
-                    ['三日目', 'the third day'],
-                    ['三分の一', 'one third'],
-                    ['三割', 'thirty per cent'],
-                    ['週に三回', 'three times a week'],
-                    ['一日中', 'all day long'],
-                    ['三時間', 'three hours — duration'],
-                    ['三時', 'three o\u2019clock — a point in time']
-                ]
-            },
-            examples: [
-                { jp: '週に三回行きます', en: 'I go three times a week',
-                  note: 'に marks the period, 回 counts the occasions.' }
-            ],
-            check: {
-                q: 'What is the difference between 三時 and 三時間?',
-                a: '三時 is three o\u2019clock, a point. 三時間 is three hours, a duration. 間 is what ' +
-                   'turns a moment into a length.'
-            }
-        }
-    ],
-    steps: [
-        { text: 'Look up a counter and see how many things it covers.',
-          href: 'dictionary.html#q=本', label: 'Look up 本' },
-        { text: 'Break down a sentence with a counter in it.',
-          href: 'dictionary.html#s=コーヒーを二杯飲みました', label: 'Break down a counter' },
-        { text: 'Drill the number vocabulary.',
-          href: 'practice.html#vocabulary=n5', label: 'N5 vocabulary' }
-    ]
-},
-{
-    id: 'measures',
-    title: 'Measuring things',
-    aim: 'Units, sizes and the traditional ones still in daily use.',
-    body: 'Japan is metric, with a handful of traditional measures that survived in the places they ' +
-        'were most useful — and those are the ones that catch you out.',
-    lessons: [
-        {
-            title: 'The metric ones, and how they are said',
-            body: [
-                "Distance, weight and volume are metric and the words are borrowed: メートル, キロ, " +
-                "グラム, リットル. Kilo alone — キロ — means kilogram or kilometre depending on context, " +
-                "exactly as in casual English.",
-                "Temperature is Celsius, written 度 and read ど: 三十度 is thirty degrees. Note that " +
-                "気温 is air temperature and 体温 is body temperature, and a doctor asking about your " +
-                "熱 wants the second.",
-                "Percentages have two systems side by side. パーセント is the borrowed one. 割 is a " +
-                "tenth and is very common in shops and statistics — 三割引き is thirty per cent off, " +
-                "and it is the form a sale sign will use."
-            ],
-            table: {
-                head: ['Japanese', 'Means'],
-                rows: [
-                    ['メートル / キロ', 'metre / kilo — either kg or km'],
-                    ['センチ / ミリ', 'centimetre / millimetre'],
-                    ['グラム / キロ', 'gram / kilogram'],
-                    ['リットル', 'litre'],
-                    ['度 ど', 'degrees — Celsius'],
-                    ['気温 / 体温', 'air temperature / body temperature'],
-                    ['パーセント', 'per cent'],
-                    ['〜割 わり', 'tenths — 三割 is 30%'],
-                    ['〜割引き', 'discount of ~ tenths']
-                ]
-            },
-            check: {
-                q: 'A sign says 三割引き. How much off?',
-                a: 'Thirty per cent. 割 is a tenth, so three of them is 30% — and this is the form ' +
-                   'shops actually use, rather than パーセント.'
-            }
-        },
-        {
-            title: 'The traditional ones that survived',
-            body: [
-                "A few pre-metric measures are still in everyday use because they suit what they " +
-                "measure. Room size is given in 畳 or 帖, tatami mats, at roughly 1.65 square metres — " +
-                "so a six-mat room is about ten square metres, and Japanese speakers picture the room " +
-                "rather than the number.",
-                "Land and floor area use 坪, about 3.3 square metres or two tatami mats, and property " +
-                "listings quote both 坪 and square metres side by side.",
-                "The metric equivalents vary slightly by region — a Kyoto mat is larger than a Tokyo " +
-                "one — which is a good sign that the unit is doing something a square metre cannot. It " +
-                "describes a room in units of the thing rooms are made of."
-            ],
-            table: {
-                head: ['Unit', 'Roughly', 'Used for'],
-                rows: [
-                    ['一畳 / 一帖', '1.65 m²', 'room size'],
-                    ['六畳', 'about 10 m²', 'a typical bedroom'],
-                    ['一坪', '3.3 m² — two mats', 'land and floor area'],
-                    ['一合 いちごう', '180 ml', 'rice and sake'],
-                    ['一升 いっしょう', '1.8 litres', 'sake bottles'],
-                    ['一寸 / 一尺', '3 cm / 30 cm', 'rare — idioms and carpentry']
-                ]
-            },
-            check: {
-                q: 'Why measure a room in tatami rather than square metres?',
-                a: 'Because the mat is the unit the room is built from, so the number describes the ' +
-                   'layout as well as the area. Six mats is a picture; ten square metres is a figure.'
-            }
-        },
-        {
-            title: 'Sizes, paper and the numbers on labels',
-            body: [
-                "Clothing uses S, M and L, with Japanese sizing running smaller than European or " +
-                "American equivalents — a Japanese L is often a Western M. Shoes are in centimetres, " +
-                "so 25.5 is a shoe size rather than a foot measurement in disguise.",
-                "Paper uses both A and B series, and B is far more common in Japan than elsewhere. B5 " +
-                "is the standard notebook, A4 the standard document. If a form asks for B5 it means it.",
-                "Two more that turn up on labels: 号 numbers sizes in several trades, including rings, " +
-                "canvases and fonts, and 人前 counts portions — 二人前 is enough for two, and it is how " +
-                "recipes and takeaway are quantified."
-            ],
-            table: {
-                head: ['Japanese', 'Means'],
-                rows: [
-                    ['S / M / L', 'clothing — sized smaller than Western equivalents'],
-                    ['25.5', 'shoe size in centimetres'],
-                    ['A4 / B5', 'paper — B series is common in Japan'],
-                    ['〜号 ごう', 'a size number — rings, canvases, type'],
-                    ['〜人前 にんまえ', 'portions — 二人前 serves two'],
-                    ['〜入り いり', 'contains ~ — 十個入り, a pack of ten']
-                ]
-            },
-            examples: [
-                { jp: '二人前お願いします', en: 'Enough for two, please',
-                  note: '人前 counts servings — useful when ordering to take away.' }
-            ],
-            check: {
-                q: 'A Japanese shirt is marked L. What size is it likely to be?',
-                a: 'Closer to a Western M. Japanese clothing sizing runs smaller, so buying by the ' +
-                   'letter without trying it on is how people end up disappointed.'
-            }
-        }
-    ],
-    steps: [
-        { text: 'Look up 畳 and see the unit and the mat in one entry.',
-          href: 'dictionary.html#q=畳', label: 'Look up 畳' },
-        { text: 'Break down an order by portion.',
-          href: 'dictionary.html#s=二人前お願いします', label: 'Break down 二人前' },
-        { text: 'Drill the number vocabulary.',
-          href: 'practice.html#vocabulary=n4', label: 'N4 vocabulary' }
     ]
 },
 {
@@ -2345,6 +1158,1517 @@ window.LEARN_COURSE = [
           href: 'dictionary.html#q=帰る', label: 'Look up 帰る' },
         { text: 'Test the conjugations.',
           href: 'practice.html#grammar=n5', label: 'N5 grammar' }
+    ]
+},
+{
+    id: 'describing',
+    title: 'Describing and comparing',
+    aim: 'Degree, comparison, and the adjectives that behave like verbs.',
+    body: 'Once you can name things, the next thing you want is to say how much, and which of two you ' +
+        'prefer. Both are more regular in Japanese than in English.',
+    lessons: [
+        {
+            title: 'How much — the degree words',
+            body: [
+                "A handful of adverbs sit in front of an adjective or verb and set the intensity. They " +
+                "go before what they modify and nothing else changes, so they are the cheapest way to " +
+                "make a sentence say more.",
+                "Two of them are traps, because they force the rest of the sentence negative. あまり " +
+                "means not very and 全然 means not at all — but both require a negative ending to " +
+                "finish the thought. あまり高いです is wrong; あまり高くないです is right. The adverb " +
+                "sets up a negative that the verb has to deliver."
+            ],
+            table: {
+                head: ['Word', 'Means', 'Note'],
+                rows: [
+                    ['とても', 'very', ''],
+                    ['すごく', 'really', 'casual'],
+                    ['ちょっと', 'a little', 'also softens a refusal'],
+                    ['少し すこし', 'a little', 'politer than ちょっと'],
+                    ['あまり', 'not very', 'needs a negative ending'],
+                    ['全然 ぜんぜん', 'not at all', 'needs a negative ending'],
+                    ['もっと', 'more', ''],
+                    ['たくさん', 'a lot', 'quantity, not intensity']
+                ]
+            },
+            examples: [
+                { jp: 'あまり高くないです', en: 'It is not very expensive',
+                  note: 'あまり at the front, negative at the back. Both halves are required.' }
+            ],
+            check: {
+                q: 'What is wrong with 全然おいしいです?',
+                a: '全然 demands a negative. Either finish it — 全然おいしくないです — or use a different ' +
+                   'adverb. In very casual speech the positive turns up, but not in anything you write.'
+            }
+        },
+        {
+            title: 'Comparing two things, and picking a best',
+            body: [
+                "Japanese has no comparative form — no -er, no more. Comparison is done with particles " +
+                "instead, which means the adjective never changes.",
+                "より marks the thing you are comparing against: AはBより高い, A is more expensive than B. " +
+                "For a question or a preference, のほうが marks the side you favour: コーヒーのほうが " +
+                "いいです, coffee is better. And 一番, literally number one, makes a superlative: " +
+                "一番高い, the most expensive.",
+                "For a comparison question the frame is fixed and worth memorising whole: AとBとどちらが " +
+                "— between A and B, which?"
+            ],
+            table: {
+                head: ['Pattern', 'Means', 'Example'],
+                rows: [
+                    ['AはBより〜', 'A is more ~ than B', '日本語は英語より難しい'],
+                    ['Aのほうが〜', 'A is the more ~ one', 'コーヒーのほうがいいです'],
+                    ['AとBとどちらが〜', 'which of A and B is ~?', 'コーヒーと紅茶とどちらが好きですか'],
+                    ['〜の中で一番〜', 'the most ~ of all', 'クラスの中で一番高い']
+                ]
+            },
+            examples: [
+                { jp: '日本語は英語より難しいです', en: 'Japanese is harder than English',
+                  note: 'より does the comparing. 難しい itself never changes shape.' }
+            ],
+            check: {
+                q: 'How do you say more expensive in Japanese?',
+                a: 'You do not — 高い is already it. The comparison lives in より or のほうが, not in the ' +
+                   'adjective.'
+            }
+        },
+        {
+            title: 'Liking, wanting, and the が that surprises everyone',
+            body: [
+                "好き is not a verb. It is a な-adjective meaning likeable, which changes the whole shape " +
+                "of the sentence: what you like is not an object taking を but a subject taking が. " +
+                "私は寿司が好きです is literally as for me, sushi is likeable.",
+                "The same pattern covers a set of very common words: 嫌い for dislike, 上手 and 下手 for " +
+                "good and bad at, and 欲しい for wanting a thing. All of them take が, and all of them " +
+                "sit on a は topic that is usually left out.",
+                "Wanting to do something is different again — that is the たい form from the verb stage, " +
+                "and it also prefers が, though を is common and accepted."
+            ],
+            table: {
+                head: ['Pattern', 'Means', 'Example'],
+                rows: [
+                    ['〜が好き', 'like ~', '寿司が好きです'],
+                    ['〜が嫌い', 'dislike ~', '納豆が嫌いです'],
+                    ['〜が上手', 'good at ~', '日本語が上手ですね'],
+                    ['〜が下手', 'bad at ~', '料理が下手です'],
+                    ['〜が欲しい', 'want ~ (a thing)', '車が欲しいです'],
+                    ['〜たい', 'want to ~ (do)', '行きたいです']
+                ]
+            },
+            examples: [
+                { jp: '寿司が好きです', en: 'I like sushi',
+                  note: 'が, not を — 好き is an adjective, and sushi is what is likeable.' }
+            ],
+            check: {
+                q: 'Why is 寿司を好きです wrong?',
+                a: 'Because 好き is not a verb and takes no object. Sushi is the subject of being ' +
+                   'likeable, so it takes が.'
+            }
+        },
+        {
+            title: 'Colours, and the ones that are secretly nouns',
+            body: [
+                "Some colours are い-adjectives and behave like any other: 赤い, 青い, 白い, 黒い, 黄色い. " +
+                "They go straight in front of a noun and carry their own tense.",
+                "The rest are nouns, and they need の to attach: 緑の車, a green car — not 緑い. Pink, " +
+                "grey, orange and most borrowed colour words work this way too, since they arrived as " +
+                "nouns from other languages.",
+                "This is the same い versus な split from the vocabulary stage showing up in a place " +
+                "where the difference is visible, which makes colours a good way to test whether the " +
+                "distinction has landed."
+            ],
+            table: {
+                head: ['Colour', 'Type', 'With a noun'],
+                rows: [
+                    ['赤い', 'い-adjective', '赤い車'],
+                    ['青い', 'い-adjective', '青い空'],
+                    ['白い', 'い-adjective', '白い紙'],
+                    ['黒い', 'い-adjective', '黒い猫'],
+                    ['緑', 'noun', '緑の車'],
+                    ['紫', 'noun', '紫の花'],
+                    ['ピンク', 'noun', 'ピンクのシャツ']
+                ]
+            },
+            check: {
+                q: 'How do you say a green car?',
+                a: '緑の車. 緑 is a noun, so it needs の. 緑い is not a word — unlike 赤い, which is.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Look up 好き and notice it is filed as an adjective, not a verb.',
+          href: 'dictionary.html#q=好き', label: 'Look up 好き' },
+        { text: 'Break down a comparison and watch より do the work.',
+          href: 'dictionary.html#s=日本語は英語より難しいです', label: 'Break down a comparison' },
+        { text: 'Drill the adjectives and adverbs.',
+          href: 'practice.html#vocabulary=n5', label: 'N5 vocabulary' }
+    ]
+},
+{
+    id: 'numbers',
+    title: 'Numbers, time and counting',
+    aim: 'The system, the irregular readings, and how to say when.',
+    body: 'Numbers are regular right up until they are not. The exceptions are few, fixed, and turn up ' +
+        'constantly, so they are worth learning as a block.',
+    lessons: [
+        {
+            title: 'The number system, and the unit English lacks',
+            body: [
+                "One to ten are the foundation and everything else is built from them: eleven is " +
+                "十一, ten-one; twenty is 二十, two-ten; ninety-nine is 九十九. There is no separate word " +
+                "for eleven or for twenty, which makes the first hundred numbers almost free.",
+                "Above that, Japanese groups by ten thousand rather than by thousand. English steps " +
+                "thousand, million, billion; Japanese steps 万 ten-thousand, 億 hundred-million, " +
+                "兆 trillion. So a hundred thousand is 十万, ten ten-thousands, and a million is 百万, " +
+                "a hundred ten-thousands. This is the single most common place where people lose track " +
+                "of a price."
+            ],
+            table: {
+                head: ['Number', 'Japanese', 'Reading'],
+                rows: [
+                    ['1–10', '一二三四五六七八九十', 'ichi ni san yon go roku nana hachi kyuu juu'],
+                    ['11', '十一', 'juu-ichi'],
+                    ['20', '二十', 'ni-juu'],
+                    ['100', '百', 'hyaku'],
+                    ['1,000', '千', 'sen'],
+                    ['10,000', '一万', 'ichi-man'],
+                    ['100,000', '十万', 'juu-man — ten ten-thousands'],
+                    ['1,000,000', '百万', 'hyaku-man — a hundred ten-thousands']
+                ]
+            },
+            check: {
+                q: 'A price reads 三万円. How much is that?',
+                a: 'Thirty thousand yen — three ten-thousands. Reading it as three thousand is the ' +
+                   'classic mistake, and an expensive one.'
+            }
+        },
+        {
+            title: 'Four, seven and nine have two readings each',
+            body: [
+                "Three numbers are unstable. Four is よん or し, seven is なな or しち, nine is きゅう or " +
+                "く, and which one you use depends on what follows. There is no rule that covers it — " +
+                "the combinations are simply fixed, and you learn them where they occur.",
+                "The reason is superstition as much as phonetics: し also reads as death and く as " +
+                "suffering, so よん and きゅう took over in most everyday counting. But the older " +
+                "readings survive inside set expressions, especially times and dates, which is exactly " +
+                "where a beginner meets them first."
+            ],
+            table: {
+                head: ['', 'Usually', 'But in time'],
+                rows: [
+                    ['4', 'よん', '四時 よじ — four o\u2019clock'],
+                    ['7', 'なな', '七時 しちじ — seven o\u2019clock'],
+                    ['9', 'きゅう', '九時 くじ — nine o\u2019clock'],
+                    ['4 (minutes)', '—', '四分 よんぷん'],
+                    ['1 (minute)', '—', '一分 いっぷん — not いちふん']
+                ]
+            },
+            check: {
+                q: 'Why is four o\u2019clock よじ rather than よんじ or しじ?',
+                a: 'Because the time readings are fixed by usage, not by rule. よじ is simply the form ' +
+                   'that stuck, and it has to be learned as a word rather than assembled.'
+            }
+        },
+        {
+            title: 'Telling the time and saying when',
+            body: [
+                "Time is number plus 時 for the hour and number plus 分 for minutes, with 半 for half " +
+                "past. 午前 marks morning and 午後 afternoon, and they go in front rather than behind: " +
+                "午後三時, three in the afternoon.",
+                "The word for minute changes shape depending on the number in front of it — ふん after " +
+                "some, ぷん after others — which is a sound change rather than a rule worth memorising " +
+                "in the abstract. Say a few and the pattern sets itself.",
+                "Relative time words carry more weight in Japanese than in English because they let you " +
+                "skip tense complexity entirely. 今日, 明日, 昨日, 毎日 and 今 will get you through most " +
+                "early conversations."
+            ],
+            table: {
+                head: ['Japanese', 'Reading', 'Meaning'],
+                rows: [
+                    ['三時', 'sanji', '3 o\u2019clock'],
+                    ['三時半', 'sanji-han', 'half past three'],
+                    ['三時十五分', 'sanji juugo-fun', '3:15'],
+                    ['午前 / 午後', 'gozen / gogo', 'a.m. / p.m.'],
+                    ['今日', 'kyou', 'today'],
+                    ['明日', 'ashita', 'tomorrow'],
+                    ['昨日', 'kinou', 'yesterday'],
+                    ['毎日', 'mainichi', 'every day']
+                ]
+            },
+            examples: [
+                { jp: '会議は三時からです', en: 'The meeting is from three',
+                  note: 'から marks the start; 時 makes the number a time.' }
+            ],
+            check: {
+                q: 'How would you say half past nine in the morning?',
+                a: '午前九時半 — gozen kuji han. Note the く reading of nine, which the clock demands.'
+            }
+        },
+        {
+            title: 'Days, months and dates',
+            body: [
+                "Months are pure arithmetic: 一月 is January, 二月 February, straight through to 十二月. " +
+                "There is nothing to memorise beyond the numbers.",
+                "Days of the month are the opposite. The first twelve or so have their own readings " +
+                "inherited from older Japanese, and they must be learned individually — ついたち for the " +
+                "first, ふつか for the second, みっか for the third. From about the eleventh onwards the " +
+                "regular number plus にち takes over, with a few holdouts like 十四日 and 二十日.",
+                "Weekdays are named after the classical elements, which makes them easy to remember once " +
+                "you see it: sun, moon, fire, water, wood, gold, earth."
+            ],
+            table: {
+                head: ['Japanese', 'Reading', 'Meaning'],
+                rows: [
+                    ['一月', 'ichi-gatsu', 'January'],
+                    ['一日', 'tsuitachi', 'the 1st — irregular'],
+                    ['二日', 'futsuka', 'the 2nd — irregular'],
+                    ['三日', 'mikka', 'the 3rd — irregular'],
+                    ['十四日', 'juuyokka', 'the 14th — irregular'],
+                    ['二十日', 'hatsuka', 'the 20th — irregular'],
+                    ['日曜日', 'nichiyoubi', 'Sunday — sun day'],
+                    ['月曜日', 'getsuyoubi', 'Monday — moon day'],
+                    ['火曜日', 'kayoubi', 'Tuesday — fire day'],
+                    ['水曜日', 'suiyoubi', 'Wednesday — water day']
+                ]
+            },
+            examples: [
+                { jp: '一日', en: 'the first of the month',
+                  note: 'ついたち here, but いちにち when it means one whole day. Same writing.' }
+            ],
+            check: {
+                q: '一月一日 — how is each 一 read?',
+                a: 'いちがつ ついたち. The month is regular, the day is not, and the same character reads ' +
+                   'differently twice in four syllables.'
+            }
+        },
+        {
+            title: 'Numbers in the wild — money, phones, addresses',
+            body: [
+                "Three everyday places use numbers in ways the counting lesson does not cover, and all " +
+                "three catch people out.",
+                "Money is straightforward once the 万 grouping is in hand: prices are the number plus " +
+                "円, and a five-figure price will be spoken in 万. 一万五千円 is fifteen thousand yen. " +
+                "Coins go up to 500 and notes start at 1,000, so cash transactions involve larger " +
+                "numbers than most countries.",
+                "Phone numbers are read digit by digit, with の standing in for the hyphen: 03-1234-5678 " +
+                "is ゼロさん の いちにーさんよん の ごーろくななはち. Note にー and ごー stretched, and " +
+                "よん and なな rather than し and しち — precisely to avoid the confusion those cause.",
+                "Addresses run the opposite way to English: largest unit first. Prefecture, city, ward, " +
+                "district, block, building number. The house number comes last, which means you can " +
+                "read a Japanese address top to bottom and get steadily closer."
+            ],
+            table: {
+                head: ['Written', 'Read as', 'Note'],
+                rows: [
+                    ['1,500円', 'せんごひゃくえん', 'ordinary price'],
+                    ['15,000円', 'いちまんごせんえん', 'grouped by 万'],
+                    ['03-1234-5678', 'ゼロさん の …', 'の for the hyphen'],
+                    ['〒100-0001', 'postal code', 'always written before the address'],
+                    ['東京都新宿区…', 'largest unit first', 'the opposite of English order']
+                ]
+            },
+            check: {
+                q: 'Why are 4 and 7 read よん and なな in phone numbers?',
+                a: 'To avoid confusion. し and しち sound too alike over a phone line, so the ' +
+                   'unambiguous readings are used for anything spoken digit by digit.'
+            }
+        },
+        {
+            title: 'Eras, and saying when relative to now',
+            body: [
+                "Japan counts years twice. The Western calendar is used everywhere, but official " +
+                "documents, forms and news also use era names tied to the reign of the emperor. " +
+                "令和 began in 2019, 平成 ran from 1989, and 昭和 from 1926 — so 昭和五十年 is 1975, " +
+                "and a form asking for your birth year may expect this.",
+                "The arithmetic is simple once you know the start year: era year plus start year minus " +
+                "one. But most people simply learn the current era and the last two, because those " +
+                "cover everything a living person needs.",
+                "For relative time, Japanese extends further from now than English does in one word. " +
+                "おととい is the day before yesterday and あさって the day after tomorrow, both single " +
+                "words. The same runs through weeks, months and years — 先々週, 再来年 — and " +
+                "〜ぶり measures a gap: 三年ぶり, for the first time in three years."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['令和 / 平成 / 昭和', 'eras from 2019 / 1989 / 1926'],
+                    ['おととい / 昨日 / 今日 / 明日 / あさって', 'the five days around now'],
+                    ['先々週 / 先週 / 今週 / 来週 / 再来週', 'the five weeks around now'],
+                    ['先月 / 今月 / 来月', 'last, this, next month'],
+                    ['去年 / 今年 / 来年 / 再来年', 'last, this, next, the year after'],
+                    ['三年ぶり', 'for the first time in three years'],
+                    ['〜おきに', 'every other ~']
+                ]
+            },
+            check: {
+                q: 'A form asks for your birth year and shows 昭和 / 平成 / 令和. What is it asking?',
+                a: 'Which era you were born in, then the year within it. Japan uses both calendars, and ' +
+                   'official paperwork often expects the era one.'
+            }
+        },
+        {
+            title: 'The year, and when the country stops',
+            body: [
+                "A handful of dates reshape the calendar, and knowing them matters practically: travel " +
+                "is expensive and crowded, offices close, and small talk turns to them for weeks " +
+                "beforehand.",
+                "年末年始, the turn of the year, is the largest. Offices close from about the 29th of " +
+                "December to the 3rd of January, people return to their home towns, and お正月 has its " +
+                "own vocabulary — 初詣, the first shrine visit; お年玉, money given to children; " +
+                "年賀状, new year cards posted to arrive on the 1st.",
+                "ゴールデンウィーク is a cluster of public holidays around the end of April and start of " +
+                "May. お盆 in mid-August is when families return home for the ancestors, and both " +
+                "produce the heaviest travel of the year.",
+                "The greeting changes too: あけましておめでとうございます from the 1st, and " +
+                "よいお年を said to someone you will not see again before the year ends."
+            ],
+            table: {
+                head: ['Japanese', 'When', 'What'],
+                rows: [
+                    ['お正月', '1–3 January', 'new year — the biggest holiday'],
+                    ['年末年始', 'late Dec to early Jan', 'offices closed, travel heavy'],
+                    ['初詣 はつもうで', 'early January', 'first shrine visit of the year'],
+                    ['お年玉 おとしだま', 'new year', 'money given to children'],
+                    ['年賀状 ねんがじょう', 'arriving 1 January', 'new year cards'],
+                    ['ゴールデンウィーク', 'late April to early May', 'a run of public holidays'],
+                    ['お盆', 'mid-August', 'families return home'],
+                    ['よいお年を', 'before new year', 'have a good end of year'],
+                    ['あけましておめでとうございます', 'from 1 January', 'happy new year']
+                ]
+            },
+            check: {
+                q: 'When would you say よいお年を rather than あけましておめでとう?',
+                a: 'Before the year ends, to someone you will not see again until after it. The new ' +
+                   'year greeting only starts on the 1st.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Trace the numerals — they are the fewest strokes you will ever get for this much use.',
+          href: 'writing.html#trace=一', label: 'Trace 一' },
+        { text: 'Trace 時, which turns any number into a time.',
+          href: 'writing.html#trace=時', label: 'Trace 時' },
+        { text: 'Look up 一日 and notice the two readings sitting in one entry.',
+          href: 'dictionary.html#q=一日', label: 'Look up 一日' },
+        { text: 'Drill the number vocabulary until the irregular ones stop catching you.',
+          href: 'practice.html#vocabulary=n5', label: 'N5 vocabulary' }
+    ]
+},
+{
+    id: 'kanji',
+    title: 'Your first kanji',
+    aim: 'The N5 set — around 100 characters.',
+    body: 'Kanji carry meaning rather than sound, and most have more than one reading.',
+    lessons: [
+        {
+            title: 'Why one kanji has two kinds of reading',
+            body: [
+                "Japan borrowed Chinese characters to write a language that already existed and was " +
+                "unrelated. Each character arrived with its Chinese pronunciation, and was also attached " +
+                "to the native Japanese word that already meant the same thing. Both survived.",
+                "The Chinese-derived reading is the on\u2019yomi, and it turns up mostly in compounds of " +
+                "two or more kanji. The native reading is the kun\u2019yomi, used when the character " +
+                "stands alone or carries hiragana endings. 山 alone is やま; inside 富士山 it is サン.",
+                "Do not memorise the reading lists cold. Learn each character inside a word you already " +
+                "know, and the readings come attached to something you can actually use."
+            ],
+            table: {
+                head: ['Kanji', 'Alone (kun)', 'In a compound (on)'],
+                rows: [
+                    ['山', 'やま — mountain', '富士山 ふじサン — Mt Fuji'],
+                    ['人', 'ひと — person', '日本人 にほんジン — a Japanese person'],
+                    ['日', 'ひ — day, sun', '日本 ニほん — Japan'],
+                    ['学', '— rarely alone', '学生 ガクせい — student']
+                ]
+            },
+            examples: [
+                { jp: '日本人', en: 'Japanese person', note: 'Three kanji, all on\u2019yomi, one word.' }
+            ],
+            check: {
+                q: 'You meet a kanji you know, but it is next to another kanji. Which reading do you try?',
+                a: 'The on\u2019yomi first. Two kanji together is usually a compound, and compounds ' +
+                   'usually take the Chinese-derived readings.'
+            }
+        },
+        {
+            title: 'Stroke order is not decoration',
+            body: [
+                "Every kanji has a fixed order and direction for its strokes, and it is worth following " +
+                "for three reasons. Characters written in order come out balanced, because the rules " +
+                "exist to keep the proportions right. Handwriting recognition and paper dictionaries " +
+                "both depend on it. And the order is a memory aid — the hand remembers sequences much " +
+                "better than the eye remembers shapes.",
+                "Almost all of it falls out of a handful of rules, and the tracing page numbers every " +
+                "stroke so you can check yourself."
+            ],
+            table: {
+                head: ['Rule', 'Example'],
+                rows: [
+                    ['Top to bottom', '三 — the three lines from the top down'],
+                    ['Left to right', '川 — left stroke first'],
+                    ['Horizontal before vertical when they cross', '十 — the across stroke, then the down one'],
+                    ['Centre before the sides', '小 — the middle stroke leads'],
+                    ['Outside before inside', '国 — the box first, then the contents'],
+                    ['Close the box last', '国 — the bottom line of the frame comes after the inside'],
+                    ['Left-falling before right-falling', '人 — the leftward stroke first']
+                ]
+            },
+            examples: [
+                { jp: '国', en: 'country', note: 'Frame, contents, then the bottom line closes it.' }
+            ],
+            check: {
+                q: 'In 国, when is the bottom of the outer box drawn?',
+                a: 'Last. You draw the frame open, fill in the inside, then close it — the same order ' +
+                   'you would use to put something in a container.'
+            }
+        },
+        {
+            title: 'Numbers, and why counting needs a word',
+            body: [
+                "The numbers are the highest-value kanji you will ever learn, and among the simplest: " +
+                "一二三四五六七八九十, then 百 hundred, 千 thousand, 万 ten thousand. Note that Japanese " +
+                "groups large numbers by ten thousand, not by thousand — 100,000 is 十万, ten ten-thousands.",
+                "Counting anything requires a counter word between the number and the noun, chosen by " +
+                "the shape or nature of the thing. This feels arbitrary and is: English does the same " +
+                "with two loaves of bread. Learn a handful and use つ when you are stuck, which is what " +
+                "the general counter is for."
+            ],
+            table: {
+                head: ['Counter', 'Used for', 'Example'],
+                rows: [
+                    ['つ', 'anything, up to nine', '三つ — three of them'],
+                    ['人 nin', 'people', '三人 — three people'],
+                    ['本 hon', 'long thin things', 'ペン三本 — three pens'],
+                    ['枚 mai', 'flat thin things', '紙三枚 — three sheets of paper'],
+                    ['匹 hiki', 'small animals', '猫三匹 — three cats'],
+                    ['冊 satsu', 'books', '本三冊 — three books']
+                ]
+            },
+            check: {
+                q: 'What is 十万?',
+                a: 'One hundred thousand — ten ten-thousands. Japanese counts in units of 万, so large ' +
+                   'numbers need regrouping rather than direct translation.'
+            }
+        },
+        {
+            title: 'Radicals — the parts kanji are made of',
+            body: [
+                "Kanji are not drawings to be memorised whole. Almost all of them are assembled from a " +
+                "few hundred recurring components, and once you can see the components a complicated " +
+                "character stops being complicated — it becomes three simple things stacked.",
+                "One component, the radical, is traditionally the one a paper dictionary files the " +
+                "character under, and it often hints at the meaning. Water appears as three strokes on " +
+                "the left in 海, 泳, 洗 — sea, swim, wash. Another component frequently carries the " +
+                "sound instead, which is why 校, 効 and 郊 all read こう.",
+                "You do not need to study radical names as a beginner. You do need to stop looking at a " +
+                "kanji as a single shape, because that is the habit that makes the four-hundredth one " +
+                "as hard as the first."
+            ],
+            table: {
+                head: ['Radical', 'Suggests', 'Seen in'],
+                rows: [
+                    ['亻 person', 'people, actions', '休 rest, 何 what, 作 make'],
+                    ['氵 water', 'liquid', '海 sea, 泳 swim, 酒 alcohol'],
+                    ['木 tree', 'wood, plants', '林 grove, 森 forest, 校 school'],
+                    ['言 words', 'speech', '語 language, 話 talk, 読 read'],
+                    ['心 heart', 'feeling', '思 think, 悲 sad, 感 feel'],
+                    ['日 sun', 'time, light', '時 time, 明 bright, 曜 weekday']
+                ]
+            },
+            examples: [
+                { jp: '森', en: 'forest', note: 'Three trees. Some kanji really are that literal.' },
+                { jp: '休', en: 'rest', note: 'A person beside a tree.' }
+            ],
+            check: {
+                q: 'You meet 泳 for the first time. What can you guess before looking it up?',
+                a: 'That it has something to do with water, from the three strokes on the left. It ' +
+                   'means to swim — the radical narrowed it down before you read a definition.'
+            }
+        },
+        {
+            title: 'Okurigana — the hiragana on the end',
+            body: [
+                "食べる is written with a kanji and two kana. The kanji carries the meaning and the kana " +
+                "carry the grammar, and the kana on the end have a name: okurigana. They are what let " +
+                "one character serve a verb that changes shape constantly.",
+                "This is also how Japanese disambiguates readings. 上 alone can be うえ; 上る is のぼる " +
+                "and 上げる is あげる. The okurigana tells you which word you are looking at, and " +
+                "removing them would make the sentence genuinely ambiguous rather than merely terse.",
+                "For the same reason, okurigana is where conjugation happens. Everything the verb stage " +
+                "covers happens in those trailing kana, and the kanji never moves."
+            ],
+            table: {
+                head: ['Written', 'Reading', 'Means'],
+                rows: [
+                    ['上', 'ue', 'above, top'],
+                    ['上げる', 'ageru', 'to raise'],
+                    ['上る', 'noboru', 'to climb'],
+                    ['下', 'shita', 'below'],
+                    ['下げる', 'sageru', 'to lower'],
+                    ['下さい', 'kudasai', 'please give']
+                ]
+            },
+            check: {
+                q: 'Why can 食べる not be written just 食?',
+                a: 'Because the べる is doing the grammar. Without it there is nothing to conjugate and ' +
+                   'no way to tell which of the character\u2019s readings is meant.'
+            }
+        },
+        {
+            title: 'Looking up a kanji you cannot read',
+            body: [
+                "Sooner or later you meet a character with no reading you can guess, and that used to be " +
+                "the hardest problem in learning Japanese. It no longer is, and there are four ways out.",
+                "If it is on screen, copy it and paste it into the dictionary here — the search takes " +
+                "kanji directly. If it is on paper, the kanji chart on the Kana and Kanji page is " +
+                "searchable by meaning and by reading, so a guess at either will often find it. Handwriting " +
+                "input on a phone works well and rewards knowing stroke order, since recognition follows " +
+                "the strokes you draw.",
+                "And if you can identify the radical and count the strokes, you can find anything in a " +
+                "paper dictionary — slower, but it is the skill that never stops working."
+            ],
+            check: {
+                q: 'Why does knowing stroke order help with handwriting input?',
+                a: 'Because recognition uses the order and direction of your strokes, not just the ' +
+                   'finished shape. Drawn in the wrong order, a correct-looking character often fails.'
+            }
+        },
+        {
+            title: 'Compounds, and how meaning stacks',
+            body: [
+                "Most Japanese vocabulary above the basics is built by combining kanji, and the " +
+                "combinations are often transparent once you know the parts. 電 electricity plus 話 " +
+                "talk is 電話, telephone. Plus 車 vehicle it is 電車, train. Plus 気 spirit it is 電気, " +
+                "electricity or the lights.",
+                "This is why the return on each new kanji rises rather than falls. The first hundred " +
+                "buy you a hundred words; the second hundred buy you several hundred, because each new " +
+                "character combines with everything you already have.",
+                "One family is worth naming: a great many nouns become verbs simply by adding する. " +
+                "勉強 is study as a noun, 勉強する is to study. This covers hundreds of words and costs " +
+                "nothing to learn, since する is one of the two irregular verbs you already know."
+            ],
+            table: {
+                head: ['Compound', 'Parts', 'Means'],
+                rows: [
+                    ['電話', 'electricity + talk', 'telephone'],
+                    ['電車', 'electricity + vehicle', 'train'],
+                    ['大学', 'big + learning', 'university'],
+                    ['先生', 'before + born', 'teacher'],
+                    ['入口', 'enter + mouth', 'entrance'],
+                    ['勉強する', 'study + do', 'to study'],
+                    ['料理する', 'cooking + do', 'to cook']
+                ]
+            },
+            examples: [
+                { jp: '電車', en: 'train', note: 'Two characters you already know, one word you did not.' }
+            ],
+            check: {
+                q: 'Why does learning kanji get easier rather than harder?',
+                a: 'Because each new character combines with every one you already have. The hundredth ' +
+                   'kanji unlocks more words than the tenth did.'
+            }
+        },
+        {
+            title: 'How to actually learn them',
+            body: [
+                "Kanji is the part of Japanese where method matters most, because the volume is large " +
+                "enough that a bad method costs years. Four things make the difference.",
+                "Learn them in words, not alone. A character memorised in isolation has no reading " +
+                "attached that you can use, and readings only make sense inside vocabulary. 日 alone is " +
+                "ambiguous; 日本, 今日 and 日曜日 each teach you a reading you can actually deploy.",
+                "Use the components. Every kanji above about ten strokes is made of pieces you already " +
+                "know, and inventing a story from those pieces makes it stick far better than " +
+                "repetition — 休 is a person beside a tree, resting, and you will not forget that.",
+                "Space the repetition. Reviewing something just as it starts to fade is worth many " +
+                "times reviewing it while you still know it, which is what any spaced system is doing. " +
+                "The Performance mode in the quizzes here works on the same principle.",
+                "And write them. It is slower than recognition drilling and it is the reason the " +
+                "characters stop blurring together — the hand distinguishes shapes the eye confuses."
+            ],
+            table: {
+                head: ['Do', 'Rather than'],
+                rows: [
+                    ['learn 日 inside 日本, 今日, 日曜日', 'memorise its reading list'],
+                    ['break 語 into its parts', 'memorise fourteen strokes'],
+                    ['review what is fading', 'review what you know'],
+                    ['write them', 'only read them'],
+                    ['follow a frequency order', 'work through by stroke count']
+                ]
+            },
+            check: {
+                q: 'Why is learning a kanji inside a word better than learning it alone?',
+                a: 'Because the readings only make sense in context, and a word gives you something to ' +
+                   'use immediately. A reading list with nowhere to apply it fades.'
+            }
+        },
+        {
+            title: 'Characters that look almost the same',
+            body: [
+                "A number of kanji differ by one stroke, one length or one dot, and they are not rare " +
+                "characters — several are in the first hundred. Meeting them side by side once is worth " +
+                "more than discovering them one confusion at a time.",
+                "The commonest trap is 待 and 持: wait and hold, differing only in the left-hand " +
+                "component. 未 and 末 differ in which horizontal stroke is longer — not yet versus end. " +
+                "土 and 士, earth and gentleman, are the same trick.",
+                "The defence is the same as for everything else about kanji: look at the components, " +
+                "not the silhouette. 待 has the going-person radical and 持 has the hand radical, which " +
+                "makes them obviously different once you see the parts rather than the shape."
+            ],
+            table: {
+                head: ['Pair', 'Difference', 'Means'],
+                rows: [
+                    ['待 / 持', 'left component', 'wait / hold'],
+                    ['未 / 末', 'which stroke is longer', 'not yet / end'],
+                    ['土 / 士', 'which stroke is longer', 'earth / gentleman'],
+                    ['大 / 犬', 'one dot', 'big / dog'],
+                    ['日 / 目', 'one stroke inside', 'sun / eye'],
+                    ['人 / 入', 'which stroke is on top', 'person / enter'],
+                    ['刀 / 力', 'one stroke', 'sword / power']
+                ]
+            },
+            check: {
+                q: 'How do you tell 待 from 持 reliably?',
+                a: 'By the left-hand component, not the overall shape. 持 has the hand radical — you ' +
+                   'hold with a hand — and 待 does not.'
+            }
+        },
+        {
+            title: 'How many there are, officially',
+            body: [
+                "The government maintains a list, and knowing its shape tells you where the finish " +
+                "line is. 常用漢字 is the standard set for everyday use: 2,136 characters, and " +
+                "anything outside it should carry furigana in a newspaper.",
+                "Inside that, 教育漢字 are the 1,026 taught in primary school, assigned grade by grade " +
+                "— 80 in the first year, rising through the sixth. Learning in that order is a real " +
+                "option and has the advantage of being ordered by usefulness to a child rather than by " +
+                "difficulty, which correlates well with usefulness generally.",
+                "Names are a separate list. 人名用漢字 adds about 860 characters permitted in personal " +
+                "names but not in general writing, which is part of why name readings defeat " +
+                "dictionaries.",
+                "For scale: N5 is around 100 of the 2,136 and N1 around 2,000. The list is finite, " +
+                "which is worth holding on to — unlike vocabulary, kanji genuinely ends."
+            ],
+            table: {
+                head: ['List', 'Size', 'What it is'],
+                rows: [
+                    ['常用漢字', '2,136', 'the standard everyday set'],
+                    ['教育漢字', '1,026', 'taught in primary school, by grade'],
+                    ['人名用漢字', '~860 more', 'permitted in names only'],
+                    ['N5 / N1', '~100 / ~2,000', 'the exam levels against that set'],
+                    ['outside the list', '—', 'should carry furigana in print']
+                ]
+            },
+            check: {
+                q: 'Why is it encouraging that 常用漢字 has 2,136 characters?',
+                a: 'Because it is finite. Vocabulary never ends, but the standard kanji set does — and ' +
+                   'the first thousand cover the overwhelming majority of ordinary text.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Browse the N5 kanji. Tap one for its readings, meanings and stroke count.',
+          href: 'characters.html#kanji=n5', label: 'N5 kanji' },
+        { text: 'Trace the numbers first — they turn up everywhere and the strokes are few.',
+          href: 'writing.html#trace=%E4%B8%80', label: 'Trace 一' },
+        { text: 'Trace 国 and watch where the last stroke of the frame falls.',
+          href: 'writing.html#trace=%E5%9B%BD', label: 'Trace 国' },
+        { text: 'From any kanji, use Look up in Dictionary to meet it inside real words.',
+          href: 'dictionary.html#q=%E6%97%A5%E6%9C%AC', label: 'Look up 日本' },
+        { text: 'Drill the readings.',
+          href: 'practice.html#kanji=n5', label: 'N5 kanji quiz' }
+    ]
+},
+{
+    id: 'people',
+    title: 'Talking about people',
+    aim: 'Introducing yourself, naming others, and the inside–outside line.',
+    body: 'Japanese encodes relationships in its vocabulary. Who someone is to you changes which word ' +
+        'you use for them, and getting that wrong is more noticeable than a grammar slip.',
+    lessons: [
+        {
+            title: 'Introducing yourself',
+            body: [
+                "A self-introduction in Japanese has a shape, and following it makes you sound prepared " +
+                "rather than fluent — which is exactly right at the start. Name, where you are from, " +
+                "what you do, then よろしくお願いします to close.",
+                "Two habits to build now. Japanese order is family name first, so 田中健 is Mr Tanaka " +
+                "whose given name is Ken. And you rarely need 私は at all: starting with your name is " +
+                "normal, and the topic is obvious. Beginners who say 私は every sentence sound like a " +
+                "textbook exercise."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['はじめまして', 'how do you do — first meeting only'],
+                    ['〜と申します', 'my name is — humble, safest in formal settings'],
+                    ['〜です', 'I am — plain and fine in most situations'],
+                    ['〜から来ました', 'I come from ~'],
+                    ['〜をしています', 'I do ~ for a living'],
+                    ['よろしくお願いします', 'closes every introduction']
+                ]
+            },
+            examples: [
+                { jp: 'はじめまして、田中と申します', en: 'How do you do, my name is Tanaka',
+                  note: '申します is the humble form of 言う — you are lowering yourself, politely.' }
+            ],
+            check: {
+                q: 'Why do you rarely need to say 私は when introducing yourself?',
+                a: 'Because the topic is already obvious. Japanese drops anything the situation supplies, ' +
+                   'and repeating 私は marks you as translating from English.'
+            }
+        },
+        {
+            title: 'さん, くん, ちゃん, 様, 先生',
+            body: [
+                "Names almost never stand bare. A suffix goes on the end, and which one you pick states " +
+                "the relationship — so leaving it off is not neutral, it is intimate. Dropping the " +
+                "suffix entirely is something done between close friends and by parents to children.",
+                "さん is the default and works for anyone. 様 is markedly formal, used for customers and " +
+                "in writing. くん is for junior males and classmates, ちゃん for children and close " +
+                "friends. 先生 is used for teachers, doctors and anyone with expertise, and it replaces " +
+                "the suffix rather than joining it.",
+                "The rule people forget: never use any of these about yourself. 田中さんです about " +
+                "yourself is the same error as calling yourself Mr Tanaka."
+            ],
+            table: {
+                head: ['Suffix', 'Used for'],
+                rows: [
+                    ['〜さん', 'anyone — the safe default'],
+                    ['〜様 さま', 'customers, formal writing, deities'],
+                    ['〜くん', 'junior men, classmates, sometimes junior staff'],
+                    ['〜ちゃん', 'children, close friends, pets'],
+                    ['〜先生', 'teachers, doctors, lawyers, writers'],
+                    ['no suffix', 'close friends, family, or yourself']
+                ]
+            },
+            check: {
+                q: 'Your teacher is called 山田. What do you call her?',
+                a: '山田先生. 先生 replaces さん rather than stacking with it — 山田先生さん is wrong.'
+            }
+        },
+        {
+            title: 'Family, and the inside–outside line',
+            body: [
+                "Japanese has two complete sets of family words: one for your own family and one for " +
+                "everyone else's. Your mother is 母; someone else's is お母さん. This is the clearest " +
+                "example of a principle that runs through the whole language — uchi and soto, inside " +
+                "and outside.",
+                "Inside is your family, your company, your group. You speak humbly about the inside and " +
+                "respectfully about the outside, even when the outside person is junior to you. This is " +
+                "why an employee talking to a customer refers to their own company president without any " +
+                "honorific at all.",
+                "Confusingly, you use the outside words to address your own family directly. You call " +
+                "your mother お母さん to her face and 母 when telling someone else about her."
+            ],
+            table: {
+                head: ['Relation', 'Yours', "Someone else's"],
+                rows: [
+                    ['mother', '母 はは', 'お母さん'],
+                    ['father', '父 ちち', 'お父さん'],
+                    ['older sister', '姉 あね', 'お姉さん'],
+                    ['older brother', '兄 あに', 'お兄さん'],
+                    ['younger sister', '妹 いもうと', '妹さん'],
+                    ['younger brother', '弟 おとうと', '弟さん'],
+                    ['family', '家族 かぞく', 'ご家族']
+                ]
+            },
+            examples: [
+                { jp: '母は先生です', en: 'My mother is a teacher',
+                  note: '母 because she is inside. Talking to her, you would say お母さん.' }
+            ],
+            check: {
+                q: 'You tell a colleague about your mother. 母 or お母さん?',
+                a: '母. She is inside your group and the colleague is outside, so you speak of her plainly. ' +
+                   'お母さん would be for their mother, or for addressing yours directly.'
+            }
+        },
+        {
+            title: 'Giving and receiving',
+            body: [
+                "Three verbs cover giving, and which one you use depends on the direction relative to " +
+                "you. This has no English parallel and it catches everyone.",
+                "あげる is giving away from you — I give to someone, or one outsider gives another. " +
+                "くれる is giving towards you — someone gives to me, or to my group. English uses give " +
+                "for both, which is why learners say あげる when they mean くれる and accidentally " +
+                "describe themselves as the giver.",
+                "もらう flips the sentence around: it is receiving, so the receiver becomes the subject " +
+                "and the giver takes から or に. All three also attach to the te-form to describe doing " +
+                "a favour rather than handing over an object, which is where they turn up most often."
+            ],
+            table: {
+                head: ['Verb', 'Direction', 'Example'],
+                rows: [
+                    ['あげる', 'I → someone else', '友達に本をあげました'],
+                    ['くれる', 'someone else → me', '友達が本をくれました'],
+                    ['もらう', 'I receive', '友達に本をもらいました'],
+                    ['〜てあげる', 'do a favour for someone', '教えてあげる — I teach them'],
+                    ['〜てくれる', 'someone does me a favour', '教えてくれる — they teach me'],
+                    ['〜てもらう', 'have someone do it', '教えてもらう — I get taught']
+                ]
+            },
+            examples: [
+                { jp: '友達が本をくれました', en: 'A friend gave me a book',
+                  note: 'くれる, because it came towards me. あげる here would mean I gave it.' }
+            ],
+            check: {
+                q: 'Someone helps you. 手伝ってあげました or 手伝ってくれました?',
+                a: 'くれました — the favour came towards you. あげました would mean you helped them.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Look up the two words for mother and see them listed side by side.',
+          href: 'dictionary.html#q=母', label: 'Look up 母' },
+        { text: 'Break down a self-introduction and see 申します resolve to 言う.',
+          href: 'dictionary.html#s=田中と申します', label: 'Break down 申します' },
+        { text: 'Read how the inside–outside line drives honorific choice.',
+          href: 'keigo.html#situations', label: 'Keigo situations' }
+    ]
+},
+{
+    id: 'names',
+    title: 'Names',
+    aim: 'Reading them, asking about them, and using them correctly.',
+    body: 'Names are the one part of Japanese where the writing genuinely does not tell you the ' +
+        'reading, and where getting the form of address wrong is immediately felt.',
+    lessons: [
+        {
+            title: 'Family name first, and what to call people',
+            body: [
+                "Japanese order is 苗字 then 名前 — family name, then given name. 田中健 is Mr Tanaka " +
+                "whose given name is Ken. In English contexts the order is often flipped for " +
+                "foreigners' benefit, which means you cannot always tell which is which without asking.",
+                "The default address is family name plus さん, and it stays that way far longer than " +
+                "in English. Colleagues who have worked together for years still use it. Moving to a " +
+                "given name is a real step, usually invited rather than assumed, and using one " +
+                "uninvited reads as presumptuous rather than friendly.",
+                "The ten commonest surnames cover a striking share of the country — 佐藤, 鈴木, 高橋, " +
+                "田中, 伊藤, 渡辺, 山本, 中村, 小林, 加藤 — which is why offices are full of people " +
+                "distinguished by given name or department rather than surname."
+            ],
+            table: {
+                head: ['Surname', 'Reading'],
+                rows: [
+                    ['佐藤', 'satou'],
+                    ['鈴木', 'suzuki'],
+                    ['高橋', 'takahashi'],
+                    ['田中', 'tanaka'],
+                    ['伊藤', 'itou'],
+                    ['渡辺', 'watanabe'],
+                    ['山本', 'yamamoto'],
+                    ['中村', 'nakamura'],
+                    ['小林', 'kobayashi'],
+                    ['加藤', 'katou']
+                ]
+            },
+            check: {
+                q: 'A colleague of five years is still 田中さん. Is the relationship distant?',
+                a: 'No. Family name plus さん is the ordinary long-term form between colleagues, and ' +
+                   'moving to a given name is a step that gets invited rather than assumed.'
+            }
+        },
+        {
+            title: 'Why nobody can read them either',
+            body: [
+                "Given names use readings that exist only in names — 名乗り読み — on top of the on and " +
+                "kun readings you already know. 和子 might be かずこ or わこ. 直 as a given name can be " +
+                "なお, ただし, すなお and more. There is frequently no way to know.",
+                "This is not a foreigner problem. Japanese people ask each other, forms have a furigana " +
+                "line above the name field for exactly this, and business cards print the reading. " +
+                "Asking is normal and expected rather than an admission of anything.",
+                "The polite question is 何とお読みすればよろしいでしょうか — how should I read this — or " +
+                "more simply お名前は何とお読みしますか. Both are worth memorising whole, because you " +
+                "will use them and because assembling them from grammar under pressure is harder than " +
+                "it looks."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['苗字 / 名字 みょうじ', 'family name'],
+                    ['名前 なまえ', 'given name, or name generally'],
+                    ['フルネーム', 'full name'],
+                    ['ふりがな', 'the reading line on a form'],
+                    ['名乗り読み', 'readings used only in names'],
+                    ['何とお読みしますか', 'how is this read?'],
+                    ['旧姓 きゅうせい', 'maiden name']
+                ]
+            },
+            examples: [
+                { jp: 'お名前は何とお読みしますか', en: 'How is your name read?',
+                  note: 'Honorific お〜する from the keigo stage, on a question you will actually use.' }
+            ],
+            check: {
+                q: 'Is asking how a Japanese name is read a sign of poor Japanese?',
+                a: 'No. Japanese speakers ask each other constantly, forms have a furigana line for it, ' +
+                   'and cards print the reading. The information genuinely is not recoverable.'
+            }
+        },
+        {
+            title: 'Your own name in Japanese',
+            body: [
+                "Foreign names are written in katakana, and the version you settle on is worth getting " +
+                "right early because it will follow you onto every form. The usual approach is to " +
+                "approximate the sound rather than the spelling — Smith is スミス, not スミトフ.",
+                "Order gets flipped inconsistently. Japanese forms often ask for family name first, " +
+                "matching Japanese order, while your passport shows given name first. Filling in a " +
+                "form, follow the field labels — 姓 is family name and 名 is given name — rather than " +
+                "your habit.",
+                "Introducing yourself, the pattern is the one from the people stage: 〜と申します in " +
+                "formal settings, 〜です otherwise. Many people also offer a shortened version, since " +
+                "a long foreign name in katakana is a mouthful and offering the short form is a " +
+                "kindness rather than a concession."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['姓 せい', 'family name — the field label'],
+                    ['名 めい', 'given name — the field label'],
+                    ['〜と申します', 'my name is — formal'],
+                    ['〜と呼んでください', 'please call me ~'],
+                    ['カタカナで', 'in katakana — how a form will want it'],
+                    ['ローマ字', 'Latin letters']
+                ]
+            },
+            examples: [
+                { jp: 'ケンと呼んでください', en: 'Please call me Ken',
+                  note: 'て-form request plus the quoting と — two patterns you already have.' }
+            ],
+            check: {
+                q: 'A form has fields marked 姓 and 名. Which goes where?',
+                a: '姓 is your family name and 名 your given name — Japanese order, whatever your ' +
+                   'passport shows. Follow the labels rather than the habit.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Break down the question you will ask about a name.',
+          href: 'dictionary.html#s=お名前は何とお読みしますか', label: 'Break down お読みしますか' },
+        { text: 'Look up 苗字 and see it beside 名字.',
+          href: 'dictionary.html#q=苗字', label: 'Look up 苗字' },
+        { text: 'Trace 田, which starts more surnames than any other character.',
+          href: 'writing.html#trace=田', label: 'Trace 田' }
+    ]
+},
+{
+    id: 'domains',
+    title: 'Vocabulary by place',
+    aim: 'The words that come with a room, a job or a journey.',
+    body: 'Vocabulary learned by topic sticks better than vocabulary learned by frequency, because you ' +
+        'meet it all at once when you are actually there.',
+    lessons: [
+        {
+            title: 'Food and the kitchen',
+            body: [
+                "Food vocabulary pays back immediately, because you use it several times a day and " +
+                "because menus are made of it. Start with the staples and the verbs that go with them.",
+                "One point of grammar rides along here: 作る is to make and 料理する is to cook, and " +
+                "料理 by itself is both the activity and the dish. Similarly 飲む covers drinking " +
+                "anything including soup, which Japanese drinks rather than eats."
+            ],
+            table: {
+                head: ['Japanese', 'Reading', 'Means'],
+                rows: [
+                    ['ご飯', 'gohan', 'rice, or a meal'],
+                    ['肉', 'niku', 'meat'],
+                    ['魚', 'sakana', 'fish'],
+                    ['野菜', 'yasai', 'vegetables'],
+                    ['卵', 'tamago', 'egg'],
+                    ['水 / お茶', 'mizu / ocha', 'water / tea'],
+                    ['朝ご飯 / 昼ご飯 / 晩ご飯', '—', 'breakfast / lunch / dinner'],
+                    ['作る', 'tsukuru', 'to make'],
+                    ['焼く / 煮る / 揚げる', '—', 'grill / simmer / deep-fry'],
+                    ['おいしい / まずい', '—', 'tasty / unpleasant']
+                ]
+            },
+            check: {
+                q: 'What does ご飯 mean besides rice?',
+                a: 'A meal. 朝ご飯 is breakfast whether or not any rice is involved — the staple food ' +
+                   'gave its name to eating generally.'
+            }
+        },
+        {
+            title: 'Home and daily routine',
+            body: [
+                "The house and the day that happens in it. These are the words a diary entry needs, " +
+                "which makes them a good set to learn if you are writing anything for practice.",
+                "Note that several everyday actions pair a noun with する or a specific verb rather " +
+                "than translating one-to-one: お風呂に入る is to take a bath, literally to enter the " +
+                "bath, and 歯を磨く is to brush teeth, literally to polish them."
+            ],
+            table: {
+                head: ['Japanese', 'Reading', 'Means'],
+                rows: [
+                    ['家 / うち', 'ie / uchi', 'house / home'],
+                    ['部屋', 'heya', 'room'],
+                    ['台所', 'daidokoro', 'kitchen'],
+                    ['お風呂', 'ofuro', 'bath'],
+                    ['起きる / 寝る', '—', 'get up / sleep'],
+                    ['お風呂に入る', '—', 'take a bath'],
+                    ['歯を磨く', '—', 'brush your teeth'],
+                    ['掃除する / 洗濯する', '—', 'clean / do laundry'],
+                    ['出かける / 帰る', '—', 'go out / come home']
+                ]
+            },
+            check: {
+                q: 'Why is it お風呂に入る rather than お風呂をする?',
+                a: 'Because Japanese describes it as entering the bath. Several daily actions pair a ' +
+                   'noun with a specific verb rather than する.'
+            }
+        },
+        {
+            title: 'Work and school',
+            body: [
+                "These two share most of their vocabulary, because the social shape is similar: a " +
+                "place, a schedule, people above and below you, and a lot of meetings.",
+                "先輩 and 後輩 have no English equivalent and matter more than the words suggest. They " +
+                "mark whether someone entered before or after you, in a school or a company, and that " +
+                "relationship persists regardless of age or ability — it decides which register you " +
+                "speak in for years."
+            ],
+            table: {
+                head: ['Japanese', 'Reading', 'Means'],
+                rows: [
+                    ['会社', 'kaisha', 'company'],
+                    ['学校 / 大学', '—', 'school / university'],
+                    ['仕事', 'shigoto', 'work, a job'],
+                    ['会議', 'kaigi', 'meeting'],
+                    ['宿題', 'shukudai', 'homework'],
+                    ['試験 / テスト', '—', 'exam / test'],
+                    ['先輩 / 後輩', 'senpai / kouhai', 'senior / junior by entry, not age'],
+                    ['同僚', 'douryou', 'colleague'],
+                    ['休み', 'yasumi', 'a day off, a holiday'],
+                    ['残業', 'zangyou', 'overtime']
+                ]
+            },
+            check: {
+                q: 'Is a 先輩 necessarily older than you?',
+                a: 'No. The word marks who entered the school or company first. Someone younger who ' +
+                   'joined a year earlier is still your 先輩.'
+            }
+        },
+        {
+            title: 'Travel, shopping and money',
+            body: [
+                "The words for getting about and paying for things. Most of these you will read before " +
+                "you say — on signs, tickets and receipts — which makes recognition the priority.",
+                "Two practical notes. 切符 is a paper ticket and most people now use an IC card, so you " +
+                "will hear カード more. And お釣り, change, is worth having ready, along with " +
+                "レシート for the receipt as against 領収書, which is the formal receipt you ask for if " +
+                "you need to claim expenses."
+            ],
+            table: {
+                head: ['Japanese', 'Reading', 'Means'],
+                rows: [
+                    ['駅 / 空港', 'eki / kuukou', 'station / airport'],
+                    ['電車 / バス / 地下鉄', '—', 'train / bus / underground'],
+                    ['切符', 'kippu', 'ticket'],
+                    ['荷物', 'nimotsu', 'luggage'],
+                    ['店 / お店', 'mise', 'shop'],
+                    ['値段', 'nedan', 'price'],
+                    ['お釣り', 'otsuri', 'change'],
+                    ['レシート / 領収書', '—', 'receipt / formal receipt'],
+                    ['安い / 高い', '—', 'cheap / expensive'],
+                    ['予約する', 'yoyaku suru', 'to book, to reserve']
+                ]
+            },
+            examples: [
+                { jp: '予約したいんですが', en: 'I would like to make a booking…',
+                  note: 'んですが trailing off — the polite opening from the hedging lesson.' }
+            ],
+            check: {
+                q: 'When would you ask for a 領収書 rather than a レシート?',
+                a: 'When you need to claim it back. A レシート is the ordinary till receipt; a 領収書 is ' +
+                   'the formal one made out to a name.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Look up a word from a set you use daily.',
+          href: 'dictionary.html#q=仕事', label: 'Look up 仕事' },
+        { text: 'Break down a booking request.',
+          href: 'dictionary.html#s=予約したいんですが', label: 'Break down a request' },
+        { text: 'Drill vocabulary at the next level up.',
+          href: 'practice.html#vocabulary=n4', label: 'N4 vocabulary' }
+    ]
+},
+{
+    id: 'domains2',
+    title: 'More vocabulary by place',
+    aim: 'Technology, hobbies, feelings and the natural world.',
+    body: 'Four more themed sets. These are the ones that come up once you can hold a conversation ' +
+        'rather than only survive one.',
+    lessons: [
+        {
+            title: 'Phones, computers and the internet',
+            body: [
+                "Technology vocabulary is heavily 外来語, which makes it the easiest domain to guess " +
+                "at — and the one where the borrowings have drifted most. パソコン is a personal " +
+                "computer, shortened past recognition. スマホ is a smartphone, same trick.",
+                "The verbs are mostly native or Chinese-derived even where the noun is borrowed, which " +
+                "is the 混種語 pattern in daily use, a pattern the strata stage names later: アプリをダウンロードする, " +
+                "ファイルを保存する."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['パソコン', 'computer'],
+                    ['スマホ', 'smartphone'],
+                    ['アプリ', 'app'],
+                    ['充電する じゅうでん', 'to charge'],
+                    ['電源 でんげん', 'power, the power switch'],
+                    ['画面 がめん', 'screen'],
+                    ['保存する ほぞん', 'to save'],
+                    ['検索する けんさく', 'to search'],
+                    ['送信する そうしん', 'to send'],
+                    ['つながらない', 'it will not connect']
+                ]
+            },
+            check: {
+                q: 'Why is パソコン hard to guess from English?',
+                a: 'Because it is a shortened compound — personal computer cut to four syllables. ' +
+                   'Japanese abbreviates borrowings aggressively, which is what makes them opaque.'
+            }
+        },
+        {
+            title: 'Hobbies and what you do at the weekend',
+            body: [
+                "趣味 is hobby, and 趣味は何ですか is one of the first questions anyone will ask you. " +
+                "Having an answer ready with two sentences after it is worth more than a large " +
+                "vocabulary you cannot deploy.",
+                "The pattern for most is noun plus をする — サッカーをする, ゲームをする — but a few take " +
+                "their own verb: 音楽を聞く, 本を読む, 写真を撮る, 楽器を弾く. 弾く is specifically for " +
+                "stringed and keyboard instruments; drums take 叩く and wind instruments 吹く."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['趣味 しゅみ', 'hobby'],
+                    ['音楽を聞く', 'listen to music'],
+                    ['本を読む', 'read'],
+                    ['映画を見る', 'watch films'],
+                    ['旅行する', 'travel'],
+                    ['料理する', 'cook'],
+                    ['写真を撮る', 'take photographs'],
+                    ['楽器を弾く', 'play an instrument — strings and keys'],
+                    ['スポーツをする', 'play sport'],
+                    ['ゲームをする', 'play games']
+                ]
+            },
+            examples: [
+                { jp: '趣味は音楽を聞くことです', en: 'My hobby is listening to music',
+                  note: 'こと nominalising the verb — the pattern from the phrases stage.' }
+            ],
+            check: {
+                q: 'You play the drums. Is it 弾く?',
+                a: 'No — 叩く, to strike. 弾く is for strings and keyboards, and wind instruments take ' +
+                   '吹く. The verb follows the instrument.'
+            }
+        },
+        {
+            title: 'Feelings, and the rule that comes with them',
+            body: [
+                "Emotion vocabulary carries the restriction from the stage on talking about other " +
+                "people: these adjectives describe an internal state, so you can assert them about " +
+                "yourself and must mark them as inferred about anyone else.",
+                "嬉しい is happy about something specific; 楽しい is enjoyable, describing the activity " +
+                "rather than you. 寂しい is lonely, and is used far more freely than the English word " +
+                "— saying you will be 寂しい when someone leaves is ordinary, not heavy.",
+                "怒る is to get angry and behaves as a verb, so it escapes the がる rule: 彼は怒って" +
+                "います is perfectly fine, because anger is visible."
+            ],
+            table: {
+                head: ['Japanese', 'Means', 'About others'],
+                rows: [
+                    ['嬉しい うれしい', 'glad', '嬉しそう / 嬉しがる'],
+                    ['楽しい たのしい', 'enjoyable', '楽しそう'],
+                    ['悲しい かなしい', 'sad', '悲しそう'],
+                    ['寂しい さびしい', 'lonely', '寂しがる'],
+                    ['怖い こわい', 'frightened, frightening', '怖がる'],
+                    ['恥ずかしい', 'embarrassed', '恥ずかしがる'],
+                    ['心配 しんぱい', 'worry', '心配している'],
+                    ['怒る おこる', 'get angry — a verb', '怒っています']
+                ]
+            },
+            check: {
+                q: 'Why can you say 彼は怒っています but not 彼は嬉しいです?',
+                a: 'Because 怒る is a verb describing visible behaviour, while 嬉しい is an adjective ' +
+                   'describing an inner state. The second needs 嬉しそう or 嬉しがる.'
+            }
+        },
+        {
+            title: 'Weather, animals and the outdoors',
+            body: [
+                "These are among the first kanji taught, partly because they are simple and partly " +
+                "because they turn up in place names constantly — 山, 川, 田, 海, 森 are all common " +
+                "surnames as well as landscape.",
+                "Animal names are usually written in kana in ordinary text even though kanji exist, " +
+                "which is the script convention the writing stage covers later: 猫 is correct and ねこ is more " +
+                "common in casual writing. Scientific and formal contexts use katakana.",
+                "Weather words pair with the verb pairs the transitivity stage covers later in a way worth noticing: " +
+                "雨が降る, rain falls, is intransitive, and there is no way to make yourself the subject " +
+                "of it — which is exactly why the suffering passive 雨に降られる exists."
+            ],
+            table: {
+                head: ['Japanese', 'Reading', 'Means'],
+                rows: [
+                    ['天気 / 空', 'tenki / sora', 'weather / sky'],
+                    ['雨 / 雪 / 風', 'ame / yuki / kaze', 'rain / snow / wind'],
+                    ['晴れ / 曇り', 'hare / kumori', 'clear / cloudy'],
+                    ['海 / 川 / 山', 'umi / kawa / yama', 'sea / river / mountain'],
+                    ['森 / 木 / 花', 'mori / ki / hana', 'forest / tree / flower'],
+                    ['犬 / 猫 / 鳥 / 魚', 'inu / neko / tori / sakana', 'dog / cat / bird / fish'],
+                    ['虫 むし', '—', 'insect'],
+                    ['星 ほし', '—', 'star']
+                ]
+            },
+            examples: [
+                { jp: '雨が降っています', en: 'It is raining',
+                  note: 'が, because 降る is intransitive — the rain does it, nobody makes it happen.' }
+            ],
+            check: {
+                q: 'Why is there no way to say you rained?',
+                a: 'Because 降る is intransitive and takes no agent. Japanese gets around it with the ' +
+                   'suffering passive — 雨に降られた, I was rained on and it spoiled things.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Look up a shortened borrowing and see the full form.',
+          href: 'dictionary.html#q=パソコン', label: 'Look up パソコン' },
+        { text: 'Break down an answer to the hobby question.',
+          href: 'dictionary.html#s=趣味は音楽を聞くことです', label: 'Break down 趣味は' },
+        { text: 'Drill the vocabulary.',
+          href: 'practice.html#vocabulary=n4', label: 'N4 vocabulary' }
+    ]
+},
+{
+    id: 'counters',
+    title: 'Counting things properly',
+    aim: 'The counters, and the sound changes nobody warns you about.',
+    body: 'Counting in Japanese needs a word between the number and the thing, and the number itself ' +
+        'often changes shape to fit it. This is the part beginners quietly avoid.',
+    lessons: [
+        {
+            title: 'Why the number keeps changing',
+            body: [
+                "一本 is いっぽん, 三本 is さんぼん, 六本 is ろっぽん. The counter is the same 本 " +
+                "throughout and the sound moves anyway, which makes counters feel arbitrary when they " +
+                "are actually regular.",
+                "The rule is about ease of pronunciation. A counter starting with h — 本, 匹, 杯, 分 — " +
+                "turns into p after 1, 6, 8 and 10, and into b after 3. A counter starting with k — 個, " +
+                "階, 回 — doubles its consonant after the same numbers. Everything else stays put.",
+                "You do not need to memorise the rule as a rule. Say each set out loud a few times and " +
+                "the pattern installs itself, because it exists precisely because the unchanged versions " +
+                "are awkward to say."
+            ],
+            table: {
+                head: ['', '本 long things', '匹 small animals', '個 small objects', '人 people'],
+                rows: [
+                    ['1', 'いっぽん', 'いっぴき', 'いっこ', 'ひとり'],
+                    ['2', 'にほん', 'にひき', 'にこ', 'ふたり'],
+                    ['3', 'さんぼん', 'さんびき', 'さんこ', 'さんにん'],
+                    ['4', 'よんほん', 'よんひき', 'よんこ', 'よにん'],
+                    ['6', 'ろっぽん', 'ろっぴき', 'ろっこ', 'ろくにん'],
+                    ['8', 'はっぽん', 'はっぴき', 'はっこ', 'はちにん'],
+                    ['10', 'じゅっぽん', 'じゅっぴき', 'じゅっこ', 'じゅうにん']
+                ]
+            },
+            check: {
+                q: 'Why is 三本 さんぼん rather than さんほん?',
+                a: 'Because a counter beginning with h voices to b after three. It is a sound change ' +
+                   'for ease of speech, and it applies across the whole h-initial family.'
+            }
+        },
+        {
+            title: 'The counters worth having',
+            body: [
+                "There are hundreds and you need about ten. The rest can be handled with つ, the " +
+                "general counter, which works for most objects up to nine and is what native speakers " +
+                "reach for when the specific counter escapes them too.",
+                "One irregularity worth flagging: 一人 and 二人 are ひとり and ふたり, not いちにん and " +
+                "ににん — the older native readings survived for exactly the two numbers used most. And " +
+                "二十歳, twenty years old, is はたち, a word with no relation to its parts at all."
+            ],
+            table: {
+                head: ['Counter', 'For', 'Example'],
+                rows: [
+                    ['つ', 'anything, 1–9', '三つ'],
+                    ['人 にん', 'people', '三人'],
+                    ['本 ほん', 'long thin things', 'ペン三本'],
+                    ['枚 まい', 'flat thin things', '紙三枚'],
+                    ['個 こ', 'small objects', 'りんご三個'],
+                    ['匹 ひき', 'small animals', '猫三匹'],
+                    ['台 だい', 'machines, vehicles', '車三台'],
+                    ['冊 さつ', 'books', '本三冊'],
+                    ['杯 はい', 'cupfuls, glassfuls', 'コーヒー三杯'],
+                    ['歳 さい', 'years of age', '二十歳 — はたち']
+                ]
+            },
+            examples: [
+                { jp: 'コーヒーを二杯飲みました', en: 'I drank two cups of coffee',
+                  note: 'The counter goes after the number and before the verb, not attached to the noun.' }
+            ],
+            check: {
+                q: 'You cannot remember the counter for something. What do you say?',
+                a: 'Use つ — 三つ. It is the general counter, it works to nine, and native speakers use ' +
+                   'it the same way when the specific one escapes them.'
+            }
+        },
+        {
+            title: 'Order, fractions and how often',
+            body: [
+                "Ordinals add 目 to a counter: 三人目 the third person, 三日目 the third day. For " +
+                "positions in a sequence, 番目 is the general form — 三番目, the third one.",
+                "Fractions run backwards from English: the denominator comes first. 三分の一 is one " +
+                "third, literally of three parts, one. Percentages use パーセント, but 割 is also " +
+                "common and means a tenth, so 三割 is thirty per cent.",
+                "Frequency uses ordinary adverbs plus a counter: 週に三回, three times a week. The に " +
+                "there marks the period, and the same frame handles 一日に二回 and 月に一回."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['三番目', 'the third one'],
+                    ['三日目', 'the third day'],
+                    ['三分の一', 'one third'],
+                    ['三割', 'thirty per cent'],
+                    ['週に三回', 'three times a week'],
+                    ['一日中', 'all day long'],
+                    ['三時間', 'three hours — duration'],
+                    ['三時', 'three o\u2019clock — a point in time']
+                ]
+            },
+            examples: [
+                { jp: '週に三回行きます', en: 'I go three times a week',
+                  note: 'に marks the period, 回 counts the occasions.' }
+            ],
+            check: {
+                q: 'What is the difference between 三時 and 三時間?',
+                a: '三時 is three o\u2019clock, a point. 三時間 is three hours, a duration. 間 is what ' +
+                   'turns a moment into a length.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Look up a counter and see how many things it covers.',
+          href: 'dictionary.html#q=本', label: 'Look up 本' },
+        { text: 'Break down a sentence with a counter in it.',
+          href: 'dictionary.html#s=コーヒーを二杯飲みました', label: 'Break down a counter' },
+        { text: 'Drill the number vocabulary.',
+          href: 'practice.html#vocabulary=n5', label: 'N5 vocabulary' }
+    ]
+},
+{
+    id: 'measures',
+    title: 'Measuring things',
+    aim: 'Units, sizes and the traditional ones still in daily use.',
+    body: 'Japan is metric, with a handful of traditional measures that survived in the places they ' +
+        'were most useful — and those are the ones that catch you out.',
+    lessons: [
+        {
+            title: 'The metric ones, and how they are said',
+            body: [
+                "Distance, weight and volume are metric and the words are borrowed: メートル, キロ, " +
+                "グラム, リットル. Kilo alone — キロ — means kilogram or kilometre depending on context, " +
+                "exactly as in casual English.",
+                "Temperature is Celsius, written 度 and read ど: 三十度 is thirty degrees. Note that " +
+                "気温 is air temperature and 体温 is body temperature, and a doctor asking about your " +
+                "熱 wants the second.",
+                "Percentages have two systems side by side. パーセント is the borrowed one. 割 is a " +
+                "tenth and is very common in shops and statistics — 三割引き is thirty per cent off, " +
+                "and it is the form a sale sign will use."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['メートル / キロ', 'metre / kilo — either kg or km'],
+                    ['センチ / ミリ', 'centimetre / millimetre'],
+                    ['グラム / キロ', 'gram / kilogram'],
+                    ['リットル', 'litre'],
+                    ['度 ど', 'degrees — Celsius'],
+                    ['気温 / 体温', 'air temperature / body temperature'],
+                    ['パーセント', 'per cent'],
+                    ['〜割 わり', 'tenths — 三割 is 30%'],
+                    ['〜割引き', 'discount of ~ tenths']
+                ]
+            },
+            check: {
+                q: 'A sign says 三割引き. How much off?',
+                a: 'Thirty per cent. 割 is a tenth, so three of them is 30% — and this is the form ' +
+                   'shops actually use, rather than パーセント.'
+            }
+        },
+        {
+            title: 'The traditional ones that survived',
+            body: [
+                "A few pre-metric measures are still in everyday use because they suit what they " +
+                "measure. Room size is given in 畳 or 帖, tatami mats, at roughly 1.65 square metres — " +
+                "so a six-mat room is about ten square metres, and Japanese speakers picture the room " +
+                "rather than the number.",
+                "Land and floor area use 坪, about 3.3 square metres or two tatami mats, and property " +
+                "listings quote both 坪 and square metres side by side.",
+                "The metric equivalents vary slightly by region — a Kyoto mat is larger than a Tokyo " +
+                "one — which is a good sign that the unit is doing something a square metre cannot. It " +
+                "describes a room in units of the thing rooms are made of."
+            ],
+            table: {
+                head: ['Unit', 'Roughly', 'Used for'],
+                rows: [
+                    ['一畳 / 一帖', '1.65 m²', 'room size'],
+                    ['六畳', 'about 10 m²', 'a typical bedroom'],
+                    ['一坪', '3.3 m² — two mats', 'land and floor area'],
+                    ['一合 いちごう', '180 ml', 'rice and sake'],
+                    ['一升 いっしょう', '1.8 litres', 'sake bottles'],
+                    ['一寸 / 一尺', '3 cm / 30 cm', 'rare — idioms and carpentry']
+                ]
+            },
+            check: {
+                q: 'Why measure a room in tatami rather than square metres?',
+                a: 'Because the mat is the unit the room is built from, so the number describes the ' +
+                   'layout as well as the area. Six mats is a picture; ten square metres is a figure.'
+            }
+        },
+        {
+            title: 'Sizes, paper and the numbers on labels',
+            body: [
+                "Clothing uses S, M and L, with Japanese sizing running smaller than European or " +
+                "American equivalents — a Japanese L is often a Western M. Shoes are in centimetres, " +
+                "so 25.5 is a shoe size rather than a foot measurement in disguise.",
+                "Paper uses both A and B series, and B is far more common in Japan than elsewhere. B5 " +
+                "is the standard notebook, A4 the standard document. If a form asks for B5 it means it.",
+                "Two more that turn up on labels: 号 numbers sizes in several trades, including rings, " +
+                "canvases and fonts, and 人前 counts portions — 二人前 is enough for two, and it is how " +
+                "recipes and takeaway are quantified."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['S / M / L', 'clothing — sized smaller than Western equivalents'],
+                    ['25.5', 'shoe size in centimetres'],
+                    ['A4 / B5', 'paper — B series is common in Japan'],
+                    ['〜号 ごう', 'a size number — rings, canvases, type'],
+                    ['〜人前 にんまえ', 'portions — 二人前 serves two'],
+                    ['〜入り いり', 'contains ~ — 十個入り, a pack of ten']
+                ]
+            },
+            examples: [
+                { jp: '二人前お願いします', en: 'Enough for two, please',
+                  note: '人前 counts servings — useful when ordering to take away.' }
+            ],
+            check: {
+                q: 'A Japanese shirt is marked L. What size is it likely to be?',
+                a: 'Closer to a Western M. Japanese clothing sizing runs smaller, so buying by the ' +
+                   'letter without trying it on is how people end up disappointed.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Look up 畳 and see the unit and the mat in one entry.',
+          href: 'dictionary.html#q=畳', label: 'Look up 畳' },
+        { text: 'Break down an order by portion.',
+          href: 'dictionary.html#s=二人前お願いします', label: 'Break down 二人前' },
+        { text: 'Drill the number vocabulary.',
+          href: 'practice.html#vocabulary=n4', label: 'N4 vocabulary' }
     ]
 },
 {
@@ -3890,330 +4214,6 @@ window.LEARN_COURSE = [
           href: 'dictionary.html#q=つまり', label: 'Look up つまり' },
         { text: 'Read passages long enough for this to matter.',
           href: 'practice.html#reading=n3', label: 'N3 reading' }
-    ]
-},
-{
-    id: 'kanji',
-    title: 'Your first kanji',
-    aim: 'The N5 set — around 100 characters.',
-    body: 'Kanji carry meaning rather than sound, and most have more than one reading.',
-    lessons: [
-        {
-            title: 'Why one kanji has two kinds of reading',
-            body: [
-                "Japan borrowed Chinese characters to write a language that already existed and was " +
-                "unrelated. Each character arrived with its Chinese pronunciation, and was also attached " +
-                "to the native Japanese word that already meant the same thing. Both survived.",
-                "The Chinese-derived reading is the on\u2019yomi, and it turns up mostly in compounds of " +
-                "two or more kanji. The native reading is the kun\u2019yomi, used when the character " +
-                "stands alone or carries hiragana endings. 山 alone is やま; inside 富士山 it is サン.",
-                "Do not memorise the reading lists cold. Learn each character inside a word you already " +
-                "know, and the readings come attached to something you can actually use."
-            ],
-            table: {
-                head: ['Kanji', 'Alone (kun)', 'In a compound (on)'],
-                rows: [
-                    ['山', 'やま — mountain', '富士山 ふじサン — Mt Fuji'],
-                    ['人', 'ひと — person', '日本人 にほんジン — a Japanese person'],
-                    ['日', 'ひ — day, sun', '日本 ニほん — Japan'],
-                    ['学', '— rarely alone', '学生 ガクせい — student']
-                ]
-            },
-            examples: [
-                { jp: '日本人', en: 'Japanese person', note: 'Three kanji, all on\u2019yomi, one word.' }
-            ],
-            check: {
-                q: 'You meet a kanji you know, but it is next to another kanji. Which reading do you try?',
-                a: 'The on\u2019yomi first. Two kanji together is usually a compound, and compounds ' +
-                   'usually take the Chinese-derived readings.'
-            }
-        },
-        {
-            title: 'Stroke order is not decoration',
-            body: [
-                "Every kanji has a fixed order and direction for its strokes, and it is worth following " +
-                "for three reasons. Characters written in order come out balanced, because the rules " +
-                "exist to keep the proportions right. Handwriting recognition and paper dictionaries " +
-                "both depend on it. And the order is a memory aid — the hand remembers sequences much " +
-                "better than the eye remembers shapes.",
-                "Almost all of it falls out of a handful of rules, and the tracing page numbers every " +
-                "stroke so you can check yourself."
-            ],
-            table: {
-                head: ['Rule', 'Example'],
-                rows: [
-                    ['Top to bottom', '三 — the three lines from the top down'],
-                    ['Left to right', '川 — left stroke first'],
-                    ['Horizontal before vertical when they cross', '十 — the across stroke, then the down one'],
-                    ['Centre before the sides', '小 — the middle stroke leads'],
-                    ['Outside before inside', '国 — the box first, then the contents'],
-                    ['Close the box last', '国 — the bottom line of the frame comes after the inside'],
-                    ['Left-falling before right-falling', '人 — the leftward stroke first']
-                ]
-            },
-            examples: [
-                { jp: '国', en: 'country', note: 'Frame, contents, then the bottom line closes it.' }
-            ],
-            check: {
-                q: 'In 国, when is the bottom of the outer box drawn?',
-                a: 'Last. You draw the frame open, fill in the inside, then close it — the same order ' +
-                   'you would use to put something in a container.'
-            }
-        },
-        {
-            title: 'Numbers, and why counting needs a word',
-            body: [
-                "The numbers are the highest-value kanji you will ever learn, and among the simplest: " +
-                "一二三四五六七八九十, then 百 hundred, 千 thousand, 万 ten thousand. Note that Japanese " +
-                "groups large numbers by ten thousand, not by thousand — 100,000 is 十万, ten ten-thousands.",
-                "Counting anything requires a counter word between the number and the noun, chosen by " +
-                "the shape or nature of the thing. This feels arbitrary and is: English does the same " +
-                "with two loaves of bread. Learn a handful and use つ when you are stuck, which is what " +
-                "the general counter is for."
-            ],
-            table: {
-                head: ['Counter', 'Used for', 'Example'],
-                rows: [
-                    ['つ', 'anything, up to nine', '三つ — three of them'],
-                    ['人 nin', 'people', '三人 — three people'],
-                    ['本 hon', 'long thin things', 'ペン三本 — three pens'],
-                    ['枚 mai', 'flat thin things', '紙三枚 — three sheets of paper'],
-                    ['匹 hiki', 'small animals', '猫三匹 — three cats'],
-                    ['冊 satsu', 'books', '本三冊 — three books']
-                ]
-            },
-            check: {
-                q: 'What is 十万?',
-                a: 'One hundred thousand — ten ten-thousands. Japanese counts in units of 万, so large ' +
-                   'numbers need regrouping rather than direct translation.'
-            }
-        },
-        {
-            title: 'Radicals — the parts kanji are made of',
-            body: [
-                "Kanji are not drawings to be memorised whole. Almost all of them are assembled from a " +
-                "few hundred recurring components, and once you can see the components a complicated " +
-                "character stops being complicated — it becomes three simple things stacked.",
-                "One component, the radical, is traditionally the one a paper dictionary files the " +
-                "character under, and it often hints at the meaning. Water appears as three strokes on " +
-                "the left in 海, 泳, 洗 — sea, swim, wash. Another component frequently carries the " +
-                "sound instead, which is why 校, 効 and 郊 all read こう.",
-                "You do not need to study radical names as a beginner. You do need to stop looking at a " +
-                "kanji as a single shape, because that is the habit that makes the four-hundredth one " +
-                "as hard as the first."
-            ],
-            table: {
-                head: ['Radical', 'Suggests', 'Seen in'],
-                rows: [
-                    ['亻 person', 'people, actions', '休 rest, 何 what, 作 make'],
-                    ['氵 water', 'liquid', '海 sea, 泳 swim, 酒 alcohol'],
-                    ['木 tree', 'wood, plants', '林 grove, 森 forest, 校 school'],
-                    ['言 words', 'speech', '語 language, 話 talk, 読 read'],
-                    ['心 heart', 'feeling', '思 think, 悲 sad, 感 feel'],
-                    ['日 sun', 'time, light', '時 time, 明 bright, 曜 weekday']
-                ]
-            },
-            examples: [
-                { jp: '森', en: 'forest', note: 'Three trees. Some kanji really are that literal.' },
-                { jp: '休', en: 'rest', note: 'A person beside a tree.' }
-            ],
-            check: {
-                q: 'You meet 泳 for the first time. What can you guess before looking it up?',
-                a: 'That it has something to do with water, from the three strokes on the left. It ' +
-                   'means to swim — the radical narrowed it down before you read a definition.'
-            }
-        },
-        {
-            title: 'Okurigana — the hiragana on the end',
-            body: [
-                "食べる is written with a kanji and two kana. The kanji carries the meaning and the kana " +
-                "carry the grammar, and the kana on the end have a name: okurigana. They are what let " +
-                "one character serve a verb that changes shape constantly.",
-                "This is also how Japanese disambiguates readings. 上 alone can be うえ; 上る is のぼる " +
-                "and 上げる is あげる. The okurigana tells you which word you are looking at, and " +
-                "removing them would make the sentence genuinely ambiguous rather than merely terse.",
-                "For the same reason, okurigana is where conjugation happens. Everything the verb stage " +
-                "covers happens in those trailing kana, and the kanji never moves."
-            ],
-            table: {
-                head: ['Written', 'Reading', 'Means'],
-                rows: [
-                    ['上', 'ue', 'above, top'],
-                    ['上げる', 'ageru', 'to raise'],
-                    ['上る', 'noboru', 'to climb'],
-                    ['下', 'shita', 'below'],
-                    ['下げる', 'sageru', 'to lower'],
-                    ['下さい', 'kudasai', 'please give']
-                ]
-            },
-            check: {
-                q: 'Why can 食べる not be written just 食?',
-                a: 'Because the べる is doing the grammar. Without it there is nothing to conjugate and ' +
-                   'no way to tell which of the character\u2019s readings is meant.'
-            }
-        },
-        {
-            title: 'Looking up a kanji you cannot read',
-            body: [
-                "Sooner or later you meet a character with no reading you can guess, and that used to be " +
-                "the hardest problem in learning Japanese. It no longer is, and there are four ways out.",
-                "If it is on screen, copy it and paste it into the dictionary here — the search takes " +
-                "kanji directly. If it is on paper, the kanji chart on the Kana and Kanji page is " +
-                "searchable by meaning and by reading, so a guess at either will often find it. Handwriting " +
-                "input on a phone works well and rewards knowing stroke order, since recognition follows " +
-                "the strokes you draw.",
-                "And if you can identify the radical and count the strokes, you can find anything in a " +
-                "paper dictionary — slower, but it is the skill that never stops working."
-            ],
-            check: {
-                q: 'Why does knowing stroke order help with handwriting input?',
-                a: 'Because recognition uses the order and direction of your strokes, not just the ' +
-                   'finished shape. Drawn in the wrong order, a correct-looking character often fails.'
-            }
-        },
-        {
-            title: 'Compounds, and how meaning stacks',
-            body: [
-                "Most Japanese vocabulary above the basics is built by combining kanji, and the " +
-                "combinations are often transparent once you know the parts. 電 electricity plus 話 " +
-                "talk is 電話, telephone. Plus 車 vehicle it is 電車, train. Plus 気 spirit it is 電気, " +
-                "electricity or the lights.",
-                "This is why the return on each new kanji rises rather than falls. The first hundred " +
-                "buy you a hundred words; the second hundred buy you several hundred, because each new " +
-                "character combines with everything you already have.",
-                "One family is worth naming: a great many nouns become verbs simply by adding する. " +
-                "勉強 is study as a noun, 勉強する is to study. This covers hundreds of words and costs " +
-                "nothing to learn, since する is one of the two irregular verbs you already know."
-            ],
-            table: {
-                head: ['Compound', 'Parts', 'Means'],
-                rows: [
-                    ['電話', 'electricity + talk', 'telephone'],
-                    ['電車', 'electricity + vehicle', 'train'],
-                    ['大学', 'big + learning', 'university'],
-                    ['先生', 'before + born', 'teacher'],
-                    ['入口', 'enter + mouth', 'entrance'],
-                    ['勉強する', 'study + do', 'to study'],
-                    ['料理する', 'cooking + do', 'to cook']
-                ]
-            },
-            examples: [
-                { jp: '電車', en: 'train', note: 'Two characters you already know, one word you did not.' }
-            ],
-            check: {
-                q: 'Why does learning kanji get easier rather than harder?',
-                a: 'Because each new character combines with every one you already have. The hundredth ' +
-                   'kanji unlocks more words than the tenth did.'
-            }
-        },
-        {
-            title: 'How to actually learn them',
-            body: [
-                "Kanji is the part of Japanese where method matters most, because the volume is large " +
-                "enough that a bad method costs years. Four things make the difference.",
-                "Learn them in words, not alone. A character memorised in isolation has no reading " +
-                "attached that you can use, and readings only make sense inside vocabulary. 日 alone is " +
-                "ambiguous; 日本, 今日 and 日曜日 each teach you a reading you can actually deploy.",
-                "Use the components. Every kanji above about ten strokes is made of pieces you already " +
-                "know, and inventing a story from those pieces makes it stick far better than " +
-                "repetition — 休 is a person beside a tree, resting, and you will not forget that.",
-                "Space the repetition. Reviewing something just as it starts to fade is worth many " +
-                "times reviewing it while you still know it, which is what any spaced system is doing. " +
-                "The Performance mode in the quizzes here works on the same principle.",
-                "And write them. It is slower than recognition drilling and it is the reason the " +
-                "characters stop blurring together — the hand distinguishes shapes the eye confuses."
-            ],
-            table: {
-                head: ['Do', 'Rather than'],
-                rows: [
-                    ['learn 日 inside 日本, 今日, 日曜日', 'memorise its reading list'],
-                    ['break 語 into its parts', 'memorise fourteen strokes'],
-                    ['review what is fading', 'review what you know'],
-                    ['write them', 'only read them'],
-                    ['follow a frequency order', 'work through by stroke count']
-                ]
-            },
-            check: {
-                q: 'Why is learning a kanji inside a word better than learning it alone?',
-                a: 'Because the readings only make sense in context, and a word gives you something to ' +
-                   'use immediately. A reading list with nowhere to apply it fades.'
-            }
-        },
-        {
-            title: 'Characters that look almost the same',
-            body: [
-                "A number of kanji differ by one stroke, one length or one dot, and they are not rare " +
-                "characters — several are in the first hundred. Meeting them side by side once is worth " +
-                "more than discovering them one confusion at a time.",
-                "The commonest trap is 待 and 持: wait and hold, differing only in the left-hand " +
-                "component. 未 and 末 differ in which horizontal stroke is longer — not yet versus end. " +
-                "土 and 士, earth and gentleman, are the same trick.",
-                "The defence is the same as for everything else about kanji: look at the components, " +
-                "not the silhouette. 待 has the going-person radical and 持 has the hand radical, which " +
-                "makes them obviously different once you see the parts rather than the shape."
-            ],
-            table: {
-                head: ['Pair', 'Difference', 'Means'],
-                rows: [
-                    ['待 / 持', 'left component', 'wait / hold'],
-                    ['未 / 末', 'which stroke is longer', 'not yet / end'],
-                    ['土 / 士', 'which stroke is longer', 'earth / gentleman'],
-                    ['大 / 犬', 'one dot', 'big / dog'],
-                    ['日 / 目', 'one stroke inside', 'sun / eye'],
-                    ['人 / 入', 'which stroke is on top', 'person / enter'],
-                    ['刀 / 力', 'one stroke', 'sword / power']
-                ]
-            },
-            check: {
-                q: 'How do you tell 待 from 持 reliably?',
-                a: 'By the left-hand component, not the overall shape. 持 has the hand radical — you ' +
-                   'hold with a hand — and 待 does not.'
-            }
-        },
-        {
-            title: 'How many there are, officially',
-            body: [
-                "The government maintains a list, and knowing its shape tells you where the finish " +
-                "line is. 常用漢字 is the standard set for everyday use: 2,136 characters, and " +
-                "anything outside it should carry furigana in a newspaper.",
-                "Inside that, 教育漢字 are the 1,026 taught in primary school, assigned grade by grade " +
-                "— 80 in the first year, rising through the sixth. Learning in that order is a real " +
-                "option and has the advantage of being ordered by usefulness to a child rather than by " +
-                "difficulty, which correlates well with usefulness generally.",
-                "Names are a separate list. 人名用漢字 adds about 860 characters permitted in personal " +
-                "names but not in general writing, which is part of why name readings defeat " +
-                "dictionaries.",
-                "For scale: N5 is around 100 of the 2,136 and N1 around 2,000. The list is finite, " +
-                "which is worth holding on to — unlike vocabulary, kanji genuinely ends."
-            ],
-            table: {
-                head: ['List', 'Size', 'What it is'],
-                rows: [
-                    ['常用漢字', '2,136', 'the standard everyday set'],
-                    ['教育漢字', '1,026', 'taught in primary school, by grade'],
-                    ['人名用漢字', '~860 more', 'permitted in names only'],
-                    ['N5 / N1', '~100 / ~2,000', 'the exam levels against that set'],
-                    ['outside the list', '—', 'should carry furigana in print']
-                ]
-            },
-            check: {
-                q: 'Why is it encouraging that 常用漢字 has 2,136 characters?',
-                a: 'Because it is finite. Vocabulary never ends, but the standard kanji set does — and ' +
-                   'the first thousand cover the overwhelming majority of ordinary text.'
-            }
-        }
-    ],
-    steps: [
-        { text: 'Browse the N5 kanji. Tap one for its readings, meanings and stroke count.',
-          href: 'characters.html#kanji=n5', label: 'N5 kanji' },
-        { text: 'Trace the numbers first — they turn up everywhere and the strokes are few.',
-          href: 'writing.html#trace=%E4%B8%80', label: 'Trace 一' },
-        { text: 'Trace 国 and watch where the last stroke of the frame falls.',
-          href: 'writing.html#trace=%E5%9B%BD', label: 'Trace 国' },
-        { text: 'From any kanji, use Look up in Dictionary to meet it inside real words.',
-          href: 'dictionary.html#q=%E6%97%A5%E6%9C%AC', label: 'Look up 日本' },
-        { text: 'Drill the readings.',
-          href: 'practice.html#kanji=n5', label: 'N5 kanji quiz' }
     ]
 },
 {
