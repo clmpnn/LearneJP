@@ -491,11 +491,15 @@
         // urgent, which is the one thing a beginner cannot judge.
         const tiers = document.getElementById('learnTiers');
         if (tiers) {
-            let showing = 'all';
+            // First visit opens on Foundation, not all sixty. The paragraph
+            // above is the reason; defaulting to 'all' contradicted it and
+            // handed a beginner 37,800 words where the path is 8,500. A saved
+            // choice still wins, so this only changes the first arrival.
+            let showing = 'foundation';
             try {
-                showing = localStorage.getItem('learnejp-tier') || 'all';
+                showing = localStorage.getItem('learnejp-tier') || 'foundation';
             } catch (err) {
-                showing = 'all';
+                showing = 'foundation';
             }
 
             function applyTier() {
