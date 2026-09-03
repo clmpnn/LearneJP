@@ -1,0 +1,2905 @@
+/*
+ * LearneJP — a Japanese (JLPT) study app for writing practice, quizzes, and dictionary lookup
+ * Copyright (C) 2026  Claudia Mithesa Peranginangin
+ *
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version. See <https://www.gnu.org/licenses/>.
+ */
+:root {
+    --color-primary: #ff8c42;
+    --color-accent: #ffb066;
+    --color-bg: #fff4e8;
+    --color-bg-alt: #ffe4c4;
+    --color-text: #5a3a22;
+    --font-heading: "Reggae One", var(--font-jp-ui);
+    --font-body: "Poppins", sans-serif;
+
+    /* ===== Japanese type =====
+     *
+     * Japanese print fonts (ゴシック体 / 明朝体) draw several kana differently
+     * from the way they are written by hand. In a gothic face き and さ have
+     * their lower stroke joined to the stroke above; written by hand they are
+     * separate. ふ and り are similarly fused. A learner copying the printed
+     * shape learns the wrong stroke count.
+     *
+     * 教科書体 (kyōkasho-tai) is the style Japanese schools print textbooks in,
+     * precisely because it shows the handwritten forms. That is what we want
+     * anywhere the user is meant to read a character in order to write it — and
+     * it also matches the KanjiVG stroke paths the tracing canvas draws.
+     *
+     * The stack prefers a locally installed 教科書体 before falling back to the
+     * Klee One webfont. Windows 10 and 11 ship UD デジタル教科書体, which was
+     * designed against readability research including for readers with dyslexia;
+     * where it exists it is the better face, and using it skips the download
+     * entirely. Everyone else gets Klee One, a pen-kaisho face on Google Fonts
+     * under the SIL Open Font License.
+     */
+    --font-jp-study: "UD デジタル教科書体 N-R", "UD Digi Kyokasho N-R",
+                     "YuKyokasho", "Yu Kyokasho", "Klee One",
+                     "Hiragino Mincho ProN", serif;
+
+
+    /* Japanese inside UI chrome and dense text, where legibility beats form
+     * fidelity. All system fonts, so nothing is downloaded. Naming these
+     * explicitly also stops Han unification from rendering kanji with Chinese
+     * glyph shapes (直, 骨, 令 differ between JP and SC) when the browser's
+     * generic sans-serif happens to resolve to a Chinese font. */
+    --font-jp-ui: "BIZ UDPGothic", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+                  "Yu Gothic", "Noto Sans JP", "Meiryo", sans-serif;
+
+    /* Kept so the fourteen rules already written against it keep working. */
+    --font-handwriting: var(--font-jp-study);
+    --radius: 8px;
+    --space-md: 1.5rem;
+    --glow-primary: 0 0 10px rgba(255, 140, 66, 0.5), 0 0 20px rgba(255, 140, 66, 0.3);
+    --glow-accent: 0 0 10px rgba(255, 176, 102, 0.5), 0 0 20px rgba(255, 176, 102, 0.3);
+}
+
+/* Japanese is never set in bold. A real bold kaisho cut still thickens stroke
+ * junctions, and a synthesised one is worse — both blur the separations
+ * (き, さ, ふ, り) a learner needs to see. Emphasis is carried by size and
+ * colour instead. */
+[lang="ja"] {
+    font-weight: 400;
+
+    /* The heading glow (--glow-accent) is a halo around open Latin letterforms.
+       On kanji it bleeds into the enclosed counters — 謙 has fourteen of them —
+       and the character reads as a blot. */
+    text-shadow: none;
+
+    /* macOS defaults to subpixel antialiasing, which noticeably thickens dense
+       CJK. Grayscale AA renders these closer to the drawn weight. */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-body), var(--font-jp-ui);
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    color: var(--color-text);
+    background: linear-gradient(135deg, var(--color-bg), var(--color-bg-alt), var(--color-bg));
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease infinite;
+    height: 100vh;   /* fallback for older browsers */
+    height: 100dvh;  /* true visible height on mobile (iOS URL bar aware) */
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px 20px;
+    flex-shrink: 0;
+    padding: 16px 32px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.logo-link {
+    font-family: var(--font-heading), cursive;
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    color: var(--color-primary);
+    text-shadow: var(--glow-primary);
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 22px;
+}
+
+nav a {
+    font-family: var(--font-heading), cursive;
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--color-accent);
+    text-shadow: var(--glow-accent);
+}
+
+.home-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    min-height: 0;
+    padding: var(--space-md);
+}
+
+.home-section {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: 40px;
+    max-width: 600px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 30px rgba(255, 176, 102, 0.2);
+}
+
+.home-section h2 {
+    font-family: var(--font-heading), cursive;
+    font-size: 2rem;
+    color: var(--color-accent);
+    text-shadow: var(--glow-accent);
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+
+.home-section p {
+    color: var(--color-text);
+    letter-spacing: 0.5px;
+}
+
+.full-page-main {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    padding: var(--space-md);
+}
+
+.side-panel {
+    height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: 24px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 30px rgba(255, 176, 102, 0.2);
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* ===== Split page (two panels side by side) ===== */
+
+.split-page {
+    flex-direction: row;
+    gap: 24px;
+}
+
+/* ===== Solo page (one panel filling the shell) =====
+ *
+ * Writing and the dictionary used to share a split page and are now a page
+ * each, so the panel's only child is the content itself — .side-panel is
+ * already a flex column, and nothing more is needed on desktop. On phones the
+ * shell unlocks and the whole page scrolls, which leaves flex:1 children with
+ * no height to grow into: the canvas and the results list have to be given
+ * their own size back. See the small-screen block at the end of this file. */
+
+.solo-page {
+    gap: 0;
+}
+
+.split-panel {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.split-panel h2,
+#searchInput,
+#statusText,
+#clearCanvas {
+    flex-shrink: 0; /* these must keep their size; the canvas/results flex instead */
+}
+
+.split-divider {
+    width: 1px;
+    flex-shrink: 0;
+    background: var(--color-accent);
+    opacity: 0.4;
+}
+
+@media (max-width: 900px) {
+    .split-page {
+        flex-direction: column;
+    }
+
+    .split-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    /* Alone on the page, the canvas can afford more of the screen than it
+       could when the dictionary sat under it. */
+    .solo-page .canvas-wrapper {
+        flex: 0 0 auto;
+        height: min(60vh, 460px);
+    }
+
+    /* Let the results run their natural length and scroll with the document,
+       rather than trapping them in a short box inside a scrolling page. */
+    .solo-page #results {
+        flex: 0 0 auto;
+        max-height: none;
+    }
+}
+
+.side-panel h2 {
+    font-family: var(--font-heading), cursive;
+    font-size: 1.8rem;
+    color: var(--color-accent);
+    text-shadow: var(--glow-accent);
+    margin-bottom: 16px;
+    text-align: center;
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+
+.canvas-wrapper {
+    width: 100%;
+    flex: 1;
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--color-primary);
+    box-shadow: var(--glow-primary);
+    background: #fffaf3;
+    touch-action: none;
+    cursor: grab;
+}
+
+.canvas-wrapper.panning {
+    cursor: grabbing;
+}
+
+.canvas-wrapper {
+    min-height: 240px;
+    touch-action: none; /* the canvas owns all touch gestures (draw/pinch/pan) */
+}
+
+#writingCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: crosshair;
+}
+
+.zoom-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+
+.zoom-controls button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--color-primary);
+    color: white;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: var(--glow-primary);
+    transition: box-shadow 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+}
+
+.zoom-controls #zoomResetBtn {
+    width: auto;
+    padding: 0 16px;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.zoom-controls button:hover {
+    background-color: var(--color-accent);
+    box-shadow: var(--glow-accent);
+    transform: scale(1.08);
+}
+
+#zoomLevel {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    color: #a37b5c;
+    min-width: 48px;
+    text-align: center;
+}
+
+#clearCanvas {
+    margin-top: 16px;
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: var(--glow-primary);
+    transition: box-shadow 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+#clearCanvas:hover {
+    background-color: var(--color-accent);
+    box-shadow: var(--glow-accent);
+    transform: scale(1.05);
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--color-text);
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+    flex-shrink: 0;
+}
+
+#searchInput:focus {
+    box-shadow: var(--glow-accent);
+}
+
+#statusText {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    color: #a37b5c;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+
+#results {
+    flex: 1;
+    min-height: 140px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 8px;
+}
+
+.result-card {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    box-shadow: 0 0 12px rgba(255, 140, 66, 0.15);
+}
+
+.result-word {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+}
+
+.result-kanji {
+    font-family: var(--font-handwriting), cursive;
+    font-weight: 400;
+    font-size: 1.6rem;
+    letter-spacing: 1.5px;
+    color: var(--color-primary);
+}
+
+.result-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background: rgba(255, 176, 102, 0.3);
+    color: var(--color-text);
+}
+
+.result-tag-common {
+    background: rgba(255, 140, 66, 0.35);
+    color: var(--color-primary);
+}
+
+.mora-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.mora-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 24px;
+}
+
+.mora-kana {
+    font-family: var(--font-handwriting), cursive;
+    font-weight: 400;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    color: var(--color-accent);
+    line-height: 1.2;
+}
+
+.mora-romaji {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-weight: 400;
+    font-size: 0.7rem;
+    letter-spacing: 0.3px;
+    color: #a37b5c;
+    line-height: 1.2;
+}
+
+.result-meaning {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-weight: 400;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    color: var(--color-text);
+}
+
+.no-results {
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: #a37b5c;
+    padding: 20px;
+}
+
+.iframe-wrapper {
+    width: 100%;
+    flex: 1;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--color-primary);
+    box-shadow: var(--glow-primary);
+}
+
+.iframe-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ===== JLPT Practice Section ===== */
+
+.practice-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#levelSelect {
+    padding: 10px 18px;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--color-text);
+    font-family: var(--font-heading), cursive;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: var(--glow-primary);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+#levelSelect:hover {
+    box-shadow: var(--glow-accent);
+    transform: scale(1.02);
+}
+
+#levelSelect:focus {
+    outline: none;
+    box-shadow: var(--glow-accent);
+}
+
+.tab-toggle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tab-btn {
+    padding: 10px 22px;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--color-text);
+    font-family: var(--font-heading), cursive;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.tab-btn:hover {
+    box-shadow: var(--glow-accent);
+    transform: scale(1.04);
+}
+
+.tab-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+    box-shadow: var(--glow-primary);
+}
+
+.practice-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+.practice-content.hidden {
+    display: none;
+}
+
+#audioPlayer {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--glow-accent);
+}
+
+.listening-image {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: 320px; /* every image gets the same standard box */
+    margin: 0 auto 16px auto;
+    padding: 8px;
+    object-fit: contain; /* upscales small scans, shrinks big ones, keeps aspect ratio */
+    background: #fffaf3;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    box-shadow: var(--glow-accent);
+}
+
+@media (max-width: 600px) {
+    .listening-image {
+        height: 240px;
+    }
+}
+
+.passage {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 16px;
+    font-family: var(--font-handwriting), cursive;
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 2;
+}
+
+.question-text {
+    font-family: var(--font-jp-study), cursive;
+    font-weight: 400;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+    margin-bottom: 16px;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.choice-btn {
+    padding: 12px 18px;
+    text-align: left;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.75);
+    color: var(--color-text);
+    font-family: var(--font-handwriting), cursive;
+    font-weight: 400;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+}
+
+.choice-btn:hover:not(:disabled) {
+    box-shadow: var(--glow-accent);
+    transform: scale(1.01);
+}
+
+.choice-btn:disabled {
+    cursor: default;
+}
+
+.choice-btn.correct {
+    background-color: #ffd9a3;
+    border-color: var(--color-primary);
+    box-shadow: var(--glow-primary);
+}
+
+.choice-btn.incorrect {
+    background-color: #f5c6c6;
+    border-color: #d97a7a;
+}
+
+.feedback {
+    font-family: var(--font-heading), cursive;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.correct-text {
+    color: var(--color-primary);
+}
+
+.incorrect-text {
+    color: #c14c4c;
+}
+
+.practice-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    flex-shrink: 0;
+    gap: 12px;
+}
+
+#prevBtn,
+#nextBtn {
+    padding: 10px 24px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-family: var(--font-heading), cursive;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: var(--glow-primary);
+    transition: box-shadow 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+}
+
+#prevBtn:hover,
+#nextBtn:hover {
+    background-color: var(--color-accent);
+    box-shadow: var(--glow-accent);
+    transform: scale(1.05);
+}
+
+#questionCounter {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    color: #a37b5c;
+}
+
+footer {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 14px 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-top: 2px solid var(--color-accent);
+    color: #a37b5c;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+/* ===== Admin Page ===== */
+
+.admin-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px 24px;
+    width: 100%;
+    align-items: start;
+}
+
+/* On wide screens the form fills the panel: short fields pair up in two
+   columns, long fields (question, choices, passage, status, actions) span. */
+@media (min-width: 700px) {
+    .admin-form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .admin-form > .form-wide,
+    .admin-form > #statusMsg,
+    .admin-form > .admin-actions {
+        grid-column: 1 / -1;
+    }
+}
+
+.admin-form label {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-bottom: 4px;
+    display: block;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--color-text);
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.95rem;
+}
+
+.admin-form textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.choice-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.choice-row input[type="radio"] {
+    width: auto;
+}
+
+.hidden-field {
+    display: none;
+}
+
+#statusMsg {
+    font-family: var(--font-heading), cursive;
+    padding: 10px;
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+#statusMsg.success {
+    background: #ffd9a3;
+    color: var(--color-text);
+}
+
+#statusMsg.error {
+    background: #f5c6c6;
+    color: #c14c4c;
+}
+
+#countsDisplay {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.85rem;
+    color: #a37b5c;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.theme-btn {
+    padding: 12px 28px;
+    border: none;
+    border-radius: var(--radius);
+    font-family: var(--font-heading), cursive;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+}
+
+.theme-btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    box-shadow: var(--glow-primary);
+}
+
+.theme-btn-primary:hover {
+    background-color: var(--color-accent);
+    box-shadow: var(--glow-accent);
+    transform: scale(1.05);
+}
+
+.theme-btn-secondary {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 0 12px rgba(255, 140, 66, 0.15);
+}
+
+.theme-btn-secondary:hover {
+    background-color: var(--color-bg-alt);
+    box-shadow: var(--glow-accent);
+    transform: scale(1.05);
+}
+
+/* ===== Manage / Delete Questions ===== */
+
+.admin-divider {
+    border: none;
+    border-top: 1px solid var(--color-accent);
+    margin: 30px 0;
+}
+
+#manageInfo {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    color: #a37b5c;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.question-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.question-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    box-shadow: 0 0 12px rgba(255, 140, 66, 0.15);
+}
+
+.question-item-text {
+    flex: 1;
+}
+
+.q-passage-preview {
+    font-family: var(--font-handwriting), cursive;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #a37b5c;
+    margin-bottom: 6px;
+}
+
+.q-text {
+    font-family: var(--font-jp-study), cursive;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.q-choices-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.q-choice {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.8rem;
+    padding: 3px 10px;
+    border-radius: 10px;
+    background: rgba(255, 176, 102, 0.25);
+    color: var(--color-text);
+}
+
+.q-choice-correct {
+    background: #ffd9a3;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.q-meta {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.75rem;
+    color: #a37b5c;
+}
+
+.delete-btn {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    background-color: #f5c6c6;
+    color: #c14c4c;
+    border: 1px solid #d97a7a;
+    border-radius: var(--radius);
+    font-family: var(--font-heading), cursive;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #e88a8a;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ===== In-Tab Delete Button (Practice Page) ===== */
+
+#deleteQuestionBtn {
+    display: block;
+    margin: 0;
+    margin-right: auto;
+    padding: 10px 18px;
+    border: 1px solid #d97a7a;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.85);
+    color: #c14c4c;
+    font-family: var(--font-heading), cursive;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(217, 122, 122, 0.4), 0 0 20px rgba(217, 122, 122, 0.2);
+    transition: box-shadow 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+}
+
+#deleteQuestionBtn:hover {
+    background-color: #f5c6c6;
+    box-shadow: 0 0 10px rgba(217, 122, 122, 0.6), 0 0 20px rgba(217, 122, 122, 0.4);
+    transform: scale(1.02);
+}
+/* ===== Kana & Kanji Reference Page ===== */
+
+.charref-content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+.charref-content.hidden {
+    display: none;
+}
+
+.charref-tabbar {
+    justify-content: center;
+}
+
+.kana-charts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+    gap: 24px 32px;
+    align-items: start;
+}
+
+.kana-block {
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 176, 102, 0.45);
+    border-radius: var(--radius);
+    padding: 16px 20px 20px;
+}
+
+.kana-heading {
+    font-family: var(--font-heading), cursive;
+    color: var(--color-primary);
+    letter-spacing: 1px;
+    margin: 0 0 12px;
+}
+
+.kana-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 6px;
+}
+
+.kana-rowlabel {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.75rem;
+    color: #a37b5c;
+    text-align: right;
+    padding-right: 6px;
+    min-width: 22px;
+    font-weight: 600;
+}
+
+.kana-cell {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    text-align: center;
+    padding: 8px 6px;
+    min-width: 58px;
+}
+
+.kana-cell.kana-empty {
+    background: transparent;
+    border: none;
+}
+
+.kana-char {
+    display: block;
+    font-family: var(--font-handwriting), cursive;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: var(--color-text);
+}
+
+.kana-romaji {
+    display: block;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.7rem;
+    color: #a37b5c;
+    line-height: 1.2;
+}
+
+.kana-note {
+    font-size: 0.8rem;
+    color: #a37b5c;
+    margin-top: 6px;
+}
+
+/* --- Kanji tab --- */
+
+.charref-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.level-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.level-chip {
+    font-family: var(--font-heading), cursive;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.75);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.level-chip:hover {
+    box-shadow: var(--glow-accent);
+}
+
+.level-chip.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+    box-shadow: var(--glow-primary);
+}
+
+.kanji-search {
+    flex: 1;
+    min-width: 220px;
+    padding: 8px 14px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.85);
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.9rem;
+    color: var(--color-text);
+}
+
+.kanji-search:focus {
+    outline: none;
+    box-shadow: var(--glow-accent);
+}
+
+.kanji-count {
+    font-size: 0.85rem;
+    color: #a37b5c;
+    margin-bottom: 12px;
+}
+
+.kanji-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+    gap: 8px;
+}
+
+.kanji-tile {
+    font-family: var(--font-handwriting), cursive;
+    font-weight: 400;
+    font-size: 1.7rem;
+    line-height: 1;
+    padding: 12px 0;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.kanji-tile:hover {
+    transform: scale(1.08);
+    box-shadow: var(--glow-accent);
+}
+
+.charref-note {
+    font-size: 0.75rem;
+    color: #a37b5c;
+    margin-top: 20px;
+}
+
+.charref-note a {
+    color: var(--color-primary);
+}
+
+/* --- Kanji detail modal --- */
+
+.kmodal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(90, 58, 34, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+}
+
+.kmodal-overlay.hidden {
+    display: none;
+}
+
+.kmodal-card {
+    position: relative;
+    background: #fffaf3;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius);
+    box-shadow: var(--glow-primary);
+    padding: 28px;
+    width: 100%;
+    max-width: 420px;
+    max-height: 85vh;
+    max-height: 85dvh;
+    overflow-y: auto;
+}
+
+.kmodal-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    border: none;
+    background: none;
+    font-size: 1.6rem;
+    color: #a37b5c;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.kmodal-head {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 16px;
+}
+
+.kmodal-kanji {
+    font-family: var(--font-handwriting), cursive;
+    font-weight: 400;
+    font-size: 4.2rem;
+    line-height: 1;
+    color: var(--color-text);
+}
+
+.kmodal-headinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.kmodal-badge {
+    font-family: var(--font-heading), cursive;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 999px;
+    padding: 3px 12px;
+    width: fit-content;
+}
+
+.kmodal-strokes {
+    font-size: 0.85rem;
+    color: #a37b5c;
+}
+
+.kmodal-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.kmodal-row strong {
+    font-family: var(--font-heading), cursive;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+}
+
+.kmodal-jp {
+    font-family: var(--font-handwriting), cursive;
+    font-weight: 400;
+    font-size: 1.05rem;
+}
+
+.kmodal-jisho {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: var(--font-heading), cursive;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.kmodal-jisho:hover {
+    text-shadow: var(--glow-primary);
+}
+
+@media (max-width: 600px) {
+    .kana-cell {
+        min-width: 44px;
+        padding: 6px 4px;
+    }
+
+    .kana-char {
+        font-size: 1.2rem;
+    }
+
+    .kanji-grid {
+        grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
+    }
+
+    .kanji-tile {
+        font-size: 1.4rem;
+        padding: 10px 0;
+    }
+}
+
+/* ===== Dictionary footnote (Writing & Dictionary page) ===== */
+
+.dict-footnote {
+    flex-shrink: 0;
+    margin-top: 10px;
+    font-size: 0.72rem;
+    letter-spacing: 0.3px;
+    color: #a37b5c;
+}
+
+.dict-footnote a {
+    color: var(--color-primary);
+}
+
+/* ===== Pronunciation (Kana & Kanji page) ===== */
+
+.charref-hint {
+    font-size: 0.8rem;
+    color: #a37b5c;
+    margin-bottom: 10px;
+}
+
+.kana-cell.kana-speakable {
+    cursor: pointer;
+    transition: box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.kana-cell.kana-speakable:hover {
+    box-shadow: var(--glow-accent);
+}
+
+.kana-cell.kana-speakable:active {
+    transform: scale(0.95);
+}
+
+.say-chip {
+    font-family: var(--font-handwriting), cursive;
+    font-weight: 400;
+    font-size: 1rem;
+    padding: 3px 12px;
+    margin: 2px 6px 2px 0;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.say-chip:hover {
+    box-shadow: var(--glow-accent);
+    background: #fff;
+}
+
+.kmodal-say {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    width: fit-content;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+}
+
+.kmodal-say:hover {
+    box-shadow: var(--glow-accent);
+}
+
+.kmodal-jp {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* ============================================================
+   Responsive layout — tablets, phones, small phones
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    body {
+        animation: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* --- Tablets & small laptops --- */
+@media (max-width: 900px) {
+    header {
+        padding: 12px 20px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .logo-link {
+        font-size: 1.8rem;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 1rem;
+    }
+
+    .full-page-main {
+        padding: 12px;
+    }
+
+    .side-panel {
+        padding: 16px;
+    }
+
+    .side-panel h2 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+
+    /* Writing page stacks: each half sizes to its content and the outer
+       panel scrolls the whole stack — nothing can overlap. */
+    .split-page > .split-panel {
+        flex: 0 0 auto;
+        min-height: 0;
+        overflow-y: visible;
+    }
+
+    .split-page .canvas-wrapper {
+        flex: 0 0 auto;
+        height: min(48vh, 380px);
+    }
+
+    .split-page #results {
+        flex: 0 0 auto;
+        max-height: 48vh;
+    }
+}
+
+/* --- Phones --- */
+@media (max-width: 600px) {
+    header {
+        padding: 10px 12px;
+        padding-left: max(12px, env(safe-area-inset-left));
+        padding-right: max(12px, env(safe-area-inset-right));
+    }
+
+    .logo-link {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+
+    nav {
+        gap: 6px 14px;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    footer {
+        font-size: 0.8rem;
+        padding: 10px 12px;
+        padding-bottom: max(10px, env(safe-area-inset-bottom));
+    }
+
+    .full-page-main {
+        padding: 8px;
+    }
+
+    .side-panel {
+        padding: 12px;
+    }
+
+    .side-panel h2 {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+
+    /* Practice page */
+    .practice-controls {
+        justify-content: center;
+    }
+
+    #levelSelect {
+        width: 100%;
+        text-align: center;
+    }
+
+    .tab-toggle {
+        width: 100%;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .tab-btn {
+        flex: 1 1 auto;
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+
+    .question-text {
+        font-size: 1.1rem;
+    }
+
+    .choice-btn {
+        font-size: 1rem;
+        padding: 12px 14px;
+    }
+
+    #prevBtn,
+    #nextBtn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+
+    /* 16px form controls stop iOS Safari from zooming the page on focus */
+    input,
+    select,
+    textarea,
+    #searchInput,
+    .kanji-search {
+        font-size: 16px;
+    }
+
+    .admin-actions {
+        flex-direction: column;
+    }
+
+    .admin-actions .theme-btn {
+        width: 100%;
+    }
+
+    .question-item {
+        flex-direction: column;
+    }
+
+    .delete-btn {
+        align-self: flex-end;
+    }
+
+    /* Kanji modal */
+    .kmodal-card {
+        padding: 20px 16px;
+    }
+
+    .kmodal-kanji {
+        font-size: 3.2rem;
+    }
+
+    .kmodal-head {
+        gap: 12px;
+    }
+
+    /* Kana & Kanji reference */
+    .kana-charts {
+        gap: 16px;
+    }
+
+    .kana-block {
+        padding: 12px 10px 14px;
+        overflow-x: auto; /* safety net: chart can scroll sideways if ever cramped */
+    }
+
+    .dict-footnote {
+        font-size: 0.68rem;
+    }
+}
+
+/* --- Very small phones (~iPhone SE and narrower) --- */
+@media (max-width: 380px) {
+    .logo-link {
+        font-size: 1.3rem;
+    }
+
+    nav a {
+        font-size: 0.82rem;
+    }
+
+    .tab-btn {
+        padding: 7px 8px;
+        font-size: 0.8rem;
+    }
+
+    .kana-cell {
+        min-width: 38px;
+        padding: 5px 2px;
+    }
+
+    .kana-char {
+        font-size: 1.05rem;
+    }
+
+    .kana-romaji {
+        font-size: 0.6rem;
+    }
+
+    .kanji-grid {
+        grid-template-columns: repeat(auto-fill, minmax(46px, 1fr));
+    }
+}
+
+/* ===== Kana tracing controls (Writing page) ===== */
+
+.trace-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+
+.trace-label {
+    font-family: var(--font-heading), cursive;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    color: var(--color-text);
+}
+
+#traceSelect {
+    padding: 8px 12px;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--color-text);
+    font-family: var(--font-handwriting), cursive;
+    font-weight: 400;
+    font-size: 1.05rem;
+    cursor: pointer;
+    box-shadow: var(--glow-primary);
+    transition: box-shadow 0.3s ease;
+}
+
+#traceSelect:focus {
+    outline: none;
+    box-shadow: var(--glow-accent);
+}
+
+.trace-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: var(--glow-primary);
+    transition: box-shadow 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+}
+
+.trace-btn:hover {
+    background-color: var(--color-accent);
+    box-shadow: var(--glow-accent);
+    transform: scale(1.08);
+}
+
+@media (max-width: 600px) {
+    .trace-controls {
+        gap: 8px;
+    }
+
+    #traceSelect {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+/* ===== Stroke-order tracing additions ===== */
+
+.trace-custom {
+    width: 3.2em;
+    padding: 7px 8px;
+    text-align: center;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--color-text);
+    font-family: var(--font-handwriting), cursive;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.trace-custom:focus {
+    outline: none;
+    box-shadow: var(--glow-accent);
+}
+
+.trace-btn.trace-play {
+    background-color: var(--color-accent);
+}
+
+.trace-note {
+    flex-shrink: 0;
+    margin-top: 8px;
+    font-size: 0.72rem;
+    letter-spacing: 0.3px;
+    color: #a37b5c;
+    text-align: center;
+}
+
+.trace-note a {
+    color: var(--color-primary);
+}
+
+a.kmodal-say {
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* ===== Image upload for listening questions (Add page) ===== */
+
+#imageFile {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.85rem;
+    color: var(--color-text);
+}
+
+.image-preview-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 8px 0;
+}
+
+.image-preview {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: 200px;
+    padding: 6px;
+    object-fit: contain;
+    background: #fffaf3;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    box-shadow: var(--glow-accent);
+}
+
+.image-preview-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.78rem;
+    color: #a37b5c;
+}
+
+.image-remove-btn {
+    padding: 4px 12px;
+    border: 1px solid #d97a7a;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    color: #c14c4c;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.image-remove-btn:hover {
+    background-color: #f5c6c6;
+    color: white;
+}
+
+.field-hint {
+    margin-top: 6px;
+    font-size: 0.75rem;
+    color: #a37b5c;
+    line-height: 1.5;
+}
+
+/* ===== Practice selection mode (In order / Performance) ===== */
+
+.mode-toggle {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.perf-reset {
+    margin-left: 6px;
+    padding: 5px 12px;
+    border: 1px solid #d97a7a;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.75);
+    color: #c14c4c;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.72rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.perf-reset:hover {
+    background-color: #f5c6c6;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .mode-toggle {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ============================================================
+   Sentence mode
+   ------------------------------------------------------------
+   The dictionary panel gains a second way in: paste a line of
+   Japanese and get every word in it. The parse is shown as a
+   reading strip — the sentence re-set with romaji under each
+   word, the way a textbook prints furigana — pinned to the top
+   of the results so it stays put while the cards scroll beneath
+   it. Inflected words carry a dashed rule, the mark a teacher
+   would leave under something that has been changed from its
+   dictionary form.
+   ============================================================ */
+
+.dict-modes {
+    margin-bottom: 14px;
+    flex-shrink: 0;
+}
+
+.dict-modes .tab-btn {
+    flex: 1;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+
+.dict-mode-panel {
+    flex-shrink: 0;
+}
+
+.dict-mode-panel[hidden] {
+    display: none;
+}
+
+#sentenceInput {
+    width: 100%;
+    min-height: 5.5rem;
+    resize: vertical;
+    padding: 12px 16px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--color-text);
+    font-family: var(--font-jp-study), var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.9;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+#sentenceInput:focus {
+    box-shadow: var(--glow-accent);
+}
+
+.sentence-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0 16px;
+}
+
+.sent-btn {
+    padding: 9px 20px;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--color-primary);
+    color: white;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: var(--glow-primary);
+    transition: box-shadow 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+}
+
+.sent-btn:hover {
+    background-color: var(--color-accent);
+    box-shadow: var(--glow-accent);
+    transform: scale(1.05);
+}
+
+.sent-btn-quiet {
+    background-color: transparent;
+    border: 1px solid var(--color-accent);
+    color: #a37b5c;
+    box-shadow: none;
+}
+
+.sent-btn-quiet:hover {
+    background-color: rgba(255, 176, 102, 0.25);
+    color: var(--color-primary);
+}
+
+.sentence-tip {
+    font-size: 0.72rem;
+    letter-spacing: 0.3px;
+    color: #a37b5c;
+}
+
+/* Compact composer.
+ *
+ * Between the heading, the tabs, the text box and the status line, roughly a
+ * phone-screen's worth of chrome sits above the results. All of it earns its
+ * place while you are pasting and none of it does while you are reading — so
+ * once a breakdown is on screen and the box no longer has focus, the box folds
+ * to a single line. Tapping a word to jump to its card is exactly what takes
+ * focus off the box, so the room appears at the moment it is wanted. Clicking
+ * back into the box restores it.
+ *
+ * A height the reader set by dragging the resize handle is inline, so it wins
+ * over this — an explicit choice should outlast an automatic one. */
+
+.dict-mode-panel.is-compact #sentenceInput {
+    /* One line, and the line has to fit: the reading line-height the full box
+       uses would be clipped at this height, so it tightens with it. */
+    min-height: 3rem;
+    height: 3rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 1.4;
+    overflow-y: hidden;
+    cursor: text;
+}
+
+/* The buttons go with it. Break down has already run by this point, and Clear
+   is one tap away — clicking the box brings the whole composer back. This is
+   the same bargain a comment box makes: one line until you mean to write. */
+.dict-mode-panel.is-compact .sentence-actions {
+    display: none;
+}
+
+/* ---- the reading strip ---- */
+
+.sentence-strip {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 4px 2px;
+    /* A pasted paragraph can run to a dozen lines. Pinned at the top, that
+       would leave nothing to read underneath — so the strip keeps a third of
+       the screen at most and scrolls within itself past that. */
+    max-height: 34vh;
+    overflow-y: auto;
+    padding: 12px 12px 10px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background: rgba(255, 244, 232, 0.95);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 14px rgba(255, 140, 66, 0.12);
+    flex-shrink: 0;
+}
+
+.sent-token {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    padding: 2px 3px;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    color: var(--color-text);
+    text-align: center;
+}
+
+button.sent-token {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button.sent-token:hover {
+    background-color: rgba(255, 176, 102, 0.35);
+}
+
+button.sent-token:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
+}
+
+.sent-token-jp {
+    font-family: var(--font-jp-study), cursive;
+    font-size: 1.4rem;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+}
+
+.sent-token-roma {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.62rem;
+    line-height: 1.2;
+    letter-spacing: 0.2px;
+    color: #a37b5c;
+    min-height: 0.75rem;
+}
+
+.sent-token.is-inflected .sent-token-jp {
+    border-bottom: 1px dashed var(--color-primary);
+}
+
+.sent-token.is-unknown {
+    color: #bda28c;
+}
+
+.sent-token.is-unknown .sent-token-roma {
+    color: #bda28c;
+}
+
+.sent-token.is-plain .sent-token-jp {
+    font-size: 1.1rem;
+    color: #a37b5c;
+}
+
+.sent-break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+/* display:flex above would otherwise win over the browser's [hidden] rule. */
+.sentence-strip[hidden] {
+    display: none;
+}
+
+/* ---- the literal reading ----
+ *
+ * The strip above says how the line sounds; this says what it says. Same
+ * chunked shape, inverted: English leads, the Japanese it came from sits
+ * underneath in the small muted type the romaji uses, and the particle's role
+ * rides between them. Reading down a chunk answers "what does this bit mean",
+ * reading across answers "what does the sentence mean". */
+
+.sentence-meaning {
+    padding: 16px 16px 12px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.55);
+    flex-shrink: 0;
+}
+
+.sentence-meaning[hidden] {
+    display: none;
+}
+
+.sent-meaning-label {
+    margin-bottom: 10px;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.sent-meaning-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px 4px;
+}
+
+.sent-gloss {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    max-width: 100%;
+    padding: 4px 7px;
+    border: none;
+    border-radius: 8px;
+    background: none;
+    color: var(--color-text);
+    text-align: left;
+}
+
+button.sent-gloss {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button.sent-gloss:hover {
+    background-color: rgba(255, 176, 102, 0.35);
+}
+
+button.sent-gloss:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
+}
+
+.sent-gloss-en {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.95rem;
+    line-height: 1.35;
+    letter-spacing: 0.2px;
+}
+
+.sent-gloss-role {
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: rgba(255, 176, 102, 0.3);
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.62rem;
+    letter-spacing: 0.4px;
+    color: #8a6242;
+}
+
+.sent-gloss-jp {
+    font-family: var(--font-jp-study), cursive;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    color: #a37b5c;
+}
+
+.sent-gloss.is-unknown .sent-gloss-en,
+.sent-gloss.is-unknown .sent-gloss-jp {
+    color: #bda28c;
+}
+
+.sent-gloss-punct {
+    align-self: flex-end;
+    padding-bottom: 4px;
+    font-family: var(--font-jp-study), cursive;
+    color: #a37b5c;
+}
+
+.sent-gloss-break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+.sent-meaning-note {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(255, 176, 102, 0.6);
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.72rem;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+    color: #a37b5c;
+}
+
+/* ---- one card per word ---- */
+
+.sentence-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sentence-card {
+    /* The strip is sticky, so a card scrolled to the top of the results would
+       land behind it. sentence.js measures the strip after every render and
+       writes its height here; the fallback covers a single-line strip. */
+    scroll-margin-top: calc(var(--sent-strip-h, 72px) + 14px);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.sentence-card.is-target {
+    border-color: var(--color-primary);
+    box-shadow: var(--glow-primary);
+}
+
+.sent-head {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.sent-head:hover {
+    text-shadow: var(--glow-accent);
+}
+
+.sent-origin {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.78rem;
+    letter-spacing: 0.3px;
+    color: #a37b5c;
+}
+
+.sent-dictform {
+    padding: 1px 8px;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--color-primary);
+    font-family: var(--font-jp-study), cursive;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.sent-dictform:hover {
+    background-color: rgba(255, 176, 102, 0.3);
+}
+
+.sent-reason {
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: rgba(255, 176, 102, 0.25);
+    font-size: 0.7rem;
+    letter-spacing: 0.4px;
+    color: var(--color-text);
+}
+
+.sent-also {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed rgba(255, 176, 102, 0.6);
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
+    color: #a37b5c;
+}
+
+.sent-hint {
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.9;
+    letter-spacing: 0.4px;
+    color: #a37b5c;
+}
+
+.sent-example {
+    margin-top: 10px;
+    padding: 8px 14px;
+    border: 1px dashed var(--color-accent);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--color-primary);
+    font-family: var(--font-jp-study), cursive;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sent-example:hover {
+    background-color: rgba(255, 176, 102, 0.25);
+    box-shadow: var(--glow-accent);
+}
+
+@media (max-width: 600px) {
+    .sent-token-jp {
+        font-size: 1.25rem;
+    }
+
+    .sentence-meaning {
+        padding: 12px 12px 10px;
+    }
+
+    .sent-gloss-en {
+        font-size: 0.9rem;
+    }
+
+    .sentence-strip {
+        padding: 10px 8px 8px;
+    }
+
+    .sentence-tip {
+        flex-basis: 100%;
+    }
+}
+
+/* ============================================================
+   The path from zero
+   ------------------------------------------------------------
+   A numbered route rather than a grid of cards: someone who has
+   never studied Japanese needs to know what comes next, and a
+   grid says everything is equally good to start with. So the
+   stages read down the page in order, each one carrying its own
+   count, and the bar at the top answers "how far in am I" —
+   which on a subject this long is the question that decides
+   whether you come back tomorrow.
+   ============================================================ */
+
+.learn-intro {
+    margin-bottom: 18px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
+}
+
+.learn-progress {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    margin-bottom: 22px;
+    flex-shrink: 0;
+}
+
+.learn-progress-track {
+    flex: 1;
+    min-width: 160px;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 176, 102, 0.28);
+    overflow: hidden;
+}
+
+.learn-progress-fill {
+    width: 0;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--color-primary);
+    box-shadow: var(--glow-primary);
+    transition: width 0.4s ease;
+}
+
+.learn-progress-count {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.78rem;
+    letter-spacing: 0.4px;
+    color: #a37b5c;
+}
+
+/* Contents. Twelve stages is more than fits on a screen, and someone returning
+   on day nine wants stage nine, not a scroll. */
+
+.learn-contents {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 22px;
+    flex-shrink: 0;
+}
+
+.learn-jump {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px 5px 6px;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--color-text);
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.learn-jump:hover {
+    background-color: rgba(255, 176, 102, 0.3);
+    box-shadow: var(--glow-accent);
+}
+
+.learn-jump-no {
+    display: grid;
+    place-items: center;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.65rem;
+}
+
+.learn-stage {
+    scroll-margin-top: 16px;
+}
+
+.learn-stages {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+}
+
+.learn-stage {
+    padding: 18px 20px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.learn-stage.is-complete {
+    border-color: var(--color-primary);
+    background: rgba(255, 176, 102, 0.16);
+}
+
+.learn-stage-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.learn-stage-no {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: white;
+    font-family: var(--font-heading), cursive;
+    font-size: 0.95rem;
+    align-self: center;
+}
+
+.learn-stage-titles {
+    flex: 1;
+    min-width: 0;
+}
+
+.learn-stage-titles h3 {
+    font-family: var(--font-heading), cursive;
+    font-size: 1.25rem;
+    letter-spacing: 1.5px;
+    color: var(--color-primary);
+}
+
+.learn-stage-aim {
+    margin-top: 2px;
+    font-size: 0.8rem;
+    letter-spacing: 0.3px;
+    color: #a37b5c;
+}
+
+.learn-stage-count {
+    flex-shrink: 0;
+    align-self: center;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    color: #a37b5c;
+}
+
+.learn-stage-body {
+    margin-bottom: 14px;
+    font-size: 0.88rem;
+    line-height: 1.85;
+    letter-spacing: 0.2px;
+}
+
+/* ---- lessons ----
+ *
+ * Collapsed by default, and native <details> rather than a scripted accordion:
+ * it opens without JavaScript, it is keyboard-reachable for free, and browser
+ * find-in-page can search inside a closed one. Someone hunting for "particle"
+ * should find it whether or not they thought to open stage four. */
+
+.learn-lessons {
+    margin-bottom: 16px;
+}
+
+.learn-lessons-label,
+.learn-steps-label {
+    margin-bottom: 8px;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.learn-steps-label {
+    margin-top: 4px;
+}
+
+.learn-lesson {
+    margin-bottom: 6px;
+    border: 1px solid rgba(255, 176, 102, 0.55);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.6);
+    overflow: hidden;
+}
+
+.learn-lesson > summary,
+.learn-check > summary {
+    padding: 10px 14px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+    transition: background-color 0.2s ease;
+}
+
+.learn-lesson > summary::-webkit-details-marker,
+.learn-check > summary::-webkit-details-marker {
+    display: none;
+}
+
+.learn-lesson > summary::before,
+.learn-check > summary::before {
+    content: "+";
+    display: inline-block;
+    width: 1.1em;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.learn-lesson[open] > summary::before,
+.learn-check[open] > summary::before {
+    content: "−";
+}
+
+.learn-lesson > summary:hover,
+.learn-check > summary:hover {
+    background-color: rgba(255, 176, 102, 0.22);
+}
+
+.learn-lesson-title {
+    font-weight: 600;
+    letter-spacing: 0.4px;
+}
+
+.learn-lesson-body {
+    padding: 4px 16px 16px;
+}
+
+.learn-lesson-body p {
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    line-height: 1.9;
+    letter-spacing: 0.2px;
+}
+
+/* ---- lesson tables ---- */
+
+.learn-table-wrap {
+    margin: 12px 0 14px;
+    overflow-x: auto;
+}
+
+.learn-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+}
+
+.learn-table th,
+.learn-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid rgba(255, 176, 102, 0.45);
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.6;
+}
+
+.learn-table thead th {
+    border-bottom-width: 2px;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    white-space: nowrap;
+}
+
+.learn-table tbody th {
+    font-family: var(--font-jp-study), cursive;
+    font-size: 1rem;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+/* ---- worked examples ---- */
+
+.learn-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 12px 0 14px;
+    list-style: none;
+}
+
+.learn-example {
+    padding: 10px 14px;
+    border-left: 3px solid var(--color-primary);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background: rgba(255, 176, 102, 0.16);
+}
+
+.learn-ex-head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+}
+
+.learn-ex-jp {
+    font-family: var(--font-jp-study), cursive;
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+}
+
+.learn-ex-en {
+    font-size: 0.82rem;
+    letter-spacing: 0.3px;
+    color: #8a6242;
+}
+
+.learn-ex-note {
+    margin-top: 4px;
+    font-size: 0.76rem;
+    line-height: 1.7;
+    color: #a37b5c;
+}
+
+.learn-ex-go {
+    display: inline-block;
+    margin-top: 6px;
+    color: var(--color-primary);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+}
+
+.learn-ex-go:hover {
+    text-shadow: var(--glow-accent);
+}
+
+/* ---- check yourself ---- */
+
+.learn-check {
+    margin-top: 12px;
+    border: 1px dashed rgba(255, 176, 102, 0.8);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.learn-check > summary {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.learn-check > p {
+    padding: 0 16px 12px 30px;
+    font-size: 0.8rem;
+    line-height: 1.8;
+    color: #8a6242;
+}
+
+.learn-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+.learn-step {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.learn-step.is-done .learn-step-text {
+    text-decoration: line-through;
+    color: #bda28c;
+}
+
+.learn-tick {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1;
+    min-width: 180px;
+    cursor: pointer;
+}
+
+.learn-tick input {
+    flex-shrink: 0;
+    margin-top: 3px;
+    width: 17px;
+    height: 17px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+}
+
+.learn-step-text {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+}
+
+.learn-go {
+    flex-shrink: 0;
+    padding: 5px 12px;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    color: var(--color-primary);
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.learn-go:hover {
+    background-color: rgba(255, 176, 102, 0.3);
+    box-shadow: var(--glow-accent);
+}
+
+/* Romaji over every Japanese word.
+ *
+ * <ruby> puts the reading above its own word rather than at the end of the
+ * line, which is what makes a sentence still readable as a sentence. The
+ * annotation is always rendered and hidden with CSS when the toggle is off, so
+ * switching costs nothing and never redraws the page.
+ *
+ * Lines carrying ruby need more room above them or the annotation collides
+ * with the line before, which is what the taller line-heights are for. */
+
+.learn-stages ruby,
+.learn-contents ruby {
+    ruby-position: over;
+    ruby-align: center;
+}
+
+.learn-stages rt,
+.learn-contents rt {
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.55em;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: 0;
+    color: #a37b5c;
+    text-transform: none;
+}
+
+body.no-romaji rt {
+    display: none;
+}
+
+.learn-lesson-body p,
+.learn-stage-body,
+.learn-step-text,
+.learn-check > p {
+    line-height: 2.2;
+}
+
+.learn-table th,
+.learn-table td {
+    line-height: 2;
+}
+
+.learn-ex-head {
+    line-height: 2.1;
+}
+
+.learn-romaji-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.78rem;
+    letter-spacing: 0.4px;
+    color: #a37b5c;
+    cursor: pointer;
+}
+
+.learn-romaji-toggle input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+}
+
+.learn-note {
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(255, 176, 102, 0.6);
+    font-size: 0.75rem;
+    line-height: 1.7;
+    letter-spacing: 0.2px;
+    color: #a37b5c;
+    flex-shrink: 0;
+}
+
+.home-cta {
+    margin-top: 14px;
+}
+
+.home-cta a {
+    color: var(--color-primary);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+    .learn-stage {
+        padding: 14px 14px 16px;
+    }
+
+    .learn-go {
+        margin-left: 27px;
+    }
+}
+
+/* ============================================================
+   Small screens: the page flows and scrolls as one document.
+   The desktop app-shell (viewport-locked panels with internal
+   scrolling) is cramped on phones — here every section takes
+   its natural height and the whole page scrolls instead.
+   ============================================================ */
+
+@media (max-width: 900px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    .full-page-main {
+        min-height: 0;
+    }
+
+    .side-panel {
+        height: auto;
+        min-height: 0;
+        overflow-y: visible;
+    }
+
+    .practice-content,
+    .charref-content {
+        flex: none;
+        min-height: 0;
+        overflow-y: visible;
+    }
+}

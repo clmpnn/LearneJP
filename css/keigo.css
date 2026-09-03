@@ -1,0 +1,411 @@
+/*
+ * LearneJP — a Japanese (JLPT) study app for writing practice, quizzes, and dictionary lookup
+ * Copyright (C) 2026  Claudia Mithesa Peranginangin
+ *
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version. See <https://www.gnu.org/licenses/>.
+ *
+ * Styles used only by html/keigo.html. Loaded after css/style.css so it can
+ * reuse every custom property defined in :root there. Kept in its own file so
+ * the other four pages don't download rules they never apply.
+ */
+
+/* ===== Shared building blocks ===== */
+
+.kg-lede {
+    font-size: 0.95rem;
+    color: #7a5638;
+    margin-bottom: 18px;
+    max-width: 68ch;
+}
+
+.kg-card {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--color-accent);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 16px;
+}
+
+.kg-card h3 {
+    font-family: var(--font-heading), cursive;
+    font-weight: 400;
+    font-size: 1.15rem;
+    color: var(--color-primary);
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.kg-reading {
+    font-size: 0.8rem;
+    color: #a37b5c;
+    letter-spacing: 1px;
+}
+
+.kg-gloss {
+    font-weight: 600;
+    margin: 8px 0 6px;
+}
+
+.kg-card p {
+    font-size: 0.9rem;
+}
+
+/* Direction badge: which way the respect points */
+
+.kg-dir {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+    border: 1px solid var(--color-accent);
+    background: rgba(255, 255, 255, 0.8);
+    color: #7a5638;
+}
+
+.kg-dir-up { border-color: #4b9b6e; color: #2f6b4a; }
+.kg-dir-down-target,
+.kg-dir-down-listener { border-color: #c2643c; color: #a84e2a; }
+
+/* Example lines */
+
+.kg-ex {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(255, 176, 102, 0.6);
+}
+
+.kg-ex-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 5px 0;
+}
+
+.kg-jp {
+    font-weight: 400;
+    font-family: var(--font-jp-study), cursive;
+    font-size: 1.05rem;
+    color: var(--color-text);
+    letter-spacing: 1px;
+}
+
+.kg-jp-bad {
+    color: #b3413a;
+    text-decoration: line-through;
+    text-decoration-color: rgba(179, 65, 58, 0.5);
+}
+
+.kg-en {
+    font-size: 0.82rem;
+    color: #a37b5c;
+}
+
+.kg-r {
+    font-size: 0.8rem;
+    color: #b08a68;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+/* Speak button, echoing .say-chip on the Kana page */
+
+.kg-say {
+    border: 1px solid var(--color-accent);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--color-primary);
+    border-radius: 999px;
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.kg-say:hover { box-shadow: var(--glow-accent); transform: scale(1.06); }
+.kg-say:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+/* ===== Verb conversion table ===== */
+
+.kg-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.kg-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 640px;
+}
+
+.kg-table thead th {
+    /* th defaults to bold, and these headers carry 尊敬語 / 謙譲語. The tinted
+       background and heading face already separate the row. */
+    font-weight: 400;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--color-bg-alt);
+    font-family: var(--font-heading), cursive;
+    font-size: 0.92rem;
+    letter-spacing: 1px;
+    color: var(--color-text);
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-accent);
+}
+
+.kg-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255, 176, 102, 0.35);
+    vertical-align: top;
+}
+
+.kg-table tbody tr:hover { background: rgba(255, 228, 196, 0.4); }
+.kg-table tbody tr:last-child td { border-bottom: none; }
+
+.kg-plain {
+    font-family: var(--font-jp-study), cursive;
+    font-size: 1.15rem;
+    font-weight: 400;
+}
+.kg-plain-en { display: block; font-size: 0.8rem; color: #a37b5c; }
+
+.kg-form {
+    font-weight: 400;
+    font-family: var(--font-jp-study), cursive;
+    display: block;
+    padding: 2px 0;
+    font-size: 1rem;
+}
+
+.kg-form-r { font-size: 0.8rem; color: #b08a68; letter-spacing: 1px; }
+.kg-dash { color: #c9ab8e; }
+
+.kg-tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 400;
+    min-width: 1.15rem;
+    text-align: center;
+    padding: 1px 6px;
+    border-radius: 999px;
+    margin-left: 5px;
+    vertical-align: middle;
+    border: 1px solid var(--color-accent);
+    color: #a84e2a;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.kg-note-cell { font-size: 0.83rem; color: #8a6647; }
+
+.kg-lvl {
+    font-family: var(--font-heading), cursive;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--color-primary);
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+/* ===== Patterns ===== */
+
+.kg-pattern-form {
+    font-family: var(--font-heading), cursive;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    letter-spacing: 1px;
+}
+
+.kg-strength {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 8px;
+    vertical-align: middle;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--color-accent);
+    color: #7a5638;
+}
+
+.kg-warn {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    background: rgba(179, 65, 58, 0.08);
+    border-left: 3px solid #b3413a;
+    font-size: 0.82rem;
+    color: #8c3d37;
+}
+
+/* ===== Pitfalls: wrong / right pairs ===== */
+
+.kg-pair {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(255, 176, 102, 0.55);
+}
+
+.kg-pair:last-of-type { border-bottom: none; }
+
+.kg-bad, .kg-good {
+    font-family: var(--font-jp-study), cursive;
+    font-weight: 400;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-size: 1rem;
+}
+
+.kg-bad { color: #b3413a; }
+.kg-good { color: #2f6b4a; }
+.kg-mark { font-weight: 700; }
+.kg-arrow { color: var(--color-accent); font-size: 1.1rem; }
+.kg-why {
+    grid-column: 1 / -1;
+    font-size: 0.83rem;
+    color: #8a6647;
+    padding-left: 22px;
+}
+
+@media (max-width: 640px) {
+    .kg-pair { grid-template-columns: 1fr; gap: 4px; }
+    .kg-arrow { display: none; }
+    .kg-why { padding-left: 0; }
+}
+
+/* ===== Situations ===== */
+
+.kg-sit-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.kg-sit-icon {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.kg-line {
+    padding: 9px 0;
+    border-bottom: 1px dashed rgba(255, 176, 102, 0.5);
+}
+
+.kg-line:last-child { border-bottom: none; }
+
+/* ===== Quiz ===== */
+
+.kg-quiz-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.kg-score { font-family: var(--font-heading), cursive; letter-spacing: 1px; }
+
+.kg-q-text {
+    font-weight: 400;
+    font-family: var(--font-jp-study), cursive;
+    font-size: 1.15rem;
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+}
+
+.kg-choices { display: flex; flex-direction: column; gap: 10px; }
+
+.kg-choice {
+    font-weight: 400;
+    font-family: var(--font-jp-study), cursive;
+    text-align: left;
+    padding: 12px 16px;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--color-text);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.kg-choice:hover:not(:disabled) { box-shadow: var(--glow-accent); }
+.kg-choice:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+.kg-choice:disabled { cursor: default; }
+.kg-choice-correct { background: rgba(75, 155, 110, 0.22); border-color: #4b9b6e; }
+.kg-choice-wrong { background: rgba(179, 65, 58, 0.16); border-color: #b3413a; }
+
+.kg-feedback {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.7);
+    border-left: 3px solid var(--color-primary);
+    font-size: 0.88rem;
+}
+
+.kg-progress { font-size: 0.8rem; color: #a37b5c; }
+
+/* ===== Search / filter bar ===== */
+
+.kg-search {
+    flex: 1;
+    min-width: 200px;
+    padding: 9px 14px;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--color-text);
+    font-family: var(--font-body), sans-serif;
+    font-size: 0.95rem;
+}
+
+.kg-search:focus { outline: none; box-shadow: var(--glow-accent); }
+
+.kg-count { font-size: 0.83rem; color: #a37b5c; margin: 8px 0; }
+
+.kg-empty {
+    text-align: center;
+    color: #a37b5c;
+    padding: 30px 10px;
+}
+
+/* Respect a reduced-motion preference for the hover transforms above. */
+@media (prefers-reduced-motion: reduce) {
+    .kg-say, .kg-choice { transition: none; }
+    .kg-say:hover { transform: none; }
+}
+
+/* Filter chips on this page carry four-kanji category names rather than the
+   two-character level codes the chips were sized for elsewhere. */
+#kg-pattern-filters .level-chip {
+    font-size: 0.95rem;
+    padding: 6px 16px;
+}
+
+/* This page quotes Japanese terms inside its footnotes, which the shared
+   .charref-note style sizes for Latin. keigo.css loads after style.css and only
+   on this page, so the bump stays local. */
+.charref-content .charref-note {
+    font-size: 0.8rem;
+}

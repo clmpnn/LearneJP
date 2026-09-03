@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+  LearneJP — a Japanese (JLPT) study app for writing practice, quizzes, and dictionary lookup
+  Copyright (C) 2026  Claudia Mithesa Peranginangin
+
+  This program is free software: you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free Software
+  Foundation, either version 3 of the License, or (at your option) any later
+  version. See <https://www.gnu.org/licenses/>.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search a built-in Japanese dictionary by kanji, kana, or English, or paste a whole sentence and see the meaning of every word in it.">
+    <meta name="theme-color" content="#ff8c42">
+    <title>LearneJP — Dictionary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reggae+One&family=Klee+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="canonical" href="https://clmpnn.github.io/LearneJP/html/dictionary.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LearneJP">
+    <meta property="og:title" content="LearneJP — Dictionary">
+    <meta property="og:description" content="Look up Japanese words by kanji, kana, or English — or paste a sentence and see every word in it, conjugations included.">
+    <meta property="og:url" content="https://clmpnn.github.io/LearneJP/html/dictionary.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+    <h1><a href="index.html" class="logo-link">LearneJP</a></h1>
+    <nav>
+        <a href="learn.html">Start Here</a>
+        <a href="writing.html">Writing</a>
+        <a href="dictionary.html">Dictionary</a>
+        <a href="characters.html">Kana &amp; Kanji</a>
+        <a href="keigo.html">Keigo</a>
+        <a href="practice.html">Practice</a>
+        <a href="add.html">Add</a>
+    </nav>
+</header>
+
+<main class="full-page-main">
+    <section class="side-panel full-width solo-page">
+        <h2>Japanese Dictionary</h2>
+
+        <div class="tab-toggle dict-modes" role="tablist" aria-label="Dictionary mode">
+            <button type="button" id="modeWordBtn" class="tab-btn active" role="tab"
+                    aria-selected="true" aria-controls="wordMode">Word</button>
+            <button type="button" id="modeSentenceBtn" class="tab-btn" role="tab"
+                    aria-selected="false" aria-controls="sentenceMode">Sentence</button>
+        </div>
+
+        <div id="wordMode" class="dict-mode-panel" role="tabpanel" aria-labelledby="modeWordBtn">
+            <input type="text" id="searchInput" placeholder="Search kanji, kana, or English…" autocomplete="off">
+        </div>
+
+        <div id="sentenceMode" class="dict-mode-panel" role="tabpanel" aria-labelledby="modeSentenceBtn" hidden>
+            <textarea id="sentenceInput" rows="3" spellcheck="false" autocomplete="off"
+                      placeholder="Paste Japanese text — 昨日は友達と映画を見に行きました。"></textarea>
+            <div class="sentence-actions">
+                <button type="button" id="sentenceRunBtn" class="sent-btn">Break down</button>
+                <button type="button" id="sentenceClearBtn" class="sent-btn sent-btn-quiet">Clear</button>
+                <span class="sentence-tip">or press Ctrl + Enter</span>
+            </div>
+        </div>
+
+        <p id="statusText">Loading dictionary…</p>
+        <div id="results"></div>
+        <p class="dict-footnote">
+            Data from <a href="https://www.edrdg.org/jmdict/j_jmdict.html" target="_blank" rel="noopener">JMdict</a>
+            (© EDRDG, CC BY-SA 4.0) ·
+            <a id="jishoExt" href="https://jisho.org/" target="_blank" rel="noopener">Search on Jisho ↗</a>
+        </p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Claudia Mithesa Peranginangin · Free software under the
+        <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="license">GNU GPL v3</a> ·
+        <a href="https://github.com/clmpnn/LearneJP">Source code</a></p>
+</footer>
+
+<script defer src="../js/dictionary-data.js"></script>
+<script defer src="../js/dictionary.js"></script>
+<script defer src="../js/sentence.js"></script>
+</body>
+</html>

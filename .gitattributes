@@ -1,0 +1,18 @@
+# Normalize line endings so the generated data files don't churn across platforms.
+* text=auto eol=lf
+
+# Treat generated data as binary in diffs — they are multi-megabyte single-line
+# files and diffing them is never useful.
+js/dictionary-data.js  -diff linguist-generated
+js/stroke-data.js      -diff linguist-generated
+js/kanji-data.js       -diff linguist-generated
+js/practice-data.js    -diff linguist-generated
+practice-data.json     -diff linguist-generated
+
+# Keep media out of language statistics.
+audio/**  linguist-vendored
+images/** linguist-vendored
+
+# NOTE: do not add Git LFS rules here. GitHub Pages does not resolve LFS
+# pointers — it serves the pointer text file instead, which silently breaks
+# whatever loads it.

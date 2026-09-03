@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+  LearneJP — a Japanese (JLPT) study app for writing practice, quizzes, and dictionary lookup
+  Copyright (C) 2026  Claudia Mithesa Peranginangin
+
+  This program is free software: you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free Software
+  Foundation, either version 3 of the License, or (at your option) any later
+  version. See <https://www.gnu.org/licenses/>.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Practice writing Japanese by hand — trace every kana and kanji with numbered stroke order, replay the strokes, and zoom or pan the canvas.">
+    <meta name="theme-color" content="#ff8c42">
+    <title>LearneJP — Writing Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reggae+One&family=Klee+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="canonical" href="https://clmpnn.github.io/LearneJP/html/writing.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LearneJP">
+    <meta property="og:title" content="LearneJP — Writing Practice">
+    <meta property="og:description" content="Trace every kana and kanji with numbered stroke order, replay the strokes, and practice on a canvas you can zoom and pan.">
+    <meta property="og:url" content="https://clmpnn.github.io/LearneJP/html/writing.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+    <h1><a href="index.html" class="logo-link">LearneJP</a></h1>
+    <nav>
+        <a href="learn.html">Start Here</a>
+        <a href="writing.html">Writing</a>
+        <a href="dictionary.html">Dictionary</a>
+        <a href="characters.html">Kana &amp; Kanji</a>
+        <a href="keigo.html">Keigo</a>
+        <a href="practice.html">Practice</a>
+        <a href="add.html">Add</a>
+    </nav>
+</header>
+
+<main class="full-page-main">
+    <section class="side-panel full-width solo-page">
+        <h2>Writing Practice</h2>
+
+        <div class="trace-controls">
+            <label for="traceSelect" class="trace-label">Trace:</label>
+            <select id="traceSelect"></select>
+            <input type="text" id="traceCustom" class="trace-custom" maxlength="2"
+                   placeholder="字" title="Type any character to trace (kanji too)">
+            <button id="tracePrevBtn" class="trace-btn" title="Previous character">◀</button>
+            <button id="traceNextBtn" class="trace-btn" title="Next character">▶</button>
+            <button id="tracePlayBtn" class="trace-btn trace-play hidden-field" title="Play stroke order">▶</button>
+        </div>
+
+        <div class="zoom-controls">
+            <button id="zoomOutBtn" title="Zoom out">−</button>
+            <span id="zoomLevel">100%</span>
+            <button id="zoomInBtn" title="Zoom in">+</button>
+            <button id="zoomResetBtn" title="Reset view">Reset</button>
+        </div>
+
+        <div class="canvas-wrapper" id="canvasWrapper">
+            <canvas id="writingCanvas"></canvas>
+        </div>
+
+        <button id="clearCanvas">Clear</button>
+        <p class="trace-note">Hold two fingers, then slide, to move the canvas · Numbers show stroke order · ▶ plays the strokes ·
+            data © <a href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">KanjiVG</a> (CC BY-SA) ·
+            looking up a word? that lives on the <a href="dictionary.html">Dictionary</a> page</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Claudia Mithesa Peranginangin · Free software under the
+        <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="license">GNU GPL v3</a> ·
+        <a href="https://github.com/clmpnn/LearneJP">Source code</a></p>
+</footer>
+
+<script defer src="../js/stroke-data.js"></script>
+<script defer src="../js/writing.js"></script>
+</body>
+</html>

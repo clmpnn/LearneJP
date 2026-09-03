@@ -1,0 +1,21 @@
+{
+  "name": "LearneJP — Learn Japanese by Practice",
+  "short_name": "LearneJP",
+  "description": "Write kanji, look up words, and practice for the JLPT, all in one place.",
+  "id": "/LearneJP/",
+  "start_url": "/LearneJP/html/index.html",
+  "scope": "/LearneJP/",
+  "display": "standalone",
+  "background_color": "#fff4e8",
+  "theme_color": "#ff8c42",
+  "lang": "en",
+  "categories": ["education"],
+  "icons": [
+    {
+      "src": "/LearneJP/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

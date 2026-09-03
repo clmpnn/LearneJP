@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--
+  LearneJP — a Japanese (JLPT) study app for writing practice, quizzes, and dictionary lookup
+  Copyright (C) 2026  Claudia Mithesa Peranginangin
+
+  This program is free software: you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free Software
+  Foundation, either version 3 of the License, or (at your option) any later
+  version. See <https://www.gnu.org/licenses/>.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete hiragana and katakana charts with audio, plus all JLPT kanji with readings, meanings, and stroke order.">
+    <meta name="theme-color" content="#ff8c42">
+    <title>LearneJP — Kana &amp; Kanji</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reggae+One&family=Klee+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="canonical" href="https://clmpnn.github.io/LearneJP/html/characters.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LearneJP">
+    <meta property="og:title" content="LearneJP — Kana & Kanji">
+    <meta property="og:description" content="Hiragana and katakana charts with audio, plus every JLPT kanji with readings and meanings.">
+    <meta property="og:url" content="https://clmpnn.github.io/LearneJP/html/characters.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+    <h1><a href="index.html" class="logo-link">LearneJP</a></h1>
+    <nav>
+        <a href="learn.html">Start Here</a>
+        <a href="writing.html">Writing</a>
+        <a href="dictionary.html">Dictionary</a>
+        <a href="characters.html">Kana &amp; Kanji</a>
+        <a href="keigo.html">Keigo</a>
+        <a href="practice.html">Practice</a>
+        <a href="add.html">Add</a>
+    </nav>
+</header>
+
+<main class="full-page-main">
+    <section class="side-panel full-width">
+        <h2>Kana &amp; Kanji Reference</h2>
+
+        <div class="practice-controls charref-tabbar">
+            <div class="tab-toggle">
+                <button id="hiraganaTab" class="tab-btn active">Hiragana</button>
+                <button id="katakanaTab" class="tab-btn">Katakana</button>
+                <button id="kanjiTab" class="tab-btn">Kanji</button>
+            </div>
+        </div>
+
+        <div id="hiraganaSection" class="charref-content">
+            <p class="charref-hint">Tap any character to hear its pronunciation. To practice writing it with stroke order, use Trace on the <a href="writing.html">Writing</a> page.</p>
+            <div id="hiraganaCharts" class="kana-charts"></div>
+        </div>
+
+        <div id="katakanaSection" class="charref-content hidden">
+            <p class="charref-hint">Tap any character to hear its pronunciation. To practice writing it with stroke order, use Trace on the <a href="writing.html">Writing</a> page.</p>
+            <div id="katakanaCharts" class="kana-charts"></div>
+        </div>
+
+        <div id="kanjiSection" class="charref-content hidden">
+            <div class="charref-toolbar">
+                <div class="level-chips">
+                    <button class="level-chip active" data-level="n5">N5</button>
+                    <button class="level-chip" data-level="n4">N4</button>
+                    <button class="level-chip" data-level="n3">N3</button>
+                    <button class="level-chip" data-level="n2">N2</button>
+                    <button class="level-chip" data-level="n1">N1</button>
+                    <button class="level-chip" data-level="all">All</button>
+                </div>
+                <input type="text" id="kanjiSearch" class="kanji-search"
+                       placeholder="Search by kanji, meaning, or reading…">
+            </div>
+            <p id="kanjiCount" class="kanji-count"></p>
+            <div id="kanjiGrid" class="kanji-grid"></div>
+            <p class="charref-note">
+                Tap a kanji for meanings and readings. JLPT groupings follow the widely
+                used unofficial post-2010 lists. Kanji data derived from
+                <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project" target="_blank" rel="noopener">KANJIDIC2</a>
+                (© EDRDG, CC BY-SA 4.0).
+            </p>
+        </div>
+    </section>
+</main>
+
+<div id="kanjiModal" class="kmodal-overlay hidden">
+    <div class="kmodal-card" role="dialog" aria-modal="true">
+        <button id="kmodalClose" class="kmodal-close" title="Close">×</button>
+        <div class="kmodal-head">
+            <span id="kmodalChar" class="kmodal-kanji"></span>
+            <div class="kmodal-headinfo">
+                <span id="kmodalLevel" class="kmodal-badge"></span>
+                <span id="kmodalStrokes" class="kmodal-strokes"></span>
+                <button id="kmodalSay" class="kmodal-say" title="Play pronunciation">🔊 Play</button>
+                <a id="kmodalTrace" class="kmodal-say" href="#" title="Trace this kanji with stroke order">✎ Trace</a>
+            </div>
+        </div>
+        <div class="kmodal-row"><strong>Meanings</strong><span id="kmodalMeanings"></span></div>
+        <div class="kmodal-row"><strong>On’yomi</strong><span id="kmodalOn" class="kmodal-jp"></span></div>
+        <div class="kmodal-row"><strong>Kun’yomi</strong><span id="kmodalKun" class="kmodal-jp"></span></div>
+        <a id="kmodalJisho" class="kmodal-jisho" href="#">Look up in Dictionary →</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Claudia Mithesa Peranginangin · Free software under the
+        <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="license">GNU GPL v3</a> ·
+        <a href="https://github.com/clmpnn/LearneJP">Source code</a></p>
+</footer>
+
+<script defer src="../js/kanji-data.js"></script>
+<script defer src="../js/characters.js"></script>
+</body>
+</html>
