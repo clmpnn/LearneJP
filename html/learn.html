@@ -49,8 +49,9 @@
 
         <p class="learn-intro">Never studied Japanese? Everything you need is already on this site —
             this is the order to use it in, with the explanation that makes the order make sense. Sixty stages, two hundred and thirty-seven
-            lessons: each stage teaches the idea first, then sends you to the page that drills it. Tick
-            things off as you go.</p>
+            lessons. Each stage teaches the idea, then sends you to the page that drills it. Start with
+            the Foundation stages; the rest is there when you need it. Answer the question at the end of
+            each lesson and rate yourself — it comes back here on the day you start to forget it.</p>
 
         <div class="learn-progress">
             <div class="learn-progress-track"><div id="learnBar" class="learn-progress-fill"></div></div>
@@ -60,6 +61,15 @@
             </label>
             <button type="button" id="learnReset" class="sent-btn sent-btn-quiet">Start over</button>
         </div>
+
+        <section id="learnReview" class="learn-review" aria-label="Review"></section>
+
+        <nav id="learnTiers" class="learn-tiers" aria-label="Which stages to show">
+            <button type="button" class="learn-tier-chip" data-tier="foundation">Foundation</button>
+            <button type="button" class="learn-tier-chip" data-tier="core">Core</button>
+            <button type="button" class="learn-tier-chip" data-tier="reference">Reference</button>
+            <button type="button" class="learn-tier-chip" data-tier="all">All</button>
+        </nav>
 
         <nav id="learnContents" class="learn-contents" aria-label="Course contents"></nav>
 
@@ -78,6 +88,7 @@
 </footer>
 
 <script defer src="../js/learn-course.js"></script>
+<script defer src="../js/learn-review.js"></script>
 <script defer src="../js/learn-romaji.js"></script>
 <script defer src="../js/learn.js"></script>
 </body>

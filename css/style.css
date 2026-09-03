@@ -2384,6 +2384,206 @@ button.sent-gloss:focus-visible {
     color: #a37b5c;
 }
 
+/* Review, and the tier filter.
+ *
+ * The review panel sits above everything because it is the thing to do on a
+ * return visit — the course is for reading once and this is for coming back.
+ * The tier chips hide stages rather than removing them: nothing is taken away,
+ * the order of attention is just made explicit. */
+
+.learn-review {
+    margin-bottom: 18px;
+    flex-shrink: 0;
+}
+
+.learn-review-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    padding: 14px 18px;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
+    background: rgba(255, 176, 102, 0.18);
+}
+
+.learn-review-count {
+    font-family: var(--font-heading), cursive;
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+}
+
+.learn-review-sub {
+    flex: 1;
+    font-size: 0.75rem;
+    letter-spacing: 0.4px;
+    color: #a37b5c;
+}
+
+.learn-review-idle {
+    padding: 14px 18px;
+    border: 1px dashed var(--color-accent);
+    border-radius: var(--radius);
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: #a37b5c;
+}
+
+.learn-review-card {
+    padding: 20px;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: var(--glow-accent);
+    text-align: center;
+}
+
+.learn-review-from {
+    margin-bottom: 10px;
+    font-size: 0.68rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #a37b5c;
+}
+
+.learn-review-q {
+    margin-bottom: 16px;
+    font-size: 1rem;
+    line-height: 2;
+    letter-spacing: 0.3px;
+}
+
+.learn-review-a {
+    margin-bottom: 14px;
+    padding: 12px 16px;
+    border-left: 3px solid var(--color-primary);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background: rgba(255, 176, 102, 0.16);
+    font-size: 0.88rem;
+    line-height: 2;
+    text-align: left;
+}
+
+.learn-review-progress {
+    margin-top: 12px;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    color: #a37b5c;
+}
+
+/* ---- rating ---- */
+
+.learn-rate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.learn-check .learn-rate {
+    justify-content: flex-start;
+    padding: 0 16px 12px 30px;
+}
+
+.learn-rate-btn {
+    padding: 6px 16px;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+    color: #8a6242;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.learn-rate-btn:hover {
+    background-color: rgba(255, 176, 102, 0.3);
+}
+
+.learn-rate-btn.is-yes {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.learn-rate-btn.is-yes:hover {
+    box-shadow: var(--glow-accent);
+}
+
+.learn-rate-state {
+    font-size: 0.7rem;
+    letter-spacing: 0.4px;
+    color: #a37b5c;
+}
+
+/* ---- tiers ---- */
+
+.learn-tiers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+    flex-shrink: 0;
+}
+
+.learn-tier-chip {
+    padding: 5px 14px;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.6);
+    color: #a37b5c;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.learn-tier-chip:hover {
+    background-color: rgba(255, 176, 102, 0.25);
+}
+
+.learn-tier-chip.is-active {
+    border-color: var(--color-primary);
+    background-color: rgba(255, 140, 66, 0.18);
+    color: var(--color-primary);
+}
+
+.learn-tier {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 1px 8px;
+    border-radius: 999px;
+    background: rgba(255, 176, 102, 0.3);
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.62rem;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #8a6242;
+}
+
+.learn-tier-foundation {
+    background: rgba(255, 140, 66, 0.28);
+    color: var(--color-primary);
+}
+
+/* Hiding rather than removing: the filter changes what is in front of you and
+   takes nothing away. */
+body[data-showing="foundation"] .learn-stage:not([data-tier="foundation"]),
+body[data-showing="foundation"] .learn-jump:not([data-tier="foundation"]),
+body[data-showing="core"] .learn-stage:not([data-tier="core"]),
+body[data-showing="core"] .learn-jump:not([data-tier="core"]),
+body[data-showing="reference"] .learn-stage:not([data-tier="reference"]),
+body[data-showing="reference"] .learn-jump:not([data-tier="reference"]) {
+    display: none;
+}
+
 /* Contents. Twelve stages is more than fits on a screen, and someone returning
    on day nine wants stage nine, not a scroll. */
 

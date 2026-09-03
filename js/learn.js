@@ -137,7 +137,24 @@
         }).join('') + '</ul>';
     }
 
-    function renderLesson(lesson) {
+    // Where a question lives, for the schedule. Prefixed so it can never be
+    // confused with a step id, which lives in a different store entirely.
+    function checkIdFor(stageId, lessonIndex) {
+        return 'q:' + stageId + ':' + lessonIndex;
+    }
+
+    function rateState(id) {
+        const review = window.LearnReview;
+        if (!review) return '';
+        const box = review.boxOf(id);
+        if (box === null) return '';
+        if (box === 0) return 'back today';
+        if (box >= review.intervals.length) return 'known';
+        return 'again in ' + review.intervals[box - 1] +
+            (review.intervals[box - 1] === 1 ? ' day' : ' days');
+    }
+
+    function renderLesson(lesson, checkId) {
         const body = lesson.body.map(function (para) {
             return '<p>' + ruby(para) + '</p>';
         }).join('');
@@ -149,9 +166,17 @@
                 (lesson.table ? renderTable(lesson.table) : '') +
                 (lesson.examples ? renderExamples(lesson.examples) : '') +
                 (lesson.check
-                    ? '<details class="learn-check">' +
+                    ? '<details class="learn-check" data-check="' + esc(checkId) + '">' +
                         '<summary>' + ruby(lesson.check.q) + '</summary>' +
                         '<p>' + ruby(lesson.check.a) + '</p>' +
+                        // Answering is only half of it. Rating what you knew is
+                        // what puts the question into the schedule, so it comes
+                        // back on a day when you have started to forget it.
+                        '<div class="learn-rate">' +
+                            '<button type="button" class="learn-rate-btn" data-rate="0">Not yet</button>' +
+                            '<button type="button" class="learn-rate-btn is-yes" data-rate="1">Got it</button>' +
+                            '<span class="learn-rate-state">' + rateState(checkId) + '</span>' +
+                        '</div>' +
                       '</details>'
                     : '') +
             '</div>' +
@@ -176,13 +201,16 @@
             '</li>';
         }).join('');
 
+        const tier = window.LearnReview ? window.LearnReview.tierOf(stage.id) : 'core';
+
         return '<li class="learn-stage' + (complete === total ? ' is-complete' : '') +
-            '" id="stage-' + esc(stage.id) + '">' +
+            '" id="stage-' + esc(stage.id) + '" data-tier="' + esc(tier) + '">' +
             '<div class="learn-stage-head">' +
                 '<span class="learn-stage-no">' + (index + 1) + '</span>' +
                 '<div class="learn-stage-titles">' +
                     '<h3>' + ruby(stage.title) + '</h3>' +
                     '<p class="learn-stage-aim">' + ruby(stage.aim) + '</p>' +
+                    '<span class="learn-tier learn-tier-' + esc(tier) + '">' + tier + '</span>' +
                 '</div>' +
                 '<span class="learn-stage-count">' + complete + '/' + total + '</span>' +
             '</div>' +
@@ -191,7 +219,9 @@
                 ? '<div class="learn-lessons">' +
                     '<p class="learn-lessons-label">Understand first — ' + lessons.length +
                         (lessons.length === 1 ? ' lesson' : ' lessons') + '</p>' +
-                    lessons.map(renderLesson).join('') +
+                    lessons.map(function (lesson, i) {
+                        return renderLesson(lesson, checkIdFor(stage.id, i));
+                    }).join('') +
                   '</div>'
                 : '') +
             '<p class="learn-steps-label">Then do</p>' +
@@ -204,7 +234,9 @@
         const host = document.getElementById('learnContents');
         if (!host) return;
         host.innerHTML = STAGES.map(function (stage, i) {
-            return '<a class="learn-jump" href="#stage-' + esc(stage.id) + '">' +
+            const tier = window.LearnReview ? window.LearnReview.tierOf(stage.id) : 'core';
+            return '<a class="learn-jump" data-tier="' + esc(tier) +
+                '" href="#stage-' + esc(stage.id) + '">' +
                 '<span class="learn-jump-no">' + (i + 1) + '</span>' + ruby(stage.title) + '</a>';
         }).join('');
     }
@@ -237,6 +269,77 @@
         host.innerHTML = STAGES.map(renderStage).join('');
         renderContents();
         renderProgress();
+        renderReview();
+    }
+
+    // ---------- review ----------
+    //
+    // The session is the point of the whole file. Everything above renders
+    // things to read; this asks you to produce an answer before showing you
+    // one, on a day chosen because you are starting to forget.
+
+    function questionFor(id) {
+        const parts = id.split(':');
+        const stage = STAGES.filter(function (s) { return s.id === parts[1]; })[0];
+        if (!stage) return null;
+        const lesson = stage.lessons[Number(parts[2])];
+        if (!lesson || !lesson.check) return null;
+        return { id: id, stage: stage, lesson: lesson };
+    }
+
+    let session = null;
+
+    function renderReview() {
+        const host = document.getElementById('learnReview');
+        const review = window.LearnReview;
+        if (!host || !review) return;
+
+        const counts = review.stats();
+
+        if (!session) {
+            if (!counts.scheduled) {
+                host.innerHTML = '<p class="learn-review-idle">Nothing scheduled yet. Answer the ' +
+                    'question at the end of any lesson and rate yourself — it will come back here ' +
+                    'on the day you are starting to forget it.</p>';
+                return;
+            }
+            host.innerHTML = '<div class="learn-review-bar">' +
+                '<span class="learn-review-count">' +
+                    (counts.due ? counts.due + ' due today' : 'nothing due today') + '</span>' +
+                '<span class="learn-review-sub">' + counts.scheduled + ' scheduled · ' +
+                    counts.mastered + ' known</span>' +
+                (counts.due ? '<button type="button" id="learnReviewStart" class="sent-btn">Review</button>' : '') +
+            '</div>';
+            return;
+        }
+
+        if (session.index >= session.queue.length) {
+            host.innerHTML = '<div class="learn-review-bar">' +
+                '<span class="learn-review-count">Done — ' + session.answered + ' reviewed</span>' +
+                '<span class="learn-review-sub">' +
+                    (counts.due ? counts.due + ' still due' : 'nothing left due today') + '</span>' +
+                '<button type="button" id="learnReviewEnd" class="sent-btn sent-btn-quiet">Close</button>' +
+            '</div>';
+            return;
+        }
+
+        const item = questionFor(session.queue[session.index]);
+        if (!item) { session.index++; renderReview(); return; }
+
+        host.innerHTML = '<div class="learn-review-card">' +
+            '<p class="learn-review-from">' + ruby(item.stage.title) + ' · ' +
+                ruby(item.lesson.title) + '</p>' +
+            '<p class="learn-review-q">' + ruby(item.lesson.check.q) + '</p>' +
+            (session.shown
+                ? '<p class="learn-review-a">' + ruby(item.lesson.check.a) + '</p>' +
+                  '<div class="learn-rate">' +
+                      '<button type="button" class="learn-rate-btn" data-session="0">Not yet</button>' +
+                      '<button type="button" class="learn-rate-btn is-yes" data-session="1">Got it</button>' +
+                  '</div>'
+                : '<button type="button" id="learnReviewShow" class="sent-btn">Show answer</button>') +
+            '<p class="learn-review-progress">' + (session.index + 1) + ' of ' +
+                session.queue.length + '</p>' +
+        '</div>';
     }
 
     // ---------- wiring ----------
@@ -299,6 +402,85 @@
                 applyRomaji();
             });
             applyRomaji();
+        }
+
+        // Rating from inside a lesson, and from inside a review session.
+        host.addEventListener('click', function (event) {
+            const button = event.target.closest('.learn-rate-btn[data-rate]');
+            if (!button || !window.LearnReview) return;
+
+            const check = button.closest('.learn-check');
+            if (!check) return;
+
+            window.LearnReview.rate(check.dataset.check, button.dataset.rate === '1');
+            const state = check.querySelector('.learn-rate-state');
+            if (state) state.textContent = rateState(check.dataset.check);
+            renderReview();
+        });
+
+        const reviewHost = document.getElementById('learnReview');
+        if (reviewHost && window.LearnReview) {
+            reviewHost.addEventListener('click', function (event) {
+                if (event.target.closest('#learnReviewStart')) {
+                    // Shuffle so the order is not the order you read them in —
+                    // recalling a fact because it followed another one is not
+                    // recalling the fact.
+                    const queue = window.LearnReview.dueIds();
+                    for (let i = queue.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        const t = queue[i]; queue[i] = queue[j]; queue[j] = t;
+                    }
+                    session = { queue: queue, index: 0, shown: false, answered: 0 };
+                } else if (event.target.closest('#learnReviewShow')) {
+                    session.shown = true;
+                } else if (event.target.closest('.learn-rate-btn[data-session]')) {
+                    const correct = event.target.closest('.learn-rate-btn').dataset.session === '1';
+                    window.LearnReview.rate(session.queue[session.index], correct);
+                    session.index++;
+                    session.shown = false;
+                    session.answered++;
+                } else if (event.target.closest('#learnReviewEnd')) {
+                    session = null;
+                    render();
+                    return;
+                } else {
+                    return;
+                }
+                renderReview();
+            });
+        }
+
+        // Tier filter. Nothing is removed — this only changes what is in front
+        // of you, because sixty stages presented flat says they are equally
+        // urgent, which is the one thing a beginner cannot judge.
+        const tiers = document.getElementById('learnTiers');
+        if (tiers) {
+            let showing = 'all';
+            try {
+                showing = localStorage.getItem('learnejp-tier') || 'all';
+            } catch (err) {
+                showing = 'all';
+            }
+
+            function applyTier() {
+                document.body.setAttribute('data-showing', showing);
+                Array.prototype.forEach.call(tiers.children, function (chip) {
+                    chip.classList.toggle('is-active', chip.dataset.tier === showing);
+                });
+            }
+
+            tiers.addEventListener('click', function (event) {
+                const chip = event.target.closest('[data-tier]');
+                if (!chip) return;
+                showing = chip.dataset.tier;
+                try {
+                    localStorage.setItem('learnejp-tier', showing);
+                } catch (err) {
+                    // Not fatal; the filter just will not persist.
+                }
+                applyTier();
+            });
+            applyTier();
         }
 
         const reset = document.getElementById('learnReset');
