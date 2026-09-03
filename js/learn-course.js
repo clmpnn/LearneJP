@@ -3179,6 +3179,126 @@ window.LEARN_COURSE = [
     ]
 },
 {
+    id: 'explaining',
+    title: 'The の that explains',
+    aim: 'んです, and why leaving it out sounds curt.',
+    body: 'One of the most common things in spoken Japanese, and one of the last things textbooks ' +
+        'explain properly. It changes what a sentence is doing without changing what it says.',
+    lessons: [
+        {
+            title: 'Stating a fact, or explaining a situation',
+            body: [
+                "頭が痛いです states a fact: my head hurts. 頭が痛いんです presents that fact as the " +
+                "explanation for something — why you are leaving, why you look the way you do, why you " +
+                "declined. Nothing in the words changed; the んです says this is the reason.",
+                "It attaches to the plain form. Verbs and い-adjectives take んです directly — 行くんです, " +
+                "高いんです. Nouns and な-adjectives need な first: 学生なんです, 静かなんです. In " +
+                "writing it appears as のです, and in casual speech it shortens to の or の with nothing " +
+                "after it.",
+                "The effect is connective. A sentence with んです points at the situation and says these " +
+                "two things belong together, which is why a conversation full of them feels joined up " +
+                "and one with none feels like a list."
+            ],
+            table: {
+                head: ['Plain', 'Explanatory'],
+                rows: [
+                    ['行きます', '行くんです'],
+                    ['高いです', '高いんです'],
+                    ['学生です', '学生なんです'],
+                    ['静かです', '静かなんです'],
+                    ['行きません', '行かないんです'],
+                    ['written', 'のです'],
+                    ['casual', '〜の']
+                ]
+            },
+            examples: [
+                { jp: '頭が痛いんです', en: 'The thing is, my head hurts',
+                  note: 'The same fact as 頭が痛いです, offered as a reason rather than a report.' }
+            ],
+            check: {
+                q: 'What does 学生なんです have that 学生です does not?',
+                a: 'A connection to the situation — it presents being a student as the explanation for ' +
+                   'something. And the な, which nouns and な-adjectives need before んです.'
+            }
+        },
+        {
+            title: 'Asking for the explanation',
+            body: [
+                "The question form is where this becomes unavoidable. どうしたんですか — what happened? — " +
+                "is the んです question, and it asks for the story behind something you can see. " +
+                "どうしましたか is grammatical and colder, because it does not acknowledge that you " +
+                "noticed anything.",
+                "The same holds throughout. 行くんですか means I gather you are going — tell me about " +
+                "it. 行きますか is a neutral enquiry with no such implication. Using the んです form when " +
+                "there is nothing to explain sounds nosy; using the plain form when there obviously is " +
+                "sounds indifferent.",
+                "One consequence worth knowing: answering an んですか question with a bare です answer " +
+                "can land flat. They asked for the situation, so the reply usually carries んです too."
+            ],
+            table: {
+                head: ['Neutral', 'Explanatory', 'Difference'],
+                rows: [
+                    ['どうしましたか', 'どうしたんですか', 'I noticed something and want the story'],
+                    ['行きますか', '行くんですか', 'I gather you are going'],
+                    ['日本語を勉強しますか', '勉強しているんですか', 'I can see that you do'],
+                    ['忙しいですか', '忙しいんですか', 'you seem to be — is that it?']
+                ]
+            },
+            examples: [
+                { jp: 'どうしたんですか', en: 'What is the matter?',
+                  note: 'The standard way to ask. どうしましたか is correct and colder.' }
+            ],
+            check: {
+                q: 'A colleague looks unwell. どうしましたか or どうしたんですか?',
+                a: 'どうしたんですか. The んです acknowledges that you noticed something and are asking ' +
+                   'for the explanation, which is the whole point of asking.'
+            }
+        },
+        {
+            title: 'Should have, and nearly did',
+            body: [
+                "Regret has a fixed shape: the conditional plus よかった. 行けばよかった means I should " +
+                "have gone, literally if I had gone it would have been good. The negative " +
+                "行かなければよかった is I should not have gone.",
+                "Add ておく from the te-form family and you get regret about preparation, which is the " +
+                "most common version of all: 予約しておけばよかった, I should have booked. This is the " +
+                "sentence to have ready, because it is the one the situation keeps producing.",
+                "Two neighbours worth knowing. はずだった is was supposed to — 来るはずだったんですが, he " +
+                "was supposed to come, and note the んです doing its work at the end. And ところだった " +
+                "is nearly did: 遅れるところでした, I very nearly was late."
+            ],
+            table: {
+                head: ['Pattern', 'Means'],
+                rows: [
+                    ['〜ばよかった', 'I should have'],
+                    ['〜なければよかった', 'I should not have'],
+                    ['〜ておけばよかった', 'I should have done it in advance'],
+                    ['〜はずだった', 'was supposed to'],
+                    ['〜ところだった', 'very nearly did'],
+                    ['〜たらよかった', 'the same as ばよかった, more casual']
+                ]
+            },
+            examples: [
+                { jp: '予約しておけばよかったです', en: 'I should have booked',
+                  note: 'te-form plus おく plus the conditional — three things you already have.' }
+            ],
+            check: {
+                q: 'How do you say you should have booked in advance?',
+                a: '予約しておけばよかった. The ておく carries the in-advance sense and the ばよかった ' +
+                   'carries the regret.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Break down the explanatory form and see the の named.',
+          href: 'dictionary.html#s=頭が痛いんです', label: 'Break down んです' },
+        { text: 'Break down a regret.',
+          href: 'dictionary.html#s=予約しておけばよかったです', label: 'Break down ばよかった' },
+        { text: 'Test the patterns.',
+          href: 'practice.html#grammar=n4', label: 'N4 grammar' }
+    ]
+},
+{
     id: 'seeming',
     title: 'Seems, looks like, apparently',
     aim: 'Five ways to hedge, and how to tell them apart.',
@@ -3294,6 +3414,126 @@ window.LEARN_COURSE = [
           href: 'dictionary.html#q=らしい', label: 'Look up らしい' },
         { text: 'Test the patterns.',
           href: 'practice.html#grammar=n4', label: 'N4 grammar' }
+    ]
+},
+{
+    id: 'perception',
+    title: 'Seeing, hearing, and things that happen by themselves',
+    aim: 'The verbs that are not quite potential and not quite passive.',
+    body: 'Japanese separates being able to see something from something being visible, and the ' +
+        'distinction has no English equivalent to lean on.',
+    lessons: [
+        {
+            title: '見える against 見られる',
+            body: [
+                "見える means visible — something enters your view without your doing anything. " +
+                "山が見えます, you can see the mountain, because it is there and your eyes are open. " +
+                "見られる is the potential form from the verb stage and means able to see, in the sense " +
+                "of having the opportunity or permission: 映画が見られます, I can watch the film.",
+                "聞こえる and 聞ける split the same way. 音が聞こえます is the sound is audible; " +
+                "音楽が聞けます is I am able to listen to music. Using the potential where the " +
+                "spontaneous belongs — 山が見られます — implies that seeing the mountain took some " +
+                "arranging.",
+                "Both take が rather than を, for the reason the potential form does: the sentence is " +
+                "about something being visible rather than about you acting on it."
+            ],
+            table: {
+                head: ['Spontaneous', 'Potential', 'Difference'],
+                rows: [
+                    ['見える', '見られる', 'is visible / able to watch'],
+                    ['聞こえる', '聞ける', 'is audible / able to listen'],
+                    ['山が見える', '映画が見られる', 'it is simply there / you have the chance'],
+                    ['声が聞こえる', 'ラジオが聞ける', 'you can hear it / you can tune in']
+                ]
+            },
+            examples: [
+                { jp: 'ここから海が見えます', en: 'You can see the sea from here',
+                  note: '見える, because the sea is simply visible — nothing was arranged.' }
+            ],
+            check: {
+                q: 'From your window, the mountain is in view. 見えます or 見られます?',
+                a: '見えます. It is simply visible. 見られます would suggest you got the opportunity to ' +
+                   'see it, as though it were an event.'
+            }
+        },
+        {
+            title: 'The forms where the feeling arrives on its own',
+            body: [
+                "Japanese has a spontaneous voice — 自発 — built on the same shape as the passive, for " +
+                "things that happen in you without being chosen. 思われる is not is thought so much as " +
+                "the thought comes: 〜と思われます, it seems, it is thought.",
+                "This is why the passive form has three readings the Sentence tab has to hedge on. " +
+                "られる can be passive, potential or spontaneous, and only context separates them. With " +
+                "verbs of thinking and feeling — 思う, 感じる, 案じる — the spontaneous reading is " +
+                "usually the right one.",
+                "In formal and academic writing 〜と思われる is extremely common, precisely because it " +
+                "makes a claim without naming who thinks it. English reaches for the passive there for " +
+                "the same reason."
+            ],
+            table: {
+                head: ['Form', 'Means'],
+                rows: [
+                    ['〜と思われる', 'it seems, it is thought'],
+                    ['感じられる', 'is felt, comes across as'],
+                    ['案じられる', 'is a cause for concern'],
+                    ['〜気がする', 'I have a feeling that'],
+                    ['〜ように見える', 'looks as though'],
+                    ['〜そうに見える', 'looks ~ — from appearance']
+                ]
+            },
+            examples: [
+                { jp: '難しいと思われます', en: 'It seems difficult',
+                  note: 'Spontaneous rather than passive — the thought arrives, nobody is named.' }
+            ],
+            check: {
+                q: 'Why does formal writing prefer 〜と思われる to 〜と思います?',
+                a: 'Because it makes the claim without naming who holds it. The spontaneous form ' +
+                   'presents the thought as arriving rather than as yours.'
+            }
+        },
+        {
+            title: 'Changes you notice happening',
+            body: [
+                "The 〜てくる pattern from the motion stage does a particular job with verbs of " +
+                "understanding and getting used to things, and it is worth naming because it is how " +
+                "you will describe your own progress.",
+                "分かってきました means I have started to understand — the understanding arrived " +
+                "gradually and is still arriving. 慣れてきました is I have got used to it. Both put a " +
+                "change on a timeline running up to now, which is exactly what learning feels like " +
+                "from inside.",
+                "The forward-looking twin is 〜ていく: これから難しくなっていきます, it will get harder " +
+                "from here. Between them they cover any gradual change, and they are the natural way " +
+                "to answer 日本語はどうですか."
+            ],
+            table: {
+                head: ['Pattern', 'Means'],
+                rows: [
+                    ['分かってきた', 'I have started to understand'],
+                    ['慣れてきた', 'I have got used to it'],
+                    ['忘れてきた', 'I have been forgetting'],
+                    ['なってきた', 'has been becoming'],
+                    ['〜ていく', 'will go on becoming, from here'],
+                    ['少しずつ', 'little by little — the adverb that goes with them']
+                ]
+            },
+            examples: [
+                { jp: '少しずつ分かってきました', en: 'I have gradually started to understand',
+                  note: 'The honest answer to how your Japanese is going.' }
+            ],
+            check: {
+                q: 'How would you say your Japanese is slowly improving?',
+                a: '少しずつ分かってきました, or 上手になってきました. The てくる puts the change on a ' +
+                   'line running up to now rather than claiming a finished state.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Break down a spontaneous perception.',
+          href: 'dictionary.html#s=ここから海が見えます', label: 'Break down 見えます' },
+        { text: 'Look up 見える and compare it with 見られる.',
+          href: 'dictionary.html#q=見える', label: 'Look up 見える' },
+        { text: 'Test the forms.',
+          href: 'practice.html#grammar=n3', label: 'N3 grammar' }
     ]
 },
 {
@@ -4339,6 +4579,42 @@ window.LEARN_COURSE = [
                 a: 'The second one. 読み is the stem, doing no grammar, and 始める takes the polite past ' +
                    'for the whole compound.'
             }
+        },
+        {
+            title: 'How Japanese shortens things',
+            body: [
+                "Japanese abbreviates aggressively and predictably, and once you see the rule you can " +
+                "often reverse a word you have never met. The usual pattern is to take the first two " +
+                "morae of each element and stop: パーソナルコンピューター becomes パソコン, " +
+                "リモートコントロール becomes リモコン, デジタルカメラ becomes デジカメ.",
+                "The target is about four morae, which is the comfortable length for a Japanese word. " +
+                "That is why スマートフォン becomes スマホ rather than スマートフォ, and why " +
+                "コンビニエンスストア becomes コンビニ.",
+                "The same works on native and Chinese-derived compounds. 東京大学 becomes 東大. " +
+                "就職活動, job hunting, becomes 就活, and the pattern spread to 婚活 for marriage " +
+                "hunting and 終活 for preparing for the end of life. パワーハラスメント becomes パワハラ, " +
+                "and the ハラ half is now productive on its own.",
+                "This is live rather than historical. New abbreviations appear constantly, and being " +
+                "able to run the rule backwards is more useful than memorising the current crop."
+            ],
+            table: {
+                head: ['Full', 'Short', 'Means'],
+                rows: [
+                    ['パーソナルコンピューター', 'パソコン', 'computer'],
+                    ['リモートコントロール', 'リモコン', 'remote control'],
+                    ['スマートフォン', 'スマホ', 'smartphone'],
+                    ['コンビニエンスストア', 'コンビニ', 'convenience store'],
+                    ['デジタルカメラ', 'デジカメ', 'digital camera'],
+                    ['東京大学', '東大', 'Tokyo University'],
+                    ['就職活動', '就活', 'job hunting'],
+                    ['パワーハラスメント', 'パワハラ', 'workplace harassment']
+                ]
+            },
+            check: {
+                q: 'You meet セクハラ and have never seen it. How do you decode it?',
+                a: 'Run the rule backwards — two morae from each element. セクシュアルハラスメント, ' +
+                   'sexual harassment. The pattern is regular enough to reverse.'
+            }
         }
     ],
     steps: [
@@ -4983,6 +5259,124 @@ window.LEARN_COURSE = [
     ]
 },
 {
+    id: 'service',
+    title: 'The Japanese of shops and staff',
+    aim: 'What you will hear all day, and which parts to copy.',
+    body: 'Service language is a register of its own, partly genuine keigo and partly a house style ' +
+        'that native speakers argue about. Both are worth recognising.',
+    lessons: [
+        {
+            title: 'The phrases that are simply correct',
+            body: [
+                "Most of what staff say is ordinary keigo used well, and recognising it is the fastest " +
+                "way to feel comfortable in shops. いらっしゃいませ greets you and wants no reply. " +
+                "少々お待ちください asks you to wait — the honorific お plus stem plus ください from the " +
+                "keigo stage. かしこまりました acknowledges an instruction, and 恐れ入ります softens " +
+                "whatever comes next.",
+                "The questions are formulaic and repeat verbatim: こちらでよろしいでしょうか, is this " +
+                "all right; ご一緒でよろしいですか, together or separately; お会計は別々になさいますか, " +
+                "will you split the bill.",
+                "None of this needs a reply in kind. はい, お願いします and 大丈夫です handle almost " +
+                "every exchange, and a customer speaking plain polite Japanese back is entirely normal."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['いらっしゃいませ', 'welcome — no reply'],
+                    ['少々お待ちください', 'one moment please'],
+                    ['かしこまりました', 'certainly'],
+                    ['恐れ入ります', 'excuse me — softening what follows'],
+                    ['こちらでよろしいでしょうか', 'is this all right?'],
+                    ['またお越しくださいませ', 'please come again'],
+                    ['ありがとうございました', 'thank you — as you leave']
+                ]
+            },
+            check: {
+                q: 'A shop assistant says かしこまりました. What have they done?',
+                a: 'Accepted your request — certainly, understood. It is the service register\u2019s ' +
+                   'version of 分かりました and needs no reply beyond a nod.'
+            }
+        },
+        {
+            title: 'The parts native speakers complain about',
+            body: [
+                "A second layer, often called マニュアル敬語 or バイト敬語, is criticised by style " +
+                "guides and used everywhere anyway. You will hear it constantly, so it is worth " +
+                "recognising as a thing rather than as grammar you have failed to learn.",
+                "〜になります appears where です would do: こちら、コーヒーになります. Strictly になる is " +
+                "for becoming, and the coffee is not becoming anything. 〜のほう softens without " +
+                "meaning anything — お会計のほう. よろしかったでしょうか asks a present question in the " +
+                "past tense. And 千円からお預かりします adds a から that does no work.",
+                "The reason it exists is that softening is doing social work: a longer, vaguer sentence " +
+                "imposes less. Whether that justifies it is a live argument in Japan. What matters for " +
+                "you is that these are house style rather than models — use です, お会計, " +
+                "よろしいでしょうか."
+            ],
+            table: {
+                head: ['You will hear', 'The plainer form'],
+                rows: [
+                    ['コーヒーになります', 'コーヒーです'],
+                    ['お会計のほう', 'お会計'],
+                    ['よろしかったでしょうか', 'よろしいでしょうか'],
+                    ['千円からお預かりします', '千円お預かりします'],
+                    ['〜させていただきます', 'often just 〜します'],
+                    ['ご注文の品はおそろいでしょうか', 'is that everything?']
+                ]
+            },
+            examples: [
+                { jp: 'こちらでよろしいでしょうか', en: 'Is this all right?',
+                  note: 'The correct version. よろしかった, in the past, is the one that draws complaints.' }
+            ],
+            check: {
+                q: 'You are told コーヒーになります. Should you copy it?',
+                a: 'No. It is house style rather than a model — です is the correct form. Recognise it, ' +
+                   'do not adopt it.'
+            }
+        },
+        {
+            title: 'Announcements, and the words that repeat',
+            body: [
+                "Stations, trains, shops and lifts all run on recorded announcements, and they are " +
+                "written in a formal register with a small fixed vocabulary. Once you have the " +
+                "phrases, you have most of them permanently, because they never change.",
+                "まもなく means shortly and opens most of them. ドアが閉まります, the doors are closing. " +
+                "白線の内側までお下がりください, please stand back behind the white line. " +
+                "駆け込み乗車はおやめください, please do not run for the train.",
+                "In shops the vocabulary is different but equally fixed: 本日は, today; ただいま, at " +
+                "this moment; 〜階でございます, this is the such-and-such floor. The register is " +
+                "consistently 〜でございます and 〜くださいませ, which is the most formal end of the " +
+                "keigo you have already learned."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['まもなく', 'shortly'],
+                    ['ドアが閉まります', 'the doors are closing'],
+                    ['白線の内側', 'behind the white line'],
+                    ['お下がりください', 'please step back'],
+                    ['駆け込み乗車', 'running for a departing train'],
+                    ['本日 ほんじつ', 'today — formal'],
+                    ['ただいま', 'at this moment — formal'],
+                    ['〜でございます', 'is — the most formal copula']
+                ]
+            },
+            check: {
+                q: 'Why are announcements a good place to start listening practice?',
+                a: 'Because they never change. The vocabulary is small and fixed, so hearing them ' +
+                   'repeatedly builds recognition that transfers to every station in the country.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Break down the question you will be asked at a till.',
+          href: 'dictionary.html#s=こちらでよろしいでしょうか', label: 'Break down よろしいでしょうか' },
+        { text: 'Read the patterns page for the keigo underneath this.',
+          href: 'keigo.html#patterns', label: 'Keigo patterns' },
+        { text: 'Hear the announcements.',
+          href: 'practice.html#listening=n4', label: 'N4 listening' }
+    ]
+},
+{
     id: 'business',
     title: 'At work',
     aim: 'Titles, cards, meetings, and the words for how decisions get made.',
@@ -5305,6 +5699,43 @@ window.LEARN_COURSE = [
                 q: 'How do you say any part of you hurts?',
                 a: 'The body part plus が痛いです. It is one frame that works for all of them, which ' +
                    'makes the vocabulary the only thing to learn.'
+            }
+        },
+        {
+            title: 'The convenience store',
+            body: [
+                "コンビニ deserve their own lesson because they do more than sell things and because " +
+                "the exchange at the till is fixed, short, and asked of you every time.",
+                "温めますか — shall I heat it? — comes with anything that can be. お箸は or " +
+                "スプーンはお付けしますか offers cutlery. 袋はご利用ですか asks whether you want a bag, " +
+                "which has cost money since 2020, so the honest answer is often 大丈夫です. " +
+                "ポイントカードはお持ちですか asks about a loyalty card.",
+                "The other functions are the surprise. You can pay utility bills over the counter, send " +
+                "and collect 宅配便 parcels, print and photocopy, buy concert tickets, and use an ATM " +
+                "that accepts foreign cards when many bank machines will not. For a new arrival the " +
+                "コンビニ is the most useful building on the street.",
+                "All of the questions can be answered with はい, お願いします or 大丈夫です. Knowing " +
+                "which one is being asked is the whole skill, and there are only four."
+            ],
+            table: {
+                head: ['You will be asked', 'Means'],
+                rows: [
+                    ['温めますか', 'shall I heat it?'],
+                    ['お箸はお付けしますか', 'would you like chopsticks?'],
+                    ['袋はご利用ですか', 'do you want a bag? — it costs'],
+                    ['ポイントカードはお持ちですか', 'do you have a loyalty card?'],
+                    ['お支払い方法は', 'how are you paying?'],
+                    ['宅配便 たくはいびん', 'parcel service — send and collect'],
+                    ['公共料金', 'utility bills — payable at the till']
+                ]
+            },
+            examples: [
+                { jp: '大丈夫です', en: 'No thank you',
+                  note: 'The same phrase that means I am fine, declining politely.' }
+            ],
+            check: {
+                q: 'You are asked 袋はご利用ですか and do not want one. What do you say?',
+                a: '大丈夫です — the polite decline. はい would get you a bag and a charge for it.'
             }
         }
     ],
@@ -5843,6 +6274,247 @@ window.LEARN_COURSE = [
     ]
 },
 {
+    id: 'school',
+    title: 'School and growing up',
+    aim: 'The system, and the vocabulary that comes out of it.',
+    body: 'A great deal of everyday reference — the year starting in April, what 部活 means, why ' +
+        '受験 is spoken of the way it is — assumes a system worth knowing.',
+    lessons: [
+        {
+            title: 'The year starts in April',
+            body: [
+                "The school and fiscal year both run April to March, so 入学式, the entrance ceremony, " +
+                "is a spring event associated with cherry blossom, and 卒業式, graduation, is in March. " +
+                "New employees also start in April, in a single cohort, which is why 新入社員 is a " +
+                "seasonal word.",
+                "The structure is six years of 小学校, three of 中学校 — compulsory to that point — " +
+                "three of 高校 and four of 大学. Nearly everyone completes high school despite it not " +
+                "being compulsory, and years are counted within each level: 高校二年生 is the second " +
+                "year of high school, not the tenth year of school.",
+                "This is worth knowing because it changes what an age tells you. Asking someone what " +
+                "year they are in gets a more useful answer than asking their age, and it is the " +
+                "ordinary question."
+            ],
+            table: {
+                head: ['Japanese', 'Reading', 'Means'],
+                rows: [
+                    ['小学校', 'shougakkou', 'primary — six years'],
+                    ['中学校', 'chuugakkou', 'lower secondary — three'],
+                    ['高校', 'koukou', 'upper secondary — three'],
+                    ['大学', 'daigaku', 'university — four'],
+                    ['学年 がくねん', '—', 'school year'],
+                    ['入学式 / 卒業式', '—', 'entrance and graduation ceremonies'],
+                    ['新学期', 'shingakki', 'new term'],
+                    ['〜年生', '—nensei', 'year within a level']
+                ]
+            },
+            check: {
+                q: 'Someone says they are 高校二年生. What does that tell you?',
+                a: 'Second year of high school — about sixteen. Years are counted within each level ' +
+                   'rather than cumulatively, so it is not the second year of school.'
+            }
+        },
+        {
+            title: 'Clubs, and how much of school they are',
+            body: [
+                "部活 — club activity — occupies far more of Japanese school life than an outsider " +
+                "expects. Sports and cultural clubs meet most days after school, often on weekends, " +
+                "and through the holidays. For many students it defines their social world and their " +
+                "memory of school more than lessons do.",
+                "The vocabulary comes with a hierarchy attached: 先輩 and 後輩 are felt most strongly " +
+                "inside a club, where the year above genuinely instructs the year below. A great deal " +
+                "of the seniority behaviour that shows up later at work is learned here.",
+                "Two more features that surprise visitors. Students clean their own school — 掃除 is " +
+                "on the timetable — and most schools serve 給食, a set school lunch eaten in the " +
+                "classroom rather than a canteen."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['部活 ぶかつ', 'club activity'],
+                    ['〜部', 'the ~ club — 野球部, 吹奏楽部'],
+                    ['先輩 / 後輩', 'the year above / below'],
+                    ['顧問 こもん', 'the teacher supervising a club'],
+                    ['掃除 そうじ', 'cleaning — done by the students'],
+                    ['給食 きゅうしょく', 'school lunch'],
+                    ['制服 せいふく', 'uniform'],
+                    ['文化祭 / 体育祭', 'culture festival / sports day']
+                ]
+            },
+            check: {
+                q: 'Where does the 先輩 and 後輩 relationship get learned?',
+                a: 'Largely in 部活. Club hierarchy is where the year above genuinely instructs the ' +
+                   'year below, and the workplace version is inherited from it.'
+            }
+        },
+        {
+            title: 'Exams, cram school and the year off',
+            body: [
+                "受験 — sitting entrance examinations — is a defining experience and the word carries " +
+                "weight the English translation does not. Entry to high school and to university both " +
+                "depend on them, and the year leading up is called 受験生 as though it were an " +
+                "occupation.",
+                "塾 is cram school, attended in the evenings alongside ordinary school by a large share " +
+                "of students, and 予備校 is the version for those preparing for university. 浪人 is " +
+                "someone who did not get in and is spending a year studying to try again — literally a " +
+                "masterless samurai, which tells you how the position is regarded.",
+                "The main university entrance test is now the 共通テスト, which replaced the older " +
+                "センター試験 in 2021, followed by each university's own examination. Both fall in " +
+                "winter, which is why heavy snow in January is a national news story."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['受験 じゅけん', 'sitting entrance exams'],
+                    ['受験生', 'a student in that year'],
+                    ['塾 じゅく', 'cram school'],
+                    ['予備校 よびこう', 'cram school for university entry'],
+                    ['浪人 ろうにん', 'studying a further year after failing'],
+                    ['共通テスト', 'the national university entrance test'],
+                    ['合格 / 不合格', 'passed / failed'],
+                    ['頑張って', 'good luck — what you say to any of them']
+                ]
+            },
+            examples: [
+                { jp: '合格おめでとうございます', en: 'Congratulations on passing',
+                  note: 'A sentence with a season attached — it belongs to late winter.' }
+            ],
+            check: {
+                q: 'What is a 浪人 in the modern sense?',
+                a: 'Someone spending a year studying to retake university entrance exams after not ' +
+                   'getting in. The word is the old one for a masterless samurai.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Break down a congratulation.',
+          href: 'dictionary.html#s=合格おめでとうございます', label: 'Break down 合格' },
+        { text: 'Look up 部活 and see the abbreviation it is.',
+          href: 'dictionary.html#q=部活', label: 'Look up 部活' },
+        { text: 'Drill the vocabulary.',
+          href: 'practice.html#vocabulary=n3', label: 'N3 vocabulary' }
+    ]
+},
+{
+    id: 'ritual',
+    title: 'Shrines, temples and ceremonies',
+    aim: 'Which is which, what to do, and the words on the noticeboard.',
+    body: 'You will visit these whether or not you are interested in religion, because they are where ' +
+        'the festivals, the new year and a good deal of the vocabulary live.',
+    lessons: [
+        {
+            title: 'Telling a shrine from a temple',
+            body: [
+                "神社 is a Shinto shrine and お寺 is a Buddhist temple, and the quickest tell is the " +
+                "gate. A 鳥居, the two uprights with crossbars, marks a shrine. A heavier roofed gate " +
+                "with statues, 山門, marks a temple. Shrines have 狛犬, the pair of guardian figures; " +
+                "temples have incense and often a graveyard.",
+                "Most Japanese people use both without contradiction. The common summary is that Shinto " +
+                "handles birth, marriage and the new year while Buddhism handles funerals and the " +
+                "ancestors — and that a majority describe themselves as belonging to neither.",
+                "The names help. A place ending 神社, 神宮 or 大社 is a shrine; one ending 寺 or 院 is a " +
+                "temple. 明治神宮 is a shrine, 金閣寺 a temple."
+            ],
+            table: {
+                head: ['', '神社 — shrine', 'お寺 — temple'],
+                rows: [
+                    ['Religion', 'Shinto', 'Buddhism'],
+                    ['Gate', '鳥居', '山門'],
+                    ['At the front', '狛犬 guardian figures', 'incense, statues'],
+                    ['Name ends', '神社, 神宮, 大社', '寺, 院'],
+                    ['Associated with', 'new year, weddings, festivals', 'funerals, ancestors'],
+                    ['Priest', '神主 かんぬし', 'お坊さん']
+                ]
+            },
+            check: {
+                q: 'You pass under a 鳥居. Where are you?',
+                a: 'A Shinto shrine. The torii marks the boundary, and a temple would have a heavier ' +
+                   'roofed gate instead.'
+            }
+        },
+        {
+            title: 'What to do once you are inside',
+            body: [
+                "The shrine sequence is fixed and short. Bow once at the 鳥居 before entering. Walk to " +
+                "the side of the path rather than down the middle, which is left for the kami. At the " +
+                "手水舎 rinse your left hand, then your right, then your mouth from your cupped left " +
+                "hand — never directly from the ladle.",
+                "At the hall, throw a coin into the 賽銭箱, ring the bell if there is one, and then " +
+                "二礼二拍手一礼: two bows, two claps, one bow. Five-yen coins are traditional because " +
+                "ご縁, five yen, puns on 縁, connection or good fortune.",
+                "At a temple almost the same, with one difference that matters: no clapping. Put your " +
+                "hands together silently instead. Offering incense is usual, and you waft the smoke " +
+                "towards yourself rather than fanning it away."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['手水舎 てみずや', 'the purification basin'],
+                    ['賽銭 さいせん', 'the offering'],
+                    ['二礼二拍手一礼', 'two bows, two claps, one bow — shrines only'],
+                    ['お参り おまいり', 'visiting to pray'],
+                    ['お守り おまもり', 'an amulet'],
+                    ['おみくじ', 'a paper fortune'],
+                    ['絵馬 えま', 'a wooden plaque with a wish written on it'],
+                    ['御朱印 ごしゅいん', 'a calligraphic seal, collected in a book']
+                ]
+            },
+            examples: [
+                { jp: 'お参りに行きます', en: 'I am going to visit and pray',
+                  note: '参る, the humble verb from the keigo stage, in its literal sense.' }
+            ],
+            check: {
+                q: 'What is the one thing you must not do at a temple that you do at a shrine?',
+                a: 'Clap. Two claps are part of the shrine sequence; at a temple you put your hands ' +
+                   'together silently.'
+            }
+        },
+        {
+            title: 'Weddings, funerals and the words to avoid',
+            body: [
+                "Ceremonies have their own vocabulary and their own envelopes. Money is given rather " +
+                "than gifts, in a decorated envelope chosen for the occasion — ご祝儀 for a wedding, " +
+                "香典 for a funeral — and the amount, the envelope and the notes themselves all follow " +
+                "conventions. New notes for a wedding; used ones for a funeral, because new ones would " +
+                "suggest you were prepared.",
+                "Funerals are almost always Buddhist, and black is the colour throughout. 通夜 is the " +
+                "wake the evening before, 告別式 the funeral itself. ご愁傷様です is what you say to the " +
+                "family, and it is a fixed phrase rather than a sentence to improvise around.",
+                "忌み言葉 are words avoided at ceremonies because they suggest the wrong thing. At a " +
+                "wedding: 切れる, 別れる, 終わる — anything about cutting or ending. At a funeral: " +
+                "repeated words like 重ね重ね, which suggest the event happening again. Nobody expects a " +
+                "foreigner to navigate this, and knowing it exists is most of the benefit."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['結婚式 けっこんしき', 'wedding ceremony'],
+                    ['披露宴 ひろうえん', 'the reception'],
+                    ['ご祝儀 ごしゅうぎ', 'wedding money gift — new notes'],
+                    ['お通夜 / 告別式', 'wake / funeral'],
+                    ['香典 こうでん', 'condolence money — used notes'],
+                    ['ご愁傷様です', 'my condolences — a fixed phrase'],
+                    ['喪服 もふく', 'mourning dress — black'],
+                    ['忌み言葉', 'words avoided at ceremonies']
+                ]
+            },
+            check: {
+                q: 'Why are used banknotes correct for a funeral and new ones for a wedding?',
+                a: 'Because new notes imply you prepared in advance, which is right for a wedding and ' +
+                   'wrong for a death.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Break down a visit.',
+          href: 'dictionary.html#s=お参りに行きます', label: 'Break down お参り' },
+        { text: 'Look up 神社 and compare it with 寺.',
+          href: 'dictionary.html#q=神社', label: 'Look up 神社' },
+        { text: 'Drill the vocabulary.',
+          href: 'practice.html#vocabulary=n3', label: 'N3 vocabulary' }
+    ]
+},
+{
     id: 'casual',
     title: 'How people actually talk',
     aim: 'Plain form, contractions, and the particles at the end.',
@@ -5990,6 +6662,149 @@ window.LEARN_COURSE = [
           href: 'dictionary.html#q=ね', label: 'Look up ね' },
         { text: 'Hear the contractions at conversational speed.',
           href: 'practice.html#listening=n4', label: 'N4 listening' }
+    ]
+},
+{
+    id: 'dialects',
+    title: 'The country outside Tokyo',
+    aim: 'What the standard is, and what everyone else speaks.',
+    body: 'The Japanese taught everywhere is one variety among many. You should speak it — and you ' +
+        'will spend a lot of time listening to something else.',
+    lessons: [
+        {
+            title: 'Why a standard exists at all',
+            body: [
+                "標準語, the standard, is a deliberate creation. In the Meiji period a country being " +
+                "unified for schooling, conscription and administration needed one variety everybody " +
+                "could use, and Tokyo speech was selected and codified for the purpose. Before that, " +
+                "speakers from distant regions could genuinely fail to understand one another.",
+                "The modern term is often 共通語, common language, which is the same thing described " +
+                "less prescriptively. It is what broadcasting uses, what textbooks teach, and what this " +
+                "site is written in.",
+                "Almost everyone is bidialectal. People use their regional variety at home and with " +
+                "friends and switch to the standard for work, strangers and anything formal — the " +
+                "same code-switching English speakers do with accent, but affecting grammar and " +
+                "vocabulary rather than only sound."
+            ],
+            check: {
+                q: 'Is a Japanese person speaking dialect being informal?',
+                a: 'Usually yes, but it is a separate axis. They are switching variety, not just ' +
+                   'register, and most speakers move between the two depending on who is present.'
+            }
+        },
+        {
+            title: 'Kansai-ben, which you will meet first',
+            body: [
+                "The variety of Osaka, Kyoto and Kobe is the one a learner meets earliest, because so " +
+                "much broadcast comedy comes from there and because Osaka is large. Its differences " +
+                "are systematic rather than random, which makes it learnable as a set.",
+                "だ becomes や. ない becomes へん or ん — 行かへん, 分からん. いる becomes おる, and " +
+                "〜ている becomes 〜とる. 違う becomes ちゃう, which also covers じゃない. だめ is あかん. " +
+                "very is めっちゃ rather than とても.",
+                "The pitch patterns are close to inverted from Tokyo's on many words, which is why " +
+                "Kansai speech sounds different before you have identified a single word. And the " +
+                "register is warmer: おおきに for thank you and なんでやねん as a scripted retort are " +
+                "both doing social work as much as semantic."
+            ],
+            table: {
+                head: ['Standard', 'Kansai', 'Means'],
+                rows: [
+                    ['だ / です', 'や / やねん', 'is'],
+                    ['〜ない', '〜へん / 〜ん', 'not — 行かへん'],
+                    ['〜ている', '〜とる', 'is doing'],
+                    ['いる', 'おる', 'to be'],
+                    ['違う / じゃない', 'ちゃう', 'that is wrong'],
+                    ['だめ', 'あかん', 'no good'],
+                    ['とても', 'めっちゃ', 'very'],
+                    ['ありがとう', 'おおきに', 'thank you'],
+                    ['そうだね', 'せやな', 'that is right'],
+                    ['〜だろう', '〜やろ', 'right? — tag']
+                ]
+            },
+            examples: [
+                { jp: 'それ、ちゃうで', en: 'That is not right',
+                  note: 'ちゃう for 違う and で for the assertive ending — two swaps in three words.' }
+            ],
+            check: {
+                q: 'You hear 行かへん and cannot find it in the dictionary. What is it?',
+                a: '行かない in Kansai — へん replaces the negative ない. The dictionary has the standard ' +
+                   'form, so the swap has to be undone before looking it up.'
+            }
+        },
+        {
+            title: 'The rest of the map',
+            body: [
+                "Beyond Kansai the variation is wide and the pattern is roughly east against west. " +
+                "Western Japan broadly uses 〜とる for 〜ている and おる for いる; eastern varieties " +
+                "stay closer to the standard because the standard came from there.",
+                "Kyushu marks questions with と — 行くと? — and uses けん where the standard uses から, " +
+                "with ばい and たい as assertive endings. Tohoku merges vowels in ways that make it hard " +
+                "for other Japanese speakers, and だべ is its best-known tag. Hokkaido has なまら for " +
+                "very and 〜しょ as a tag.",
+                "Okinawa is a different case entirely. The Ryukyuan languages are related to Japanese " +
+                "but separate languages rather than dialects, not mutually intelligible with it, and " +
+                "endangered. What most people speak now is Japanese with Ryukyuan influence — " +
+                "ウチナーヤマトグチ — rather than the older languages themselves."
+            ],
+            table: {
+                head: ['Region', 'Marker', 'Means'],
+                rows: [
+                    ['West broadly', '〜とる, おる', 'is doing, to be'],
+                    ['Kyushu', '〜と?', 'question marker'],
+                    ['Kyushu', '〜けん', 'because — standard から'],
+                    ['Kyushu', 'ばい / たい', 'assertive endings'],
+                    ['Tohoku', 'だべ', 'tag — right?'],
+                    ['Hokkaido', 'なまら', 'very'],
+                    ['Okinawa', 'めんそーれ', 'welcome — Ryukyuan']
+                ]
+            },
+            check: {
+                q: 'Is Okinawan a dialect of Japanese?',
+                a: 'No. The Ryukyuan languages are related but separate and not mutually intelligible. ' +
+                   'What is widely spoken now is Japanese with Ryukyuan influence.'
+            }
+        },
+        {
+            title: 'Understand it, do not perform it',
+            body: [
+                "The advice from the earlier stage holds and is worth repeating with the detail behind " +
+                "it. Speak the standard. Learn to understand what you hear. A learner switching into " +
+                "Kansai-ben usually lands somewhere between comedy and mimicry, because dialect carries " +
+                "identity as well as information and you have not got the identity.",
+                "The exception is if you live somewhere and pick it up gradually from the people around " +
+                "you — which is how anyone acquires it, and which sounds entirely different from " +
+                "deploying it from a book.",
+                "What is worth doing deliberately is building the undo rules. When a word will not " +
+                "resolve, try the standard equivalent: へん to ない, とる to ている, や to だ. The " +
+                "Sentence tab has no dialect coverage, so this is manual — but the swaps are few and " +
+                "they repeat."
+            ],
+            table: {
+                head: ['If you hear', 'Look up'],
+                rows: [
+                    ['〜へん / 〜ん', '〜ない'],
+                    ['〜とる', '〜ている'],
+                    ['や / やねん', 'だ / です'],
+                    ['ちゃう', '違う / じゃない'],
+                    ['あかん', 'だめ'],
+                    ['〜けん', '〜から'],
+                    ['おる', 'いる']
+                ]
+            },
+            check: {
+                q: 'Should you learn to speak the dialect where you live?',
+                a: 'Not deliberately from a book. Picking it up from the people around you is how it ' +
+                   'happens and sounds natural; deploying it early sounds like an impression.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Look up the standard form of a dialect word.',
+          href: 'dictionary.html#q=違う', label: 'Look up 違う' },
+        { text: 'Break down a standard sentence and note what a dialect would change.',
+          href: 'dictionary.html#s=それは違います', label: 'Break down 違います' },
+        { text: 'Hear standard Japanese, which is what to model.',
+          href: 'practice.html#listening=n3', label: 'N3 listening' }
     ]
 },
 {
