@@ -159,7 +159,10 @@
             return '<p>' + ruby(para) + '</p>';
         }).join('');
 
-        return '<details class="learn-lesson">' +
+        // Addressable, so a link from the Sentence tab can open this one.
+        const lessonId = 'lesson-' + checkId.slice(2).replace(':', '-');
+
+        return '<details class="learn-lesson" id="' + esc(lessonId) + '">' +
             '<summary><span class="learn-lesson-title">' + ruby(lesson.title) + '</span></summary>' +
             '<div class="learn-lesson-body">' +
                 body +
@@ -288,6 +291,39 @@
     }
 
     let session = null;
+    let showAllTiers = null;
+
+    // Arriving from a breakdown: open the lesson that explains the pattern, and
+    // its question with it. That last part is the point — you met a pattern in
+    // the wild, read why, and the question enters your review schedule.
+    function applyLessonHash() {
+        const raw = (window.location.hash || '').replace(/^#/, '');
+        if (!raw) return;
+
+        const target = new URLSearchParams(raw).get('lesson');
+        if (!target) return;
+
+        // The linked lesson may sit in a tier the filter is hiding, which would
+        // otherwise scroll to nothing at all.
+        if (showAllTiers) showAllTiers();
+
+        const lesson = document.getElementById('lesson-' + target.replace(':', '-'));
+        if (!lesson) return;
+
+        lesson.open = true;
+        const check = lesson.querySelector('.learn-check');
+        if (check) check.open = true;
+
+        Array.prototype.forEach.call(document.querySelectorAll('.learn-lesson.is-linked'),
+            function (el) { el.classList.remove('is-linked'); });
+        lesson.classList.add('is-linked');
+
+        lesson.scrollIntoView({
+            block: 'start',
+            behavior: window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                ? 'auto' : 'smooth'
+        });
+    }
 
     function renderReview() {
         const host = document.getElementById('learnReview');
@@ -469,6 +505,17 @@
                 });
             }
 
+            showAllTiers = function () {
+                if (showing === 'all') return;
+                showing = 'all';
+                try {
+                    localStorage.setItem('learnejp-tier', showing);
+                } catch (err) {
+                    // Not fatal.
+                }
+                applyTier();
+            };
+
             tiers.addEventListener('click', function (event) {
                 const chip = event.target.closest('[data-tier]');
                 if (!chip) return;
@@ -482,6 +529,9 @@
             });
             applyTier();
         }
+
+        window.addEventListener('hashchange', applyLessonHash);
+        applyLessonHash();
 
         const reset = document.getElementById('learnReset');
         if (reset) {

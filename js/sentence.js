@@ -858,6 +858,16 @@
 
     function esc(s) { return api().escapeHtml(s); }
 
+    // A breakdown that names a pattern and then leaves you there is only half a
+    // tool. js/learn-links.js maps the labels this file produces to the lesson
+    // that explains each one; where a mapping exists the label becomes a link.
+    // Absent the file, everything renders exactly as before.
+    function lessonHref(kind, key) {
+        const links = window.LEARN_LINKS;
+        const target = links && links[kind] ? links[kind][key] : null;
+        return target ? 'learn.html#lesson=' + encodeURIComponent(target) : null;
+    }
+
     function renderStrip(tokens, cardIndex) {
         return tokens.map(function (token, i) {
             if (token.kind === 'break') return '<span class="sent-break"></span>';
@@ -894,7 +904,10 @@
             ? '<div class="sent-origin">from <button type="button" class="sent-dictform">' +
                 esc(token.dictForm) + '</button>' +
                 token.reasons.slice().reverse().map(function (r) {
-                    return '<span class="sent-reason">' + esc(r) + '</span>';
+                    const href = lessonHref('reasons', r);
+                    return href
+                        ? '<a class="sent-reason is-link" href="' + href + '">' + esc(r) + '</a>'
+                        : '<span class="sent-reason">' + esc(r) + '</span>';
                 }).join('') + '</div>'
             : '';
 
@@ -910,12 +923,22 @@
         const also = others.length
             ? '<div class="sent-also">also ' + others.join(' · ') + '</div>' : '';
 
+        // A particle card has no deinflection to hang a label on, so it gets a
+        // link of its own. The kanji-form test is the one used for readings: it
+        // is the grammatical entry, not 葉 or 歯, that this explains.
+        const particleHref = top.entry[0].length === 0
+            ? lessonHref('particles', token.surface) : null;
+        const learn = particleHref
+            ? '<a class="sent-learn" href="' + particleHref + '">What ' +
+                esc(token.surface) + ' does →</a>'
+            : '';
+
         return '<article class="result-card sentence-card" id="sent-card-' + id + '">' +
             '<div class="result-word">' +
                 '<button type="button" class="result-kanji sent-head">' + esc(token.surface) + '</button>' +
                 (token.common ? '<span class="result-tag result-tag-common">common</span>' : '') +
             '</div>' + mora + origin +
-            '<div class="result-meaning">' + meaning + '</div>' + also +
+            '<div class="result-meaning">' + meaning + '</div>' + also + learn +
         '</article>';
     }
 
