@@ -72,6 +72,7 @@ jobs:
             --exclude=./.git
             --exclude=./.github
             --exclude=./tools
+            --exclude=./docs
             --exclude=./.gitignore
             --exclude=./.gitattributes
             --exclude=*.py
@@ -124,7 +125,7 @@ jobs:
             fi
           done
 
-          for path in .github tools optimize.py add-keigo.py README.md; do
+          for path in .github tools docs optimize.py add-keigo.py README.md; do
             if [ -e "_site/$path" ]; then
               echo "should not be published: $path"
               fail=1
