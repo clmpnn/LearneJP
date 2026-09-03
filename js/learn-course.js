@@ -1010,6 +1010,156 @@ window.LEARN_COURSE = [
     ]
 },
 {
+    id: 'domains2',
+    title: 'More vocabulary by place',
+    aim: 'Technology, hobbies, feelings and the natural world.',
+    body: 'Four more themed sets. These are the ones that come up once you can hold a conversation ' +
+        'rather than only survive one.',
+    lessons: [
+        {
+            title: 'Phones, computers and the internet',
+            body: [
+                "Technology vocabulary is heavily 外来語, which makes it the easiest domain to guess " +
+                "at — and the one where the borrowings have drifted most. パソコン is a personal " +
+                "computer, shortened past recognition. スマホ is a smartphone, same trick.",
+                "The verbs are mostly native or Chinese-derived even where the noun is borrowed, which " +
+                "is the 混種語 pattern from the strata stage in daily use: アプリをダウンロードする, " +
+                "ファイルを保存する."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['パソコン', 'computer'],
+                    ['スマホ', 'smartphone'],
+                    ['アプリ', 'app'],
+                    ['充電する じゅうでん', 'to charge'],
+                    ['電源 でんげん', 'power, the power switch'],
+                    ['画面 がめん', 'screen'],
+                    ['保存する ほぞん', 'to save'],
+                    ['検索する けんさく', 'to search'],
+                    ['送信する そうしん', 'to send'],
+                    ['つながらない', 'it will not connect']
+                ]
+            },
+            check: {
+                q: 'Why is パソコン hard to guess from English?',
+                a: 'Because it is a shortened compound — personal computer cut to four syllables. ' +
+                   'Japanese abbreviates borrowings aggressively, which is what makes them opaque.'
+            }
+        },
+        {
+            title: 'Hobbies and what you do at the weekend',
+            body: [
+                "趣味 is hobby, and 趣味は何ですか is one of the first questions anyone will ask you. " +
+                "Having an answer ready with two sentences after it is worth more than a large " +
+                "vocabulary you cannot deploy.",
+                "The pattern for most is noun plus をする — サッカーをする, ゲームをする — but a few take " +
+                "their own verb: 音楽を聞く, 本を読む, 写真を撮る, 楽器を弾く. 弾く is specifically for " +
+                "stringed and keyboard instruments; drums take 叩く and wind instruments 吹く."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['趣味 しゅみ', 'hobby'],
+                    ['音楽を聞く', 'listen to music'],
+                    ['本を読む', 'read'],
+                    ['映画を見る', 'watch films'],
+                    ['旅行する', 'travel'],
+                    ['料理する', 'cook'],
+                    ['写真を撮る', 'take photographs'],
+                    ['楽器を弾く', 'play an instrument — strings and keys'],
+                    ['スポーツをする', 'play sport'],
+                    ['ゲームをする', 'play games']
+                ]
+            },
+            examples: [
+                { jp: '趣味は音楽を聞くことです', en: 'My hobby is listening to music',
+                  note: 'こと nominalising the verb — the pattern from the phrases stage.' }
+            ],
+            check: {
+                q: 'You play the drums. Is it 弾く?',
+                a: 'No — 叩く, to strike. 弾く is for strings and keyboards, and wind instruments take ' +
+                   '吹く. The verb follows the instrument.'
+            }
+        },
+        {
+            title: 'Feelings, and the rule that comes with them',
+            body: [
+                "Emotion vocabulary carries the restriction from the stage on talking about other " +
+                "people: these adjectives describe an internal state, so you can assert them about " +
+                "yourself and must mark them as inferred about anyone else.",
+                "嬉しい is happy about something specific; 楽しい is enjoyable, describing the activity " +
+                "rather than you. 寂しい is lonely, and is used far more freely than the English word " +
+                "— saying you will be 寂しい when someone leaves is ordinary, not heavy.",
+                "怒る is to get angry and behaves as a verb, so it escapes the がる rule: 彼は怒って" +
+                "います is perfectly fine, because anger is visible."
+            ],
+            table: {
+                head: ['Japanese', 'Means', 'About others'],
+                rows: [
+                    ['嬉しい うれしい', 'glad', '嬉しそう / 嬉しがる'],
+                    ['楽しい たのしい', 'enjoyable', '楽しそう'],
+                    ['悲しい かなしい', 'sad', '悲しそう'],
+                    ['寂しい さびしい', 'lonely', '寂しがる'],
+                    ['怖い こわい', 'frightened, frightening', '怖がる'],
+                    ['恥ずかしい', 'embarrassed', '恥ずかしがる'],
+                    ['心配 しんぱい', 'worry', '心配している'],
+                    ['怒る おこる', 'get angry — a verb', '怒っています']
+                ]
+            },
+            check: {
+                q: 'Why can you say 彼は怒っています but not 彼は嬉しいです?',
+                a: 'Because 怒る is a verb describing visible behaviour, while 嬉しい is an adjective ' +
+                   'describing an inner state. The second needs 嬉しそう or 嬉しがる.'
+            }
+        },
+        {
+            title: 'Weather, animals and the outdoors',
+            body: [
+                "These are among the first kanji taught, partly because they are simple and partly " +
+                "because they turn up in place names constantly — 山, 川, 田, 海, 森 are all common " +
+                "surnames as well as landscape.",
+                "Animal names are usually written in kana in ordinary text even though kanji exist, " +
+                "which is the script convention from the writing stage: 猫 is correct and ねこ is more " +
+                "common in casual writing. Scientific and formal contexts use katakana.",
+                "Weather words pair with the verbs from the transitivity stage in a way worth noticing: " +
+                "雨が降る, rain falls, is intransitive, and there is no way to make yourself the subject " +
+                "of it — which is exactly why the suffering passive 雨に降られる exists."
+            ],
+            table: {
+                head: ['Japanese', 'Reading', 'Means'],
+                rows: [
+                    ['天気 / 空', 'tenki / sora', 'weather / sky'],
+                    ['雨 / 雪 / 風', 'ame / yuki / kaze', 'rain / snow / wind'],
+                    ['晴れ / 曇り', 'hare / kumori', 'clear / cloudy'],
+                    ['海 / 川 / 山', 'umi / kawa / yama', 'sea / river / mountain'],
+                    ['森 / 木 / 花', 'mori / ki / hana', 'forest / tree / flower'],
+                    ['犬 / 猫 / 鳥 / 魚', 'inu / neko / tori / sakana', 'dog / cat / bird / fish'],
+                    ['虫 むし', '—', 'insect'],
+                    ['星 ほし', '—', 'star']
+                ]
+            },
+            examples: [
+                { jp: '雨が降っています', en: 'It is raining',
+                  note: 'が, because 降る is intransitive — the rain does it, nobody makes it happen.' }
+            ],
+            check: {
+                q: 'Why is there no way to say you rained?',
+                a: 'Because 降る is intransitive and takes no agent. Japanese gets around it with the ' +
+                   'suffering passive — 雨に降られた, I was rained on and it spoiled things.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Look up a shortened borrowing and see the full form.',
+          href: 'dictionary.html#q=パソコン', label: 'Look up パソコン' },
+        { text: 'Break down an answer to the hobby question.',
+          href: 'dictionary.html#s=趣味は音楽を聞くことです', label: 'Break down 趣味は' },
+        { text: 'Drill the vocabulary.',
+          href: 'practice.html#vocabulary=n4', label: 'N4 vocabulary' }
+    ]
+},
+{
     id: 'describing',
     title: 'Describing and comparing',
     aim: 'Degree, comparison, and the adjectives that behave like verbs.',
@@ -1354,6 +1504,42 @@ window.LEARN_COURSE = [
                 a: 'Which era you were born in, then the year within it. Japan uses both calendars, and ' +
                    'official paperwork often expects the era one.'
             }
+        },
+        {
+            title: 'The year, and when the country stops',
+            body: [
+                "A handful of dates reshape the calendar, and knowing them matters practically: travel " +
+                "is expensive and crowded, offices close, and small talk turns to them for weeks " +
+                "beforehand.",
+                "年末年始, the turn of the year, is the largest. Offices close from about the 29th of " +
+                "December to the 3rd of January, people return to their home towns, and お正月 has its " +
+                "own vocabulary — 初詣, the first shrine visit; お年玉, money given to children; " +
+                "年賀状, new year cards posted to arrive on the 1st.",
+                "ゴールデンウィーク is a cluster of public holidays around the end of April and start of " +
+                "May. お盆 in mid-August is when families return home for the ancestors, and both " +
+                "produce the heaviest travel of the year.",
+                "The greeting changes too: あけましておめでとうございます from the 1st, and " +
+                "よいお年を said to someone you will not see again before the year ends."
+            ],
+            table: {
+                head: ['Japanese', 'When', 'What'],
+                rows: [
+                    ['お正月', '1–3 January', 'new year — the biggest holiday'],
+                    ['年末年始', 'late Dec to early Jan', 'offices closed, travel heavy'],
+                    ['初詣 はつもうで', 'early January', 'first shrine visit of the year'],
+                    ['お年玉 おとしだま', 'new year', 'money given to children'],
+                    ['年賀状 ねんがじょう', 'arriving 1 January', 'new year cards'],
+                    ['ゴールデンウィーク', 'late April to early May', 'a run of public holidays'],
+                    ['お盆', 'mid-August', 'families return home'],
+                    ['よいお年を', 'before new year', 'have a good end of year'],
+                    ['あけましておめでとうございます', 'from 1 January', 'happy new year']
+                ]
+            },
+            check: {
+                q: 'When would you say よいお年を rather than あけましておめでとう?',
+                a: 'Before the year ends, to someone you will not see again until after it. The new ' +
+                   'year greeting only starts on the 1st.'
+            }
         }
     ],
     steps: [
@@ -1482,6 +1668,119 @@ window.LEARN_COURSE = [
           href: 'dictionary.html#s=コーヒーを二杯飲みました', label: 'Break down a counter' },
         { text: 'Drill the number vocabulary.',
           href: 'practice.html#vocabulary=n5', label: 'N5 vocabulary' }
+    ]
+},
+{
+    id: 'measures',
+    title: 'Measuring things',
+    aim: 'Units, sizes and the traditional ones still in daily use.',
+    body: 'Japan is metric, with a handful of traditional measures that survived in the places they ' +
+        'were most useful — and those are the ones that catch you out.',
+    lessons: [
+        {
+            title: 'The metric ones, and how they are said',
+            body: [
+                "Distance, weight and volume are metric and the words are borrowed: メートル, キロ, " +
+                "グラム, リットル. Kilo alone — キロ — means kilogram or kilometre depending on context, " +
+                "exactly as in casual English.",
+                "Temperature is Celsius, written 度 and read ど: 三十度 is thirty degrees. Note that " +
+                "気温 is air temperature and 体温 is body temperature, and a doctor asking about your " +
+                "熱 wants the second.",
+                "Percentages have two systems side by side. パーセント is the borrowed one. 割 is a " +
+                "tenth and is very common in shops and statistics — 三割引き is thirty per cent off, " +
+                "and it is the form a sale sign will use."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['メートル / キロ', 'metre / kilo — either kg or km'],
+                    ['センチ / ミリ', 'centimetre / millimetre'],
+                    ['グラム / キロ', 'gram / kilogram'],
+                    ['リットル', 'litre'],
+                    ['度 ど', 'degrees — Celsius'],
+                    ['気温 / 体温', 'air temperature / body temperature'],
+                    ['パーセント', 'per cent'],
+                    ['〜割 わり', 'tenths — 三割 is 30%'],
+                    ['〜割引き', 'discount of ~ tenths']
+                ]
+            },
+            check: {
+                q: 'A sign says 三割引き. How much off?',
+                a: 'Thirty per cent. 割 is a tenth, so three of them is 30% — and this is the form ' +
+                   'shops actually use, rather than パーセント.'
+            }
+        },
+        {
+            title: 'The traditional ones that survived',
+            body: [
+                "A few pre-metric measures are still in everyday use because they suit what they " +
+                "measure. Room size is given in 畳 or 帖, tatami mats, at roughly 1.65 square metres — " +
+                "so a six-mat room is about ten square metres, and Japanese speakers picture the room " +
+                "rather than the number.",
+                "Land and floor area use 坪, about 3.3 square metres or two tatami mats, and property " +
+                "listings quote both 坪 and square metres side by side.",
+                "The metric equivalents vary slightly by region — a Kyoto mat is larger than a Tokyo " +
+                "one — which is a good sign that the unit is doing something a square metre cannot. It " +
+                "describes a room in units of the thing rooms are made of."
+            ],
+            table: {
+                head: ['Unit', 'Roughly', 'Used for'],
+                rows: [
+                    ['一畳 / 一帖', '1.65 m²', 'room size'],
+                    ['六畳', 'about 10 m²', 'a typical bedroom'],
+                    ['一坪', '3.3 m² — two mats', 'land and floor area'],
+                    ['一合 いちごう', '180 ml', 'rice and sake'],
+                    ['一升 いっしょう', '1.8 litres', 'sake bottles'],
+                    ['一寸 / 一尺', '3 cm / 30 cm', 'rare — idioms and carpentry']
+                ]
+            },
+            check: {
+                q: 'Why measure a room in tatami rather than square metres?',
+                a: 'Because the mat is the unit the room is built from, so the number describes the ' +
+                   'layout as well as the area. Six mats is a picture; ten square metres is a figure.'
+            }
+        },
+        {
+            title: 'Sizes, paper and the numbers on labels',
+            body: [
+                "Clothing uses S, M and L, with Japanese sizing running smaller than European or " +
+                "American equivalents — a Japanese L is often a Western M. Shoes are in centimetres, " +
+                "so 25.5 is a shoe size rather than a foot measurement in disguise.",
+                "Paper uses both A and B series, and B is far more common in Japan than elsewhere. B5 " +
+                "is the standard notebook, A4 the standard document. If a form asks for B5 it means it.",
+                "Two more that turn up on labels: 号 numbers sizes in several trades, including rings, " +
+                "canvases and fonts, and 人前 counts portions — 二人前 is enough for two, and it is how " +
+                "recipes and takeaway are quantified."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['S / M / L', 'clothing — sized smaller than Western equivalents'],
+                    ['25.5', 'shoe size in centimetres'],
+                    ['A4 / B5', 'paper — B series is common in Japan'],
+                    ['〜号 ごう', 'a size number — rings, canvases, type'],
+                    ['〜人前 にんまえ', 'portions — 二人前 serves two'],
+                    ['〜入り いり', 'contains ~ — 十個入り, a pack of ten']
+                ]
+            },
+            examples: [
+                { jp: '二人前お願いします', en: 'Enough for two, please',
+                  note: '人前 counts servings — useful when ordering to take away.' }
+            ],
+            check: {
+                q: 'A Japanese shirt is marked L. What size is it likely to be?',
+                a: 'Closer to a Western M. Japanese clothing sizing runs smaller, so buying by the ' +
+                   'letter without trying it on is how people end up disappointed.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Look up 畳 and see the unit and the mat in one entry.',
+          href: 'dictionary.html#q=畳', label: 'Look up 畳' },
+        { text: 'Break down an order by portion.',
+          href: 'dictionary.html#s=二人前お願いします', label: 'Break down 二人前' },
+        { text: 'Drill the number vocabulary.',
+          href: 'practice.html#vocabulary=n4', label: 'N4 vocabulary' }
     ]
 },
 {
@@ -3392,6 +3691,38 @@ window.LEARN_COURSE = [
                 a: 'By the left-hand component, not the overall shape. 持 has the hand radical — you ' +
                    'hold with a hand — and 待 does not.'
             }
+        },
+        {
+            title: 'How many there are, officially',
+            body: [
+                "The government maintains a list, and knowing its shape tells you where the finish " +
+                "line is. 常用漢字 is the standard set for everyday use: 2,136 characters, and " +
+                "anything outside it should carry furigana in a newspaper.",
+                "Inside that, 教育漢字 are the 1,026 taught in primary school, assigned grade by grade " +
+                "— 80 in the first year, rising through the sixth. Learning in that order is a real " +
+                "option and has the advantage of being ordered by usefulness to a child rather than by " +
+                "difficulty, which correlates well with usefulness generally.",
+                "Names are a separate list. 人名用漢字 adds about 860 characters permitted in personal " +
+                "names but not in general writing, which is part of why name readings defeat " +
+                "dictionaries.",
+                "For scale: N5 is around 100 of the 2,136 and N1 around 2,000. The list is finite, " +
+                "which is worth holding on to — unlike vocabulary, kanji genuinely ends."
+            ],
+            table: {
+                head: ['List', 'Size', 'What it is'],
+                rows: [
+                    ['常用漢字', '2,136', 'the standard everyday set'],
+                    ['教育漢字', '1,026', 'taught in primary school, by grade'],
+                    ['人名用漢字', '~860 more', 'permitted in names only'],
+                    ['N5 / N1', '~100 / ~2,000', 'the exam levels against that set'],
+                    ['outside the list', '—', 'should carry furigana in print']
+                ]
+            },
+            check: {
+                q: 'Why is it encouraging that 常用漢字 has 2,136 characters?',
+                a: 'Because it is finite. Vocabulary never ends, but the standard kanji set does — and ' +
+                   'the first thousand cover the overwhelming majority of ordinary text.'
+            }
         }
     ],
     steps: [
@@ -3646,6 +3977,121 @@ window.LEARN_COURSE = [
           href: 'dictionary.html#q=可能性', label: 'Look up 可能性' },
         { text: 'Move the kanji chart up — the compounds get easier as the characters accumulate.',
           href: 'characters.html#kanji=n3', label: 'N3 kanji' }
+    ]
+},
+{
+    id: 'strata',
+    title: 'Where the words came from',
+    aim: 'Three layers of vocabulary, and why register follows them.',
+    body: 'Japanese has three separate stocks of words for the same ideas. Knowing which layer a word ' +
+        'belongs to tells you how formal it is before you know what it means.',
+    lessons: [
+        {
+            title: 'Native, Chinese and borrowed',
+            body: [
+                "Almost every Japanese word belongs to one of three strata. 和語 are the native words, " +
+                "the ones the language had before it met Chinese: they take kun readings, often carry " +
+                "okurigana, and feel plain and warm. 漢語 came from Chinese: they take on readings, " +
+                "usually pair two kanji, and feel formal, technical and compact. 外来語 arrived from " +
+                "European languages, are written in katakana, and feel modern.",
+                "This is why Japanese seems to have so many synonyms. It is not really synonymy — the " +
+                "layers carry different registers, so 山 and 登山 and ハイキング are the same terrain " +
+                "described from three social positions.",
+                "There is a fourth, smaller group worth naming: 混種語, hybrids built from more than " +
+                "one layer. 消しゴム is a native verb stem plus a Dutch loanword. 歯ブラシ is a native " +
+                "noun plus an English one."
+            ],
+            table: {
+                head: ['Layer', 'From', 'Feels', 'Example'],
+                rows: [
+                    ['和語', 'native Japanese', 'plain, warm, everyday', '食べる, 山, 早い'],
+                    ['漢語', 'Chinese', 'formal, technical, compact', '食事, 登山, 迅速'],
+                    ['外来語', 'European languages', 'modern, sometimes vague', 'ランチ, ハイキング, スピーディー'],
+                    ['混種語', 'mixed', '—', '消しゴム, 歯ブラシ, 大型バス']
+                ]
+            },
+            examples: [
+                { jp: '食事をしました', en: 'I had a meal',
+                  note: '漢語. 食べました is the same act in the plainer native layer.' }
+            ],
+            check: {
+                q: 'Why does Japanese have 食べる and 食事する for the same thing?',
+                a: 'Because they come from different layers. 食べる is native and everyday; 食事する is ' +
+                   'Chinese-derived and more formal. The choice sets the register.'
+            }
+        },
+        {
+            title: 'Telling them apart on sight',
+            body: [
+                "You can usually place a word without knowing it. Katakana means 外来語, with the " +
+                "exception of emphasis and mimetic words. Two kanji together with on readings and no " +
+                "okurigana means 漢語. A kanji with kana trailing off it, or a word written wholly in " +
+                "hiragana, means 和語.",
+                "The readings from the kanji stage are doing this work: on readings are the Chinese " +
+                "layer and kun readings are the native one. So the two-reading system is not an " +
+                "accident of history you have to memorise — it is the seam between two vocabularies.",
+                "This also predicts length. 漢語 pack meaning into two syllables per character, which " +
+                "is why formal Japanese is shorter on the page and denser to read. 新幹線 is three " +
+                "characters for a thing English needs two words and four syllables for."
+            ],
+            table: {
+                head: ['Written as', 'Layer', 'Because'],
+                rows: [
+                    ['カタカナ', '外来語', 'the script marks the borrowing'],
+                    ['漢字漢字', '漢語', 'two on readings, no okurigana'],
+                    ['漢字 + かな', '和語', 'kun reading with okurigana'],
+                    ['ひらがな only', '和語', 'usually native, often grammatical'],
+                    ['漢字 + カタカナ', '混種語', 'one from each — 消しゴム']
+                ]
+            },
+            check: {
+                q: 'You meet 迅速 and 素早い, both meaning quick. Which is which layer?',
+                a: '迅速 is 漢語 — two kanji, on readings, formal. 素早い is 和語 — kun reading with ' +
+                   'okurigana, everyday. Same idea, different register.'
+            }
+        },
+        {
+            title: 'Picking the right layer',
+            body: [
+                "The practical use of all this is choosing. In speech to a friend, reach for the native " +
+                "word. In a report or an email, the Chinese-derived one. In advertising, technology and " +
+                "anything modern, the loanword.",
+                "Getting it wrong is not ungrammatical, only odd — like saying you will commence lunch. " +
+                "Learners tend to over-use 漢語 because textbooks and dictionaries favour them, and end " +
+                "up sounding like a manual.",
+                "One further wrinkle: loanwords often narrow. ライス is rice served on a plate, while " +
+                "ご飯 is rice in a bowl and also a meal. ホテル is a Western-style hotel and 旅館 a " +
+                "Japanese inn. The borrowed word rarely covers everything the native one does."
+            ],
+            table: {
+                head: ['和語', '漢語', '外来語'],
+                rows: [
+                    ['決める', '決定する', '—'],
+                    ['集まる', '集合する', '—'],
+                    ['宿', '旅館', 'ホテル'],
+                    ['ご飯', '食事', 'ライス'],
+                    ['早い', '迅速', 'スピーディー'],
+                    ['店', '商店', 'ショップ']
+                ]
+            },
+            examples: [
+                { jp: '会議は三時に集合します', en: 'We assemble at three for the meeting',
+                  note: '集合する where 集まる would do — the 漢語 makes it an announcement.' }
+            ],
+            check: {
+                q: 'Why do learners often sound stiff even when their grammar is right?',
+                a: 'Because they reach for 漢語 where a native word would do. Dictionaries list the ' +
+                   'formal word first, and using it in conversation reads like a manual.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Look up a native word and its Chinese-derived twin.',
+          href: 'dictionary.html#q=食事', label: 'Look up 食事' },
+        { text: 'Break down a sentence built from the formal layer.',
+          href: 'dictionary.html#s=会議は三時に集合します', label: 'Break down 集合します' },
+        { text: 'Browse the chart and notice the two reading columns doing this work.',
+          href: 'characters.html#kanji=n4', label: 'N4 kanji' }
     ]
 },
 {
@@ -4351,6 +4797,287 @@ window.LEARN_COURSE = [
     ]
 },
 {
+    id: 'living',
+    title: 'Paperwork and a place to live',
+    aim: 'The vocabulary of actually living there.',
+    body: 'Two areas nobody teaches and everybody needs within a month of arriving: the ward office, ' +
+        'and renting somewhere.',
+    lessons: [
+        {
+            title: 'The ward office and what it wants',
+            body: [
+                "Japanese administration runs through the 市役所 or 区役所 — the city or ward office — " +
+                "and almost everything else depends on being registered there. You go in person, you " +
+                "fill in forms by hand, and the counter staff are patient with slow Japanese.",
+                "住民票 is the residence certificate, and it is the document other institutions ask for. " +
+                "国民健康保険 is national health insurance, which is not optional and is arranged at the " +
+                "same counter. マイナンバー is the national identification number, and 在留カード the " +
+                "residence card for anyone not a citizen.",
+                "Practical: bring identification and be prepared for a numbered ticket and a wait. The " +
+                "phrase that opens all of it is 〜の手続きをしたいのですが — I would like to do the " +
+                "paperwork for ~ — trailing off in the polite way the hedging lesson covered."
+            ],
+            table: {
+                head: ['Japanese', 'Reading', 'Means'],
+                rows: [
+                    ['市役所 / 区役所', 'shiyakusho / kuyakusho', 'city or ward office'],
+                    ['住民票', 'juuminhyou', 'residence certificate'],
+                    ['在留カード', 'zairyuu kaado', 'residence card'],
+                    ['国民健康保険', 'kokumin kenkou hoken', 'national health insurance'],
+                    ['マイナンバー', '—', 'national ID number'],
+                    ['年金', 'nenkin', 'pension'],
+                    ['手続き', 'tetsuzuki', 'a procedure, paperwork'],
+                    ['記入する', 'kinyuu suru', 'to fill in a form'],
+                    ['窓口', 'madoguchi', 'the counter']
+                ]
+            },
+            examples: [
+                { jp: '手続きをしたいのですが', en: 'I would like to do the paperwork…',
+                  note: 'んですが trailing off — the standard way to open a request at a counter.' }
+            ],
+            check: {
+                q: 'What single document do other institutions keep asking for?',
+                a: '住民票, the residence certificate. Almost everything else — a bank account, a phone ' +
+                   'contract, a lease — depends on being registered at the ward office first.'
+            }
+        },
+        {
+            title: 'The seal that replaces a signature',
+            body: [
+                "Japan uses a carved personal seal, 印鑑 or はんこ, where other countries sign. You " +
+                "press it in red ink onto documents, and for a great deal of ordinary business it " +
+                "carries more weight than a signature would.",
+                "There are grades. 認印 is an everyday seal for parcels and internal forms and can be " +
+                "bought ready-made. 実印 is registered with the ward office and used for contracts, " +
+                "property and cars; registering it produces a 印鑑証明書, a certificate proving the " +
+                "seal is yours. 銀行印 is the one your bank holds.",
+                "Signatures are increasingly accepted, and the government has pushed to reduce seal " +
+                "requirements. But a ready-made 認印 is cheap and removes friction, and having one is " +
+                "still simpler than explaining each time that you do not."
+            ],
+            table: {
+                head: ['Japanese', 'Used for'],
+                rows: [
+                    ['認印 みとめいん', 'everyday — parcels, forms'],
+                    ['実印 じついん', 'registered — contracts, property'],
+                    ['銀行印 ぎんこういん', 'the one the bank has on file'],
+                    ['印鑑証明書', 'certificate that a seal is registered to you'],
+                    ['朱肉 しゅにく', 'the red ink pad'],
+                    ['サイン', 'a signature — increasingly accepted']
+                ]
+            },
+            check: {
+                q: 'Which seal do you need before signing a lease?',
+                a: 'A 実印, registered at the ward office, usually with the 印鑑証明書 that proves it is ' +
+                   'yours. A shop-bought 認印 is not enough for a contract.'
+            }
+        },
+        {
+            title: 'Reading a rental listing',
+            body: [
+                "Japanese property adverts are dense with abbreviations, and they are consistent enough " +
+                "to decode once. 1LDK means one room plus a combined living, dining and kitchen area. " +
+                "2DK is two rooms plus dining and kitchen. 1K is one room and a separate small kitchen. " +
+                "The number counts rooms other than the shared space.",
+                "Room size is given in 畳 or 帖, tatami mats, at roughly 1.65 square metres each, so a " +
+                "six-mat room is about ten square metres. 築 followed by a number is the age of the " +
+                "building in years.",
+                "The costs are where it stings. 敷金 is a returnable deposit. 礼金 is key money — a gift " +
+                "to the landlord that you do not get back, traditionally one or two months' rent. Add " +
+                "the agency fee and a guarantor company, and moving in commonly costs four to six " +
+                "months' rent up front."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['1LDK / 2DK / 1K', 'rooms plus living, dining, kitchen'],
+                    ['六畳 / 6帖', 'six tatami mats — about 10 m²'],
+                    ['築十年', 'the building is ten years old'],
+                    ['家賃 やちん', 'rent'],
+                    ['敷金 しききん', 'deposit — returnable'],
+                    ['礼金 れいきん', 'key money — not returnable'],
+                    ['管理費 / 共益費', 'building maintenance charge'],
+                    ['保証人 ほしょうにん', 'guarantor'],
+                    ['大家 おおや', 'landlord'],
+                    ['不動産屋 ふどうさんや', 'estate agent']
+                ]
+            },
+            examples: [
+                { jp: '家賃はいくらですか', en: 'How much is the rent?',
+                  note: 'いくら from the question-words lesson, doing practical work.' }
+            ],
+            check: {
+                q: 'What is the difference between 敷金 and 礼金?',
+                a: '敷金 is a deposit you can get back. 礼金 is a gift to the landlord that you cannot. ' +
+                   'Both are commonly one to two months\u2019 rent.'
+            }
+        },
+        {
+            title: 'Rubbish, and why it is a whole topic',
+            body: [
+                "Waste separation is stricter than most countries and locally variable, and getting it " +
+                "wrong is one of the few things that will get you a note from a neighbour. Each " +
+                "municipality publishes a calendar, often in several languages, and it is worth " +
+                "reading properly once.",
+                "The usual divisions are 燃えるゴミ, burnable; 燃えないゴミ, non-burnable; 資源ゴミ, " +
+                "recyclables, split further into プラ, 缶, びん, ペットボトル; and 粗大ゴミ, oversized " +
+                "items, which must be booked and paid for in advance.",
+                "Each category has its own collection day and often its own bag colour, and putting " +
+                "something out on the wrong morning means it stays there with a sticker on it. This " +
+                "sounds trivial and is the most common friction a new arrival actually experiences."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['燃えるゴミ', 'burnable waste'],
+                    ['燃えないゴミ', 'non-burnable'],
+                    ['資源ゴミ', 'recyclables'],
+                    ['プラ / 缶 / びん', 'plastic / cans / bottles'],
+                    ['ペットボトル', 'PET bottles — separate again'],
+                    ['粗大ゴミ', 'oversized — book and pay in advance'],
+                    ['収集日 しゅうしゅうび', 'collection day'],
+                    ['ゴミ出し', 'putting the rubbish out']
+                ]
+            },
+            check: {
+                q: 'Why does rubbish need its own vocabulary?',
+                a: 'Because separation is strict, locally variable and enforced socially. The categories ' +
+                   'and collection days are published, and getting them wrong is visible to neighbours.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Break down a counter request.',
+          href: 'dictionary.html#s=手続きをしたいのですが', label: 'Break down a request' },
+        { text: 'Look up 印鑑 and read what it replaces.',
+          href: 'dictionary.html#q=印鑑', label: 'Look up 印鑑' },
+        { text: 'Drill the vocabulary these forms are written in.',
+          href: 'practice.html#vocabulary=n3', label: 'N3 vocabulary' }
+    ]
+},
+{
+    id: 'emergency',
+    title: 'When the ground moves',
+    aim: 'Earthquake, weather and emergency vocabulary, before you need it.',
+    body: 'Japan gives clear, standardised warnings, and they are worth understanding in advance ' +
+        'rather than working out during one.',
+    lessons: [
+        {
+            title: 'Earthquakes and the two numbers',
+            body: [
+                "Japanese reporting uses two different scales and confusing them is common. " +
+                "マグニチュード is the magnitude — one number for the whole earthquake, measuring its " +
+                "energy. 震度 is the intensity where you are, from 0 to 7, and it is the one that tells " +
+                "you what your building just experienced. A distant magnitude 7 can be a 震度 2 in your " +
+                "city.",
+                "震度 is the number broadcasts lead with, and the scale is worth knowing roughly: 3 is " +
+                "clearly felt, 5弱 starts moving furniture, 6 and above causes structural damage. The " +
+                "5 and 6 levels are each split into 弱 and 強, weak and strong.",
+                "緊急地震速報 is the early warning. Phones make a distinctive alarm a few seconds before " +
+                "the shaking arrives, and those seconds are for getting away from windows and under " +
+                "something solid — not for gathering belongings."
+            ],
+            table: {
+                head: ['Japanese', 'Reading', 'Means'],
+                rows: [
+                    ['地震', 'jishin', 'earthquake'],
+                    ['震度', 'shindo', 'local intensity, 0–7'],
+                    ['マグニチュード', '—', 'magnitude — the whole event'],
+                    ['緊急地震速報', 'kinkyuu jishin sokuhou', 'early warning'],
+                    ['余震', 'yoshin', 'aftershock'],
+                    ['津波', 'tsunami', 'tsunami'],
+                    ['避難', 'hinan', 'evacuation'],
+                    ['避難所', 'hinanjo', 'evacuation shelter'],
+                    ['高台', 'takadai', 'high ground']
+                ]
+            },
+            check: {
+                q: 'A broadcast says マグニチュード7, 震度3. Which matters to you?',
+                a: '震度3 — the intensity where you are. Magnitude describes the whole earthquake; ' +
+                   'intensity describes your building.'
+            }
+        },
+        {
+            title: 'The three levels of weather warning',
+            body: [
+                "Weather alerts come in a fixed hierarchy, and the word tells you the severity without " +
+                "reading the detail. 注意報 is an advisory — be aware. 警報 is a warning — serious, act " +
+                "on it. 特別警報 is an emergency warning, issued for events expected once in decades, " +
+                "and it means take immediate action.",
+                "Each attaches to a phenomenon: 大雨警報 heavy rain, 洪水警報 flood, 暴風警報 storm, " +
+                "大雪警報 heavy snow. 台風 is a typhoon, numbered by the order it formed that year " +
+                "rather than named — 台風12号 is the twelfth of the season.",
+                "Trains stop pre-emptively in Japan, announced as 計画運休, planned suspension, usually " +
+                "the day before. When that is announced, the trains will not run regardless of how the " +
+                "weather looks on the morning."
+            ],
+            table: {
+                head: ['Japanese', 'Level'],
+                rows: [
+                    ['注意報 ちゅういほう', 'advisory — be aware'],
+                    ['警報 けいほう', 'warning — act on it'],
+                    ['特別警報', 'emergency warning — act immediately'],
+                    ['大雨 / 洪水 / 暴風 / 大雪', 'rain / flood / storm / snow'],
+                    ['台風12号', 'the twelfth typhoon of the season'],
+                    ['計画運休', 'planned suspension of trains'],
+                    ['ハザードマップ', 'local hazard map — worth reading in advance']
+                ]
+            },
+            check: {
+                q: 'What is the difference between 注意報 and 警報?',
+                a: 'Severity. 注意報 is an advisory to be aware; 警報 is a warning to act. 特別警報 above ' +
+                   'both means immediate action.'
+            }
+        },
+        {
+            title: 'The phrases for the moment itself',
+            body: [
+                "Emergency Japanese is short by design, and the words you need are ones you will hear " +
+                "shouted rather than read. 危ない means dangerous, and is what somebody yells at you. " +
+                "逃げて is run. 落ち着いて is calm down. 大丈夫ですか asks whether you are all right, and " +
+                "is the first thing anyone will say to you.",
+                "The numbers are 110 for police and 119 for fire and ambulance — note that these are " +
+                "the reverse of several other countries, which is worth fixing in memory now. " +
+                "救急車を呼んでください asks for an ambulance.",
+                "If you cannot manage the conversation, 日本語が話せません followed by your location is " +
+                "enough. Emergency operators handle this routinely, and several prefectures offer " +
+                "English support on the same numbers."
+            ],
+            table: {
+                head: ['Japanese', 'Means'],
+                rows: [
+                    ['危ない', 'dangerous — look out'],
+                    ['逃げて', 'run, get out'],
+                    ['落ち着いて', 'calm down'],
+                    ['大丈夫ですか', 'are you all right?'],
+                    ['助けてください', 'please help'],
+                    ['救急車を呼んでください', 'please call an ambulance'],
+                    ['110番', 'police'],
+                    ['119番', 'fire and ambulance'],
+                    ['日本語が話せません', 'I do not speak Japanese']
+                ]
+            },
+            examples: [
+                { jp: '大丈夫ですか', en: 'Are you all right?',
+                  note: 'The same phrase that declines an offer, doing a different job entirely.' }
+            ],
+            check: {
+                q: 'Which number is the ambulance?',
+                a: '119 — fire and ambulance together. 110 is the police, which is the reverse of ' +
+                   'several other countries and worth fixing now rather than in the moment.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Look up 避難 and the words built on it.',
+          href: 'dictionary.html#q=避難', label: 'Look up 避難' },
+        { text: 'Break down the question you will be asked.',
+          href: 'dictionary.html#s=大丈夫ですか', label: 'Break down 大丈夫ですか' },
+        { text: 'Hear announcements at natural speed.',
+          href: 'practice.html#listening=n3', label: 'N3 listening' }
+    ]
+},
+{
     id: 'casual',
     title: 'How people actually talk',
     aim: 'Plain form, contractions, and the particles at the end.',
@@ -4606,6 +5333,42 @@ window.LEARN_COURSE = [
                 q: 'Why say そろそろ before leaving rather than just leaving?',
                 a: 'Because it warns that you are about to go, which gives the other person a chance to ' +
                    'close properly. Standing up without it is abrupt.'
+            }
+        },
+        {
+            title: 'The noises that are not words',
+            body: [
+                "Japanese has a set of short exclamations that carry a whole reaction, and they are " +
+                "worth recognising because they come faster than anything you can parse. They are also " +
+                "the easiest thing to start producing, since none of them require grammar.",
+                "あっ is the sound of noticing — you dropped something, or you just remembered. えっ is " +
+                "surprise or a request to repeat, and its length carries the meaning: a short えっ is " +
+                "sorry, what, a long ええっ is disbelief. へえ signals interest in what you were just " +
+                "told, and saying it is a compliment to the speaker.",
+                "やった is delight at an outcome. しまった is the opposite — the sound of realising you " +
+                "have made a mistake, closest to English damn. And うわ or わあ covers surprise of " +
+                "either kind, depending entirely on tone.",
+                "None of these are slang and all of them are used by adults in professional settings, " +
+                "quietly. They are ordinary spoken Japanese with no written form worth learning."
+            ],
+            table: {
+                head: ['Sound', 'Means'],
+                rows: [
+                    ['あっ', 'noticing, or remembering'],
+                    ['えっ', 'sorry, what? — or surprise'],
+                    ['へえ', 'oh really — signals interest'],
+                    ['ふーん', 'hmm — noncommittal, can read as bored'],
+                    ['やった', 'delight at an outcome'],
+                    ['しまった', 'realising a mistake'],
+                    ['うわ / わあ', 'surprise, either direction'],
+                    ['よし', 'right then — resolving to act'],
+                    ['あれ？', 'that is odd — something is not as expected']
+                ]
+            },
+            check: {
+                q: 'Someone tells you something interesting and you say ふーん. How does it land?',
+                a: 'Flat, possibly bored. へえ is the one that signals interest; ふーん is noncommittal ' +
+                   'and can read as not caring.'
             }
         }
     ],
@@ -5190,6 +5953,105 @@ window.LEARN_COURSE = [
         { text: 'Break down a subjectless sentence and notice what the parser cannot supply either.',
           href: 'dictionary.html#s=明日行きますか', label: 'Break down a subjectless line' },
         { text: 'Hear indirect refusals in context.',
+          href: 'practice.html#listening=n4', label: 'N4 listening' }
+    ]
+},
+{
+    id: 'rolelanguage',
+    title: 'The Japanese nobody speaks',
+    aim: 'Why anime dialogue will not make you sound Japanese.',
+    body: 'Fiction uses speech patterns that mark a character type instantly. They are widely ' +
+        'understood, almost never spoken, and a common way for learners to pick up bad habits.',
+    lessons: [
+        {
+            title: 'What role language is',
+            body: [
+                "Japanese fiction can tell you who is speaking from one line, without a name attached, " +
+                "because certain speech patterns are attached to character types rather than to real " +
+                "people. The linguist Kinsui Satoshi named this 役割語, role language.",
+                "An elderly scholar ends sentences with じゃ and calls himself わし. A wealthy young " +
+                "woman says わたくし and ですわ. A rough young man says おれ and だぜ. None of these " +
+                "are how those people actually talk. They are conventions the audience has learned, " +
+                "the way English readers know a pirate says arr.",
+                "This matters because it is invisible from inside. Dialogue sounds like Japanese, so a " +
+                "learner absorbing it has no way to tell that they are learning a costume."
+            ],
+            table: {
+                head: ['Pattern', 'Signals', 'Real usage'],
+                rows: [
+                    ['〜じゃ, わし, 〜のじゃ', 'an old scholar or sage', 'nearly none, some western dialects'],
+                    ['わたくし, 〜ですわ, 〜ますのよ', 'a wealthy young woman', 'nearly none'],
+                    ['おれ, 〜だぜ, 〜だぞ, 〜ねえ', 'a rough young man', 'partly real, much softer'],
+                    ['〜でござる, 拙者', 'a samurai or ninja', 'none — historical'],
+                    ['〜にゃ, 〜だニャ', 'a cat character', 'none'],
+                    ['〜アルヨ', 'a stereotyped foreigner', 'none — and offensive']
+                ]
+            },
+            check: {
+                q: 'Why is role language hard for a learner to notice?',
+                a: 'Because it is grammatical, fluent Japanese. Nothing marks it as fictional from the ' +
+                   'inside, so it is absorbed as ordinary speech.'
+            }
+        },
+        {
+            title: 'The women\u2019s language that mostly is not',
+            body: [
+                "The clearest case is 女性語. Fiction has women end sentences with わ and のよ and かしら " +
+                "constantly. Real Japanese women, especially under fifty, use these far less than " +
+                "subtitled media suggests, and in Tokyo speech the difference between men's and women's " +
+                "sentence endings has narrowed a great deal.",
+                "The reverse also holds. ぞ and ぜ read as strongly masculine and are much rarer in " +
+                "conversation than in fiction, where they are doing characterisation work.",
+                "What remains real is softer: pitch, choice of pronoun, and how often someone softens a " +
+                "statement. A learner copying fictional gender markers will sound like a character " +
+                "rather than a person of any gender."
+            ],
+            examples: [
+                { jp: 'そうですわ', en: 'That is so',
+                  note: 'Grammatical, understood everywhere, and said by almost nobody.' }
+            ],
+            check: {
+                q: 'Should a woman learning Japanese use わ and かしら?',
+                a: 'Not by default. They are much rarer in speech than in fiction, and copying them ' +
+                   'from subtitles lands as a character voice rather than a natural one.'
+            }
+        },
+        {
+            title: 'What anime is actually good for',
+            body: [
+                "None of this means avoid it. Media is the cheapest listening practice there is, and it " +
+                "teaches several things well: the rhythm of the language, the casual contractions from " +
+                "the earlier stage, sentence-final intonation, and an enormous amount of vocabulary in " +
+                "context.",
+                "The habit to build is separating what you understand from what you copy. Understand " +
+                "everything; copy only what you have also heard from a real person or read in a " +
+                "textbook. If a line is doing characterisation work, it is not a model.",
+                "Slice-of-life and drama are closer to real speech than fantasy or action, for the " +
+                "obvious reason. And the safest source of all is the register you already know is " +
+                "safe — polite forms in a documentary or a news broadcast."
+            ],
+            table: {
+                head: ['Good for', 'Not a model for'],
+                rows: [
+                    ['rhythm and intonation', 'sentence-final particles'],
+                    ['casual contractions', 'pronoun choice'],
+                    ['vocabulary in context', 'anything a character is defined by'],
+                    ['listening speed', 'politeness level']
+                ]
+            },
+            check: {
+                q: 'What is the test for whether a line from fiction is safe to copy?',
+                a: 'Whether you have also heard it from a real person or seen it taught. If the line is ' +
+                   'doing characterisation, it is a costume rather than a model.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Look up わし and see it marked as archaic or dialectal.',
+          href: 'dictionary.html#q=わし', label: 'Look up わし' },
+        { text: 'Break down a line of role language and see ordinary grammar underneath.',
+          href: 'dictionary.html#s=そうですわ', label: 'Break down ですわ' },
+        { text: 'Hear the register that is safe to copy.',
           href: 'practice.html#listening=n4', label: 'N4 listening' }
     ]
 },
