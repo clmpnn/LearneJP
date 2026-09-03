@@ -107,18 +107,21 @@
         return schedule[id];
     }
 
-    function dueIds() {
+    // Questions only. Saved words live in the same store behind a different
+    // prefix and are reviewed on the dictionary page, where the entries are.
+    function dueIds(prefix) {
         const day = today();
+        const wanted = prefix || 'q:';
         return Object.keys(schedule).filter(function (id) {
-            return schedule[id].due <= day;
+            return id.indexOf(wanted) === 0 && schedule[id].due <= day;
         });
     }
 
     function stats() {
-        const ids = Object.keys(schedule);
+        const ids = idsWithPrefix('q:');
         return {
             scheduled: ids.length,
-            due: dueIds().length,
+            due: dueIds('q:').length,
             // Through the whole ladder: seen correctly six times, spaced out to
             // two months. Worth counting separately from merely scheduled.
             mastered: ids.filter(function (id) {
@@ -131,6 +134,45 @@
         return schedule[id] ? schedule[id].box : null;
     }
 
+    // Putting something into the schedule without answering anything — how a
+    // saved word joins the ladder. It arrives due, because a word you have just
+    // met is one you are about to forget.
+    function add(id) {
+        if (schedule[id]) return schedule[id];
+        schedule[id] = { box: 0, due: today() };
+        save();
+        return schedule[id];
+    }
+
+    function remove(id) {
+        delete schedule[id];
+        save();
+    }
+
+    function has(id) {
+        return Object.prototype.hasOwnProperty.call(schedule, id);
+    }
+
+    // The store holds course questions and saved words together, told apart by
+    // an id prefix, so one ladder serves both and neither needs its own.
+    function idsWithPrefix(prefix) {
+        return Object.keys(schedule).filter(function (id) {
+            return id.indexOf(prefix) === 0;
+        });
+    }
+
+    function statsFor(prefix) {
+        const day = today();
+        const ids = idsWithPrefix(prefix);
+        return {
+            scheduled: ids.length,
+            due: ids.filter(function (id) { return schedule[id].due <= day; }).length,
+            mastered: ids.filter(function (id) {
+                return schedule[id].box >= INTERVALS.length;
+            }).length
+        };
+    }
+
     function reset() {
         schedule = {};
         save();
@@ -140,6 +182,11 @@
 
     window.LearnReview = {
         rate: rate,
+        add: add,
+        remove: remove,
+        has: has,
+        idsWithPrefix: idsWithPrefix,
+        statsFor: statsFor,
         dueIds: dueIds,
         stats: stats,
         boxOf: boxOf,

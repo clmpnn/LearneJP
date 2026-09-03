@@ -207,10 +207,15 @@ function renderResults(entries, query) {
             return number + escapeHtml(glosses.join('; '));
         }).join('&ensp;');
 
+        // A word you looked up and cannot keep is a word you will look up again.
+        // js/saved.js handles the click; this only has to offer the button.
+        const saved = window.SavedWords && window.SavedWords.isSaved(headword);
+
         return `<div class="result-card">
             <div class="result-word">
                 <span class="result-kanji">${headword}</span>
                 ${isCommon ? '<span class="result-tag result-tag-common">common</span>' : ''}
+                <button type="button" class="save-btn${saved ? ' is-saved' : ''}" data-save="${escapeHtml(headword)}">${saved ? 'Saved' : '+ Save'}</button>
             </div>
             ${moraRows}
             <div class="result-meaning">${meanings}</div>

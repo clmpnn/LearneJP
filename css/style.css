@@ -1989,6 +1989,175 @@ a.kmodal-say {
     display: none;
 }
 
+/* Saving a word, and the deck it goes into.
+ *
+ * The save button sits in the card header beside the common tag, small enough
+ * not to compete with the headword and present on every card so the habit has
+ * nowhere to fall down. */
+
+.save-btn {
+    margin-left: auto;
+    padding: 3px 11px;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+    color: #a37b5c;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.save-btn:hover {
+    background-color: rgba(255, 176, 102, 0.3);
+    color: var(--color-primary);
+}
+
+.save-btn.is-saved {
+    border-color: var(--color-primary);
+    background-color: rgba(255, 140, 66, 0.2);
+    color: var(--color-primary);
+}
+
+.saved-panel {
+    margin-bottom: 16px;
+}
+
+.saved-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background: rgba(255, 176, 102, 0.16);
+}
+
+.saved-count {
+    flex: 1;
+    font-family: var(--font-body), var(--font-jp-ui);
+    font-size: 0.82rem;
+    letter-spacing: 0.4px;
+    color: var(--color-text);
+}
+
+.saved-empty {
+    padding: 16px;
+    border: 1px dashed var(--color-accent);
+    border-radius: var(--radius);
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: #a37b5c;
+}
+
+.saved-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    list-style: none;
+}
+
+.saved-row {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.saved-word {
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--color-text);
+    font-family: var(--font-jp-study), cursive;
+    font-size: 1.15rem;
+    cursor: pointer;
+}
+
+.saved-word:hover {
+    color: var(--color-primary);
+}
+
+.saved-reading {
+    font-family: var(--font-jp-study), cursive;
+    font-size: 0.85rem;
+    color: #a37b5c;
+}
+
+.saved-meaning {
+    flex: 1;
+    min-width: 140px;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    color: #8a6242;
+}
+
+.saved-state {
+    font-size: 0.66rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #a37b5c;
+}
+
+.saved-drop {
+    padding: 0 6px;
+    border: none;
+    background: none;
+    color: #bda28c;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.saved-drop:hover {
+    color: var(--color-primary);
+}
+
+.saved-card {
+    padding: 24px 20px;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: var(--glow-accent);
+    text-align: center;
+}
+
+.saved-prompt {
+    margin-bottom: 16px;
+    font-family: var(--font-jp-study), cursive;
+    font-size: 2.1rem;
+    line-height: 1.4;
+    letter-spacing: 2px;
+}
+
+.saved-answer-reading {
+    margin-bottom: 6px;
+    font-family: var(--font-jp-study), cursive;
+    font-size: 1.1rem;
+    color: #a37b5c;
+}
+
+.saved-answer {
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #8a6242;
+}
+
+.saved-progress {
+    margin-top: 12px;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    color: #a37b5c;
+}
+
 /* ---- the reading strip ---- */
 
 .sentence-strip {

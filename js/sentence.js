@@ -937,6 +937,14 @@
             '<div class="result-word">' +
                 '<button type="button" class="result-kanji sent-head">' + esc(token.surface) + '</button>' +
                 (token.common ? '<span class="result-tag result-tag-common">common</span>' : '') +
+                // Saved against the dictionary form, not the inflected surface:
+                // 食べました and 食べます are the same word to remember.
+                (function () {
+                    const saved = window.SavedWords && window.SavedWords.isSaved(token.dictForm);
+                    return '<button type="button" class="save-btn' + (saved ? ' is-saved' : '') +
+                        '" data-save="' + esc(token.dictForm) + '">' +
+                        (saved ? 'Saved' : '+ Save') + '</button>';
+                })() +
             '</div>' + mora + origin +
             '<div class="result-meaning">' + meaning + '</div>' + also + learn +
         '</article>';
@@ -1046,15 +1054,38 @@
             results.appendChild(cardsHost);
         }
 
+        const savedBtn = document.getElementById('modeSavedBtn');
+        const savedPanel = document.getElementById('savedMode');
+
         function setMode(mode) {
             const sentence = mode === 'sentence';
+            const saved = mode === 'saved';
             api().mode = mode;
-            wordBtn.classList.toggle('active', !sentence);
+
+            wordBtn.classList.toggle('active', mode === 'word');
             sentenceBtn.classList.toggle('active', sentence);
-            wordBtn.setAttribute('aria-selected', String(!sentence));
+            wordBtn.setAttribute('aria-selected', String(mode === 'word'));
             sentenceBtn.setAttribute('aria-selected', String(sentence));
-            wordPanel.hidden = sentence;
+            wordPanel.hidden = mode !== 'word';
             sentencePanel.hidden = !sentence;
+
+            if (savedBtn) {
+                savedBtn.classList.toggle('active', saved);
+                savedBtn.setAttribute('aria-selected', String(saved));
+            }
+            if (savedPanel) savedPanel.hidden = !saved;
+
+            // The saved deck has its own panel and leaves #results alone, so the
+            // results area is emptied rather than handed to either renderer.
+            if (saved) {
+                strip.remove();
+                meaningHost.remove();
+                cardsHost.remove();
+                results.innerHTML = '';
+                status.textContent = 'Words you save come back here on a schedule.';
+                if (window.SavedWords) window.SavedWords.render();
+                return;
+            }
 
             if (sentence) {
                 showSentenceResults();
@@ -1140,6 +1171,7 @@
         });
         wordBtn.addEventListener('click', function () { setMode('word'); });
         sentenceBtn.addEventListener('click', function () { setMode('sentence'); });
+        if (savedBtn) savedBtn.addEventListener('click', function () { setMode('saved'); });
 
         // Tapping a word — in the strip, or in the reading — walks you to its
         // card; tapping a headword hands the whole word over to the word search.
