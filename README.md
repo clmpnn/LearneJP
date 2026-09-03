@@ -15,7 +15,7 @@
 
 ## What it does
 
-- **A path from zero** — a forty-eight-stage course, 193 lessons, every Japanese word shown with its romaji, for anyone who has never studied Japanese; each stage teaches the idea then sends you to the tool that drills it
+- **A path from zero** — a fifty-four-stage course, 216 lessons, every Japanese word shown with its romaji, for anyone who has never studied Japanese; each stage teaches the idea then sends you to the tool that drills it
 - **Writing practice** — trace any kana or kanji with numbered stroke order, replay the strokes, zoom and pan the canvas
 - **Japanese dictionary** — search by kanji, kana, or English, built in from JMdict, or paste a whole sentence and get every word in it looked up, conjugations and all
 - **Kana & kanji reference** — full hiragana and katakana charts with audio, plus every JLPT kanji with meanings, readings, and stroke counts
