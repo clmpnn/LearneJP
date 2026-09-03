@@ -444,139 +444,6 @@ window.LEARN_COURSE = [
     ]
 },
 {
-    id: 'history',
-    title: 'Where the language came from',
-    aim: 'Why the writing system is like that.',
-    body: 'Several things you have already had to accept without explanation — は said as wa, two kana ' +
-        'sets, kanji with two readings — are the residue of a specific history.',
-    lessons: [
-        {
-            title: 'A language with no known relatives',
-            body: [
-                "Japanese is a language isolate, or nearly one: its only demonstrated relatives are the " +
-                "Ryukyuan languages of Okinawa, which together with it form the Japonic family. " +
-                "Proposed links to Korean, Turkic and others have been argued for over a century " +
-                "without being established.",
-                "This matters practically. Japanese shares no ancestry with English, so there are no " +
-                "cognates to lean on and no familiar grammar to transfer — which is why the early " +
-                "stretch is harder than a European language and why the vocabulary must simply be " +
-                "learned.",
-                "The resemblance to Chinese is borrowing, not relation. Japanese took the writing " +
-                "system and an enormous stock of vocabulary from Chinese, in the same way English took " +
-                "from Latin and French, while the underlying grammar stayed entirely its own. Chinese " +
-                "puts the verb in the middle; Japanese puts it last, and always did."
-            ],
-            check: {
-                q: 'Japanese uses Chinese characters. Are the two languages related?',
-                a: 'No. The writing and much of the vocabulary were borrowed, but the grammars are ' +
-                   'unrelated — Chinese is verb-medial and Japanese verb-final.'
-            }
-        },
-        {
-            title: 'How the kana were invented',
-            body: [
-                "Japanese had no writing until Chinese characters arrived, around the fifth century, " +
-                "by way of Korea. The first solution was to use kanji for their sound alone, ignoring " +
-                "meaning — a system called 万葉仮名 after the poetry collection written in it. It " +
-                "worked and was enormously cumbersome.",
-                "Both kana sets came out of it, by opposite methods. Hiragana is what happens when you " +
-                "write those characters quickly in cursive until the shape dissolves: 安 became あ, 以 " +
-                "became い. Katakana is a fragment cut out of a character and used for its sound: the " +
-                "left of 阿 became ア, the top of 伊 became イ.",
-                "The two had different users. Hiragana was associated with women's writing at court — " +
-                "the Tale of Genji is written in it — while katakana began as annotation by monks " +
-                "reading Chinese texts. The division of labour they have now is a much later invention."
-            ],
-            table: {
-                head: ['Kana', 'From', 'By'],
-                rows: [
-                    ['あ', '安', 'cursive simplification'],
-                    ['い', '以', 'cursive simplification'],
-                    ['ア', '阿', 'a fragment of the character'],
-                    ['イ', '伊', 'a fragment of the character'],
-                    ['万葉仮名', '—', 'kanji used purely for sound']
-                ]
-            },
-            check: {
-                q: 'Why do hiragana look round and katakana angular?',
-                a: 'Different methods. Hiragana are whole characters written cursively until they ' +
-                   'dissolved; katakana are pieces cut out of characters, so they kept straight edges.'
-            }
-        },
-        {
-            title: 'The reforms that produced modern spelling',
-            body: [
-                "After the war, in 1946, Japanese writing was deliberately simplified. 当用漢字 " +
-                "restricted general use to 1,850 characters — later relaxed into the 常用漢字 you met " +
-                "in the kanji stage — and 現代仮名遣い modernised kana spelling to match how people " +
-                "actually spoke.",
-                "Before that, spelling preserved pronunciations centuries out of date: けふ was read " +
-                "きょう, ゐ and ゑ were still written, and the choice between じ and ぢ followed " +
-                "etymology rather than sound. The reform swept most of it away, which is why modern " +
-                "kana is so nearly phonetic.",
-                "Three exceptions were kept on purpose, and they are exactly the ones that confuse " +
-                "learners. は, へ and を are written the old way when they are particles, because " +
-                "spelling them phonetically would have hidden the grammar. The irregularity you have " +
-                "been living with is the one piece of the old system that was judged worth keeping."
-            ],
-            table: {
-                head: ['Before 1946', 'Now', ''],
-                rows: [
-                    ['けふ', 'きょう', 'today — spelling caught up with speech'],
-                    ['ゐ / ゑ', 'い / え', 'two kana retired'],
-                    ['てふてふ', 'ちょうちょう', 'butterfly'],
-                    ['は as particle', 'は, said wa', 'kept — it marks grammar'],
-                    ['へ as particle', 'へ, said e', 'kept'],
-                    ['を as particle', 'を, said o', 'kept']
-                ]
-            },
-            check: {
-                q: 'Why was は not changed to わ when the spelling was reformed?',
-                a: 'Because it marks the topic. Spelling it phonetically would have made the particle ' +
-                   'indistinguishable from the syllable, so the grammar won over consistency.'
-            }
-        },
-        {
-            title: 'Two ways to write Japanese in Latin letters',
-            body: [
-                "Romanisation has two competing standards and you will meet both. ヘボン式, Hepburn, " +
-                "spells sounds as an English speaker would hear them: shi, chi, tsu, fu, ja. 訓令式, " +
-                "Kunrei, spells them by the grid position instead: si, ti, tu, hu, zya.",
-                "Kunrei is more systematic — it makes the consonant rows regular, which is genuinely " +
-                "truer to how the language works. Hepburn is more readable to foreigners and is what " +
-                "passports, road signs and this site use.",
-                "The practical consequence is that the same word appears spelled two ways, and neither " +
-                "is wrong. 富士 is Fuji or Huzi. If a romanisation looks strange, check whether it is " +
-                "simply the other system before assuming an error."
-            ],
-            table: {
-                head: ['Kana', 'Hepburn', 'Kunrei'],
-                rows: [
-                    ['し', 'shi', 'si'],
-                    ['ち', 'chi', 'ti'],
-                    ['つ', 'tsu', 'tu'],
-                    ['ふ', 'fu', 'hu'],
-                    ['じ', 'ji', 'zi'],
-                    ['しゃ', 'sha', 'sya']
-                ]
-            },
-            check: {
-                q: 'You see a Japanese word romanised as "huzi". Is it a mistake?',
-                a: 'No — it is Kunrei rather than Hepburn. Both are standards; Hepburn is the one ' +
-                   'passports and signage use, which is why it looks normal and the other does not.'
-            }
-        }
-    ],
-    steps: [
-        { text: 'Read the chart with the history in mind — every kana came from a character.',
-          href: 'characters.html#hiragana', label: 'Hiragana chart' },
-        { text: 'Compare the katakana shapes and look for the fragments.',
-          href: 'characters.html#katakana', label: 'Katakana chart' },
-        { text: 'Look up 仮名 and see the word for the system itself.',
-          href: 'dictionary.html#q=仮名', label: 'Look up 仮名' }
-    ]
-},
-{
     id: 'greetings',
     title: 'Words you can use today',
     aim: 'The set phrases that carry ordinary interaction.',
@@ -1280,7 +1147,7 @@ window.LEARN_COURSE = [
                 "at — and the one where the borrowings have drifted most. パソコン is a personal " +
                 "computer, shortened past recognition. スマホ is a smartphone, same trick.",
                 "The verbs are mostly native or Chinese-derived even where the noun is borrowed, which " +
-                "is the 混種語 pattern from the strata stage in daily use: アプリをダウンロードする, " +
+                "is the 混種語 pattern in daily use, a pattern the strata stage names later: アプリをダウンロードする, " +
                 "ファイルを保存する."
             ],
             table: {
@@ -1377,9 +1244,9 @@ window.LEARN_COURSE = [
                 "because they turn up in place names constantly — 山, 川, 田, 海, 森 are all common " +
                 "surnames as well as landscape.",
                 "Animal names are usually written in kana in ordinary text even though kanji exist, " +
-                "which is the script convention from the writing stage: 猫 is correct and ねこ is more " +
+                "which is the script convention the writing stage covers later: 猫 is correct and ねこ is more " +
                 "common in casual writing. Scientific and formal contexts use katakana.",
-                "Weather words pair with the verbs from the transitivity stage in a way worth noticing: " +
+                "Weather words pair with the verb pairs the transitivity stage covers later in a way worth noticing: " +
                 "雨が降る, rain falls, is intransitive, and there is no way to make yourself the subject " +
                 "of it — which is exactly why the suffering passive 雨に降られる exists."
             ],
@@ -1497,7 +1364,7 @@ window.LEARN_COURSE = [
                 "The same pattern covers a set of very common words: 嫌い for dislike, 上手 and 下手 for " +
                 "good and bad at, and 欲しい for wanting a thing. All of them take が, and all of them " +
                 "sit on a は topic that is usually left out.",
-                "Wanting to do something is different again — that is the たい form from the verb stage, " +
+                "Wanting to do something is different again — that is the たい form, which the verb stage covers later, " +
                 "and it also prefers が, though を is common and accepted."
             ],
             table: {
@@ -3063,6 +2930,123 @@ window.LEARN_COURSE = [
     ]
 },
 {
+    id: 'motion',
+    title: 'Coming and going',
+    aim: 'Direction from the Japanese point of view.',
+    body: 'Japanese decides between come and go by where the speaker is, not by where the listener is. ' +
+        'That one difference produces a lot of confused sentences.',
+    lessons: [
+        {
+            title: 'Why you go to someone rather than come',
+            body: [
+                "In English, if a friend invites you over, you say I will come. In Japanese you say " +
+                "行きます, I will go, because 来る means movement towards where the speaker currently " +
+                "is — and you are not there.",
+                "The rule is simple once stated: 行く is away from the speaker's position, 来る is " +
+                "towards it. English shifts perspective to the listener as a courtesy; Japanese does " +
+                "not, and saying 来ます about going to someone else's house is one of the most " +
+                "recognisable learner errors there is.",
+                "The same logic covers 帰る, to go back to where you belong — home, your country — as " +
+                "against 戻る, to return to a place you merely left. You 帰る to your house and 戻る to " +
+                "your desk."
+            ],
+            table: {
+                head: ['Verb', 'Means', 'From whose position'],
+                rows: [
+                    ['行く', 'go — away from me', 'the speaker'],
+                    ['来る', 'come — towards me', 'the speaker'],
+                    ['帰る', 'go back where you belong', 'home, country'],
+                    ['戻る', 'return to a place', 'a desk, a shop'],
+                    ['通う かよう', 'commute, attend regularly', 'school, work']
+                ]
+            },
+            examples: [
+                { jp: '明日そちらに行きます', en: 'I will come to you tomorrow',
+                  note: '行きます, because you are not there yet. English flips it; Japanese does not.' }
+            ],
+            check: {
+                q: 'A friend asks you to their party. Do you say 行きます or 来ます?',
+                a: '行きます. You are moving away from where you are, and 来る would mean moving towards ' +
+                   'yourself, which makes no sense.'
+            }
+        },
+        {
+            title: '〜ていく and 〜てくる',
+            body: [
+                "Attach 行く or 来る to a te-form and the direction becomes metaphorical: not physical " +
+                "movement, but movement in time or in the course of an action.",
+                "〜ていく points away and forward — これから増えていく, it will go on increasing from " +
+                "here. 〜てくる points towards you and back — だんだん寒くなってきた, it has been getting " +
+                "colder up to now. The tense of English changes to match: いく takes will, くる takes " +
+                "has been.",
+                "There is also a plain physical use worth knowing: 買ってくる means go and buy and come " +
+                "back, which is a single errand rather than two actions. 持っていく is take, and " +
+                "持ってくる is bring — the same come-and-go rule as before, applied to objects."
+            ],
+            table: {
+                head: ['Pattern', 'Means', 'Example'],
+                rows: [
+                    ['〜ていく', 'from now onwards, away', '増えていく — will keep increasing'],
+                    ['〜てくる', 'up to now, towards', '増えてきた — has been increasing'],
+                    ['持っていく', 'take — away from here', '傘を持っていく'],
+                    ['持ってくる', 'bring — towards here', '傘を持ってくる'],
+                    ['買ってくる', 'go and buy, and return', 'パンを買ってくる']
+                ]
+            },
+            examples: [
+                { jp: '寒くなってきました', en: 'It has got colder',
+                  note: 'てくる — the change ran up to now. ていく would push it into the future.' }
+            ],
+            check: {
+                q: 'What is the difference between 持っていく and 持ってくる?',
+                a: 'Take versus bring. いく moves the object away from where the speaker is; くる brings ' +
+                   'it towards them. Same rule as 行く and 来る.'
+            }
+        },
+        {
+            title: 'Getting there — transport and route',
+            body: [
+                "The particles do the work here, and each marks a different part of the journey. で " +
+                "marks the means: 電車で行く, go by train. に or へ marks the destination. を, " +
+                "unusually, marks the route travelled through — 道を歩く, walk along the road, and " +
+                "公園を通る, pass through the park.",
+                "That を is worth noting because it is the one place the object particle marks " +
+                "something that is not an object. With verbs of motion it means across, along or " +
+                "through, and it is the same particle you have been using for direct objects.",
+                "On foot has no で. It is 歩いて, the te-form of 歩く, used adverbially: 歩いて行きます, " +
+                "I will walk there — literally, walking, I go."
+            ],
+            table: {
+                head: ['Particle', 'Marks', 'Example'],
+                rows: [
+                    ['で', 'means of transport', '電車で行く'],
+                    ['に / へ', 'destination', '駅に行く'],
+                    ['を', 'route travelled', '道を歩く'],
+                    ['から / まで', 'from / as far as', '東京から大阪まで'],
+                    ['歩いて', 'on foot — no particle', '歩いて行きます']
+                ]
+            },
+            examples: [
+                { jp: '駅まで歩いて行きます', en: 'I will walk to the station',
+                  note: 'まで for as far as, 歩いて for how, 行きます for the motion itself.' }
+            ],
+            check: {
+                q: 'Why does 道を歩く use を when there is no object?',
+                a: 'Because with verbs of motion を marks the route travelled through, not a thing acted ' +
+                   'on. Same particle, a second job.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Break down a journey sentence and see each particle named.',
+          href: 'dictionary.html#s=駅まで歩いて行きます', label: 'Break down a journey' },
+        { text: 'Break down a てくる and watch the auxiliary resolve.',
+          href: 'dictionary.html#s=寒くなってきました', label: 'Break down てくる' },
+        { text: 'Look up 帰る and compare it with 戻る.',
+          href: 'dictionary.html#q=帰る', label: 'Look up 帰る' }
+    ]
+},
+{
     id: 'aspect',
     title: 'Just now, still, about to',
     aim: 'Where an action sits in time, beyond past and present.',
@@ -3650,123 +3634,6 @@ window.LEARN_COURSE = [
           href: 'dictionary.html#q=欲しがる', label: 'Look up 欲しがる' },
         { text: 'Test the patterns.',
           href: 'practice.html#grammar=n4', label: 'N4 grammar' }
-    ]
-},
-{
-    id: 'motion',
-    title: 'Coming and going',
-    aim: 'Direction from the Japanese point of view.',
-    body: 'Japanese decides between come and go by where the speaker is, not by where the listener is. ' +
-        'That one difference produces a lot of confused sentences.',
-    lessons: [
-        {
-            title: 'Why you go to someone rather than come',
-            body: [
-                "In English, if a friend invites you over, you say I will come. In Japanese you say " +
-                "行きます, I will go, because 来る means movement towards where the speaker currently " +
-                "is — and you are not there.",
-                "The rule is simple once stated: 行く is away from the speaker's position, 来る is " +
-                "towards it. English shifts perspective to the listener as a courtesy; Japanese does " +
-                "not, and saying 来ます about going to someone else's house is one of the most " +
-                "recognisable learner errors there is.",
-                "The same logic covers 帰る, to go back to where you belong — home, your country — as " +
-                "against 戻る, to return to a place you merely left. You 帰る to your house and 戻る to " +
-                "your desk."
-            ],
-            table: {
-                head: ['Verb', 'Means', 'From whose position'],
-                rows: [
-                    ['行く', 'go — away from me', 'the speaker'],
-                    ['来る', 'come — towards me', 'the speaker'],
-                    ['帰る', 'go back where you belong', 'home, country'],
-                    ['戻る', 'return to a place', 'a desk, a shop'],
-                    ['通う かよう', 'commute, attend regularly', 'school, work']
-                ]
-            },
-            examples: [
-                { jp: '明日そちらに行きます', en: 'I will come to you tomorrow',
-                  note: '行きます, because you are not there yet. English flips it; Japanese does not.' }
-            ],
-            check: {
-                q: 'A friend asks you to their party. Do you say 行きます or 来ます?',
-                a: '行きます. You are moving away from where you are, and 来る would mean moving towards ' +
-                   'yourself, which makes no sense.'
-            }
-        },
-        {
-            title: '〜ていく and 〜てくる',
-            body: [
-                "Attach 行く or 来る to a te-form and the direction becomes metaphorical: not physical " +
-                "movement, but movement in time or in the course of an action.",
-                "〜ていく points away and forward — これから増えていく, it will go on increasing from " +
-                "here. 〜てくる points towards you and back — だんだん寒くなってきた, it has been getting " +
-                "colder up to now. The tense of English changes to match: いく takes will, くる takes " +
-                "has been.",
-                "There is also a plain physical use worth knowing: 買ってくる means go and buy and come " +
-                "back, which is a single errand rather than two actions. 持っていく is take, and " +
-                "持ってくる is bring — the same come-and-go rule as before, applied to objects."
-            ],
-            table: {
-                head: ['Pattern', 'Means', 'Example'],
-                rows: [
-                    ['〜ていく', 'from now onwards, away', '増えていく — will keep increasing'],
-                    ['〜てくる', 'up to now, towards', '増えてきた — has been increasing'],
-                    ['持っていく', 'take — away from here', '傘を持っていく'],
-                    ['持ってくる', 'bring — towards here', '傘を持ってくる'],
-                    ['買ってくる', 'go and buy, and return', 'パンを買ってくる']
-                ]
-            },
-            examples: [
-                { jp: '寒くなってきました', en: 'It has got colder',
-                  note: 'てくる — the change ran up to now. ていく would push it into the future.' }
-            ],
-            check: {
-                q: 'What is the difference between 持っていく and 持ってくる?',
-                a: 'Take versus bring. いく moves the object away from where the speaker is; くる brings ' +
-                   'it towards them. Same rule as 行く and 来る.'
-            }
-        },
-        {
-            title: 'Getting there — transport and route',
-            body: [
-                "The particles do the work here, and each marks a different part of the journey. で " +
-                "marks the means: 電車で行く, go by train. に or へ marks the destination. を, " +
-                "unusually, marks the route travelled through — 道を歩く, walk along the road, and " +
-                "公園を通る, pass through the park.",
-                "That を is worth noting because it is the one place the object particle marks " +
-                "something that is not an object. With verbs of motion it means across, along or " +
-                "through, and it is the same particle you have been using for direct objects.",
-                "On foot has no で. It is 歩いて, the te-form of 歩く, used adverbially: 歩いて行きます, " +
-                "I will walk there — literally, walking, I go."
-            ],
-            table: {
-                head: ['Particle', 'Marks', 'Example'],
-                rows: [
-                    ['で', 'means of transport', '電車で行く'],
-                    ['に / へ', 'destination', '駅に行く'],
-                    ['を', 'route travelled', '道を歩く'],
-                    ['から / まで', 'from / as far as', '東京から大阪まで'],
-                    ['歩いて', 'on foot — no particle', '歩いて行きます']
-                ]
-            },
-            examples: [
-                { jp: '駅まで歩いて行きます', en: 'I will walk to the station',
-                  note: 'まで for as far as, 歩いて for how, 行きます for the motion itself.' }
-            ],
-            check: {
-                q: 'Why does 道を歩く use を when there is no object?',
-                a: 'Because with verbs of motion を marks the route travelled through, not a thing acted ' +
-                   'on. Same particle, a second job.'
-            }
-        }
-    ],
-    steps: [
-        { text: 'Break down a journey sentence and see each particle named.',
-          href: 'dictionary.html#s=駅まで歩いて行きます', label: 'Break down a journey' },
-        { text: 'Break down a てくる and watch the auxiliary resolve.',
-          href: 'dictionary.html#s=寒くなってきました', label: 'Break down てくる' },
-        { text: 'Look up 帰る and compare it with 戻る.',
-          href: 'dictionary.html#q=帰る', label: 'Look up 帰る' }
     ]
 },
 {
@@ -4739,6 +4606,139 @@ window.LEARN_COURSE = [
           href: 'dictionary.html#s=会議は三時に集合します', label: 'Break down 集合します' },
         { text: 'Browse the chart and notice the two reading columns doing this work.',
           href: 'characters.html#kanji=n4', label: 'N4 kanji' }
+    ]
+},
+{
+    id: 'history',
+    title: 'Where the language came from',
+    aim: 'Why the writing system is like that.',
+    body: 'Several things you have already had to accept without explanation — は said as wa, two kana ' +
+        'sets, kanji with two readings — are the residue of a specific history.',
+    lessons: [
+        {
+            title: 'A language with no known relatives',
+            body: [
+                "Japanese is a language isolate, or nearly one: its only demonstrated relatives are the " +
+                "Ryukyuan languages of Okinawa, which together with it form the Japonic family. " +
+                "Proposed links to Korean, Turkic and others have been argued for over a century " +
+                "without being established.",
+                "This matters practically. Japanese shares no ancestry with English, so there are no " +
+                "cognates to lean on and no familiar grammar to transfer — which is why the early " +
+                "stretch is harder than a European language and why the vocabulary must simply be " +
+                "learned.",
+                "The resemblance to Chinese is borrowing, not relation. Japanese took the writing " +
+                "system and an enormous stock of vocabulary from Chinese, in the same way English took " +
+                "from Latin and French, while the underlying grammar stayed entirely its own. Chinese " +
+                "puts the verb in the middle; Japanese puts it last, and always did."
+            ],
+            check: {
+                q: 'Japanese uses Chinese characters. Are the two languages related?',
+                a: 'No. The writing and much of the vocabulary were borrowed, but the grammars are ' +
+                   'unrelated — Chinese is verb-medial and Japanese verb-final.'
+            }
+        },
+        {
+            title: 'How the kana were invented',
+            body: [
+                "Japanese had no writing until Chinese characters arrived, around the fifth century, " +
+                "by way of Korea. The first solution was to use kanji for their sound alone, ignoring " +
+                "meaning — a system called 万葉仮名 after the poetry collection written in it. It " +
+                "worked and was enormously cumbersome.",
+                "Both kana sets came out of it, by opposite methods. Hiragana is what happens when you " +
+                "write those characters quickly in cursive until the shape dissolves: 安 became あ, 以 " +
+                "became い. Katakana is a fragment cut out of a character and used for its sound: the " +
+                "left of 阿 became ア, the top of 伊 became イ.",
+                "The two had different users. Hiragana was associated with women's writing at court — " +
+                "the Tale of Genji is written in it — while katakana began as annotation by monks " +
+                "reading Chinese texts. The division of labour they have now is a much later invention."
+            ],
+            table: {
+                head: ['Kana', 'From', 'By'],
+                rows: [
+                    ['あ', '安', 'cursive simplification'],
+                    ['い', '以', 'cursive simplification'],
+                    ['ア', '阿', 'a fragment of the character'],
+                    ['イ', '伊', 'a fragment of the character'],
+                    ['万葉仮名', '—', 'kanji used purely for sound']
+                ]
+            },
+            check: {
+                q: 'Why do hiragana look round and katakana angular?',
+                a: 'Different methods. Hiragana are whole characters written cursively until they ' +
+                   'dissolved; katakana are pieces cut out of characters, so they kept straight edges.'
+            }
+        },
+        {
+            title: 'The reforms that produced modern spelling',
+            body: [
+                "After the war, in 1946, Japanese writing was deliberately simplified. 当用漢字 " +
+                "restricted general use to 1,850 characters — later relaxed into the 常用漢字 you met " +
+                "in the kanji stage — and 現代仮名遣い modernised kana spelling to match how people " +
+                "actually spoke.",
+                "Before that, spelling preserved pronunciations centuries out of date: けふ was read " +
+                "きょう, ゐ and ゑ were still written, and the choice between じ and ぢ followed " +
+                "etymology rather than sound. The reform swept most of it away, which is why modern " +
+                "kana is so nearly phonetic.",
+                "Three exceptions were kept on purpose, and they are exactly the ones that confuse " +
+                "learners. は, へ and を are written the old way when they are particles, because " +
+                "spelling them phonetically would have hidden the grammar. The irregularity you have " +
+                "been living with is the one piece of the old system that was judged worth keeping."
+            ],
+            table: {
+                head: ['Before 1946', 'Now', ''],
+                rows: [
+                    ['けふ', 'きょう', 'today — spelling caught up with speech'],
+                    ['ゐ / ゑ', 'い / え', 'two kana retired'],
+                    ['てふてふ', 'ちょうちょう', 'butterfly'],
+                    ['は as particle', 'は, said wa', 'kept — it marks grammar'],
+                    ['へ as particle', 'へ, said e', 'kept'],
+                    ['を as particle', 'を, said o', 'kept']
+                ]
+            },
+            check: {
+                q: 'Why was は not changed to わ when the spelling was reformed?',
+                a: 'Because it marks the topic. Spelling it phonetically would have made the particle ' +
+                   'indistinguishable from the syllable, so the grammar won over consistency.'
+            }
+        },
+        {
+            title: 'Two ways to write Japanese in Latin letters',
+            body: [
+                "Romanisation has two competing standards and you will meet both. ヘボン式, Hepburn, " +
+                "spells sounds as an English speaker would hear them: shi, chi, tsu, fu, ja. 訓令式, " +
+                "Kunrei, spells them by the grid position instead: si, ti, tu, hu, zya.",
+                "Kunrei is more systematic — it makes the consonant rows regular, which is genuinely " +
+                "truer to how the language works. Hepburn is more readable to foreigners and is what " +
+                "passports, road signs and this site use.",
+                "The practical consequence is that the same word appears spelled two ways, and neither " +
+                "is wrong. 富士 is Fuji or Huzi. If a romanisation looks strange, check whether it is " +
+                "simply the other system before assuming an error."
+            ],
+            table: {
+                head: ['Kana', 'Hepburn', 'Kunrei'],
+                rows: [
+                    ['し', 'shi', 'si'],
+                    ['ち', 'chi', 'ti'],
+                    ['つ', 'tsu', 'tu'],
+                    ['ふ', 'fu', 'hu'],
+                    ['じ', 'ji', 'zi'],
+                    ['しゃ', 'sha', 'sya']
+                ]
+            },
+            check: {
+                q: 'You see a Japanese word romanised as "huzi". Is it a mistake?',
+                a: 'No — it is Kunrei rather than Hepburn. Both are standards; Hepburn is the one ' +
+                   'passports and signage use, which is why it looks normal and the other does not.'
+            }
+        }
+    ],
+    steps: [
+        { text: 'Read the chart with the history in mind — every kana came from a character.',
+          href: 'characters.html#hiragana', label: 'Hiragana chart' },
+        { text: 'Compare the katakana shapes and look for the fragments.',
+          href: 'characters.html#katakana', label: 'Katakana chart' },
+        { text: 'Look up 仮名 and see the word for the system itself.',
+          href: 'dictionary.html#q=仮名', label: 'Look up 仮名' }
     ]
 },
 {
