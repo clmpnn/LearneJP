@@ -3316,3 +3316,28 @@ body.no-romaji rt {
         overflow-y: visible;
     }
 }
+
+
+/* The romaji scaffold offering to remove itself, once both kana are done.
+   Styled as a prompt rather than a warning — this is an invitation to level
+   up, not an error. */
+.learn-romaji-nudge {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0 0 var(--space-md);
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background: var(--color-bg-alt);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* A class setting display beats the user agent's [hidden] { display: none },
+   so hiding it from script needs saying explicitly. Without this the prompt
+   shows to someone who has not started. */
+.learn-romaji-nudge[hidden] {
+    display: none;
+}

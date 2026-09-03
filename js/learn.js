@@ -61,6 +61,10 @@
         return stage.steps.filter(function (step, i) { return done[key(index, i)]; }).length;
     }
 
+    // Assigned once the romaji controls exist. Progress rendering calls it, so
+    // finishing katakana can offer to take the scaffold away on the spot.
+    let refreshRomajiNudge = function () {};
+
     // ---------- rendering ----------
 
     function esc(text) {
@@ -256,6 +260,8 @@
                 ? 'All ' + total + ' done — the tools are yours now'
                 : complete + ' of ' + total + ' done';
         }
+
+        refreshRomajiNudge();
     }
 
     function render() {
@@ -428,16 +434,67 @@
                 document.body.classList.toggle('no-romaji', !showRomaji);
             }
 
-            romajiBox.addEventListener('change', function () {
-                showRomaji = romajiBox.checked;
+            function setRomaji(on) {
+                showRomaji = on;
                 try {
-                    localStorage.setItem('learnejp-romaji', showRomaji ? 'on' : 'off');
+                    localStorage.setItem('learnejp-romaji', on ? 'on' : 'off');
                 } catch (err) {
                     // Storage unavailable; the toggle still works for this visit.
                 }
                 applyRomaji();
+            }
+
+            romajiBox.addEventListener('change', function () {
+                setRomaji(romajiBox.checked);
             });
+
+            // Romaji is a scaffold, and a scaffold nobody removes is just a
+            // permanent crutch — the eye reads the latin and the kana never get
+            // encoded. Nothing here used to suggest dropping it. Once katakana
+            // is finished the offer appears once, and answering it either way
+            // settles the matter for good.
+            const nudge = document.getElementById('learnRomajiNudge');
+            if (nudge) {
+                function nudgeSettled() {
+                    try {
+                        return localStorage.getItem('learnejp-romaji-nudge') === 'settled';
+                    } catch (err) {
+                        return false;
+                    }
+                }
+
+                function settleNudge() {
+                    try {
+                        localStorage.setItem('learnejp-romaji-nudge', 'settled');
+                    } catch (err) {
+                        // Fine — it reappears next visit, which is not harmful.
+                    }
+                    nudge.hidden = true;
+                }
+
+                function kanaFinished() {
+                    return STAGES.some(function (stage, i) {
+                        return stage.id === 'katakana' &&
+                            stage.steps.length > 0 &&
+                            stageDone(stage, i) === stage.steps.length;
+                    });
+                }
+
+                refreshRomajiNudge = function () {
+                    nudge.hidden = !(showRomaji && !nudgeSettled() && kanaFinished());
+                };
+
+                const offBtn = document.getElementById('learnRomajiOff');
+                const keepBtn = document.getElementById('learnRomajiKeep');
+                if (offBtn) offBtn.addEventListener('click', function () {
+                    setRomaji(false);
+                    settleNudge();
+                });
+                if (keepBtn) keepBtn.addEventListener('click', settleNudge);
+            }
+
             applyRomaji();
+            refreshRomajiNudge();
         }
 
         // Rating from inside a lesson, and from inside a review session.
