@@ -65,7 +65,7 @@ wrong.
 
 ## Deployment
 
-Every push to `main` publishes to <https://clmpnn.github.io/LearneJP/> through
+Every push to `master` publishes to <https://clmpnn.github.io/LearneJP/> through
 GitHub Actions. Enable it once under **Settings → Pages → Build and deployment →
 Source → GitHub Actions**.
 

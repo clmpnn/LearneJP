@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     # A 260 MB site should not be rebuilt because a README changed. These paths
     # are excluded from the artifact anyway, so a push touching only them has
     # nothing to publish.
