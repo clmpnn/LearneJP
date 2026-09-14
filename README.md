@@ -1,78 +1,64 @@
 <div align="center">
 
-# 🇯🇵 LearneJP
+# 🎴 LearneJP
 
-### *A free, no-signup JLPT study companion — kana to kanji, N5 to N1.*
+### A free, browser-based JLPT study companion
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-clmpnn.github.io-ff69b4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://clmpnn.github.io/LearneJP/html/index.html)
-[![Made with JavaScript](https://img.shields.io/badge/Made%20with-JavaScript-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)](https://github.com/clmpnn/LearneJP)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
-[![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-181717?style=for-the-badge&logo=github)](https://pages.github.com/)
+**Kanji writing practice · N5–N1 quizzes · Kana charts · Built-in dictionary**
 
-<img width="720" alt="LearneJP banner" src="https://via.placeholder.com/720x260/1a1a2e/f7df1e?text=LearneJP+%E2%80%94+日本語">
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen?style=for-the-badge&logo=googlechrome&logoColor=white)](https://clmpnn.github.io/LearneJP)
+[![GitHub Pages](https://img.shields.io/badge/hosted%20on-GitHub%20Pages-222?style=for-the-badge&logo=github)](https://pages.github.com/)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
+
+[**🌐 Try LearneJP →**](https://clmpnn.github.io/LearneJP)
 
 </div>
 
 ---
 
-## ✨ What is LearneJP?
+## 📖 What is LearneJP?
 
-**LearneJP** is a browser-based Japanese study app built for learners preparing for the **JLPT (N5 → N1)**. No account, no install — just open the page and start drilling. It bundles a structured curriculum, a full character reference, a handwriting trainer, and a built-in dictionary into one lightweight static site.
+LearneJP is a free JLPT study app that runs entirely in your browser — no installs, no accounts, no ads. It covers everything from your very first hiragana to full N1-level sentences, with **60 stages and 237 lessons** guiding the order you should tackle them in.
 
-> 🈴 *Sixty stages. Two hundred and thirty-seven lessons.* Each one teaches a concept, sends you to drill it, and asks you to rate your own recall — the beginnings of a spaced-repetition loop, stage by stage.
+## ✨ Features
 
-## 🧩 Core Features
+- **✍️ Writing Practice** — trace every kana and kanji by hand with numbered stroke order, replay animated strokes, and zoom or pan the canvas (two-finger slide on touch devices)
+- **🈴 Kana & Kanji Charts** — complete hiragana and katakana tables with audio, plus every JLPT kanji with readings, meanings, and stroke order — tap anything to hear it spoken
+- **📝 JLPT Quizzes** — practice questions spanning N5 through N1
+- **📚 Built-in Dictionary** — look up Japanese words without leaving the app
+- **➕ Add Your Own Content** — upload custom practice questions with listening audio and images; images are embedded directly into the question data and auto-resized, no separate files to manage
+- **🗺️ Start From Zero** — a guided path with eight opening stages for absolute beginners, explaining *why* the order matters before you dive in
 
-| Module | What it does |
+## 🧭 Learning Path
+
+| Level | What it covers |
 |---|---|
-| 📖 **Start from Zero** | A guided 60-stage, 237-lesson path from absolute beginner to advanced, starting with Foundation stages |
-| ✍️ **Writing Practice** | Trace every hiragana, katakana, and kanji by hand with numbered stroke order, replay strokes, and zoom/pan the canvas |
-| 🀄 **Kana & Kanji Reference** | Complete hiragana/katakana charts with audio, plus every JLPT kanji with readings, meanings, and stroke order |
-| 📝 **JLPT Quizzes** | Practice questions spanning N5 through N1 |
-| ➕ **Add Content** | Contribute your own practice questions, including listening audio and images |
+| Start from Zero | First kana → first simple sentences |
+| N5 – N4 | Foundational vocabulary, grammar, and kanji |
+| N3 – N2 | Intermediate reading, listening, and kanji depth |
+| N1 | Advanced vocabulary, grammar nuance, and kanji mastery |
 
 ## 🚀 Getting Started
 
 ```bash
 git clone [https://github.com/clmpnn/LearneJP.git](https://github.com/clmpnn/LearneJP.git)
 cd LearneJP
+# open index.html directly, or serve locally:
+python -m http.server 8000
 ```
 
-Then just open `html/index.html` in a browser — it's a fully static site, no build step, no dependencies to install.
+Then visit `http://localhost:8000` in your browser.
 
-**Or skip straight to the live version:** [clmpnn.github.io/LearneJP](https://clmpnn.github.io/LearneJP/html/index.html)
+## 🌍 Live Site
 
-## 🗂️ Project Structure
-LearneJP/
-├── html/
-│ ├── index.html # Landing page
-│ ├── learn.html # 60-stage guided curriculum
-│ ├── writing.html # Stroke-order writing practice
-│ ├── characters.html # Kana & kanji charts
-│ └── add.html # Add custom content
-├── css/
-└── js/
-
-## 🛠️ Tech Stack
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-
-Pure client-side HTML/CSS/JavaScript — deployed directly via GitHub Pages, no backend required.
-
-## 🤝 Contributing
-
-Found a mistake in a lesson, or want to add more practice questions? Use the built-in **Add Content** page or open a pull request — contributions to lessons, kanji data, and audio are welcome.
+👉 **[clmpnn.github.io/LearneJP](https://clmpnn.github.io/LearneJP)**
 
 ## 📄 License
 
-Released under the [MIT License](LICENSE).
+Released under the MIT License. Free to use, learn from, and build on.
 
 ---
 
 <div align="center">
-
-*Part of the "Learne" series — sibling apps: <a href="https://github.com/clmpnn/LearneCN">LearneCN</a> · LearneKR*
-
+Made with ❤️ for anyone learning Japanese, one stroke at a time.
 </div>
