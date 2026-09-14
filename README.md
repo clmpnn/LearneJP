@@ -43,3 +43,38 @@ Then just open `html/index.html` in a browser — it's a fully static site, no b
 **Or skip straight to the live version:** [clmpnn.github.io/LearneJP](https://clmpnn.github.io/LearneJP/html/index.html)
 
 ## 🗂️ Project Structure
+LearneJP/
+├── html/
+│ ├── index.html # Landing page
+│ ├── learn.html # 60-stage guided curriculum
+│ ├── writing.html # Stroke-order writing practice
+│ ├── characters.html # Kana & kanji charts
+│ └── add.html # Add custom content
+├── css/
+└── js/
+
+text
+
+## 🛠️ Tech Stack
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+
+Pure client-side HTML/CSS/JavaScript — deployed directly via GitHub Pages, no backend required.
+
+## 🤝 Contributing
+
+Found a mistake in a lesson, or want to add more practice questions? Use the built-in **Add Content** page or open a pull request — contributions to lessons, kanji data, and audio are welcome.
+
+## 📄 License
+
+Released under the [MIT License](LICENSE).
+
+---
+
+<div align="center">
+
+*Part of the "Learne" series — sibling apps: <a href="https://github.com/clmpnn/LearneCN">LearneCN</a> · LearneKR*
+
+</div>
